@@ -1,0 +1,72 @@
+.community-container {
+  margin: 0 auto;
+  width: 500px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #0097e6;
+  border: none;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+form button:hover {
+  background-color: #00a8ff;
+}
+
+/* كل بوست */
+.post {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #f9f9f9;
+}
+
+.post strong {
+  color: #273c75;
+}
+
+/* جزء التصويت */
+.post-meta {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-meta button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.1s;
+}
+
+.post-meta button:hover {
+  transform: scale(1.2);
+}
+
+.post-meta span {
+  font-size: 14px;
+  color: #555;
+}

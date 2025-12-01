@@ -1,0 +1,26 @@
+.streak-card {
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  min-width: 250px;
+}
+
+.streak-card h4 {
+  margin-bottom: 1rem;
+}
+
+.streak-card button {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.streak-card button:hover {
+  background: #16a34a;
+}

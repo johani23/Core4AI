@@ -1,0 +1,2 @@
+new Audio("/sounds/win.mp3").play();
+new Audio("/sounds/fail.mp3").play();

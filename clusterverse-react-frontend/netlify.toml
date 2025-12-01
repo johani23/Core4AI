@@ -1,0 +1,32 @@
+# ============================================================
+# 💎 Core4.AI – netlify.toml (Frontend Deployment)
+# ------------------------------------------------------------
+# ✅ Builds React (Vite) app
+# ✅ Connects all /api routes to Render backend
+# ✅ Handles SPA routing for React
+# ============================================================
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://core4ai-backend.onrender.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ws/*"
+  to = "wss://core4ai-backend.onrender.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

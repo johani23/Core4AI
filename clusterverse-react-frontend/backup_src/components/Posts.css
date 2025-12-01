@@ -1,0 +1,51 @@
+.posts {
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.posts h4 {
+  margin-bottom: 1rem;
+}
+
+.post-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.post-input button {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.post-input button:hover {
+  background: #15803d;
+}
+
+.posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.posts li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}

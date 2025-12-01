@@ -1,0 +1,20 @@
+import React from "react";
+
+export default function Badges({ points }) {
+  let badge = null;
+
+  if (points >= 50) badge = "🏆 Explorer";
+  else if (points >= 20) badge = "🥈 Contributor";
+  else if (points >= 10) badge = "🎖 Beginner";
+
+  return (
+    <div className="mt-4">
+      <h3 className="font-bold">🎖 Badges</h3>
+      {badge ? (
+        <p className="text-lg">{badge}</p>
+      ) : (
+        <p className="text-gray-500">لم تحصل على Badge بعد</p>
+      )}
+    </div>
+  );
+}
