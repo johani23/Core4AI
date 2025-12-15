@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import ProductInfluencerSuggestions from "./ProductInfluencerSuggestions";
 import { products } from "@/data/products";
+import InfluencerMatchTop3Panel from "./InfluencerMatchTop3Panel";
+
 
 export default function MerchantHome() {
   return (
@@ -36,6 +38,8 @@ export default function MerchantHome() {
 
       {/* Product - Influencer Matching */}
       <ProductInfluencerSuggestions product={products[0]} />
+      <InfluencerMatchTop3Panel product={products[0]} />
+
 
       {/* BUTTONS GRID */}
       <div className="grid grid-cols-1 gap-6 mt-10">
