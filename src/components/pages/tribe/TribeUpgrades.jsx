@@ -1,107 +1,68 @@
 // ============================================================================
-// 💚 Core4.AI – TribeWars FINAL FUNCTIONAL EDITION (2025)
-// ----------------------------------------------------------------------------
-// - Uses REAL warPoints from TribeContext
-// - Combines your tribe with real dynamic ranking
-// - Uses event progress in ranking logic (optional)
-// - Clean functional output (no aesthetics needed)
+// 💚 Core4.AI – Tribe Upgrades Screen (Clan Development System)
 // ============================================================================
 
-import React, { useMemo } from "react";
+import React from "react";
 import { useTribe } from "@/context/TribeContext";
 
-export default function TribeWars() {
-  const { warPoints, selectedTribe, eventProgress } = useTribe();
+export default function TribeUpgrades() {
+  const { upgrades, buyUpgrade, treasury, role } = useTribe();
 
-  if (!selectedTribe) {
-    return (
-      <div className="p-10 text-white text-xl" dir="rtl">
-        اختر قبيلة للانضمام أولاً ⚠️
-      </div>
-    );
-  }
-
-  // ---------------------------------------------------------------------------
-  // CREATE DYNAMIC LIST OF TRIBES
-  // ---------------------------------------------------------------------------
-  const allTribes = [
-    { name: "Adventurers", icon: "🧭", wp: 320 },
-    { name: "EventGoers", icon: "🎉", wp: 250 },
-    { name: "Fashionists", icon: "👗", wp: 180 },
+  const items = [
+    { key: "xpBoostAll", name: "رفع XP عام +10%", icon: "⚡" },
+    { key: "xpBoostChallenges", name: "رفع XP التحديات +20%", icon: "🔥" },
+    { key: "unlockTheme", name: "فتح Theme القبيلة", icon: "🎨" },
+    { key: "extraWeeklyChallenge", name: "فتح تحدٍ أسبوعي إضافي", icon: "📅" },
+    { key: "coinBoost", name: "زيادة Coin Rewards +15%", icon: "💰" },
+    { key: "tribeLevel", name: "رفع Level القبيلة", icon: "🏆" },
   ];
 
-  // Add your real tribe dynamically
-  allTribes.push({
-    name: selectedTribe.name,
-    icon: selectedTribe.icon,
-    wp: warPoints,
-  });
-
-  // Sort by war points
-  const sorted = useMemo(
-    () => [...allTribes].sort((a, b) => b.wp - a.wp),
-    [allTribes]
-  );
-
-  const rank = sorted.findIndex((t) => t.name === selectedTribe.name) + 1;
-
   return (
-    <div className="p-10 text-white space-y-10" dir="rtl">
-      <h1 className="text-3xl font-bold text-purple-300">⚔️ حرب القبائل الأسبوعية</h1>
+    <div className="p-10 text-white space-y-8" dir="rtl">
 
-      {/* Tribe Rank + WP */}
-      <div className="space-y-2">
-        <p className="text-gray-300">
-          نقاط قبيلتك هذا الأسبوع:
-          <span className="text-yellow-400 font-bold"> {warPoints} WP</span>
+      <h1 className="text-3xl font-bold text-purple-300">💎 تطوير القبيلة</h1>
+
+      <p className="text-gray-300">
+        خزنة القبيلة الحالية: <span className="text-green-400">{treasury} Coin</span>
+      </p>
+
+      {role !== "Leader" && role !== "Officer" && (
+        <p className="text-red-400 text-lg">
+          ❌ فقط قائد القبيلة والضباط يمكنهم شراء ترقيات.
         </p>
+      )}
 
-        <p className="text-gray-400">
-          مركز القبيلة الحالي:
-          <span className="text-purple-300 font-bold"> {rank} </span>
-          من أصل {sorted.length} قبائل
-        </p>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {items.map((item) => {
+          const u = upgrades[item.key];
+          return (
+            <div
+              key={item.key}
+              className="bg-white/10 border border-white/20 p-6 rounded-2xl shadow-xl"
+            >
+              <h2 className="text-xl font-bold mb-2">
+                {item.icon} {item.name}
+              </h2>
 
-      {/* Leaderboard */}
-      <div className="bg-white/10 border border-white/20 p-6 rounded-2xl space-y-4">
+              <p className="text-gray-300 mb-2">
+                المستوى الحالي: <span className="text-purple-300">{u.level}</span>
+              </p>
 
-        {sorted.map((tribe, i) => (
-          <div
-            key={tribe.name}
-            className={`
-              flex justify-between items-center p-4 rounded-xl
-              ${tribe.name === selectedTribe.name ? "bg-purple-600/40" : "bg-white/5"}
-            `}
-          >
-            <div className="flex items-center gap-2">
-              <span className="text-xl">{tribe.icon}</span>
-              <span>{tribe.name}</span>
+              <p className="text-gray-300 mb-4">
+                التكلفة: <span className="text-yellow-300">{u.cost}</span> Coin
+              </p>
+
+              {(role === "Leader" || role === "Officer") && (
+                <button
+                  onClick={() => buyUpgrade(item.key)}
+                  className="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-lg"
+                >
+                  ترقية
+                </button>
+              )}
             </div>
-
-            <span className="font-bold text-yellow-300">{tribe.wp} WP</span>
-          </div>
-        ))}
-
-      </div>
-
-      {/* Live Event Integration */}
-      <div className="bg-white/10 border border-white/20 p-6 rounded-2xl space-y-2">
-        <h2 className="text-xl font-bold text-yellow-300">🔥 مكاسب الحدث الحي</h2>
-
-        <p className="text-gray-300">XP المكتسبة في الحدث: {eventProgress.xp}</p>
-        <p className="text-gray-300">WP المكتسبة في الحدث: {eventProgress.wp}</p>
-      </div>
-
-      {/* Weekly Rewards */}
-      <div className="bg-white/10 border border-white/20 p-6 rounded-2xl space-y-2">
-        <h2 className="text-xl font-bold text-green-300">🏆 جوائز الأسبوع</h2>
-
-        <ul className="space-y-1 text-gray-300">
-          <li>🥇 المركز 1: 200 Coin + Boost مجاني</li>
-          <li>🥈 المركز 2: 100 Coin</li>
-          <li>🥉 المركز 3: 50 Coin</li>
-        </ul>
+          );
+        })}
       </div>
     </div>
   );
