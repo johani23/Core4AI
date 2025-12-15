@@ -92,3 +92,5 @@ export function TribeFunnelProvider({ children }) {
     </TribeFunnelContext.Provider>
   );
 }
+
+export default TribeFunnelProvider;
