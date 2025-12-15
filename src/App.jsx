@@ -7,8 +7,8 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Layout
-import CoreLayout from "@/components/layout/CoreLayout";
-import MerchantLayout from "@/components/pages/merchant/MerchantLayout";
+import CoreLayout from "@/components/layout/CoreLayout.jsx";
+import MerchantLayout from "@/components/pages/merchant/MerchantLayout.jsx";
 
 // GENERAL
 import ChooseSegment from "@/components/pages/ChooseSegment";
