@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeEconomyMonitor.jsx (v162.1 â€œToken Value Live Graphâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeEconomyMonitor.jsx (v162.1 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œToken Value Live GraphÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Real-time tokenValue visualization for each tribe
-// âœ… Pulls live data from CoreSyncContext
-// âœ… Auto-updates every 10 s with smooth animation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time tokenValue visualization for each tribe
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Pulls live data from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-updates every 10 s with smooth animation
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import {
   LineChart,
@@ -34,7 +33,7 @@ export default function TribeEconomyMonitor() {
   return (
     <div className="bg-[#111827] border border-gray-700 rounded-2xl p-6">
       <h3 className="text-pink-400 font-semibold mb-2">
-        ðŸ“ˆ Tribe Token Value Monitor
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Tribe Token Value Monitor
       </h3>
       <p className="text-gray-400 text-sm mb-4">
         Real-time token value dynamics per tribe (updates every 10 s)
@@ -60,3 +59,5 @@ export default function TribeEconomyMonitor() {
     </div>
   );
 }
+
+

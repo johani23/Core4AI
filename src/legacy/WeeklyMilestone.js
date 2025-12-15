@@ -3,20 +3,20 @@ import React from "react";
 export default function WeeklyMilestone() {
   const insights = {
     worked: [
-      "✅ You shared 2 reflection notes this week.",
-      "✅ Consistent check-ins increased your engagement score.",
+      "Ã¢Å“â€¦ You shared 2 reflection notes this week.",
+      "Ã¢Å“â€¦ Consistent check-ins increased your engagement score.",
     ],
     improve: [
-      "❌ Missed participating in Harmony Circle discussions.",
-      "❌ No daily pulse updates for 3 days.",
+      "Ã¢ÂÅ’ Missed participating in Harmony Circle discussions.",
+      "Ã¢ÂÅ’ No daily pulse updates for 3 days.",
     ],
-    progress: "⭐ You are now 20% closer to the Reflection Circle!",
+    progress: "Ã¢Â­Â You are now 20% closer to the Reflection Circle!",
   };
 
   return (
     <div className="p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl shadow-lg">
       <h2 className="text-2xl font-extrabold text-gray-800 mb-4 flex items-center">
-        🪄 Weekly Milestone
+        Ã°Å¸Âªâ€ž Weekly Milestone
       </h2>
 
       {/* What worked */}
@@ -46,3 +46,4 @@ export default function WeeklyMilestone() {
     </div>
   );
 }
+

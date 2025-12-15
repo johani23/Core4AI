@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š MerchantNarrative.jsx (Phase 11 â€“ AI Narrative Generator)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ MerchantNarrative.jsx (Phase 11 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AI Narrative Generator)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function MerchantNarrative({ product, productIQ, merchantIntel, readiness }) {
   const [data, setData] = useState(null);
@@ -33,7 +32,7 @@ export default function MerchantNarrative({ product, productIQ, merchantIntel, r
   if (!data)
     return (
       <div className="p-6 bg-white border rounded-xl shadow mt-6">
-        <p className="text-gray-400 text-center">...Ø¬Ø§Ø±ÙŠ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ø³Ø±Ø¯</p>
+        <p className="text-gray-400 text-center">...ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¯</p>
       </div>
     );
 
@@ -41,7 +40,7 @@ export default function MerchantNarrative({ product, productIQ, merchantIntel, r
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ“ AI Narrative Summary
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â AI Narrative Summary
       </h2>
 
       <div className="space-y-3 text-gray-800">
@@ -52,3 +51,5 @@ export default function MerchantNarrative({ product, productIQ, merchantIntel, r
     </div>
   );
 }
+
+

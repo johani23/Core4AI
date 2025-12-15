@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ UploadDashboard.jsx (MVP-83 Influencer Academy)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ UploadDashboard.jsx (MVP-83 Influencer Academy)
 // ------------------------------------------------------------
-// âœ… Uploads creator clips â†’ /creator/analyze
-// âœ… Shows score, level, tribe match, and feedback
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Uploads creator clips ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ /creator/analyze
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Shows score, level, tribe match, and feedback
 // ============================================================
 
-import React, { useState } from "react";
 
 export default function UploadDashboard() {
   const [creatorId, setCreatorId] = useState(1);
@@ -44,7 +43,7 @@ export default function UploadDashboard() {
 
   return (
     <div className="p-6 bg-zinc-900 text-white rounded-2xl shadow-xl flex flex-col gap-5">
-      <h2 className="text-xl font-semibold">ðŸŽ¯ Upload & Assessment</h2>
+      <h2 className="text-xl font-semibold">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Upload & Assessment</h2>
 
       <input
         type="file"
@@ -93,3 +92,5 @@ export default function UploadDashboard() {
     </div>
   );
 }
+
+

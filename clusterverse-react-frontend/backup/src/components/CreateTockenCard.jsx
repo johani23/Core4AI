@@ -30,7 +30,7 @@ export default function CreatorTokenCard({ creator }) {
           </div>
           <div className="mt-3">
             <p className="text-xs text-gray-400">Last Post Impact</p>
-            <div className="text-sm">{creator.last_impact > 0 ? "📈" : "📉"} {(creator.last_impact * 100).toFixed(2)}%</div>
+            <div className="text-sm">{creator.last_impact > 0 ? "ðŸ“ˆ" : "ðŸ“‰"} {(creator.last_impact * 100).toFixed(2)}%</div>
           </div>
         </CardContent>
       </Card>

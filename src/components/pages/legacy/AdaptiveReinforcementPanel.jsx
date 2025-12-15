@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ AdaptiveReinforcementPanel.jsx (MVP-91)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AdaptiveReinforcementPanel.jsx (MVP-91)
 // ------------------------------------------------------------
-// âœ… Real-time D-Index charts per tribe (Recharts)
-// âœ… Color-coded + auto-updating
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time D-Index charts per tribe (Recharts)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Color-coded + auto-updating
 // ============================================================
 
-import React from "react";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer,
 } from "recharts";
@@ -32,7 +31,7 @@ export default function AdaptiveReinforcementPanel() {
 
   return (
     <div className="bg-gray-900 p-4 rounded-2xl text-white mt-8">
-      <h3 className="text-lg font-semibold mb-2">ðŸ“ˆ Adaptive Reinforcement Trends</h3>
+      <h3 className="text-lg font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Adaptive Reinforcement Trends</h3>
       <ResponsiveContainer width="100%" height={260}>
         <LineChart data={merged}>
           <XAxis
@@ -64,3 +63,5 @@ export default function AdaptiveReinforcementPanel() {
     </div>
   );
 }
+
+

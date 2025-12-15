@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeEconomyMonitor.jsx (v162.2 â€œSmooth Synaptic Streamâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeEconomyMonitor.jsx (v162.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSmooth Synaptic StreamÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Real-time tokenValue visualization for each tribe
-// âœ… Pulls live data from CoreSyncContext
-// âœ… Auto-updates every 10s with smooth transition
-// âœ… Includes color legend + fallback if tokenValue missing
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time tokenValue visualization for each tribe
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Pulls live data from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-updates every 10s with smooth transition
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Includes color legend + fallback if tokenValue missing
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import {
   LineChart,
@@ -51,7 +50,7 @@ export default function TribeEconomyMonitor() {
   return (
     <div className="bg-[#111827] border border-gray-700 rounded-2xl p-6 shadow-lg">
       <h3 className="text-pink-400 font-semibold mb-2">
-        ðŸ“ˆ Tribe Token Value Monitor
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Tribe Token Value Monitor
       </h3>
       <p className="text-gray-400 text-sm mb-4">
         Real-time token value dynamics per tribe (auto-refresh every 10s)
@@ -109,3 +108,5 @@ export default function TribeEconomyMonitor() {
     </div>
   );
 }
+
+

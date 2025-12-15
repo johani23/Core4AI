@@ -1,8 +1,8 @@
 /**
- * Core4.AI â€“ MVP 19.6
- * ðŸŒ¦ Emotional Weather Component
+ * Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP 19.6
+ * ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¦ Emotional Weather Component
  * 
- * Displays the systemâ€™s current â€œemotional climateâ€ derived from the
+ * Displays the systemÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s current ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œemotional climateÃƒÂ¢Ã¢â€šÂ¬Ã‚Â derived from the
  * Dopamine Intelligence Engine. Designed for Dashboard integration.
  * 
  * - Pulls live data from /dopamine/weather
@@ -10,7 +10,6 @@
  * - Uses Framer Motion for smooth UI transitions
  */
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const API_BASE = "http://127.0.0.1:8000";
@@ -29,27 +28,27 @@ export default function EmotionalWeather() {
         // fallback: random simulated sentiment
         const moods = [
           {
-            condition: "âš¡ High creative euphoria",
+            condition: "ÃƒÂ¢Ã…Â¡Ã‚Â¡ High creative euphoria",
             forecast_message: "Collective inspiration wave incoming.",
-            emotional_risk: "ðŸ”¥ Overstimulation possible",
+            emotional_risk: "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Overstimulation possible",
             trend: "rising",
           },
           {
-            condition: "ðŸŒ¤ Positive, inspired",
-            forecast_message: "Momentum steady â€” balanced emotional energy.",
-            emotional_risk: "âœ… Stable state",
+            condition: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¤ Positive, inspired",
+            forecast_message: "Momentum steady ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â balanced emotional energy.",
+            emotional_risk: "ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Stable state",
             trend: "stable",
           },
           {
-            condition: "ðŸŒ« Moderate mood",
+            condition: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â« Moderate mood",
             forecast_message: "Clusters are neutral, awaiting new spark.",
-            emotional_risk: "ðŸ’¤ Slight under-stimulation",
+            emotional_risk: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¤ Slight under-stimulation",
             trend: "stable",
           },
           {
-            condition: "ðŸŒ§ Low creative energy",
+            condition: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â§ Low creative energy",
             forecast_message: "Creative energy declining slightly.",
-            emotional_risk: "ðŸ’¤ Under-stimulation risk",
+            emotional_risk: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¤ Under-stimulation risk",
             trend: "falling",
           },
         ];
@@ -79,7 +78,7 @@ export default function EmotionalWeather() {
       className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg"
     >
       <h2 className="text-xl font-semibold text-yellow-400 mb-2">
-        ðŸŒ¦ Emotional Weather
+        ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¦ Emotional Weather
       </h2>
 
       <div className="text-3xl mb-1">{weather.condition}</div>
@@ -99,10 +98,10 @@ export default function EmotionalWeather() {
           }`}
         >
           {weather.trend === "rising"
-            ? "â†‘ Rising mood"
+            ? "ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ Rising mood"
             : weather.trend === "falling"
-            ? "â†“ Declining mood"
-            : "â†’ Stable mood"}
+            ? "ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Å“ Declining mood"
+            : "ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Stable mood"}
         </span>
       </div>
 
@@ -128,3 +127,5 @@ export default function EmotionalWeather() {
     </motion.div>
   );
 }
+
+

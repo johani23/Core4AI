@@ -24,7 +24,7 @@ export default function OverviewPanel({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading overview...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading overview...
       </div>
     );
 
@@ -40,7 +40,7 @@ export default function OverviewPanel({ productId }) {
         Pricing Overview
       </h2>
 
-      {/* GRID 1 â€” Top Metrics */}
+      {/* GRID 1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Top Metrics */}
       <div className="grid md:grid-cols-3 gap-6">
 
         <div className={card}>
@@ -66,7 +66,7 @@ export default function OverviewPanel({ productId }) {
 
       </div>
 
-      {/* GRID 2 â€” MIT Strategy */}
+      {/* GRID 2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MIT Strategy */}
       <div className={card}>
         <h3 className="text-gray-300 font-semibold mb-2">
           MIT Pricing Strategy
@@ -81,7 +81,7 @@ export default function OverviewPanel({ productId }) {
         </p>
       </div>
 
-      {/* GRID 3 â€” Why This Price? */}
+      {/* GRID 3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Why This Price? */}
       <div className={card}>
         <h3 className="text-gray-300 font-semibold mb-2">
           Why this price?
@@ -94,3 +94,4 @@ export default function OverviewPanel({ productId }) {
     </div>
   );
 }
+

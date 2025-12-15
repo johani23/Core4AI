@@ -16,7 +16,7 @@ const BadgePopup = ({ badge, onClose }) => {
 
   return (
     <div className="fixed bottom-5 right-5 bg-yellow-200 text-black px-4 py-2 rounded-xl shadow-lg animate-bounce">
-      🏅 New Badge Unlocked: <strong>{badge.name}</strong>
+      ðŸ… New Badge Unlocked: <strong>{badge.name}</strong>
     </div>
   );
 };

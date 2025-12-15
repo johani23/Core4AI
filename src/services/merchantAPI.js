@@ -2,7 +2,7 @@ import axios from "axios";
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 /**
- * Core4.AI – MVP 18
+ * Core4.AI Ã¢â‚¬â€œ MVP 18
  * Merchant API service for offers and registration.
  */
 
@@ -11,7 +11,7 @@ export async function getActiveOffers() {
     const res = await axios.get(`${API}/merchant/offers/active`);
     return res.data.offers || [];
   } catch (err) {
-    console.error("❌ Error fetching active offers:", err);
+    console.error("Ã¢ÂÅ’ Error fetching active offers:", err);
     return [];
   }
 }
@@ -28,3 +28,4 @@ export async function createOffer(offerData) {
   const res = await axios.post(`${API}/merchant/offers`, offerData);
   return res.data;
 }
+

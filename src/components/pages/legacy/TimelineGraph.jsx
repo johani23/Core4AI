@@ -15,7 +15,7 @@ export default function TimelineGraph() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">ðŸ“Š Emotional Timeline</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Emotional Timeline</h1>
       {data.length === 0 ? (
         <p className="text-center text-gray-500">No data yet.</p>
       ) : (
@@ -32,3 +32,4 @@ export default function TimelineGraph() {
     </div>
   );
 }
+

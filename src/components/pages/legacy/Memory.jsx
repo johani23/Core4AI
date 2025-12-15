@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Memory.jsx (MVP-81.8 â€œDopamine Heatwaveâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Memory.jsx (MVP-81.8 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDopamine HeatwaveÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays dopamine timeline from unified WS
-// âœ… Uses Recharts for smooth animated curve
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays dopamine timeline from unified WS
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Uses Recharts for smooth animated curve
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function Memory() {
@@ -31,7 +30,7 @@ export default function Memory() {
   return (
     <div className="p-6 bg-gray-950 min-h-screen text-gray-100">
       <h2 className="text-2xl font-bold mb-4 text-fuchsia-400 text-center">
-        ðŸ§  Dopamine Heatwave (Last 60 s)
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Dopamine Heatwave (Last 60 s)
       </h2>
       <ResponsiveContainer width="100%" height={350}>
         <LineChart data={points}>
@@ -44,3 +43,5 @@ export default function Memory() {
     </div>
   );
 }
+
+

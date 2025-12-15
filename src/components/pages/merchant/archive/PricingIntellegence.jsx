@@ -62,7 +62,7 @@ export default function PricingIntelligence({ productId }) {
         {/* MINI SUMMARY */}
         <div className="bg-gray-800 px-6 py-4 rounded-xl border border-gray-700">
           <p className="text-gray-300 text-sm">Model Status</p>
-          <p className="text-green-400 font-bold text-lg">ACTIVE â€¢ ML Engine v22</p>
+          <p className="text-green-400 font-bold text-lg">ACTIVE ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ML Engine v22</p>
         </div>
       </div>
 
@@ -96,7 +96,7 @@ export default function PricingIntelligence({ productId }) {
             }
             className="mt-4 bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-3 rounded-xl font-bold"
           >
-            ðŸ¤– Explain This Tab
+            ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ Explain This Tab
           </button>
 
         </div>
@@ -106,7 +106,7 @@ export default function PricingIntelligence({ productId }) {
           <Suspense
             fallback={
               <div className="text-center text-gray-300 p-10">
-                â³ Loading analysis...
+                ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading analysis...
               </div>
             }
           >
@@ -117,3 +117,4 @@ export default function PricingIntelligence({ productId }) {
     </div>
   );
 }
+

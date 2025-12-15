@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ ProductCard.jsx (v1.0 "Unified Product Tile")
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ProductCard.jsx (v1.0 "Unified Product Tile")
 // ------------------------------------------------------------
-// âœ” Used in MerchantProductList.jsx
-// âœ” Consistent Dashboard look
-// âœ” Buttons â†’ Intelligence + Buy Simulation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Used in MerchantProductList.jsx
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Consistent Dashboard look
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Buttons ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Intelligence + Buy Simulation
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -64,3 +63,5 @@ export default function ProductCard({ product }) {
     </motion.div>
   );
 }
+
+

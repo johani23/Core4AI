@@ -1,14 +1,13 @@
 // ============================================================
-// ðŸ‡¸ðŸ‡¦ Core4.AI â€“ Shopfront.jsx
-// Saudi Premium Storefront â€” v5.0
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¦ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Shopfront.jsx
+// Saudi Premium Storefront ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â v5.0
 // ------------------------------------------------------------
-// âœ” Fetch merchant products: /api/merchant/{merchantId}/products
-// âœ” Royal Saudi UI (Green + Gold + Glass)
-// âœ” Product cards + Buy Now + skeletons
-// âœ” Checkout starter â†’ /api/checkout/start
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Fetch merchant products: /api/merchant/{merchantId}/products
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Royal Saudi UI (Green + Gold + Glass)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Product cards + Buy Now + skeletons
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Checkout starter ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ /api/checkout/start
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -70,7 +69,7 @@ export default function Shopfront() {
         className="text-4xl font-extrabold mb-12 text-transparent bg-clip-text
                    bg-gradient-to-r from-green-400 to-green-600"
       >
-        Ù…ØªØ¬Ø± Ø§Ù„ØªØ§Ø¬Ø±
+        Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±
       </motion.h1>
 
       {/* Loading Skeleton */}
@@ -88,7 +87,7 @@ export default function Shopfront() {
       {/* Empty State */}
       {!loading && products.length === 0 && (
         <div className="text-center text-gray-300 text-xl mt-20">
-          Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª Ù„Ù‡Ø°Ø§ Ø§Ù„ØªØ§Ø¬Ø± Ø­Ø§Ù„ÙŠØ§Ù‹.
+          Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹.
         </div>
       )}
 
@@ -116,7 +115,7 @@ export default function Shopfront() {
               <h2 className="text-xl font-bold">{p.name}</h2>
 
               <p className="text-green-300 font-semibold text-lg">
-                {p.price} Ø±ÙŠØ§Ù„
+                {p.price} ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾
               </p>
 
               <p className="text-gray-300 text-sm line-clamp-2">{p.description}</p>
@@ -129,7 +128,7 @@ export default function Shopfront() {
                   className="px-4 py-2 text-sm rounded-xl bg-white/20 
                              border border-white/30 hover:bg-white/10"
                 >
-                  Ø°ÙƒØ§Ø¡ Ø§Ù„Ù…Ù†ØªØ¬
+                  ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
                 </button>
 
                 <button
@@ -137,7 +136,7 @@ export default function Shopfront() {
                   className="px-4 py-2 text-sm rounded-xl bg-green-600 
                              hover:bg-green-700 text-white shadow-lg"
                 >
-                  Ø§Ø´ØªØ±ÙŠ Ø§Ù„Ø¢Ù†
+                  ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â 
                 </button>
 
               </div>
@@ -148,3 +147,5 @@ export default function Shopfront() {
     </div>
   );
 }
+
+

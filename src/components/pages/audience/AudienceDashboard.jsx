@@ -1,12 +1,7 @@
 // ============================================================================
-// ðŸ‘¥ Core4.AI â€“ AudienceDashboard.jsx (Saudi-Tech A3 Edition)
-// ============================================================================
-// - Unified Saudi dark theme
-// - CorePanel + CoreHeader for clean layout
-// - XP, Wallet, TryProduct panels styled
+// 💚 Core4.AI – AudienceDashboard.jsx (Arabic Clean Edition)
 // ============================================================================
 
-import React from "react";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
 import CoreButton from "@/components/ui/CoreButton";
@@ -18,13 +13,13 @@ export default function AudienceDashboard() {
   const { wsData } = useCoreSync();
 
   return (
-    <div className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10">
+    <div className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10" style={{ direction: "rtl" }}>
 
       {/* Header */}
       <CoreHeader
-        title="Audience Experience"
-        subtitle="Try products, submit reviews, earn XP and receive tribe invites."
-        icon="ðŸŽ§"
+        title="تجربة الجمهور"
+        subtitle="جرّب منتجات، اكتب مراجعات، اكسب نقاط XP، واستلم دعوات القبائل."
+        icon="🎧"
       />
 
       {/* MAIN ACTIONS */}
@@ -32,7 +27,7 @@ export default function AudienceDashboard() {
 
         {/* XP PANEL */}
         <CorePanel className="text-center">
-          <p className="text-gray-400 text-sm">XP Points</p>
+          <p className="text-gray-400 text-sm">نقاط XP</p>
           <p className="text-5xl font-extrabold text-[#4FBF77] mt-2">
             {wsData?.xp_total || 0}
           </p>
@@ -41,10 +36,10 @@ export default function AudienceDashboard() {
         {/* TRY PRODUCT */}
         <CorePanel className="flex flex-col justify-center items-center text-center">
           <h3 className="text-xl font-semibold text-[#CBA65C] mb-3">
-            Try a Product
+            جرّب منتج
           </h3>
           <CoreButton
-            label="Start"
+            label="ابدأ"
             onClick={() => navigate("/audience/try")}
           />
         </CorePanel>
@@ -52,10 +47,10 @@ export default function AudienceDashboard() {
         {/* WALLET */}
         <CorePanel className="flex flex-col justify-center items-center text-center">
           <h3 className="text-xl font-semibold text-[#CBA65C] mb-3">
-            Rewards Wallet
+            محفظة المكافآت
           </h3>
           <CoreButton
-            label="View Wallet"
+            label="عرض المحفظة"
             onClick={() => navigate("/audience/wallet")}
             variant="secondary"
           />
@@ -64,15 +59,17 @@ export default function AudienceDashboard() {
 
       {/* TRIBE INVITE */}
       {wsData?.type === "tribe_invite" && (
-        <CorePanel className="border border-[#4FBF77] text-center cursor-pointer hover:bg-[#11161A] transition-all"
+        <CorePanel
+          className="border border-[#4FBF77] text-center cursor-pointer hover:bg-[#11161A] transition-all"
           onClick={() =>
             navigate("/audience/tribe-invite", { state: { tribeInvite: wsData } })
           }
         >
-          <h3 className="text-xl text-[#4FBF77] font-bold mb-1">ðŸŒŸ Tribe Invite!</h3>
+          <h3 className="text-xl text-[#4FBF77] font-bold mb-1">🎉 دعوة قبيلة!</h3>
           <p className="text-gray-400">
-            You are invited to join <strong>{wsData.tribe_name}</strong>.
-            Click to view details.
+            تم اختيارك للانضمام إلى قبيلة{" "}
+            <strong>{wsData.tribe_name}</strong>.
+            اضغط لعرض التفاصيل.
           </p>
         </CorePanel>
       )}

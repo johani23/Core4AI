@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignROIPredictor.jsx (Phase 17 â€“ ROI Prediction)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignROIPredictor.jsx (Phase 17 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ROI Prediction)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignROIPredictor({
   product,
@@ -41,13 +40,13 @@ export default function CampaignROIPredictor({
     <div className="p-6 border bg-white rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ’µ ROI Prediction
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Âµ ROI Prediction
       </h2>
 
       <div className="space-y-3 text-gray-800">
 
-        <p><strong>Revenue:</strong> {data.revenue} Ø±.Ø³</p>
-        <p><strong>Profit:</strong> {data.profit} Ø±.Ø³</p>
+        <p><strong>Revenue:</strong> {data.revenue} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+        <p><strong>Profit:</strong> {data.profit} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
 
         <div className="mt-4 p-4 bg-green-50 border rounded text-center">
           <p className="text-3xl font-extrabold text-green-700">
@@ -60,3 +59,5 @@ export default function CampaignROIPredictor({
     </div>
   );
 }
+
+

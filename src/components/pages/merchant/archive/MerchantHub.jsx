@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸª MerchantHub.jsx â€” Saudi-Tech A3 Edition (v12.1 â€“ Pricing Fixed)
+// ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª MerchantHub.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Saudi-Tech A3 Edition (v12.1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Pricing Fixed)
 // ============================================================================
 
-import React from "react";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
 import CoreButton from "@/components/ui/CoreButton";
@@ -25,7 +24,7 @@ export default function MerchantHub() {
       <CoreHeader
         title="Merchant Dashboard"
         subtitle="Manage your products, campaigns, analytics and storefront."
-        icon="ðŸª"
+        icon="ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª"
       />
 
       {/* KPIs */}
@@ -87,7 +86,7 @@ export default function MerchantHub() {
           <CoreButton label="Insights" onClick={() => navigate("/merchant/intel")} />
         </CorePanel>
 
-        {/* UPDATED â€” Pricing Tools */}
+        {/* UPDATED ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Pricing Tools */}
         <CorePanel className="text-center py-6">
           <h3 className="text-xl font-bold text-[#CBA65C] mb-2">Pricing Tools</h3>
           <CoreButton 
@@ -96,7 +95,7 @@ export default function MerchantHub() {
           />
         </CorePanel>
 
-        {/* UPDATED â€” Pricing Intelligence */}
+        {/* UPDATED ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Pricing Intelligence */}
         <CorePanel className="text-center py-6">
           <h3 className="text-xl font-bold text-[#CBA65C] mb-2">Pricing Intelligence</h3>
           <CoreButton 
@@ -129,3 +128,5 @@ export default function MerchantHub() {
     </div>
   );
 }
+
+

@@ -1,11 +1,10 @@
 // ============================================================================
-// ðŸ’š CampaignBuilder.jsx â€” v22 CLEAN & FIXED
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignBuilder.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â v22 CLEAN & FIXED
 // ============================================================================
 
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-// FIXED PATH â€” use correct relative import
+// FIXED PATH ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â use correct relative import
 import ProductIQSection from "../sections/ProductIQSection";
 
 import CampaignQualityScore from "../sections/CampaignQualityScore";
@@ -29,14 +28,14 @@ export default function CampaignBuilder() {
 
   if (loading)
     return (
-      <div className="text-gray-300 text-center p-10">Loading campaignâ€¦</div>
+      <div className="text-gray-300 text-center p-10">Loading campaignÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</div>
     );
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-10 space-y-10">
 
       <h1 className="text-4xl font-bold text-green-400">
-        Campaign Builder â€” {productName}
+        Campaign Builder ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â {productName}
       </h1>
 
       {/* Product IQ Section */}
@@ -96,3 +95,5 @@ export default function CampaignBuilder() {
     </div>
   );
 }
+
+

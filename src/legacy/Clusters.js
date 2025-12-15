@@ -10,13 +10,13 @@ function Clusters() {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold text-center mb-4">📑 Clusters</h2>
+      <h2 className="text-2xl font-bold text-center mb-4">Ã°Å¸â€œâ€˜ Clusters</h2>
       <table className="w-3/4 mx-auto border-collapse bg-white shadow rounded-xl">
         <thead className="bg-blue-100">
           <tr>
-            <th className="p-3 border">المعرف</th>
-            <th className="p-3 border">الاسم</th>
-            <th className="p-3 border">الوصف</th>
+            <th className="p-3 border">Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â±Ã™Â</th>
+            <th className="p-3 border">Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â³Ã™â€¦</th>
+            <th className="p-3 border">Ã˜Â§Ã™â€žÃ™Ë†Ã˜ÂµÃ™Â</th>
           </tr>
         </thead>
         <tbody>
@@ -34,3 +34,4 @@ function Clusters() {
 }
 
 export default Clusters;
+

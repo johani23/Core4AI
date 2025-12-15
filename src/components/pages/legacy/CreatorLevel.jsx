@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CreatorLevel.jsx (MVP-99 â€œAI Mastery Dashboardâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreatorLevel.jsx (MVP-99 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œAI Mastery DashboardÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… ÙŠØ­Ù„Ù„ Ù…Ø¯Ø®Ù„Ø§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… (clarity / creativity / engagement)
-// âœ… ÙŠØ³ØªØ¯Ø¹ÙŠ /creator/analyze Ùˆ /tribe/auto-assign
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â®Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â®ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦ (clarity / creativity / engagement)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â  /creator/analyze Ãƒâ„¢Ã‹â€  /tribe/auto-assign
 // ============================================================
 
-import React, { useState } from "react";
 
 export default function CreatorLevel() {
   const [clarity, setClarity] = useState(0.5);
@@ -43,7 +42,7 @@ export default function CreatorLevel() {
   return (
     <div className="p-6 text-white">
       <h1 className="text-2xl font-bold text-fuchsia-400 mb-4">
-        ðŸ§  AI Mastery Engine
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  AI Mastery Engine
       </h1>
 
       <div className="grid grid-cols-3 gap-4 mb-4">
@@ -89,14 +88,16 @@ export default function CreatorLevel() {
             Suggested Tribe: {tribeMatch.assigned_tribe}
           </p>
           <p className="text-gray-400">
-            Tribe Avg: {tribeMatch.tribe_avg} â€¢ Your Score: {tribeMatch.mastery_score.toFixed(1)}
+            Tribe Avg: {tribeMatch.tribe_avg} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Your Score: {tribeMatch.mastery_score.toFixed(1)}
           </p>
         </div>
       )}
 
       <div className="text-xs text-gray-500 mt-6">
-        Beta Core v9.9 â€¢ AI Mastery Integration
+        Beta Core v9.9 ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI Mastery Integration
       </div>
     </div>
   );
 }
+
+

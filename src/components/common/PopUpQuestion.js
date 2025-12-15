@@ -6,14 +6,14 @@ export default function PopUpQuestion({ userId }) {
   const [visible, setVisible] = useState(false);
   const [ring, setRing] = useState("Reflection");
 
-  // 🟢 1. Get user's closest ring from backend
+  // Ã°Å¸Å¸Â¢ 1. Get user's closest ring from backend
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/closest-ring/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setRing(data.ring || "Reflection");
 
-        // 🟢 2. Get a pop-up question for that ring
+        // Ã°Å¸Å¸Â¢ 2. Get a pop-up question for that ring
         return fetch(`http://127.0.0.1:8000/popup-question/${data.ring}`);
       })
       .then((res) => res.json())
@@ -23,7 +23,7 @@ export default function PopUpQuestion({ userId }) {
       });
   }, [userId]);
 
-  // 🟢 3. Submit answer
+  // Ã°Å¸Å¸Â¢ 3. Submit answer
   const handleSubmit = () => {
     fetch("http://127.0.0.1:8000/popup-answer", {
       method: "POST",
@@ -47,7 +47,7 @@ export default function PopUpQuestion({ userId }) {
       background: "white", padding: "20px", borderRadius: "8px",
       boxShadow: "0px 4px 8px rgba(0,0,0,0.2)", zIndex: 1000
     }}>
-      <h3>💡 Quick Question ({ring} Ring)</h3>
+      <h3>Ã°Å¸â€™Â¡ Quick Question ({ring} Ring)</h3>
       <p>{question}</p>
       <input
         value={answer}
@@ -60,3 +60,4 @@ export default function PopUpQuestion({ userId }) {
     </div>
   );
 }
+

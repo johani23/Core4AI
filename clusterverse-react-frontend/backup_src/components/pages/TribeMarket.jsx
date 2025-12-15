@@ -1,4 +1,4 @@
-// 💎 TribeMarket – simplified Tailwind + Motion
+// ðŸ’Ž TribeMarket â€“ simplified Tailwind + Motion
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -34,7 +34,7 @@ export default function TribeMarket() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">
-        🌐 Tribe Market Overview
+        ðŸŒ Tribe Market Overview
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tribes.map((tribe, index) => (
@@ -48,12 +48,12 @@ export default function TribeMarket() {
             <div className="flex justify-between mb-3">
               <h3 className="text-xl font-bold">{tribe.badge} {tribe.name}</h3>
               <span className="text-sm text-gray-400">
-                👥 {tribe.total_members}
+                ðŸ‘¥ {tribe.total_members}
               </span>
             </div>
             <div className="text-sm text-gray-300 space-y-1">
-              <p>💰 Pool: <span className="text-cyan-400 font-semibold">{tribe.pool_balance.toFixed(2)} C4T</span></p>
-              <p>📈 Value: <span className="text-green-400 font-semibold">{tribe.market_value.toFixed(2)}</span></p>
+              <p>ðŸ’° Pool: <span className="text-cyan-400 font-semibold">{tribe.pool_balance.toFixed(2)} C4T</span></p>
+              <p>ðŸ“ˆ Value: <span className="text-green-400 font-semibold">{tribe.market_value.toFixed(2)}</span></p>
             </div>
             <button
               onClick={() => (window.location.href = `/tribe/${tribe.name.toLowerCase()}`)}

@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 useLivePulse.js
+// ðŸ’Ž useLivePulse.js
 // ------------------------------------------------------------
 // Simple auto-refresh hook for live updates.
 // It re-calls a callback every N milliseconds.

@@ -15,3 +15,4 @@ export function calculateTribeMatch(identity = {}, cognitive = {}, innovation = 
   if (identity.emotionalSignature === "analytical") return "Analysts";
   return "Explorers";
 }
+

@@ -31,11 +31,11 @@ export default function Dashboard() {
   const getMoodProps = (moodState) => {
     switch (moodState) {
       case "bullish":
-        return { color: "text-green-400", emoji: "🚀", label: "Rising Energy" };
+        return { color: "text-green-400", emoji: "ðŸš€", label: "Rising Energy" };
       case "bearish":
-        return { color: "text-red-400", emoji: "🩸", label: "Cooling Down" };
+        return { color: "text-red-400", emoji: "ðŸ©¸", label: "Cooling Down" };
       default:
-        return { color: "text-yellow-400", emoji: "⚖️", label: "Stable Flow" };
+        return { color: "text-yellow-400", emoji: "âš–ï¸", label: "Stable Flow" };
     }
   };
 
@@ -90,7 +90,7 @@ export default function Dashboard() {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 0.8 }}
             >
-              💰 {wallet.balance.toFixed(2)} {wallet.symbol}
+              ðŸ’° {wallet.balance.toFixed(2)} {wallet.symbol}
             </motion.p>
           </div>
 
@@ -106,14 +106,14 @@ export default function Dashboard() {
               {emoji} {mood.mood.toUpperCase()}
             </motion.p>
             <p className="text-gray-400 mt-1 text-sm">
-              {label} • Score: {mood.score}
+              {label} â€¢ Score: {mood.score}
             </p>
           </div>
 
           {/* Tip message (no dopamine wording) */}
           <div className="text-gray-400 text-xs text-center max-w-sm leading-relaxed">
             The market dynamically reflects community energy.  
-            Keep sharing meaningful content — your actions shape the curve.
+            Keep sharing meaningful content â€” your actions shape the curve.
           </div>
         </motion.div>
       )}

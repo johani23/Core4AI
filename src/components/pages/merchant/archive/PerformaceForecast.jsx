@@ -1,13 +1,12 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ PerformanceForecast.jsx (v13 PRO)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ PerformanceForecast.jsx (v13 PRO)
 // ----------------------------------------------------------------------------
-// â€¢ AI predictive analytics for campaign builder
-// â€¢ CTR / CPC / CPM / CVR / ROAS + Funnel
-// â€¢ Dynamic color indicators and risk flags
-// â€¢ Works with creativeKit, productIQ and plan
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI predictive analytics for campaign builder
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ CTR / CPC / CPM / CVR / ROAS + Funnel
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Dynamic color indicators and risk flags
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Works with creativeKit, productIQ and plan
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
   const [forecast, setForecast] = useState(null);
@@ -58,7 +57,7 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
   if (loading || !forecast) {
     return (
       <div className="p-8 bg-white border rounded-xl text-center text-gray-500">
-        â³ AI is forecasting performanceâ€¦
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ AI is forecasting performanceÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
   }
@@ -67,7 +66,7 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
     <div className="bg-white shadow-lg border rounded-xl p-8 mb-10">
 
       <h2 className="text-3xl font-extrabold text-[#006C35] mb-6">
-        ðŸ“ˆ Performance Forecast
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Performance Forecast
       </h2>
 
       {/* ====================== Core Metrics ====================== */}
@@ -83,7 +82,7 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
       {/* ====================== Funnel Diagram ====================== */}
       <section className="mb-10">
         <h3 className="text-xl font-bold mb-4 text-purple-700">
-          ðŸ”» Traffic Funnel
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â» Traffic Funnel
         </h3>
 
         <div className="space-y-3">
@@ -97,7 +96,7 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
       {/* ====================== Revenue Block ====================== */}
       <section className="mb-8 p-5 bg-gray-50 border rounded-xl">
         <p className="text-lg font-bold">
-          ðŸ’° Estimated Revenue:
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Estimated Revenue:
           <span className="text-green-700"> {forecast.revenue} SAR</span>
         </p>
         <p className="text-sm text-gray-600 mt-1">
@@ -107,7 +106,7 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
 
       {/* ====================== Risk Flags ====================== */}
       <section className="mb-8">
-        <h3 className="text-xl font-bold mb-3 text-red-600">âš ï¸ Risk Flags</h3>
+        <h3 className="text-xl font-bold mb-3 text-red-600">ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Risk Flags</h3>
 
         <ul className="list-disc ml-5 text-sm text-gray-700">
           {forecast.roas < 1.2 && <li>ROAS may be low for high-budget campaigns.</li>}
@@ -116,14 +115,14 @@ export default function PerformanceForecast({ productIQ, plan, creativeKit }) {
         </ul>
 
         {forecast.roas > 1.8 && (
-          <p className="text-green-700 font-bold mt-2">ðŸ”¥ Strong potential ROI.</p>
+          <p className="text-green-700 font-bold mt-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Strong potential ROI.</p>
         )}
       </section>
 
       {/* ====================== AI Recommendations ====================== */}
       <section>
         <h3 className="text-xl font-bold text-[#006C35] mb-3">
-          ðŸ’¡ AI Recommendations
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡ AI Recommendations
         </h3>
 
         <ul className="list-disc ml-5 text-sm text-gray-700">
@@ -173,3 +172,5 @@ function FunnelStep({ label, value, width, color }) {
     </div>
   );
 }
+
+

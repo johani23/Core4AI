@@ -18,3 +18,4 @@ export function PostsProvider({ children }) {
 export function usePosts() {
   return useContext(PostsContext);
 }
+

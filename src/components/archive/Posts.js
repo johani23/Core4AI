@@ -24,5 +24,6 @@ def upvote_post(post_id: int):
     for post in posts:
         if post["id"] == post_id:
             post["upvotes"] += 1
-            return {"message": "👍 Upvoted", "post": post}
+            return {"message": "Ã°Å¸â€˜Â Upvoted", "post": post}
     return {"error": "Post not found"}
+

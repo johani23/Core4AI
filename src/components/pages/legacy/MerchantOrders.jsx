@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ MerchantOrders.jsx (Saudi Minimal Style)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantOrders.jsx (Saudi Minimal Style)
 // ------------------------------------------------------------
-// â€¢ Merchant order history
-// â€¢ Clean white/green dashboard
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Merchant order history
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean white/green dashboard
 // ============================================================
 
-import React, { useState } from "react";
 
 export default function MerchantOrders() {
   const [merchantId, setMerchantId] = useState("");
@@ -24,13 +23,13 @@ export default function MerchantOrders() {
 
       {/* Header */}
       <h1 className="text-3xl font-bold text-[#006C35] mb-8">
-        Ø³Ø¬Ù„ Ø§Ù„Ø·Ù„Ø¨Ø§Øª
+        ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª
       </h1>
 
       {/* Merchant ID Input */}
       <div className="max-w-lg mb-10">
         <label className="block text-gray-700 font-medium mb-2">
-          Ø±Ù‚Ù… Ø§Ù„ØªØ§Ø¬Ø± (Merchant ID)
+          ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± (Merchant ID)
         </label>
 
         <div className="flex gap-3">
@@ -39,14 +38,14 @@ export default function MerchantOrders() {
             className="flex-grow border border-gray-300 rounded-lg px-4 py-2"
             value={merchantId}
             onChange={(e) => setMerchantId(e.target.value)}
-            placeholder="Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ø§Ù„ØªØ§Ø¬Ø±"
+            placeholder="ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â®Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±"
           />
 
           <button
             onClick={loadOrders}
             className="bg-[#006C35] text-white px-5 rounded-lg hover:bg-green-700"
           >
-            ØªØ­Ù…ÙŠÙ„
+            ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾
           </button>
         </div>
       </div>
@@ -57,11 +56,11 @@ export default function MerchantOrders() {
           <table className="min-w-full bg-white border border-gray-200 rounded-xl">
             <thead className="bg-[#006C35] text-white">
               <tr>
-                <th className="px-4 py-3 text-right">Ø±Ù‚Ù… Ø§Ù„Ø¬Ù„Ø³Ø©</th>
-                <th className="px-4 py-3 text-right">Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬</th>
-                <th className="px-4 py-3 text-right">Ø§Ù„Ø³Ø¹Ø±</th>
-                <th className="px-4 py-3 text-right">Ø±Ù‚Ù… Ø§Ù„Ù…Ø´ØªØ±ÙŠ</th>
-                <th className="px-4 py-3 text-right">Ø§Ù„Ø­Ø§Ù„Ø©</th>
+                <th className="px-4 py-3 text-right">ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â©</th>
+                <th className="px-4 py-3 text-right">ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬</th>
+                <th className="px-4 py-3 text-right">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±</th>
+                <th className="px-4 py-3 text-right">ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â </th>
+                <th className="px-4 py-3 text-right">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©</th>
               </tr>
             </thead>
 
@@ -77,9 +76,9 @@ export default function MerchantOrders() {
 
                   <td className="px-4 py-3 text-right">
                     {o.status === "paid" ? (
-                      <span className="text-green-600 font-semibold">ØªÙ… Ø§Ù„Ø¯ÙØ¹</span>
+                      <span className="text-green-600 font-semibold">ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¯Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹</span>
                     ) : (
-                      <span className="text-red-600 font-semibold">Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¯ÙØ¹</span>
+                      <span className="text-red-600 font-semibold">Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¯Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹</span>
                     )}
                   </td>
                 </tr>
@@ -89,9 +88,11 @@ export default function MerchantOrders() {
         </div>
       ) : (
         <p className="text-gray-500 text-lg mt-10">
-          Ù„Ø§ ØªÙˆØ¬Ø¯ Ø·Ù„Ø¨Ø§Øª Ø­Ø§Ù„ÙŠØ§Ù‹ â€” Ù‚Ù… Ø¨ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø³Ø¬Ù„ Ø¨Ø±Ù‚Ù… Ø§Ù„ØªØ§Ø¬Ø±
+          Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¨ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±
         </p>
       )}
     </div>
   );
 }
+
+

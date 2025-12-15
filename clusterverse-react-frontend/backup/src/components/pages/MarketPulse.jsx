@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – MarketPulse.jsx (MVP-27.7 Visual Pulse Edition)
+// ðŸ’Ž Core4.AI â€“ MarketPulse.jsx (MVP-27.7 Visual Pulse Edition)
 // ------------------------------------------------------------
 // Displays latest tribe market events with dopamine animation
 // Compatible with backend route: GET /market/pulse
@@ -23,7 +23,7 @@ export default function MarketPulse() {
       const data = await res.json();
       setEvents(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("⚠️ Pulse error:", err);
+      console.error("âš ï¸ Pulse error:", err);
       setError("Unable to fetch market data.");
     } finally {
       setLoading(false);
@@ -59,7 +59,7 @@ export default function MarketPulse() {
     <div className="min-h-screen bg-black text-white p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-green-400 flex items-center gap-2">
-          💹 Market Pulse
+          ðŸ’¹ Market Pulse
         </h1>
         <button
           onClick={fetchPulse}

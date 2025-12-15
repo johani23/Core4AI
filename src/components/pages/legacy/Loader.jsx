@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * Core4.AI â€“ MVP 10 Loader (Splash Screen)
+ * Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP 10 Loader (Splash Screen)
  * Animated intro that fades into the main dashboard
  */
 
@@ -10,7 +10,7 @@ export default function Loader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 2600); // â±ï¸ 2.6 Ø«ÙˆØ§Ù†ÙŠ
+    const timer = setTimeout(() => setVisible(false), 2600); // ÃƒÂ¢Ã‚ÂÃ‚Â±ÃƒÂ¯Ã‚Â¸Ã‚Â 2.6 ÃƒËœÃ‚Â«Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã…Â 
     return () => clearTimeout(timer);
   }, []);
 
@@ -55,3 +55,4 @@ export default function Loader() {
     </AnimatePresence>
   );
 }
+

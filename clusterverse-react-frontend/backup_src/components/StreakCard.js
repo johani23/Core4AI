@@ -6,7 +6,7 @@ const StreakCard = ({ user, onUserUpdate }) => {
   const claimDaily = async () => {
     try {
       await apiUpdateStreak(user.username);
-      onUserUpdate(); // ✅ refresh user stats
+      onUserUpdate(); // âœ… refresh user stats
     } catch (err) {
       console.error("Error claiming daily points:", err);
     }
@@ -14,7 +14,7 @@ const StreakCard = ({ user, onUserUpdate }) => {
 
   return (
     <div className="streak-card">
-      <h3>🔥 Daily Streak</h3>
+      <h3>ðŸ”¥ Daily Streak</h3>
       <p>@{user.username}</p>
       <p>Points: {user.points}</p>
       <p>Streak: {user.streak} days</p>

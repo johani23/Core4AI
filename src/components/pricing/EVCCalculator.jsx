@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š EVCCalculator.jsx â€” MIT Phase 2 (Module 1: Economic Value to Customer)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ EVCCalculator.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MIT Phase 2 (Module 1: Economic Value to Customer)
 // ============================================================================
-// ÙŠØ¹ØªÙ…Ø¯ Ø¨Ø§Ù„ÙƒØ§Ù…Ù„ Ø¹Ù„Ù‰ /api/pricing/breakdown/{productId}
-// ÙˆÙŠØ­Ø³Ø¨ EVC = RP + DV
-// ÙˆÙŠØ¹Ø±Ø¶ Fair Price, Premium Price, Value Surplus
+// Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° /api/pricing/breakdown/{productId}
+// Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â­ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ EVC = RP + DV
+// Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¶ Fair Price, Premium Price, Value Surplus
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function EVCCalculator({ productId }) {
   const [data, setData] = useState(null);
@@ -32,7 +31,7 @@ export default function EVCCalculator({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading MIT EVC Model...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading MIT EVC Model...
       </div>
     );
 
@@ -62,18 +61,18 @@ export default function EVCCalculator({ productId }) {
 
       {/* Reference Price */}
       <div className="mb-6 p-4 bg-gray-800 rounded-xl">
-        <h3 className="font-semibold">Reference Price (Ø¨Ø¯ÙŠÙ„ Ø§Ù„Ø³ÙˆÙ‚)</h3>
+        <h3 className="font-semibold">Reference Price (ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡)</h3>
         <p className="text-xl">{referencePrice} SAR</p>
       </div>
 
       {/* Differentiation Value */}
       <div className="mb-6 p-4 bg-gray-800 rounded-xl">
-        <h3 className="font-semibold mb-2">Differentiation Value (Ù‚ÙŠÙ…Ø© Ø§Ù„ØªÙ…ÙŠØ²)</h3>
+        <h3 className="font-semibold mb-2">Differentiation Value (Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²)</h3>
         <p className="text-xl text-green-300">
           {differentiationValue} SAR
         </p>
         <p className="text-sm text-gray-400 mt-1">
-          Ù…Ø¬Ù…ÙˆØ¹ Ù‚ÙŠÙ… Ø§Ù„Ù…ÙŠØ²Ø§Øª ÙƒÙ…Ø§ ØªÙ… Ø§Ø­ØªØ³Ø§Ø¨Ù‡Ø§ ÙÙŠ Ù†Ù…ÙˆØ°Ø¬ Conjoint.
+          Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§ Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â°ÃƒËœÃ‚Â¬ Conjoint.
         </p>
       </div>
 
@@ -106,7 +105,7 @@ export default function EVCCalculator({ productId }) {
 
       {/* EVC Calculation */}
       <div className="mb-6 p-4 bg-gray-800 rounded-xl">
-        <h3 className="font-semibold">Total EVC (Ø§Ù„Ù‚ÙŠÙ…Ø© Ø§Ù„Ø§Ù‚ØªØµØ§Ø¯ÙŠØ© Ù„Ù„Ø¹Ù…ÙŠÙ„)</h3>
+        <h3 className="font-semibold">Total EVC (ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾)</h3>
         <p className="text-2xl text-blue-300 mt-2">
           {evcValue} SAR
         </p>
@@ -116,12 +115,12 @@ export default function EVCCalculator({ productId }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         <div className="p-4 bg-gray-800 rounded-xl">
-          <h3 className="font-semibold">Fair Price (Ø³Ø¹Ø± Ù…Ù†Ø·Ù‚ÙŠ)</h3>
+          <h3 className="font-semibold">Fair Price (ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â )</h3>
           <p className="text-xl text-yellow-300 mt-2">{fairPrice} SAR</p>
         </div>
 
         <div className="p-4 bg-gray-800 rounded-xl">
-          <h3 className="font-semibold">Premium Price (Ø³Ø¹Ø± Ù…Ù…ÙŠØ²)</h3>
+          <h3 className="font-semibold">Premium Price (ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²)</h3>
           <p className="text-xl text-purple-300 mt-2">{premiumPrice} SAR</p>
         </div>
 
@@ -144,3 +143,5 @@ export default function EVCCalculator({ productId }) {
     </div>
   );
 }
+
+

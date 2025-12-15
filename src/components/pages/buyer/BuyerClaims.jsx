@@ -1,62 +1,215 @@
-// ============================================================================
-// 💚 Core4.AI – BuyerClaims.jsx
-// Claim Center (Pre-Beta placeholder, clean and stable)
+﻿// ============================================================================
+// 🛡 Core4.AI – BuyerClaims FINAL API EDITION (v3)
+// Loads real orders • Posts claim • Clean RTL UI
 // ============================================================================
 
-import React, { useState } from "react";
-import BuyerLayout from "../../buyer/BuyerLayout";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BuyerClaims() {
-  const [text, setText] = useState("");
+  const navigate = useNavigate();
+
+  const [orders, setOrders] = useState([]);
+  const [loadingOrders, setLoadingOrders] = useState(true);
+
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!text.trim()) return;
-    setSubmitted(true);
+  const [form, setForm] = useState({
+    orderId: "",
+    issue: "",
+    description: "",
+    images: [],
+  });
+
+  // ---------------------------------------------------------------------------
+  // Load real orders from backend
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    async function load() {
+      try {
+        const res = await fetch("/api/orders?buyer_id=1");
+        const data = await res.json();
+        setOrders(data);
+      } catch (err) {
+        console.error("Failed to load orders:", err);
+      } finally {
+        setLoadingOrders(false);
+      }
+    }
+    load();
+  }, []);
+
+  // ---------------------------------------------------------------------------
+  // Handle image uploads
+  // ---------------------------------------------------------------------------
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setForm({ ...form, images: files });
   };
 
-  return (
-    <BuyerLayout
-      title="Claim Center"
-      subtitle="لو التجربة سيئة… اكتب بلاغك، ونحن نراجع ونعوضك إذا كان البلاغ صحيح."
-    >
-      <div className="max-w-2xl space-y-4">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-          <h2 className="text-sm md:text-base font-semibold text-slate-50 mb-2">
-            Report a bad experience
-          </h2>
+  // ---------------------------------------------------------------------------
+  // Submit claim to backend
+  // ---------------------------------------------------------------------------
+  const submitClaim = async () => {
+    if (!form.orderId || !form.issue || !form.description) {
+      alert("الرجاء تعبئة جميع الحقول المطلوبة");
+      return;
+    }
 
-          <p className="text-xs md:text-sm text-slate-300 mb-3">
-            صف ما حدث بهدوء وبدون مبالغة. النظام يقارن بلاغك بتجارب مشترين آخرين،
-            وإذا تأكد النمط يتم تفعيل التعويض تلقائيًا.
-          </p>
+    try {
+      setSubmitting(true);
 
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <textarea
-              className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-2 text-xs md:text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-              rows={6}
-              placeholder="مثال: طلبت المنتج من الفرع الفلاني، ووصلني بمستوى جودة أقل من المتوقع..."
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
+      const body = new FormData();
+      body.append("order_id", form.orderId);
+      body.append("issue", form.issue);
+      body.append("description", form.description);
 
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-xs md:text-sm font-medium bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors"
-            >
-              Submit claim (Demo)
-            </button>
-          </form>
+      form.images.forEach((img) => {
+        body.append("files", img);
+      });
 
-          {submitted && (
-            <p className="mt-3 text-[11px] text-emerald-300">
-              تم تسجيل بلاغك (تجريبيًا). في النسخة الكاملة سيتم تحليله وربطه ببيانات
-              بقية المشترين لتحديد الأهلية للتعويض.
-            </p>
-          )}
-        </div>
+      const res = await fetch("/api/claims", {
+        method: "POST",
+        body,
+      });
+
+      if (!res.ok) throw new Error("Failed to submit claim");
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("حدث خطأ أثناء إرسال المطالبة.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // ---------------------------------------------------------------------------
+  // Success State UI
+  // ---------------------------------------------------------------------------
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-[#0A0F12] text-white flex flex-col items-center justify-center p-8" dir="rtl">
+        <h1 className="text-3xl font-bold text-green-400 mb-4">تم إرسال المطالبة بنجاح 🛡</h1>
+        <p className="text-gray-300 mb-6">سيتم مراجعتها من فريق Core4.AI خلال وقت قصير.</p>
+
+        <button
+          onClick={() => navigate("/buyer/orders")}
+          className="bg-purple-600 hover:bg-purple-500 px-8 py-3 rounded-xl font-semibold"
+        >
+          عرض الطلبات
+        </button>
       </div>
-    </BuyerLayout>
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Main UI
+  // ---------------------------------------------------------------------------
+  return (
+    <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
+
+      {/* BACK */}
+      <button
+        onClick={() => navigate(-1)}
+        className="text-gray-300 hover:text-white mb-6"
+      >
+        ← رجوع
+      </button>
+
+      {/* HEADER */}
+      <h1 className="text-3xl font-bold text-purple-400 mb-2">
+        فتح مطالبة جديدة 🛡
+      </h1>
+      <p className="text-gray-300 mb-8">
+        ساعدنا في فهم المشكلة لحلّها بسرعة.
+      </p>
+
+      {/* FORM CARD */}
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto backdrop-blur-sm">
+
+        {/* ORDER FIELD */}
+        <label className="text-gray-300 text-sm mb-2 block">رقم الطلب</label>
+
+        {loadingOrders ? (
+          <p className="text-gray-400 text-sm mb-6">... جاري تحميل الطلبات</p>
+        ) : (
+          <select
+            value={form.orderId}
+            onChange={(e) => setForm({ ...form, orderId: e.target.value })}
+            className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 mb-6"
+          >
+            <option value="">اختر رقم الطلب</option>
+            {orders.map((o) => (
+              <option key={o.id} value={o.id}>
+                #{o.id} — {o.product_name}
+              </option>
+            ))}
+          </select>
+        )}
+
+        {/* ISSUE FIELD */}
+        <label className="text-gray-300 text-sm mb-2 block">نوع المشكلة</label>
+        <select
+          value={form.issue}
+          onChange={(e) => setForm({ ...form, issue: e.target.value })}
+          className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 mb-6"
+        >
+          <option value="">اختر المشكلة</option>
+          <option value="delay">تأخير في التوصيل</option>
+          <option value="damage">المنتج تالف</option>
+          <option value="wrong">استلمت منتجًا مختلفًا</option>
+          <option value="missing">قطع ناقصة</option>
+          <option value="guarantee">مشكلة في الضمان</option>
+          <option value="other">أخرى</option>
+        </select>
+
+        {/* DESCRIPTION FIELD */}
+        <label className="text-gray-300 text-sm mb-2 block">وصف المشكلة</label>
+        <textarea
+          value={form.description}
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
+          className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 h-32 resize-none mb-6"
+          placeholder="اكتب وصف المشكلة…"
+        />
+
+        {/* IMAGES FIELD */}
+        <label className="text-gray-300 text-sm mb-2 block">صور (اختياري)</label>
+        <input
+          type="file"
+          multiple
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 mb-4"
+        />
+
+        {form.images.length > 0 && (
+          <div className="flex gap-3 mb-6 flex-wrap">
+            {form.images.map((img, i) => (
+              <div key={i} className="w-20 h-20 border border-white/20 rounded-xl overflow-hidden">
+                <img
+                  src={URL.createObjectURL(img)}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* SUBMIT */}
+        <button
+          onClick={submitClaim}
+          disabled={submitting}
+          className="
+            w-full bg-red-600 hover:bg-red-500 text-white py-3 rounded-xl
+            font-bold text-sm shadow-lg shadow-red-700/20
+            disabled:opacity-50 disabled:cursor-not-allowed
+          "
+        >
+          {submitting ? "جارٍ الإرسال…" : "🛡 إرسال المطالبة"}
+        </button>
+      </div>
+    </div>
   );
 }

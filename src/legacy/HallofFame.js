@@ -1,6 +1,6 @@
 // src/HallofFame.js
 import React, { useEffect, useState } from "react";
-import { getLeaderboard } from "./teamsApi"; // ✅ fixed path
+import { getLeaderboard } from "./teamsApi"; // Ã¢Å“â€¦ fixed path
 
 export default function HallofFame() {
   const [users, setUsers] = useState([]);
@@ -14,16 +14,16 @@ export default function HallofFame() {
   }, []);
 
   const getMedal = (index) => {
-    if (index === 0) return "🥇";
-    if (index === 1) return "🥈";
-    if (index === 2) return "🥉";
-    return "⭐";
+    if (index === 0) return "Ã°Å¸Â¥â€¡";
+    if (index === 1) return "Ã°Å¸Â¥Ë†";
+    if (index === 2) return "Ã°Å¸Â¥â€°";
+    return "Ã¢Â­Â";
   };
 
   return (
     <div className="bg-gray-900 p-6 rounded-xl shadow-lg mt-6">
       <h2 className="text-2xl font-bold mb-4 text-yellow-400">
-        🏆 Hall of Fame
+        Ã°Å¸Ââ€  Hall of Fame
       </h2>
       <ul className="space-y-3">
         {users.map((user, index) => (
@@ -39,7 +39,7 @@ export default function HallofFame() {
               </div>
             </div>
             <span className="text-orange-400 font-bold">
-              🔥 {user.streak || 0}d
+              Ã°Å¸â€Â¥ {user.streak || 0}d
             </span>
           </li>
         ))}
@@ -47,3 +47,4 @@ export default function HallofFame() {
     </div>
   );
 }
+

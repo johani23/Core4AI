@@ -1,17 +1,16 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Navbar.jsx (v125.0 â€œUnified Navigation Sourceâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Navbar.jsx (v125.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified Navigation SourceÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Imports tab list dynamically from AppTabs.js
-// âœ… Pulse ring indicator with disconnect alert
-// âœ… Smooth color transitions for D-Index bar
-// âœ… Sparkline limited to 30 frames (auto-updating)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Imports tab list dynamically from AppTabs.js
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Pulse ring indicator with disconnect alert
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Smooth color transitions for D-Index bar
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Sparkline limited to 30 frames (auto-updating)
 // ============================================================
 
-import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
-import { appTabs } from "@config/AppTabs"; // âœ… shared source of truth
+import { appTabs } from "@config/AppTabs"; // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ shared source of truth
 
 export default function Navbar() {
   const location = useLocation();
@@ -21,7 +20,7 @@ export default function Navbar() {
 
   const dIndex = council.dindex || 50;
 
-  // ðŸ§  Keep last 30 readings only
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Keep last 30 readings only
   useEffect(() => {
     setHistory((prev) => [...prev.slice(-29), dIndex]);
   }, [dIndex]);
@@ -39,7 +38,7 @@ export default function Navbar() {
       .join(" ");
   };
 
-  // ðŸŽ¨ Color mappings
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Color mappings
   const dColor =
     dIndex > 70 ? "text-green-400" : dIndex > 50 ? "text-yellow-400" : "text-red-400";
   const barColor =
@@ -112,7 +111,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 relative">
           <div className="relative flex items-center gap-2">
             <div className={`text-xs font-medium ${dColor}`}>
-              D-Index â€¢ {dIndex.toFixed(1)}
+              D-Index ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {dIndex.toFixed(1)}
             </div>
             <svg ref={svgRef} width="60" height="20" className="opacity-80">
               <path
@@ -138,3 +137,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+

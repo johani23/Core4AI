@@ -2,7 +2,7 @@
 import { create } from "zustand";
 
 export const useUserStore = create((set) => ({
-  // بيانات المستخدم
+  // Ã˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™â€¦
   user: {
     name: "Guest",
     xp: 0,
@@ -10,10 +10,10 @@ export const useUserStore = create((set) => ({
     badges: []
   },
 
-  // تحديث بيانات المستخدم بالكامل
+  // Ã˜ÂªÃ˜Â­Ã˜Â¯Ã™Å Ã˜Â« Ã˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™â€¦ Ã˜Â¨Ã˜Â§Ã™â€žÃ™Æ’Ã˜Â§Ã™â€¦Ã™â€ž
   setUser: (newUser) => set({ user: newUser }),
 
-  // إضافة XP وتحديث المستوى
+  // Ã˜Â¥Ã˜Â¶Ã˜Â§Ã™ÂÃ˜Â© XP Ã™Ë†Ã˜ÂªÃ˜Â­Ã˜Â¯Ã™Å Ã˜Â« Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ™Ë†Ã™â€°
   addXP: (amount) =>
     set((state) => {
       const newXP = state.user.xp + amount;
@@ -27,7 +27,7 @@ export const useUserStore = create((set) => ({
       };
     }),
 
-  // إضافة Badge جديد
+  // Ã˜Â¥Ã˜Â¶Ã˜Â§Ã™ÂÃ˜Â© Badge Ã˜Â¬Ã˜Â¯Ã™Å Ã˜Â¯
   addBadge: (badge) =>
     set((state) => ({
       user: {
@@ -36,3 +36,4 @@ export const useUserStore = create((set) => ({
       },
     })),
 }));
+

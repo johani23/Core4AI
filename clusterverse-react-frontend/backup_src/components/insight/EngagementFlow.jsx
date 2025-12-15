@@ -12,7 +12,7 @@ import { recordEngagement } from "@services/api";
 import useEngagementTracker from "@hooks/useEngagementTracker";
 
 /**
- * Core4.AI – Engagement Flow
+ * Core4.AI â€“ Engagement Flow
  * Displays user engagement trend (simulated) with silent dopamine logging.
  */
 export default function EngagementFlow() {
@@ -37,7 +37,7 @@ export default function EngagementFlow() {
   return (
     <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-lg">
       <h2 className="text-yellow-400 text-xl font-semibold mb-1">
-        🌊 Engagement Flow (24 h)
+        ðŸŒŠ Engagement Flow (24 h)
       </h2>
       <p className="text-gray-400 text-sm mb-3">
         Balanced engagement flow.

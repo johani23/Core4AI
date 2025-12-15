@@ -1,17 +1,16 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Merchant.jsx (v101 â€œIntegrated Analytics + Mini Flywheelâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Merchant.jsx (v101 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œIntegrated Analytics + Mini FlywheelÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Combines Live Transactions + Analytics + Mini Flywheel
-// âœ… Hooks into CoreSyncContext (simulateReward + stats + council)
-// âœ… Auto-updates via WebSocket pulses
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Combines Live Transactions + Analytics + Mini Flywheel
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Hooks into CoreSyncContext (simulateReward + stats + council)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-updates via WebSocket pulses
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import { motion } from "framer-motion";
 import { TrendingUp, ShoppingBag, Coins, Activity } from "lucide-react";
 
-// ðŸ’  Mini Flywheel visual config
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Mini Flywheel visual config
 const FlowCircle = ({ label, color, delay }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
@@ -29,7 +28,7 @@ export default function Merchant() {
   const [ping, setPing] = useState("--");
   const [connected, setConnected] = useState(false);
 
-  // ðŸ”„ WS latency monitor (heartbeat simulation)
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ WS latency monitor (heartbeat simulation)
   useEffect(() => {
     let last = Date.now();
     const timer = setInterval(() => {
@@ -40,7 +39,7 @@ export default function Merchant() {
     return () => clearInterval(timer);
   }, []);
 
-  // ðŸ§® Simulate merchant transaction (manual trigger)
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Simulate merchant transaction (manual trigger)
   const handleMerchantTx = async (tribe) => {
     await simulateReward(tribe);
     const tx = {
@@ -128,7 +127,7 @@ export default function Merchant() {
       {/* Live Transactions */}
       <div className="mb-10">
         <h2 className="text-xl font-semibold text-purple-300 mb-3">
-          ðŸ’¹ Live Merchant Transactions
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Live Merchant Transactions
         </h2>
         <div className="bg-gray-900 rounded-2xl p-4 h-48 overflow-y-auto border border-gray-800">
           {txFeed.length === 0 ? (
@@ -140,7 +139,7 @@ export default function Merchant() {
                 className="flex justify-between items-center py-2 border-b border-gray-800 text-sm"
               >
                 <span className="text-gray-300">
-                  {tx.tribe} <span className="text-gray-500">â€¢</span>{" "}
+                  {tx.tribe} <span className="text-gray-500">ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span>{" "}
                   {tx.timestamp}
                 </span>
                 <span className="text-green-400 font-semibold">
@@ -155,7 +154,7 @@ export default function Merchant() {
       {/* Mini Flywheel */}
       <div className="mt-12 flex flex-col items-center">
         <h2 className="text-xl font-semibold text-purple-300 mb-6">
-          ðŸ”„ Flywheel Simulation
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Flywheel Simulation
         </h2>
         <div className="flex justify-center gap-8">
           <FlowCircle label="Content" color="from-purple-500 to-pink-500" delay={0.1} />
@@ -184,3 +183,5 @@ export default function Merchant() {
     </div>
   );
 }
+
+

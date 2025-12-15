@@ -5,13 +5,13 @@ export default function ContentUpload() {
 
   const handleSubmit = () => {
     if (!content.trim()) return;
-    alert(`✅ Content submitted: ${content}`);
+    alert(`âœ… Content submitted: ${content}`);
     setContent("");
   };
 
   return (
     <div className="card">
-      <h2>📝 Upload Content</h2>
+      <h2>ðŸ“ Upload Content</h2>
       <textarea
         rows="4"
         value={content}

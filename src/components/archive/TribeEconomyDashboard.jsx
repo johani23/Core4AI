@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeEconomyDashboard.jsx (v1.4 â€œCrash-Proof Live Deltaâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeEconomyDashboard.jsx (v1.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCrash-Proof Live DeltaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Fixes .toFixed() crashes on undefined/null
-// âœ… Preserves live deltas + top tribe
-// âœ… Render-safe during WS reconnects or partial updates
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fixes .toFixed() crashes on undefined/null
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Preserves live deltas + top tribe
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Render-safe during WS reconnects or partial updates
 // ============================================================
 
-import React, { useEffect, useRef, useState } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 
 export default function TribeEconomyDashboard() {
@@ -14,7 +13,7 @@ export default function TribeEconomyDashboard() {
   const [deltas, setDeltas] = useState({});
   const prevValues = useRef({});
 
-  // ðŸ§­ Compute deltas on update
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Compute deltas on update
   useEffect(() => {
     if (!Array.isArray(tribes)) return;
     const newDeltas = {};
@@ -32,7 +31,7 @@ export default function TribeEconomyDashboard() {
     setDeltas(newDeltas);
   }, [tribes]);
 
-  // ðŸ” Identify top tribe safely
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â Identify top tribe safely
   const topTribe =
     tribes && tribes.length
       ? tribes.reduce((a, b) => {
@@ -44,14 +43,14 @@ export default function TribeEconomyDashboard() {
 
   return (
     <div className="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 mt-10 shadow-lg">
-      {/* ðŸ† Top Tribe Header */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Top Tribe Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-5">
         <h3 className="text-purple-400 font-semibold text-lg flex items-center gap-2">
-          âš™ï¸ Live Tribe Economy Dashboard
+          ÃƒÂ¢Ã…Â¡Ã¢â€žÂ¢ÃƒÂ¯Ã‚Â¸Ã‚Â Live Tribe Economy Dashboard
         </h3>
         <div className="text-sm text-yellow-300 font-semibold bg-yellow-300/10 px-3 py-1 rounded-full">
-          ðŸ† Top Tribe:{" "}
-          {topTribe?.name ?? "â€”"} (
+          ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Top Tribe:{" "}
+          {topTribe?.name ?? "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"} (
           {Number.isFinite(topTribe?.tokenValue)
             ? topTribe.tokenValue.toFixed(2)
             : "1.00"}
@@ -59,7 +58,7 @@ export default function TribeEconomyDashboard() {
         </div>
       </div>
 
-      {/* ðŸ§® Tribes Snapshot */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Tribes Snapshot */}
       <div className="grid md:grid-cols-4 gap-4 text-sm text-gray-300">
         {Array.isArray(tribes) && tribes.length > 0 ? (
           tribes.map((t) => {
@@ -80,7 +79,7 @@ export default function TribeEconomyDashboard() {
                 key={t?.name ?? Math.random()}
                 className="bg-gray-800/60 rounded-xl p-4 flex flex-col items-center justify-center border border-gray-700 hover:border-purple-500 transition"
               >
-                <div className="text-white font-bold mb-1">{t?.name ?? "â€”"}</div>
+                <div className="text-white font-bold mb-1">{t?.name ?? "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}</div>
 
                 <div className="flex gap-1 items-center">
                   <span>Dopamine:</span>
@@ -89,10 +88,10 @@ export default function TribeEconomyDashboard() {
                   </span>
                   <span className={`text-xs ml-1 ${dopTrend}`}>
                     {deltaDop > 0
-                      ? `ðŸ”º${(deltaDop * 100).toFixed(1)}%`
+                      ? `ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Âº${(deltaDop * 100).toFixed(1)}%`
                       : deltaDop < 0
-                      ? `ðŸ”»${Math.abs(deltaDop * 100).toFixed(1)}%`
-                      : "â€”"}
+                      ? `ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â»${Math.abs(deltaDop * 100).toFixed(1)}%`
+                      : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}
                   </span>
                 </div>
 
@@ -103,10 +102,10 @@ export default function TribeEconomyDashboard() {
                   </span>
                   <span className={`text-xs ml-1 ${tokTrend}`}>
                     {deltaTok > 0
-                      ? `ðŸ”º${deltaTok.toFixed(2)}`
+                      ? `ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Âº${deltaTok.toFixed(2)}`
                       : deltaTok < 0
-                      ? `ðŸ”»${Math.abs(deltaTok).toFixed(2)}`
-                      : "â€”"}
+                      ? `ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â»${Math.abs(deltaTok).toFixed(2)}`
+                      : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}
                   </span>
                 </div>
 
@@ -123,7 +122,7 @@ export default function TribeEconomyDashboard() {
         )}
       </div>
 
-      {/* ðŸŒ Global D-Index */}
+      {/* ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Global D-Index */}
       <div className="mt-6 text-center text-sm text-gray-400">
         Global D-Index:{" "}
         <span className="text-yellow-400 font-bold">
@@ -135,3 +134,5 @@ export default function TribeEconomyDashboard() {
     </div>
   );
 }
+
+

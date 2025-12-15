@@ -1,4 +1,4 @@
-.streak-card {
+﻿.streak-card {
   background: #0f172a;
   padding: 1rem 1.5rem;
   border-radius: 0.75rem;
@@ -24,3 +24,4 @@
 .streak-card button:hover {
   background: #16a34a;
 }
+

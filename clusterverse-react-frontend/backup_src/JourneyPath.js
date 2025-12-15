@@ -24,7 +24,7 @@ export default function JourneyPath({ points }) {
       }}
     >
       <h3 style={{ textAlign: "center", marginBottom: "8px" }}>
-        🚀 Your Journey Progress
+        ðŸš€ Your Journey Progress
       </h3>
 
       <div
@@ -101,7 +101,7 @@ export default function JourneyPath({ points }) {
             animation: "bounce 1s ease infinite",
           }}
         >
-          🚀
+          ðŸš€
         </div>
       </div>
 

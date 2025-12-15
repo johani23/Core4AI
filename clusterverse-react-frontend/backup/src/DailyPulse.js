@@ -16,26 +16,26 @@ export default function DailyPulse({ onAddPoints }) {
 
       const data = await res.json();
       if (data.reward) {
-        onAddPoints(data.points); // ✅ Add points dynamically
-        setFeedback(`✅ ${data.message}`);
+        onAddPoints(data.points); // âœ… Add points dynamically
+        setFeedback(`âœ… ${data.message}`);
       } else {
-        setFeedback(`⚠️ ${data.message}`);
+        setFeedback(`âš ï¸ ${data.message}`);
       }
     } catch (err) {
       console.error(err);
-      setFeedback("❌ Error sending your answer. Try again later.");
+      setFeedback("âŒ Error sending your answer. Try again later.");
     }
   };
 
   return (
     <div>
-      <h2>✨ Daily Pulse</h2>
-      <p>☀️ ما أجمل لحظة في يومك حتى الآن؟</p>
+      <h2>âœ¨ Daily Pulse</h2>
+      <p>â˜€ï¸ Ù…Ø§ Ø£Ø¬Ù…Ù„ Ù„Ø­Ø¸Ø© ÙÙŠ ÙŠÙˆÙ…Ùƒ Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†ØŸ</p>
 
       <textarea
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
-        placeholder="اكتب لحظتك هنا..."
+        placeholder="Ø§ÙƒØªØ¨ Ù„Ø­Ø¸ØªÙƒ Ù‡Ù†Ø§..."
         style={{ width: "100%", padding: "6px", marginBottom: "6px" }}
       />
 

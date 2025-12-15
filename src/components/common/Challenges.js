@@ -18,7 +18,7 @@ export default function Challenges() {
   }, []);
 
   const completeChallenge = (challengeId) => {
-    const userId = 1; // 🔧 replace with logged-in user later
+    const userId = 1; // Ã°Å¸â€Â§ replace with logged-in user later
     fetch(`http://127.0.0.1:8000/challenges/complete?user_id=${userId}&challenge_id=${challengeId}`, {
       method: "POST",
     })
@@ -33,7 +33,7 @@ export default function Challenges() {
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl shadow-lg mt-6">
-      <h2 className="text-lg font-semibold mb-4">🎯 Challenges</h2>
+      <h2 className="text-lg font-semibold mb-4">Ã°Å¸Å½Â¯ Challenges</h2>
       <ul className="space-y-3">
         {challenges.map((c) => (
           <li
@@ -57,3 +57,4 @@ export default function Challenges() {
     </div>
   );
 }
+

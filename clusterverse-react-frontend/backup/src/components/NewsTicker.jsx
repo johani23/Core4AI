@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – NewsTicker.jsx (MVP-28: Dopamine-Reactive Edition)
+// ðŸ’Ž Core4.AI â€“ NewsTicker.jsx (MVP-28: Dopamine-Reactive Edition)
 // ------------------------------------------------------------
 // Scrolls live headlines from /market/news and adapts both color
 // + glow intensity based on market mood & dopamine index.
@@ -11,11 +11,11 @@ import { Newspaper } from "lucide-react";
 
 export default function NewsTicker() {
   const [news, setNews] = useState([]);
-  const [mood, setMood] = useState({ mood: "neutral", emoji: "⚖️", label: "Stable" });
+  const [mood, setMood] = useState({ mood: "neutral", emoji: "âš–ï¸", label: "Stable" });
   const [dopamine, setDopamine] = useState(50); // default midpoint
   const [loading, setLoading] = useState(true);
 
-  // 🧩 Fetch Tribe News
+  // ðŸ§© Fetch Tribe News
   async function fetchNews() {
     try {
       const res = await fetch("http://127.0.0.1:8000/market/news");
@@ -23,13 +23,13 @@ export default function NewsTicker() {
       const data = await res.json();
       if (Array.isArray(data)) setNews(data);
     } catch (err) {
-      console.warn("⚠️ News fetch error:", err);
+      console.warn("âš ï¸ News fetch error:", err);
     } finally {
       setLoading(false);
     }
   }
 
-  // 💹 Fetch Global Market Mood
+  // ðŸ’¹ Fetch Global Market Mood
   async function fetchMood() {
     try {
       const res = await fetch("http://127.0.0.1:8000/market/mood");
@@ -37,11 +37,11 @@ export default function NewsTicker() {
       const data = await res.json();
       setMood(data);
     } catch (err) {
-      console.warn("⚠️ Mood fetch error:", err);
+      console.warn("âš ï¸ Mood fetch error:", err);
     }
   }
 
-  // 💥 Fetch Dopamine Heatmap Average
+  // ðŸ’¥ Fetch Dopamine Heatmap Average
   async function fetchDopamine() {
     try {
       const res = await fetch("http://127.0.0.1:8000/dopamine/heatmap");
@@ -50,7 +50,7 @@ export default function NewsTicker() {
       const avg = data.average_dopamine ?? 50;
       setDopamine(avg);
     } catch (err) {
-      console.warn("⚠️ Dopamine fetch error:", err);
+      console.warn("âš ï¸ Dopamine fetch error:", err);
     }
   }
 
@@ -66,7 +66,7 @@ export default function NewsTicker() {
     return () => clearInterval(interval);
   }, []);
 
-  // 🌈 Mood-based color tone
+  // ðŸŒˆ Mood-based color tone
   const moodColor =
     mood.mood === "bullish"
       ? "text-emerald-400"
@@ -74,7 +74,7 @@ export default function NewsTicker() {
       ? "text-red-400"
       : "text-yellow-400";
 
-  // 🔥 Dopamine glow intensity (0–100 → 0–1)
+  // ðŸ”¥ Dopamine glow intensity (0â€“100 â†’ 0â€“1)
   const glowOpacity = Math.min(1, dopamine / 100);
   const glowColor =
     mood.mood === "bullish"
@@ -99,7 +99,7 @@ export default function NewsTicker() {
 
   return (
     <div className="relative w-full overflow-hidden border-t border-b border-zinc-800">
-      {/* 🔹 Ticker Content */}
+      {/* ðŸ”¹ Ticker Content */}
       <div className={`bg-black text-sm ${moodColor}`}>
         <motion.div
           className="flex whitespace-nowrap py-1"
@@ -113,7 +113,7 @@ export default function NewsTicker() {
           <span className="flex items-center gap-2 ml-6">
             <Newspaper size={14} className={moodColor} />
             <span className="mr-6 text-xs opacity-70">
-              {mood.emoji} {mood.label.toUpperCase()} • Dopamine {Math.round(dopamine)}
+              {mood.emoji} {mood.label.toUpperCase()} â€¢ Dopamine {Math.round(dopamine)}
             </span>
             {news.map((item, i) => (
               <span key={i} className="mr-10">
@@ -124,7 +124,7 @@ export default function NewsTicker() {
         </motion.div>
       </div>
 
-      {/* 🔥 Dopamine Glow Bar */}
+      {/* ðŸ”¥ Dopamine Glow Bar */}
       <div
         className="absolute bottom-0 left-0 w-full h-[3px] transition-all duration-700"
         style={{

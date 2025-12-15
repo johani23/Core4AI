@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š ProductDetails.jsx â€” v22 ML Integrated Snapshot + Apply AI Price
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ ProductDetails.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â v22 ML Integrated Snapshot + Apply AI Price
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -66,13 +65,13 @@ export default function ProductDetails() {
       });
 
       if (res.ok) {
-        toast.success("ðŸ¤– ØªÙ… ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­ Ø¨Ù†Ø¬Ø§Ø­");
+        toast.success("ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­");
         load();
       } else {
-        toast.error("âŒ ÙØ´Ù„ ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­");
+        toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­");
       }
     } catch (e) {
-      toast.error("âŒ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦");
     }
 
     setApplying(false);
@@ -82,15 +81,15 @@ export default function ProductDetails() {
   // UI
   // ============================================================================
 
-  if (loading) return <div className="p-6 text-gray-600">â³ Ø¬Ø§Ø± Ø§Ù„ØªØ­Ù…ÙŠÙ„...</div>;
-  if (!product) return <div className="p-6 text-red-600">âŒ Ø§Ù„Ù…Ù†ØªØ¬ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯.</div>;
+  if (loading) return <div className="p-6 text-gray-600">ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾...</div>;
+  if (!product) return <div className="p-6 text-red-600">ÃƒÂ¢Ã‚ÂÃ…â€™ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚ÂºÃƒâ„¢Ã…Â ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯.</div>;
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
 
       {/* TITLE */}
       <h1 className="text-3xl font-extrabold text-[#006C35] mb-6">
-        ðŸ“¦ ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ù…Ù†ØªØ¬
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¦ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
       </h1>
 
       {/* PRODUCT CARD */}
@@ -105,25 +104,25 @@ export default function ProductDetails() {
         <p className="text-gray-600 mt-2">{product.description}</p>
 
         <p className="text-lg font-semibold mt-3">
-          ðŸ’µ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø­Ø§Ù„ÙŠ:{" "}
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Âµ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â :{" "}
           <span className="text-green-700">{product.price} SAR</span>
         </p>
 
         {/* ML SNAPSHOT */}
         {mlOverview && (
           <div className="mt-6 bg-green-50 p-4 rounded-lg border border-green-200">
-            <h3 className="text-xl font-bold mb-3">ðŸ¤– Snapshot (ML v22)</h3>
+            <h3 className="text-xl font-bold mb-3">ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ Snapshot (ML v22)</h3>
 
             <p className="text-lg font-semibold text-green-700">
-              Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­: {mlOverview.suggested_price} SAR
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­: {mlOverview.suggested_price} SAR
             </p>
 
             <p className="text-gray-700 mt-1">
-              Ø§Ù„Ù†Ø·Ø§Ù‚ Ø§Ù„Ù…Ø«Ø§Ù„ÙŠ: {mlOverview.optimal_range}
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â·ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â : {mlOverview.optimal_range}
             </p>
 
             <p className="text-gray-700 mt-3">
-              Ø§Ù„Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠØ©: {mlOverview.strategy}
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â ÃƒËœÃ‚Â¬Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â©: {mlOverview.strategy}
             </p>
 
             <button
@@ -131,14 +130,14 @@ export default function ProductDetails() {
               disabled={applying}
               className="mt-4 px-5 py-2 bg-green-700 hover:bg-green-800 text-white rounded-lg font-semibold"
             >
-              {applying ? "â³ Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚..." : "Apply ML Price ðŸ¤–"}
+              {applying ? "ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡..." : "Apply ML Price ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ"}
             </button>
           </div>
         )}
       </div>
 
       {/* COMPETITOR TABLE */}
-      <h2 className="text-2xl font-bold mb-4">ðŸ“Š Ù…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ù…Ù†Ø§ÙØ³ÙŠÙ†</h2>
+      <h2 className="text-2xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â </h2>
       <CompetitorTable intel={{}} />
 
       {/* CAMPAIGN */}
@@ -146,8 +145,10 @@ export default function ProductDetails() {
         to={`/merchant/campaign-builder/${product.name}`}
         className="mt-8 inline-block px-6 py-3 bg-green-600 text-white rounded-lg shadow font-semibold"
       >
-        ðŸš€ Ø¥Ù†Ø´Ø§Ø¡ Ø­Ù…Ù„Ø© Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬
+        ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ ÃƒËœÃ‚Â¥Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â´ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
       </Link>
     </div>
   );
 }
+
+

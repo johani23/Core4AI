@@ -1,210 +1,163 @@
-// ======================================================================
-// ðŸ’š CampaignSummary.jsx â€” Noor Edition (with Analytics v2 integrated)
-// ======================================================================
+// ============================================================================
+// 💚 Core4.AI – CampaignSummary (Backend + MIT + AI Narrative)
+// ============================================================================
 
 import React, { useEffect, useState } from "react";
 import BackToMerchant from "@/components/common/BackToMerchant";
-import { motion } from "framer-motion";
 
 export default function CampaignSummary() {
-  const [pricing, setPricing] = useState(null);
-  const [influencers, setInfluencers] = useState([]);
+  const [campaign, setCampaign] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const [analytics, setAnalytics] = useState(null);
-  const [loadingAnalytics, setLoadingAnalytics] = useState(true);
+  const campaignId = new URLSearchParams(window.location.search).get("id");
 
+
+  // ============================================================================
+  // LOAD CAMPAIGN FROM BACKEND
+  // ============================================================================
   useEffect(() => {
-    // Load pricing & influencers from localStorage
-    setPricing(JSON.parse(localStorage.getItem("core4ai_pricing") || "{}"));
-    setInfluencers(
-      JSON.parse(localStorage.getItem("core4ai_selected_influencers") || "[]")
-    );
-  }, []);
+    if (!campaignId) return;
 
-  useEffect(() => {
-    if (!pricing) return;
+    async function loadCampaign() {
+      try {
+        const res = await fetch(`/api/merchant/campaigns/${campaignId}`);
+        if (!res.ok) throw new Error("Failed to load campaign");
+        const data = await res.json();
+        setCampaign(data);
+      } catch (err) {
+        console.error("❌ Failed to load campaign:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-    const loadAnalytics = async () => {
-      setLoadingAnalytics(true);
+    loadCampaign();
+  }, [campaignId]);
 
-      const res = await fetch("/api/merchant/analytics-v2/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          price: pricing.best_price || 0,
-          influencers,
-          expected_sales: influencers.reduce(
-            (sum, inf) => sum + (inf.expectedSales || 0),
-            0
-          ),
-          audience: "general",
-          cost: influencers.reduce((sum, inf) => sum + (inf.price || 0), 0),
-        }),
-      });
+  if (!campaignId)
+    return <Msg text="❗ لا يوجد معرف حملة في الرابط." />;
 
-      const json = await res.json();
-      setAnalytics(json);
-      setLoadingAnalytics(false);
-    };
+  if (loading)
+    return <Msg text="⏳ جاري تحميل بيانات الحملة…" />;
 
-    loadAnalytics();
-  }, [pricing, influencers]);
+  if (!campaign)
+    return <Msg text="❗ لم يتم العثور على الحملة." />;
 
-  if (!pricing)
-    return <div className="text-center mt-20 text-gray-400">Ù„Ø§ ØªÙˆØ¬Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª.</div>;
-
-  const totalCost = influencers.reduce((sum, inf) => sum + (inf.price || 0), 0);
-  const expectedSales = influencers.reduce(
-    (sum, inf) => sum + (inf.expectedSales || 0),
-    0
-  );
-  const expectedRevenue = pricing.best_price * expectedSales;
-  const expectedProfit = expectedRevenue - totalCost;
+  // ============================================================================
+  // DERIVED DATA (MIT STORY)
+  // ============================================================================
+  const product = campaign.product || {};
+  const mit = campaign.mit_pricing || {};
 
   return (
-    <div className="max-w-4xl mx-auto mt-12 p-6 page-wrapper">
+    <div className="max-w-5xl mx-auto p-6" dir="rtl">
       <BackToMerchant />
 
-      <h1 className="text-4xl font-extrabold text-green-700 mb-10 text-center">
-        Ù…Ù„Ø®Øµ Ø§Ù„Ø­Ù…Ù„Ø© â€” Core4AI
+      <h1 className="text-3xl font-extrabold mb-8 text-gray-900">
+        ملخص الحملة – Core4.AI
       </h1>
 
-      {/* ============================ */}
-      {/* 1) Pricing Summary */}
-      {/* ============================ */}
-      <motion.div className="core-card mb-8">
-        <h2 className="section-subtitle text-green-700">ðŸ’¸ ØªØ³Ø¹ÙŠØ± Core4AI</h2>
-
-        <p>â€¢ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­: {pricing.best_price} Ø±ÙŠØ§Ù„</p>
-        <p>â€¢ Ø§Ù„Ù†Ø·Ø§Ù‚ Ø§Ù„Ù…Ù‚Ø¨ÙˆÙ„: {pricing.range}</p>
-        <p>â€¢ Ø±Ø¯Ø© ÙØ¹Ù„ Ø§Ù„Ù†Ø§Ø³: {pricing.reaction}</p>
-      </motion.div>
-
-      {/* ============================ */}
-      {/* 2) Influencers */}
-      {/* ============================ */}
-      <motion.div className="core-card mb-8">
-        <h2 className="section-subtitle text-purple-700">ðŸ‘¥ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ù…Ø®ØªØ§Ø±ÙŠÙ†</h2>
-
-        {influencers.length === 0 && (
-          <p className="text-gray-500 text-sm">Ù„Ù… ÙŠØªÙ… Ø§Ø®ØªÙŠØ§Ø± Ù…Ø¤Ø«Ø±ÙŠÙ†.</p>
-        )}
-
-        {influencers.map((inf) => (
-          <div
-            key={inf.id}
-            className="flex justify-between p-3 border-b last:border-none text-sm"
-          >
-            <div>
-              <p className="font-bold text-gray-900">{inf.name}</p>
-              <p className="text-gray-600">
-                Ø§Ù„Ù…ØªÙˆÙ‚Ø¹ ÙŠØ¬Ù„Ø¨: {inf.expectedSales} Ù…Ø¨ÙŠØ¹Ø§Øª
-              </p>
-            </div>
-            <p className="font-bold text-green-700">{inf.price} Ø±ÙŠØ§Ù„</p>
-          </div>
-        ))}
-      </motion.div>
-
-      {/* ============================ */}
-      {/* 3) Sales & Revenue */}
-      {/* ============================ */}
-      <motion.div className="core-card mb-8">
-        <h2 className="section-subtitle text-blue-700">ðŸ“Š Ø£Ø±Ù‚Ø§Ù… Ø§Ù„Ø­Ù…Ù„Ø©</h2>
-
-        <p>â€¢ Ø¥Ø¬Ù…Ø§Ù„ÙŠ ØªÙƒÙ„ÙØ© Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ†: {totalCost} Ø±ÙŠØ§Ù„</p>
-        <p>â€¢ Ø¹Ø¯Ø¯ Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹: {expectedSales} Ø¹Ù…Ù„ÙŠØ©</p>
-        <p>â€¢ Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©: {expectedRevenue} Ø±ÙŠØ§Ù„</p>
-
-        <p className="font-bold text-green-700 mt-2">
-          â€¢ ØµØ§ÙÙŠ Ø§Ù„Ø±Ø¨Ø­ Ø§Ù„Ù…ØªÙˆÙ‚Ø¹: {expectedProfit} Ø±ÙŠØ§Ù„
+      {/* ================= PRODUCT ================= */}
+      <Box>
+        <h2 className="section-title">📦 بيانات المنتج</h2>
+        <p><strong>الاسم:</strong> {product.name}</p>
+        <p className="text-sm text-gray-600 mt-1">
+          الفئة: {product.category}
         </p>
-      </motion.div>
+      </Box>
 
-      {/* ============================ */}
-      {/* 4) Analytics v2 (Core4AI AI Intelligence) */}
-      {/* ============================ */}
-      <motion.div className="core-card mb-12">
-        <h2 className="section-subtitle text-yellow-700">
-          ðŸ§  ØªØ­Ù„ÙŠÙ„Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ â€” Core4AI v2
-        </h2>
+      {/* ================= MIT PRICING ================= */}
+      <Box>
+        <h2 className="section-title">💰 قصة التسعير (MIT)</h2>
 
-        {loadingAnalytics ? (
-          <p className="text-gray-500 text-center py-4 animate-pulse">
-            â³ Ø¬Ø§Ø±ÙŠ ØªØ­Ù„ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø­Ù…Ù„â€¦
-          </p>
-        ) : (
+        <p className="mt-2">
+          السعر الأساسي:
+          <strong> {product.price} ريال</strong>
+        </p>
+
+        <p className="mt-1">
+          أقرب سعر منافس:
+          <strong> {product.competitor_price} ريال</strong>
+        </p>
+
+        {mit.recommended_price && (
           <>
-            {/* Audience Fit */}
-            <div className="mb-6">
-              <h3 className="font-bold text-green-700">ðŸŽ¯ Ø§Ù„Ø¬Ù…Ù‡ÙˆØ± Ø§Ù„Ø£Ù†Ø³Ø¨</h3>
-              <p className="text-gray-800">
-                {analytics.audience_fit.best_segment}
-              </p>
-              <p className="text-sm text-gray-600 mt-1">
-                Ø§Ù„ØªÙˆØ§ÙÙ‚: {Math.round(analytics.audience_fit.score * 100)}%
-              </p>
-            </div>
+            <p className="mt-3 text-blue-700 font-bold text-xl">
+              🚀 السعر الذكي المقترح:
+              <span className="ml-1">{mit.recommended_price} ريال</span>
+            </p>
 
-            {/* ROI */}
-            <div className="mb-6">
-              <h3 className="font-bold text-blue-700">ðŸ’° Ø§Ù„Ø¹Ø§Ø¦Ø¯ Ø¹Ù„Ù‰ Ø§Ù„Ø§Ø³ØªØ«Ù…Ø§Ø±</h3>
-              <p className="text-xl font-bold text-green-700">
-                {Math.round(analytics.roi.roi * 100)}%
-              </p>
-              <p className="text-sm text-gray-600">
-                Ø±Ø¨Ø­ Ù…ØªÙˆÙ‚Ø¹: {analytics.roi.expected_profit} Ø±ÙŠØ§Ù„
-              </p>
-            </div>
+            <p className="text-sm text-gray-600 mt-2">
+              نطاق القرار السعري: {mit.market_floor} – {mit.market_ceiling}
+            </p>
 
-            {/* Success */}
-            <div className="mb-6">
-              <h3 className="font-bold text-purple-700">â­ Ø§Ø­ØªÙ…Ø§Ù„ÙŠØ© Ø§Ù„Ù†Ø¬Ø§Ø­</h3>
-              <p className="text-lg font-bold text-purple-800">
-                {analytics.success.outcome}
-              </p>
-              <p className="text-sm text-gray-600">
-                Ø§Ù„Ù†ØªÙŠØ¬Ø©: {analytics.success.score}/10
-              </p>
-            </div>
-
-            {/* Funnel */}
-            <div className="mb-6">
-              <h3 className="font-bold text-pink-700">ðŸ“ˆ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª</h3>
-              <p className="text-lg font-bold text-gray-800">
-                {analytics.funnel_projection.estimated_sales} Ù…Ø¨ÙŠØ¹Ø§Øª
-              </p>
-              <p className="text-sm text-gray-600">
-                Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù…ØªÙˆÙ‚Ø¹:{" "}
-                {Math.round(
-                  analytics.funnel_projection.conversion_rate * 100
-                )}%
-              </p>
-            </div>
-
-            {/* Quality */}
-            <div>
-              <h3 className="font-bold text-yellow-700">ðŸ‘¥ Ø¬ÙˆØ¯Ø© Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ†</h3>
-              <p className="text-lg font-bold text-gray-900">
-                {analytics.influencer_quality.rating}
-              </p>
-              <p className="text-sm text-gray-600">
-                {analytics.influencer_quality.comment}
-              </p>
-            </div>
+            <p className="text-green-700 font-semibold mt-2">
+              رفع التحويل المتوقع: {mit.conversion_lift}
+            </p>
           </>
         )}
-      </motion.div>
 
-      {/* ============================ */}
-      {/* Launch Button */}
-      {/* ============================ */}
-      <button
-        className="btn-green w-full py-4 text-xl"
-        onClick={() => alert("ðŸš€ ØªÙ… Ø¥Ø·Ù„Ø§Ù‚ Ø­Ù…Ù„ØªÙƒ Ø¨Ù†Ø¬Ø§Ø­!")}
-      >
-        ðŸš€ Ø£Ø·Ù„Ù‚ Ø§Ù„Ø­Ù…Ù„Ø© Ø§Ù„Ø¢Ù†
-      </button>
+        <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+          يعتمد هذا السعر على مقارنة مباشرة مع أسعار المنافسين، وتحليل حساسية
+          الطلب، وتوقعات التحويل عبر المؤثرين والقبائل.
+        </p>
+      </Box>
+
+      {/* ================= CLUSTERS ================= */}
+      <Box>
+        <h2 className="section-title">🎯 استراتيجية الشرائح (Clusters)</h2>
+
+        {(campaign.strategy?.sequence || []).map((label, i) => (
+          <div key={i} className="mt-4 border p-4 rounded-xl bg-gray-50">
+            <h3 className="font-bold text-lg">{label}</h3>
+            {i === 0 && (
+              <p className="mt-2 text-blue-700 font-bold">
+                ⭐ الشريحة الأساسية لإطلاق الحملة
+              </p>
+            )}
+          </div>
+        ))}
+
+        <p className="text-gray-600 text-sm mt-4">
+          يتم ترتيب الشرائح تلقائيًا حسب العائد المتوقع لضمان أفضل نقطة دخول
+          للسوق.
+        </p>
+      </Box>
+
+      {/* ================= INFLUENCER ================= */}
+      <Box>
+        <h2 className="section-title">👑 المؤثر المستخدم</h2>
+
+        <p className="font-bold text-lg mt-2">
+          {campaign.influencer}
+        </p>
+
+        <p className="text-gray-700 text-sm">
+          النجاح المتوقع: {campaign.ai_success_score}%
+        </p>
+      </Box>
+
+      {/* ================= FINAL NOTE ================= */}
+      <div className="text-center mt-10">
+        <p className="text-xl font-bold text-green-700">
+          🚀 الحملة جاهزة للإطلاق بناءً على أعلى شريحة ربحية.
+        </p>
+      </div>
     </div>
   );
 }
+
+// ============================================================================
+// UI Helpers
+// ============================================================================
+const Box = ({ children }) => (
+  <div className="bg-white border rounded-xl shadow-sm p-6 mb-6">
+    {children}
+  </div>
+);
+
+const Msg = ({ text }) => (
+  <div className="text-center mt-20 text-gray-600 text-lg">
+    {text}
+  </div>
+);

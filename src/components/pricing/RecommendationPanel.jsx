@@ -24,7 +24,7 @@ export default function CommissionSharingPanel({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading commission data...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading commission data...
       </div>
     );
 
@@ -61,7 +61,7 @@ export default function CommissionSharingPanel({ productId }) {
                 <span className="text-blue-300 font-semibold">
                   {tier.level}:
                 </span>{" "}
-                {tier.rate}% â€” {tier.description}
+                {tier.rate}% ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â {tier.description}
               </p>
             ))}
         </div>
@@ -114,3 +114,4 @@ export default function CommissionSharingPanel({ productId }) {
     </div>
   );
 }
+

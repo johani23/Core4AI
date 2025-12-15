@@ -17,7 +17,7 @@ export default function PricingPanel({ product, onDiscount }) {
       });
       setEvc(evcRes.data);
 
-      // ELASTICITY â€” placeholder random until data accumulates
+      // ELASTICITY ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â placeholder random until data accumulates
       const elasticityRes = await calcElasticity({
         prices: [product.price - 10, product.price, product.price + 10],
         quantities: [120, 100, 80]
@@ -65,3 +65,4 @@ export default function PricingPanel({ product, onDiscount }) {
     </div>
   );
 }
+

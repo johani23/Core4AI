@@ -48,21 +48,21 @@ export default function CompetitorSelector() {
   };
 
   if (!product)
-    return <p className="p-4 text-center">âš ï¸ Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬ Ù…Ø­Ø¯Ø¯</p>;
+    return <p className="p-4 text-center">ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¯</p>;
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow">
       <h2 className="text-xl font-bold text-green-700 mb-4 text-center">
-        ðŸ” Ø§Ø®ØªØ± Ø§Ù„Ù…Ù†Ø§ÙØ³ Ø§Ù„Ø£Ù‚Ø±Ø¨
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¨
       </h2>
 
       {loading && (
-        <p className="text-gray-500 text-center">â³ Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„...</p>
+        <p className="text-gray-500 text-center">ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾...</p>
       )}
 
       {!loading && competitors.length === 0 && (
         <p className="text-gray-600 text-center">
-          Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†Ø§ÙØ³ÙŠÙ† Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬.
+          Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬.
         </p>
       )}
 
@@ -73,9 +73,10 @@ export default function CompetitorSelector() {
           className="p-4 border rounded-lg mb-4 cursor-pointer hover:shadow bg-gray-50"
         >
           <h3 className="font-bold">{c.name}</h3>
-          <p className="text-gray-600">{c.price} Ø±.Ø³</p>
+          <p className="text-gray-600">{c.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
         </div>
       ))}
     </div>
   );
 }
+

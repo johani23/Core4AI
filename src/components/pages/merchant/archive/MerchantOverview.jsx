@@ -1,12 +1,11 @@
 // ===================================================================
-// ðŸ’š Core4.AI â€“ MerchantOverview.jsx (Saudi Intelligence Dashboard)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantOverview.jsx (Saudi Intelligence Dashboard)
 // -------------------------------------------------------------------
-// â€¢ Real-time merchant performance snapshot
-// â€¢ Pulls from /api/merchant/intel
-// â€¢ Shows: score, risk, campaigns, tribe match, forecast, best products
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Real-time merchant performance snapshot
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Pulls from /api/merchant/intel
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Shows: score, risk, campaigns, tribe match, forecast, best products
 // ===================================================================
 
-import React, { useEffect, useState } from "react";
 import {
   FiTrendingUp,
   FiTarget,
@@ -36,7 +35,7 @@ export default function MerchantOverview() {
   if (loading) {
     return (
       <div className="text-center text-gray-300 p-12">
-        Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ù„ÙˆØ­Ø© Ø§Ù„Ø£Ø¯Ø§Ø¡â€¦
+        ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â­ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
   }
@@ -46,8 +45,8 @@ export default function MerchantOverview() {
 
       {/* ========================= Header ========================= */}
       <div>
-        <h2 className="text-2xl font-bold text-[#4cff9b] mb-1">Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©</h2>
-        <p className="text-gray-300">Ø§Ù„Ù…Ù„Ø®Øµ Ø§Ù„Ø°ÙƒÙŠ Ù„Ø£Ø¯Ø§Ø¡ Ù…ØªØ¬Ø±Ùƒ</p>
+        <h2 className="text-2xl font-bold text-[#4cff9b] mb-1">Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â©</h2>
+        <p className="text-gray-300">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Âµ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™</p>
       </div>
 
       {/* ========================= GRID ========================= */}
@@ -56,42 +55,42 @@ export default function MerchantOverview() {
         {/* Merchant Power Score */}
         <div className="bg-[#01341c] border border-[#1b5e3a] p-6 rounded-xl shadow-lg">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold text-white">Ù‚ÙˆØ© Ø§Ù„Ù…ØªØ¬Ø±</h3>
+            <h3 className="text-lg font-bold text-white">Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±</h3>
             <FiStar className="text-yellow-300 text-2xl" />
           </div>
           <p className="text-5xl font-extrabold text-[#4cff9b] mt-2">
             {intel.merchant_score}
           </p>
           <p className="text-gray-400 text-sm mt-2">
-            ØªÙ‚ÙŠÙŠÙ… Ø´Ø§Ù…Ù„ Ù„Ø£Ø¯Ø§Ø¡Ùƒ Ù…Ù‚Ø§Ø±Ù†Ø© Ø¨Ø§Ù„ØªØ¬Ø§Ø± Ø§Ù„Ø¢Ø®Ø±ÙŠÙ†.
+            ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â´ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡Ãƒâ„¢Ã†â€™ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢ÃƒËœÃ‚Â®ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â .
           </p>
         </div>
 
         {/* Risk Score */}
         <div className="bg-[#2b1200] border border-[#ff2e2e] p-6 rounded-xl shadow-lg">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold text-white">Ù…Ø¤Ø´Ø± Ø§Ù„Ø®Ø·Ø±</h3>
+            <h3 className="text-lg font-bold text-white">Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â´ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Â·ÃƒËœÃ‚Â±</h3>
             <FiAlertTriangle className="text-red-400 text-2xl" />
           </div>
           <p className="text-5xl font-extrabold text-red-400 mt-2">
             {intel.risk_score}
           </p>
           <p className="text-gray-400 text-sm mt-2">
-            ÙŠÙ‚ÙŠØ³ Ù…Ø®Ø§Ø·Ø± Ø¶Ø¹Ù Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø£Ùˆ Ø³ÙˆØ¡ Ø§Ù„ØªØ³Ø¹ÙŠØ±.
+            Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â³ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â®ÃƒËœÃ‚Â§ÃƒËœÃ‚Â·ÃƒËœÃ‚Â± ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‚Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â£Ãƒâ„¢Ã‹â€  ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±.
           </p>
         </div>
 
         {/* Best Tribe */}
         <div className="bg-[#01261a] border border-[#1b6647] p-6 rounded-xl shadow-lg">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold text-white">Ø£ÙØ¶Ù„ Ù‚Ø¨ÙŠÙ„Ø©</h3>
+            <h3 className="text-lg font-bold text-white">ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©</h3>
             <FiTarget className="text-[#4cff9b] text-2xl" />
           </div>
           <p className="text-4xl font-extrabold text-[#4cff9b] mt-3">
             {intel.best_tribe}
           </p>
           <p className="text-gray-400 text-sm mt-2">
-            Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø© Ø§Ù„Ø£ÙƒØ«Ø± ØªÙˆØ§ÙÙ‚Ù‹Ø§ Ù…Ø¹ Ù…Ù†ØªØ¬Ø§ØªÙƒ Ø­Ø§Ù„ÙŠÙ‹Ø§.
+            ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â«ÃƒËœÃ‚Â± ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¹ÃƒËœÃ‚Â§ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒâ„¢Ã†â€™ ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¹ÃƒËœÃ‚Â§.
           </p>
         </div>
 
@@ -100,19 +99,19 @@ export default function MerchantOverview() {
       {/* ========================= Forecast ========================= */}
       <div className="bg-[#01341c] border border-[#1b6642] p-6 rounded-xl shadow-lg">
         <h3 className="text-xl font-bold text-white flex items-center gap-2">
-          <FiBarChart2 className="text-[#4cff9b]" /> Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª
+          <FiBarChart2 className="text-[#4cff9b]" /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div>
-            <p className="text-gray-300 text-sm">Ù†Ø³Ø¨Ø© Ø§Ù„Ù†Ø¬Ø§Ø­ Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©</p>
+            <p className="text-gray-300 text-sm">Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©</p>
             <p className="text-4xl font-extrabold text-[#4cff9b]">
               {intel.forecast.success}%
             </p>
           </div>
 
           <div>
-            <p className="text-gray-300 text-sm">Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø© Ù‡Ø°Ø§ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹</p>
+            <p className="text-gray-300 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¹</p>
             <p className="text-4xl font-extrabold text-green-300">
               SAR {intel.forecast.rev}
             </p>
@@ -123,7 +122,7 @@ export default function MerchantOverview() {
       {/* ========================= Suggested Campaigns ========================= */}
       <div className="bg-[#01341c] border border-[#1b6642] p-6 rounded-xl shadow-lg">
         <h3 className="text-xl font-bold text-white flex items-center gap-2">
-          <FiTrendingUp className="text-[#4cff9b]" /> Ø§Ù„Ø­Ù…Ù„Ø§Øª Ø§Ù„Ù…Ù‚ØªØ±Ø­Ø©
+          <FiTrendingUp className="text-[#4cff9b]" /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ÃƒËœÃ‚Â©
         </h3>
 
         <div className="mt-4 space-y-4">
@@ -142,3 +141,5 @@ export default function MerchantOverview() {
     </div>
   );
 }
+
+

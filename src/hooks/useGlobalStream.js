@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – useGlobalStream Hook (MVP-38.5)
+// Ã°Å¸â€™Å½ Core4.AI Ã¢â‚¬â€œ useGlobalStream Hook (MVP-38.5)
 // ------------------------------------------------------------
 // Connects to ws://127.0.0.1:8000/ws/global
 // Streams live data for market trend, tribe mood & wisdom index
@@ -19,9 +19,9 @@ export default function useGlobalStream() {
   useEffect(() => {
     const ws = new WebSocket("ws://127.0.0.1:8000/ws/global");
 
-    ws.onopen = () => console.log("🟢 Global stream connected");
-    ws.onclose = () => console.log("🔴 Global stream closed");
-    ws.onerror = (err) => console.error("⚠️ Global stream error", err);
+    ws.onopen = () => console.log("Ã°Å¸Å¸Â¢ Global stream connected");
+    ws.onclose = () => console.log("Ã°Å¸â€Â´ Global stream closed");
+    ws.onerror = (err) => console.error("Ã¢Å¡Â Ã¯Â¸Â Global stream error", err);
 
     ws.onmessage = (event) => {
       try {
@@ -51,3 +51,4 @@ export default function useGlobalStream() {
 
   return data;
 }
+

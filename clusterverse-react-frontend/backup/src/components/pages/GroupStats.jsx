@@ -7,7 +7,7 @@ import {
 import { getMomentumColor } from "@data/dataSync";
 
 /**
- * Core4.AI – MVP 14 Hybrid GroupStats
+ * Core4.AI â€“ MVP 14 Hybrid GroupStats
  * Combines backend-powered analytics with MVP10 visual design.
  */
 
@@ -25,7 +25,7 @@ export default function GroupStats() {
         const data = await getGroups();
         setGroups(data || []);
       } catch (err) {
-        console.error("❌ Failed to load groups:", err);
+        console.error("âŒ Failed to load groups:", err);
       }
     }
     fetchGroups();
@@ -43,16 +43,16 @@ export default function GroupStats() {
       setMetrics(metricData.history || []);
       setCohesion(analysis);
     } catch (err) {
-      console.error("❌ Error fetching analysis:", err);
+      console.error("âŒ Error fetching analysis:", err);
     }
     setLoading(false);
   };
 
   return (
     <div className="p-6 bg-black min-h-screen text-white">
-      <h1 className="text-2xl font-bold mb-6">📊 Group Performance Insights</h1>
+      <h1 className="text-2xl font-bold mb-6">ðŸ“Š Group Performance Insights</h1>
 
-      {/* 🔹 Group Cards */}
+      {/* ðŸ”¹ Group Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {groups.map((g) => (
           <div
@@ -68,9 +68,9 @@ export default function GroupStats() {
             <p className="text-sm text-gray-400">
               Engagement:{" "}
               <span className="text-yellow-400 font-semibold">
-                {g.engagement || "–"}%
+                {g.engagement || "â€“"}%
               </span>{" "}
-              • Trend:{" "}
+              â€¢ Trend:{" "}
               <span
                 style={{ color: getMomentumColor(g.trend) }}
                 className="font-medium"
@@ -85,7 +85,7 @@ export default function GroupStats() {
         ))}
       </div>
 
-      {/* 🔹 Selected Group Details */}
+      {/* ðŸ”¹ Selected Group Details */}
       {selected && (
         <div
           className="mt-10 bg-gray-900 p-6 rounded-2xl border shadow-xl"
@@ -99,7 +99,7 @@ export default function GroupStats() {
             <span className="text-yellow-400 font-semibold">
               {selected.engagement}%
             </span>{" "}
-            • Trend:{" "}
+            â€¢ Trend:{" "}
             <span
               style={{ color: getMomentumColor(selected.trend) }}
               className="font-medium"
@@ -137,13 +137,13 @@ export default function GroupStats() {
 
               {cohesion.drift_reason && (
                 <p className="mt-3 text-sm text-red-400 italic">
-                  ⚠️ Drift detected: {cohesion.drift_reason}
+                  âš ï¸ Drift detected: {cohesion.drift_reason}
                 </p>
               )}
             </>
           )}
 
-          {/* 🔹 Metrics History */}
+          {/* ðŸ”¹ Metrics History */}
           {metrics.length > 0 && (
             <div className="mt-6 bg-gray-800 p-4 rounded-xl border border-gray-700">
               <h3 className="text-md font-semibold text-yellow-400 mb-2">
@@ -151,7 +151,7 @@ export default function GroupStats() {
               </h3>
               {metrics.map((m, i) => (
                 <p key={i} className="text-gray-300 text-sm">
-                  {new Date(m.timestamp || m.created_at).toLocaleString()} —{" "}
+                  {new Date(m.timestamp || m.created_at).toLocaleString()} â€”{" "}
                   <span className="text-yellow-400">
                     {m.cohesion_score || m.cohesion}%
                   </span>

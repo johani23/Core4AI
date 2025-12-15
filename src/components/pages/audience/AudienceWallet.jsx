@@ -1,12 +1,12 @@
 // ============================================================================
-// ðŸ’³ Core4.AI â€“ AudienceWallet.jsx (Saudi-Tech A3 Edition)
-// ----------------------------------------------------------------------------
-// - Full redesign with CorePanel + CoreHeader + A3 identity
-// - Keeps all existing logic (tokens, xp, products, rewards)
-// - Premium dark Saudi theme with green glow & gold accents
+// 💚 Core4.AI – AudienceWallet.jsx (Arabic Clean Edition)
+// ============================================================================
+// - واجهة محفظة الجمهور بالكامل باللغة العربية
+// - يحافظ على نفس الـ UI والـ Layout
+// - بدون أي تغيير في المنطق الداخلي (XP / Tokens / Rewards / Products)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useCoreSync } from "@/context/CoreSyncContext";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
@@ -37,27 +37,29 @@ export default function AudienceWallet() {
   }, [wsData]);
 
   return (
-    <div className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10">
-
+    <div
+      className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10"
+      style={{ direction: "rtl" }}
+    >
       {/* HEADER */}
       <CoreHeader
-        title="My Rewards Wallet"
-        subtitle="Track your XP, tokens, cashback and product ownership."
-        icon="ðŸ’°"
+        title="محفظة المكافآت"
+        subtitle="تابع نقاط XP، التوكنز، المكافآت، والمنتجات اللي تمتلكها."
+        icon="💰"
       />
 
       {/* MAIN KPIs */}
       <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
 
         <CorePanel className="text-center">
-          <p className="text-gray-400 text-sm">Total Tokens</p>
+          <p className="text-gray-400 text-sm">إجمالي التوكنز</p>
           <p className="text-5xl font-extrabold text-[#CBA65C]">
             {tokens}
           </p>
         </CorePanel>
 
         <CorePanel className="text-center">
-          <p className="text-gray-400 text-sm">Total XP</p>
+          <p className="text-gray-400 text-sm">إجمالي نقاط XP</p>
           <p className="text-5xl font-extrabold text-[#4FBF77]">
             {xp}
           </p>
@@ -67,11 +69,11 @@ export default function AudienceWallet() {
 
       {/* OWNED PRODUCTS */}
       <div className="max-w-4xl">
-        <h2 className="text-xl font-bold text-[#CBA65C] mb-3">ðŸ› Products You Own</h2>
+        <h2 className="text-xl font-bold text-[#CBA65C] mb-3">المنتجات اللي تمتلكها</h2>
 
         <CorePanel className="space-y-3">
           {products.length === 0 ? (
-            <p className="text-gray-500">No products added yet.</p>
+            <p className="text-gray-500">ما تمتلك أي منتجات حتى الآن.</p>
           ) : (
             products.map((p, i) => (
               <div key={i} className="bg-[#11161A] p-3 rounded-xl text-gray-300">
@@ -84,17 +86,17 @@ export default function AudienceWallet() {
 
       {/* REWARD HISTORY */}
       <div className="max-w-4xl">
-        <h2 className="text-xl font-bold text-[#CBA65C] mb-3">ðŸ… Reward History</h2>
+        <h2 className="text-xl font-bold text-[#CBA65C] mb-3">سجل المكافآت</h2>
 
         <CorePanel className="space-y-3 max-h-96 overflow-y-auto">
 
           {rewards.length === 0 ? (
-            <p className="text-gray-500">No rewards yet.</p>
+            <p className="text-gray-500">ما فيه مكافآت حتى الآن.</p>
           ) : (
             rewards.map((r, i) => (
               <div key={i} className="bg-[#11161A] p-4 rounded-xl text-gray-300">
-                <p><strong>Reason:</strong> {r.reason}</p>
-                <p><strong>Tokens:</strong> {r.tokens_gain}</p>
+                <p><strong>السبب:</strong> {r.reason}</p>
+                <p><strong>التوكنز:</strong> {r.tokens_gain}</p>
                 <p><strong>XP:</strong> {r.xp_gain}</p>
               </div>
             ))

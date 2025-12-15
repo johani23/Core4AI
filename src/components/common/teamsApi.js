@@ -1,7 +1,7 @@
 const API_BASE = "http://localhost:8000"; // adjust if backend on another domain/port
 
 // ==============================
-// 🟢 Teams
+// Ã°Å¸Å¸Â¢ Teams
 // ==============================
 export async function createTeams(population, numTeams = 2) {
   try {
@@ -34,7 +34,7 @@ export async function voteForIdea(teamId, ideaId) {
 }
 
 // ==============================
-// 🟢 Segments
+// Ã°Å¸Å¸Â¢ Segments
 // ==============================
 export async function getSegments() {
   try {
@@ -63,7 +63,7 @@ export async function voteForSegment(contentId) {
 }
 
 // ==============================
-// 🟢 Challenges (MVP3.3)
+// Ã°Å¸Å¸Â¢ Challenges (MVP3.3)
 // ==============================
 export async function getChallenges() {
   try {
@@ -92,7 +92,7 @@ export async function claimChallenge(username, challengeId) {
 }
 
 // ==============================
-// 🟢 Daily Pulse (MVP3.3)
+// Ã°Å¸Å¸Â¢ Daily Pulse (MVP3.3)
 // ==============================
 export async function submitPulse(username, text) {
   try {
@@ -110,7 +110,7 @@ export async function submitPulse(username, text) {
 }
 
 // ==============================
-// 🟢 Leaderboard + Users
+// Ã°Å¸Å¸Â¢ Leaderboard + Users
 // ==============================
 export async function getLeaderboard() {
   try {
@@ -146,3 +146,4 @@ export async function updateStreak(username) {
     return null;
   }
 }
+

@@ -1,14 +1,13 @@
 // ============================================================================
-// 💚 Core4 حياتك – HayatikFlow.jsx (v1 Minimal Daily Timeline)
+// Ã°Å¸â€™Å¡ Core4 Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Æ’ Ã¢â‚¬â€œ HayatikFlow.jsx (v1 Minimal Daily Timeline)
 // ============================================================================
 
-import React from "react";
 
 export default function HayatikFlow({ flow }) {
   if (!flow) {
     return (
       <div className="text-gray-400 text-center py-6">
-        ...يتم التحميل
+        ...Ã™Å Ã˜ÂªÃ™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã™â€¦Ã™Å Ã™â€ž
       </div>
     );
   }
@@ -18,7 +17,7 @@ export default function HayatikFlow({ flow }) {
 
       {/* Title */}
       <h2 className="text-xl font-medium mb-4 text-[#2A2F32]">
-        يومك باختصار
+        Ã™Å Ã™Ë†Ã™â€¦Ã™Æ’ Ã˜Â¨Ã˜Â§Ã˜Â®Ã˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â±
       </h2>
 
       {/* Timeline Wrapper */}
@@ -56,3 +55,5 @@ export default function HayatikFlow({ flow }) {
     </div>
   );
 }
+
+

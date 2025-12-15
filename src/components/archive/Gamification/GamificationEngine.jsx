@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ GamificationEngine.jsx (v2.4 â€œSafe Context + Rank Feedbackâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ GamificationEngine.jsx (v2.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSafe Context + Rank FeedbackÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Prevents undefined stats/council crash
-// âœ… Adds fallback values for all dynamic props
-// âœ… Keeps XP persistence, level-up animation, tier icons
-// âœ… Adds live rank color feedback + gentle pulse on milestones
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Prevents undefined stats/council crash
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds fallback values for all dynamic props
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Keeps XP persistence, level-up animation, tier icons
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds live rank color feedback + gentle pulse on milestones
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import { useCoreSync } from "@context/CoreSyncContext";
@@ -15,7 +14,7 @@ import { useCoreSync } from "@context/CoreSyncContext";
 export default function GamificationEngine() {
   const { campaigns = [], council = {}, stats = {} } = useCoreSync();
 
-  // ðŸ§  Safe fallbacks
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Safe fallbacks
   const totalInfluence = stats?.totalInfluence ?? 0;
   const dindex = council?.dindex ?? 50;
 
@@ -23,12 +22,12 @@ export default function GamificationEngine() {
   const [level, setLevel] = useState(() => Number(localStorage.getItem("level")) || 1);
   const [nextLevelXP, setNextLevelXP] = useState(500);
   const [badge, setBadge] = useState(null);
-  const [icon, setIcon] = useState("ðŸ¥‰");
+  const [icon, setIcon] = useState("ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â°");
 
   const lastCampaignId = useRef(null);
   const lastDindexMilestone = useRef(0);
 
-  // ðŸ§® Level progression
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Level progression
   const calculateLevel = (xpValue) => {
     const lvl = Math.floor(Math.pow(xpValue / 500, 0.8)) + 1;
     const next = Math.floor(Math.pow(lvl, 1.25) * 500);
@@ -36,14 +35,14 @@ export default function GamificationEngine() {
   };
 
   const getTierIcon = (lvl) => {
-    if (lvl >= 15) return "ðŸ’Ž";
-    if (lvl >= 10) return "ðŸ’ ";
-    if (lvl >= 7) return "ðŸ¥‡";
-    if (lvl >= 4) return "ðŸ¥ˆ";
-    return "ðŸ¥‰";
+    if (lvl >= 15) return "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½";
+    if (lvl >= 10) return "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â ";
+    if (lvl >= 7) return "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â¡";
+    if (lvl >= 4) return "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã‹â€ ";
+    return "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â°";
   };
 
-  // âš¡ Grant XP dynamically
+  // ÃƒÂ¢Ã…Â¡Ã‚Â¡ Grant XP dynamically
   const grantXP = (amount, reason = "Activity") => {
     setXp((prev) => {
       const newXP = prev + amount;
@@ -51,9 +50,9 @@ export default function GamificationEngine() {
 
       if (lvl > level) {
         setLevel(lvl);
-        setBadge(`ðŸŽ‰ Level ${lvl} Unlocked!`);
+        setBadge(`ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° Level ${lvl} Unlocked!`);
         setIcon(getTierIcon(lvl));
-        toast.success(`âœ¨ Level Up! You reached Level ${lvl}`, { duration: 4000 });
+        toast.success(`ÃƒÂ¢Ã…â€œÃ‚Â¨ Level Up! You reached Level ${lvl}`, { duration: 4000 });
       }
 
       setNextLevelXP(next);
@@ -65,7 +64,7 @@ export default function GamificationEngine() {
     console.log(`+${amount} XP for ${reason}`);
   };
 
-  // ðŸš€ Reward XP when new campaign launches
+  // ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Reward XP when new campaign launches
   useEffect(() => {
     if (campaigns.length > 0) {
       const latest = campaigns[0];
@@ -77,14 +76,14 @@ export default function GamificationEngine() {
     }
   }, [campaigns]);
 
-  // ðŸ’¥ Influence Milestone
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¥ Influence Milestone
   useEffect(() => {
     if (totalInfluence > 0 && totalInfluence % 200 === 0) {
       grantXP(200, "Influence Milestone");
     }
   }, [totalInfluence]);
 
-  // ðŸ§  D-Index adaptive synergy (every +10 above 70)
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  D-Index adaptive synergy (every +10 above 70)
   useEffect(() => {
     const currentMilestone = Math.floor((dindex - 70) / 10);
     if (currentMilestone > lastDindexMilestone.current) {
@@ -93,10 +92,10 @@ export default function GamificationEngine() {
     }
   }, [dindex]);
 
-  // ðŸŒˆ XP progress bar
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‹â€  XP progress bar
   const progress = Math.min((xp / nextLevelXP) * 100, 100);
 
-  // ðŸŒŸ Rank color feedback
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã…Â¸ Rank color feedback
   const rankColor =
     level >= 15
       ? "text-cyan-400"
@@ -115,7 +114,7 @@ export default function GamificationEngine() {
           {icon} Creator XP Progress
         </h3>
         <span className="text-xs text-gray-500">
-          Level {level} â€¢ {xp}/{nextLevelXP} XP
+          Level {level} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {xp}/{nextLevelXP} XP
         </span>
       </div>
 
@@ -149,9 +148,11 @@ export default function GamificationEngine() {
       )}
 
       <div className="mt-4 text-xs text-gray-500">
-        Network Influence: <span className="text-purple-400">{totalInfluence}</span> â€¢ D-Index:{" "}
+        Network Influence: <span className="text-purple-400">{totalInfluence}</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ D-Index:{" "}
         <span className="text-pink-400">{dindex}</span>
       </div>
     </div>
   );
 }
+
+

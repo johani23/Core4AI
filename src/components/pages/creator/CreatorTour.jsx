@@ -1,9 +1,8 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CreatorTour.jsx  
-// v2.3 â€œBeta Creator Journey â€“ Clean, Clear, High-Conversionâ€
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreatorTour.jsx  
+// v2.3 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBeta Creator Journey ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Clean, Clear, High-ConversionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -12,22 +11,22 @@ export default function CreatorTour() {
 
   const steps = [
     {
-      icon: "ðŸ§ª",
+      icon: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Âª",
       title: "10-Post Calibration",
       text: "Your first 10 posts train the AI to understand your unique cognitive signature.",
     },
     {
-      icon: "ðŸ§¬",
+      icon: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â¬",
       title: "Join Your Mastery Tribe",
       text: "Creators are matched with tribes based on content strength, clarity, and domain value.",
     },
     {
-      icon: "ðŸ“ˆ",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€ ",
       title: "Boost Your Influence",
       text: "Your posts generate D-Index scores that power your visibility and credibility.",
     },
     {
-      icon: "ðŸ’°",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â°",
       title: "Earn High-Value Tokens",
       text: "Creators with high mastery earn premium tokens used by merchants for paid collabs.",
     },
@@ -72,3 +71,5 @@ export default function CreatorTour() {
     </div>
   );
 }
+
+

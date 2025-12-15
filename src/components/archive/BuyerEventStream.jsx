@@ -5,14 +5,14 @@ export default function BuyerEventStream({ events }) {
   if (!events || events.length === 0)
     return (
       <div className="p-4 rounded-xl bg-[#1a1630] text-gray-400 text-sm">
-        No recent buyer activityâ€¦
+        No recent buyer activityÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
   return (
     <div className="p-6 rounded-2xl bg-[#161226] border border-purple-400/30 shadow-lg">
       <h2 className="text-purple-300 text-xl font-bold mb-3">
-        âš¡ Buyer Event Stream
+        ÃƒÂ¢Ã…Â¡Ã‚Â¡ Buyer Event Stream
       </h2>
 
       <div className="space-y-2 max-h-64 overflow-auto pr-2">
@@ -34,3 +34,4 @@ export default function BuyerEventStream({ events }) {
     </div>
   );
 }
+

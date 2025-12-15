@@ -1,5 +1,4 @@
 // src/context/ProfileContext.js
-import React, { createContext, useState, useContext, useEffect } from "react";
 import { getUserXP, getUserBadges } from "../services/api";
 
 const ProfileContext = createContext();
@@ -13,7 +12,7 @@ export const ProfileProvider = ({ children }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const xpData = await getUserXP(1); // userId=1 (Ù…Ø¤Ù‚Øª)
+      const xpData = await getUserXP(1); // userId=1 (Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Âª)
       setXp(xpData.xp);
       setLevel(xpData.level);
 
@@ -26,7 +25,7 @@ export const ProfileProvider = ({ children }) => {
   const addXP = (amount) => {
     setXp((prev) => {
       const newXP = prev + amount;
-      setLevel(Math.floor(newXP / 100) + 1); // ÙƒÙ„ 100 Ù†Ù‚Ø·Ø© â†’ Level Up
+      setLevel(Math.floor(newXP / 100) + 1); // Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ 100 Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â·ÃƒËœÃ‚Â© ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Level Up
       return newXP;
     });
   };
@@ -37,3 +36,5 @@ export const ProfileProvider = ({ children }) => {
     </ProfileContext.Provider>
   );
 };
+
+

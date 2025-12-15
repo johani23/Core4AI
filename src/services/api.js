@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – Unified API Layer (v31 FINAL)
+// Ã°Å¸â€™Å½ Core4.AI Ã¢â‚¬â€œ Unified API Layer (v31 FINAL)
 // Supports all Creator + Tribe + Cohesion + Dashboard modules
 // ============================================================
 
@@ -7,7 +7,7 @@ const API_BASE = "http://127.0.0.1:8000";
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
 /* ------------------------------------------------------------
- * ⚙️ Helpers
+ * Ã¢Å¡â„¢Ã¯Â¸Â Helpers
  * ------------------------------------------------------------ */
 async function handleResponse(res) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -19,13 +19,13 @@ async function safeFetch(url, fallback, options = {}) {
     const res = await fetch(url, options);
     return await handleResponse(res);
   } catch (err) {
-    console.warn(`⚠️ API fallback for ${url}:`, err.message);
+    console.warn(`Ã¢Å¡Â Ã¯Â¸Â API fallback for ${url}:`, err.message);
     return fallback;
   }
 }
 
 /* ------------------------------------------------------------
- * 👤 USER PROFILE + SEGMENT
+ * Ã°Å¸â€˜Â¤ USER PROFILE + SEGMENT
  * ------------------------------------------------------------ */
 export async function getUserProfile(userId = 1) {
   const fallback = {
@@ -71,7 +71,7 @@ export async function assignUserTribe(userId = 1, segmentName = "Default Segment
 }
 
 /* ------------------------------------------------------------
- * 💰 WALLET
+ * Ã°Å¸â€™Â° WALLET
  * ------------------------------------------------------------ */
 export async function getWallet(userId = 1) {
   const fallback = { balance: 30, symbol: "C4T", dopamine: 50 };
@@ -84,12 +84,12 @@ export async function getUserTokens(userId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 📰 FEED POSTS
+ * Ã°Å¸â€œÂ° FEED POSTS
  * ------------------------------------------------------------ */
 export async function getPosts() {
   const fallback = [
-    { id: 1, title: "🔥 First Post!", content: "Testing dopamine sync...", votes: 5 },
-    { id: 2, title: "🚀 Market Rising", content: "Vibes are up!", votes: 8 },
+    { id: 1, title: "Ã°Å¸â€Â¥ First Post!", content: "Testing dopamine sync...", votes: 5 },
+    { id: 2, title: "Ã°Å¸Å¡â‚¬ Market Rising", content: "Vibes are up!", votes: 8 },
   ];
   return safeFetch(`${API_BASE}/posts`, fallback);
 }
@@ -103,7 +103,7 @@ export async function addPost(title, content) {
 }
 
 /* ------------------------------------------------------------
- * 👥 GROUPS + TRIBES
+ * Ã°Å¸â€˜Â¥ GROUPS + TRIBES
  * ------------------------------------------------------------ */
 export async function getGroups() {
   const fallback = [
@@ -116,7 +116,7 @@ export async function getGroups() {
 }
 
 /* ------------------------------------------------------------
- * 📉 GROUP METRICS (UPDATED TO ACCEPT groupId)
+ * Ã°Å¸â€œâ€° GROUP METRICS (UPDATED TO ACCEPT groupId)
  * ------------------------------------------------------------ */
 export async function getGroupMetrics(groupId = 1) {
   const fallback = {
@@ -130,7 +130,7 @@ export async function getGroupMetrics(groupId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 🤝 COHESION ANALYSIS (NEW — REQUIRED BY GroupStats.jsx)
+ * Ã°Å¸Â¤Â COHESION ANALYSIS (NEW Ã¢â‚¬â€ REQUIRED BY GroupStats.jsx)
  * ------------------------------------------------------------ */
 export async function runCohesionAnalysis(groupId = 1) {
   const fallback = {
@@ -144,21 +144,21 @@ export async function runCohesionAnalysis(groupId = 1) {
 }
 
 /* ------------------------------------------------------------
- * ⚔️ CHALLENGES + REWARDS
+ * Ã¢Å¡â€Ã¯Â¸Â CHALLENGES + REWARDS
  * ------------------------------------------------------------ */
 export async function getChallenges() {
   const fallback = [
-    { id: 1, title: "🔥 Viral Surge", description: "Post emotional content.", points: 100 },
-    { id: 2, title: "💎 Bull Market Ride", description: "Hold tokens during EMI spike.", points: 80 },
-    { id: 3, title: "🎯 Predictor", description: "Predict next EMI movement.", points: 90 },
+    { id: 1, title: "Ã°Å¸â€Â¥ Viral Surge", description: "Post emotional content.", points: 100 },
+    { id: 2, title: "Ã°Å¸â€™Å½ Bull Market Ride", description: "Hold tokens during EMI spike.", points: 80 },
+    { id: 3, title: "Ã°Å¸Å½Â¯ Predictor", description: "Predict next EMI movement.", points: 90 },
   ];
   return safeFetch(`${API_BASE}/challenges`, fallback);
 }
 
 export async function getRewardHistory(userId = 1) {
   const fallback = [
-    { challenge: "🔥 Viral Surge", amount: 10, type: "token", timestamp: new Date().toISOString() },
-    { challenge: "🎯 Predictor", amount: 3.5, type: "dopamine", timestamp: new Date(Date.now() - 60000).toISOString() },
+    { challenge: "Ã°Å¸â€Â¥ Viral Surge", amount: 10, type: "token", timestamp: new Date().toISOString() },
+    { challenge: "Ã°Å¸Å½Â¯ Predictor", amount: 3.5, type: "dopamine", timestamp: new Date(Date.now() - 60000).toISOString() },
   ];
   return safeFetch(`${API_BASE}/rewards/history/${userId}`, fallback);
 }
@@ -178,7 +178,7 @@ export async function claimReward(userId = 1, points = 100) {
 }
 
 /* ------------------------------------------------------------
- * 🧠 DOPAMINE ENGINE
+ * Ã°Å¸Â§Â  DOPAMINE ENGINE
  * ------------------------------------------------------------ */
 export async function getDopamineProfile(userId = 1) {
   const fallback = { user_id: userId, dopamine: 50, balance: 30 };
@@ -208,10 +208,10 @@ export async function registerDopamine(userId = 1, intensity = 0.5, eventType = 
 }
 
 /* ------------------------------------------------------------
- * 📈 MARKET + CORE4 TOKENS
+ * Ã°Å¸â€œË† MARKET + CORE4 TOKENS
  * ------------------------------------------------------------ */
 export async function getMarketMood() {
-  const fallback = { mood: "neutral", emoji: "🌤", label: "Calm", emi: 50 };
+  const fallback = { mood: "neutral", emoji: "Ã°Å¸Å’Â¤", label: "Calm", emi: 50 };
   return safeFetch(`${API_BASE}/market/mood`, fallback);
 }
 
@@ -226,7 +226,7 @@ export async function getCore4Tokens() {
 }
 
 /* ------------------------------------------------------------
- * 🧭 DASHBOARD SUMMARY
+ * Ã°Å¸Â§Â­ DASHBOARD SUMMARY
  * ------------------------------------------------------------ */
 export async function getDashboardSummary() {
   const fallback = {
@@ -238,7 +238,7 @@ export async function getDashboardSummary() {
 }
 
 /* ------------------------------------------------------------
- * 🪞 AWARENESS REFLECTION
+ * Ã°Å¸ÂªÅ¾ AWARENESS REFLECTION
  * ------------------------------------------------------------ */
 export async function sendReflection(userId = 1, contentId = 1, motive = "curiosity") {
   const payload = { user_id: userId, content_id: contentId, motive };
@@ -251,7 +251,7 @@ export async function sendReflection(userId = 1, contentId = 1, motive = "curios
 }
 
 /* ------------------------------------------------------------
- * 🧾 EXPORT MAP
+ * Ã°Å¸Â§Â¾ EXPORT MAP
  * ------------------------------------------------------------ */
 export default {
   getUserProfile,
@@ -279,3 +279,4 @@ export default {
 };
 
 export { API_BASE, JSON_HEADERS, safeFetch };
+

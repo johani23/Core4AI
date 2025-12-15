@@ -1,114 +1,124 @@
 // ============================================================================
-// 💚 Core4.AI – AppTabs (Hybrid Navigation System)
-// ----------------------------------------------------------------------------
-// • نفس تبويبات أمس (Pricing / Offers / Merchant Hub…)
-// • لكن مربوطة بالمسارات الحقيقية الموجودة الآن في App.jsx
-// • يعمل مع role-based access + CoreSyncProvider
+// 🌙 Core4.AI – AppTabs v4 (2025 Edition)
+// Hybrid Navigation System with Role-Based Access
+// ============================================================================
+// - Clean UTF-8 icons (no corrupted symbols)
+// - Integrated Smart BuyerFeed (AI Feed)
+// - Role-aware navigation for Buyer / Creator / Merchant
+// - Mirrors the UX of the new Navbar v3
 // ============================================================================
 
 export const appTabs = [
 
-  // 🏠 Home — Available for all roles
+  // 🏠 Home (All roles)
   {
     path: "/home",
-    label: "Home",
+    label: "الرئيسية",
     icon: "🏠",
     roles: ["all"],
   },
 
-  // 💰 Pricing Intelligence (Merchant Only)
+  // 🛒 Smart Buyer Feed (Buyer Only)
   {
-    path: "/merchant-pricing",       // Connected to MerchantProductPricing.jsx
-    label: "Pricing",
-    icon: "💰",
+    path: "/buyer/feed",
+    label: "الاقتراحات",
+    icon: "🛒",
+    roles: ["buyer"],
+  },
+
+  // 📊 Pricing Intelligence (Merchant Only)
+  {
+    path: "/merchant-pricing",
+    label: "التسعير",
+    icon: "📊",
     roles: ["merchant"],
   },
 
-  // 🎁 Offers — Buyer + Creator
+  // 🎁 Offers (Buyer + Creator)
   {
-    path: "/offers",                 // Currently no Offers page → will redirect to home
-    label: "Offers",
+    path: "/offers",
+    label: "العروض",
     icon: "🎁",
     roles: ["buyer", "creator"],
   },
 
-  // 🎧 Audience — Buyer only
+  // 🎧 Audience (Buyer Only)
   {
-    path: "/audience",               // Connected to Audience.jsx
-    label: "Audience",
+    path: "/audience",
+    label: "الجمهور",
     icon: "🎧",
     roles: ["buyer"],
   },
 
-  // 💼 Promoter — Creator only
+  // 📣 Promoter (Creator Only)
   {
-    path: "/promote-and-earn",       // Connected to PromoteAndEarn.jsx
-    label: "Promoter",
-    icon: "💼",
+    path: "/promote-and-earn",
+    label: "الترويج",
+    icon: "📣",
     roles: ["creator"],
   },
 
-  // 🛒 Merchant Hub — Merchant only
+  // 🛍️ Merchant Hub (Merchant Only)
   {
-    path: "/merchant-dashboard",     // Connected to MerchantDashboard.jsx
-    label: "Merchant Hub",
-    icon: "🛒",
+    path: "/merchant-dashboard",
+    label: "لوحة التاجر",
+    icon: "🛍️",
     roles: ["merchant"],
   },
 
-  // 💰 Wallet — Available for all (later we add actual page)
+  // 💰 Wallet (All roles)
   {
-    path: "/wallet",                 // no page yet → will redirect to home
-    label: "Wallet",
+    path: "/wallet",
+    label: "المحفظة",
     icon: "💰",
     roles: ["all"],
   },
 
-  // ⚡ PowerBoard — All roles
+  // ⚡ PowerBoard (All roles)
   {
-    path: "/dashboard",              // Connected to Dashboard.jsx
-    label: "PowerBoard",
+    path: "/dashboard",
+    label: "لوحة القوة",
     icon: "⚡",
     roles: ["all"],
   },
 
-  // 💫 Pulse — Creator + Merchant
+  // 📡 Pulse (Creator + Merchant)
   {
-    path: "/pulse",                  // No actual file yet → safe fallback
-    label: "Pulse",
-    icon: "💫",
+    path: "/pulse",
+    label: "النبض",
+    icon: "📡",
     roles: ["creator", "merchant"],
   },
 
-  // 📊 Analytics — Creator + Merchant
+  // 📈 Analytics (Creator + Merchant)
   {
-    path: "/analytics",              // Future analytics page
-    label: "Analytics",
-    icon: "📊",
+    path: "/analytics",
+    label: "التحليلات",
+    icon: "📈",
     roles: ["creator", "merchant"],
   },
 
-  // 🧩 XP — Creator only
+  // 🌀 XP / Creator Tour (Creator Only)
   {
-    path: "/creator-tour",           // Using CreatorTour as XP home for now
-    label: "XP",
-    icon: "🧩",
+    path: "/creator-tour",
+    label: "النقاط",
+    icon: "🌀",
     roles: ["creator"],
   },
 
-  // 🤝 CollabHub — Creator + Merchant
+  // 🤝 CollabHub (Creator + Merchant)
   {
-    path: "/tribe-exchange",         // Connected to TribeExchangeHub.jsx
-    label: "CollabHub",
+    path: "/tribe-exchange",
+    label: "التعاون",
     icon: "🤝",
     roles: ["creator", "merchant"],
   },
 
-  // 🧭 Tour — All roles
+  // 🚀 Tour / Welcome (All roles)
   {
     path: "/welcome",
-    label: "Tour",
-    icon: "🧭",
+    label: "جولة",
+    icon: "🚀",
     roles: ["all"],
   },
 ];

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * Core4.AI – MVP 20 SpotlightCard
+ * Core4.AI â€“ MVP 20 SpotlightCard
  * -----------------------------------------------
  * Displays top-performing groups within Spotlight.
  * Uses framer-motion for animated entry and hover.
@@ -10,10 +10,10 @@ import { motion } from "framer-motion";
 
 export default function SpotlightCard({ name, index }) {
   const rankColors = ["#FFD700", "#C0C0C0", "#CD7F32"]; // gold, silver, bronze
-  const rankEmojis = ["🥇", "🥈", "🥉"];
+  const rankEmojis = ["ðŸ¥‡", "ðŸ¥ˆ", "ðŸ¥‰"];
 
   const color = rankColors[index - 1] || "#A78BFA";
-  const emoji = rankEmojis[index - 1] || "⭐";
+  const emoji = rankEmojis[index - 1] || "â­";
 
   return (
     <motion.div

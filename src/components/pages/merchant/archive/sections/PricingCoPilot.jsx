@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š PricingCoPilot.jsx (Phase 8 â€“ Pricing Intelligence Advisor)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ PricingCoPilot.jsx (Phase 8 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Pricing Intelligence Advisor)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function PricingCoPilot({ product, productIQ }) {
   const [data, setData] = useState(null);
@@ -31,7 +30,7 @@ export default function PricingCoPilot({ product, productIQ }) {
   if (!data)
     return (
       <div className="p-6 bg-white border rounded-xl shadow mt-6">
-        <p className="text-gray-400 text-center">...Ø¬Ø§Ø±ÙŠ ØªØ­Ù„ÙŠÙ„ Ø§Ù„ØªØ³Ø¹ÙŠØ±</p>
+        <p className="text-gray-400 text-center">...ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±</p>
       </div>
     );
 
@@ -39,7 +38,7 @@ export default function PricingCoPilot({ product, productIQ }) {
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ¤– Pricing Co-Pilot
+        ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ Pricing Co-Pilot
       </h2>
 
       <ul className="list-disc pl-6 space-y-1 text-gray-800">
@@ -54,3 +53,5 @@ export default function PricingCoPilot({ product, productIQ }) {
     </div>
   );
 }
+
+

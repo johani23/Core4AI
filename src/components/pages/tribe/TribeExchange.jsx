@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’Ž Core4.AI â€“ TribeExchangeHub.jsx (v161 â€œInter-Tribe Marketâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeExchangeHub.jsx (v161 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInter-Tribe MarketÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ============================================================================
 
-import React, { useState } from "react";
 import { useCoreSync } from "@/context/CoreSyncContext";
 
 function computeRate(fromValue, toValue) {
@@ -26,8 +25,8 @@ export default function TribeExchangeHub() {
   const received = amount * rate * (1 - fee);
 
   const handleExchange = () => {
-    if (fromTribe === toTribe) return setMessage("âš ï¸ Choose different tribes.");
-    if (amount <= 0) return setMessage("âš ï¸ Invalid amount.");
+    if (fromTribe === toTribe) return setMessage("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Choose different tribes.");
+    if (amount <= 0) return setMessage("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Invalid amount.");
 
     const entry = {
       id: Date.now(),
@@ -41,7 +40,7 @@ export default function TribeExchangeHub() {
 
     setHistory((p) => [entry, ...p.slice(0, 4)]);
     setMessage(
-      `âœ… Swapped ${amount} ${fromTribe} â†’ ${received.toFixed(
+      `ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Swapped ${amount} ${fromTribe} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ ${received.toFixed(
         2
       )} ${toTribe} (rate ${rate}, fee 2%)`
     );
@@ -49,7 +48,7 @@ export default function TribeExchangeHub() {
 
   return (
     <div className="p-8 space-y-6">
-      <h2 className="text-2xl font-bold text-pink-400">ðŸ’± Tribe Exchange Market</h2>
+      <h2 className="text-2xl font-bold text-pink-400">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â± Tribe Exchange Market</h2>
 
       {/* Exchange Box */}
       <div className="bg-[#111827] border border-gray-700 rounded-2xl p-5 space-y-4">
@@ -120,7 +119,7 @@ export default function TribeExchangeHub() {
 
       {/* History */}
       <div className="bg-[#111827] border border-gray-700 rounded-2xl p-5">
-        <h3 className="text-pink-400 font-semibold mb-2">ðŸ“œ Recent Trades</h3>
+        <h3 className="text-pink-400 font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…â€œ Recent Trades</h3>
 
         {history.length === 0 ? (
           <p className="text-gray-500 text-sm">No trades yet.</p>
@@ -129,7 +128,7 @@ export default function TribeExchangeHub() {
             <thead className="border-b border-gray-700 text-gray-400">
               <tr>
                 <th className="py-1 text-left">Time</th>
-                <th className="py-1 text-left">From â†’ To</th>
+                <th className="py-1 text-left">From ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ To</th>
                 <th className="py-1 text-right">Amount</th>
                 <th className="py-1 text-right">Received</th>
               </tr>
@@ -139,7 +138,7 @@ export default function TribeExchangeHub() {
                 <tr key={h.id} className="border-b border-gray-800">
                   <td className="py-1">{h.time}</td>
                   <td className="py-1">
-                    {h.from} â†’ {h.to}
+                    {h.from} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ {h.to}
                   </td>
                   <td className="py-1 text-right">{h.amount}</td>
                   <td className="py-1 text-right">{h.received}</td>
@@ -152,3 +151,5 @@ export default function TribeExchangeHub() {
     </div>
   );
 }
+
+

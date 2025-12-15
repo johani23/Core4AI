@@ -155,14 +155,14 @@ export default function PricingDemo() {
     <div className="min-h-screen bg-gray-900 text-white p-10">
 
       <h1 className="text-4xl font-bold text-green-400 mb-10">
-        Pricing Intelligence v21.5 â€” Demo + AI Coach
+        Pricing Intelligence v21.5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Demo + AI Coach
       </h1>
 
       {/* Product Selector */}
       <div className="bg-gray-800 p-6 rounded-2xl mb-10">
         <h2 className="text-2xl font-semibold mb-4">Select Product</h2>
 
-        {loading && <p className="text-gray-400">Loading productsâ€¦</p>}
+        {loading && <p className="text-gray-400">Loading productsÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</p>}
 
         <div className="grid md:grid-cols-3 gap-4">
           {products.map((p) => (
@@ -199,7 +199,7 @@ export default function PricingDemo() {
             onClick={applyAIPrice}
             className="mt-6 bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-3 rounded-xl font-bold"
           >
-            âš¡ Apply AI Price
+            ÃƒÂ¢Ã…Â¡Ã‚Â¡ Apply AI Price
           </button>
         </div>
       ) : (
@@ -212,7 +212,7 @@ export default function PricingDemo() {
       {selected && (
         <div className="mt-10 bg-gray-800 p-6 rounded-2xl">
           <h2 className="text-2xl font-bold text-yellow-300 mb-4">
-            ðŸ¤– Pricing Coach v21 â€” Smart AI Assistant
+            ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ Pricing Coach v21 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Smart AI Assistant
           </h2>
 
           {/* Smart Suggestions */}
@@ -282,7 +282,7 @@ export default function PricingDemo() {
           {/* Input Box */}
           <div className="mt-4 flex gap-4">
             <textarea
-              placeholder="Ask anythingâ€¦"
+              placeholder="Ask anythingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦"
               className="w-full p-4 bg-gray-900 border border-gray-700 rounded-xl text-white"
               rows={2}
               value={question}
@@ -301,3 +301,4 @@ export default function PricingDemo() {
     </div>
   );
 }
+

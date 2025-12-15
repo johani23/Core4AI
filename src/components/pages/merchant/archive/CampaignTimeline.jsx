@@ -1,18 +1,17 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CampaignTimeline.jsx (v13 PRO)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CampaignTimeline.jsx (v13 PRO)
 // ----------------------------------------------------------------------------
-// â€¢ Interactive timeline for campaign launch
-// â€¢ Auto-highlights key steps
-// â€¢ Clean UI inspired by TikTok Ads Manager
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Interactive timeline for campaign launch
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-highlights key steps
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean UI inspired by TikTok Ads Manager
 // ============================================================================
 
-import React from "react";
 
 export default function CampaignTimeline() {
   const items = [
     {
       phase: "Market Analysis",
-      icon: "ðŸ“Š",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â ",
       actions: [
         "AI Marketing Plan Generated",
         "Target Tribes Identified",
@@ -21,7 +20,7 @@ export default function CampaignTimeline() {
     },
     {
       phase: "Product Intelligence",
-      icon: "ðŸ§ ",
+      icon: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â ",
       actions: [
         "Competitors Analyzed",
         "AI Suggested Price Calculated",
@@ -31,7 +30,7 @@ export default function CampaignTimeline() {
     },
     {
       phase: "Creative Production",
-      icon: "ðŸŽ¬",
+      icon: "ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬",
       actions: [
         "Storyboard Generated",
         "Ad Variations Created",
@@ -41,7 +40,7 @@ export default function CampaignTimeline() {
     },
     {
       phase: "Campaign Setup",
-      icon: "âš™ï¸",
+      icon: "ÃƒÂ¢Ã…Â¡Ã¢â€žÂ¢ÃƒÂ¯Ã‚Â¸Ã‚Â",
       actions: [
         "Budget Allocation Suggested",
         "Influencer Matching Done",
@@ -50,7 +49,7 @@ export default function CampaignTimeline() {
     },
     {
       phase: "Final Review",
-      icon: "ðŸ“",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â",
       actions: [
         "Predicted Performance Calculated",
         "Optimization Checklist",
@@ -62,7 +61,7 @@ export default function CampaignTimeline() {
   return (
     <div className="bg-white border shadow-lg rounded-xl p-8 mb-10">
       <h2 className="text-2xl font-extrabold text-[#006C35] mb-6">
-        ðŸ—‚ï¸ Campaign Timeline
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â€Ã¢â‚¬Å¡ÃƒÂ¯Ã‚Â¸Ã‚Â Campaign Timeline
       </h2>
 
       <div className="space-y-6">
@@ -79,7 +78,7 @@ export default function CampaignTimeline() {
                   key={idx}
                   className="flex items-center gap-2 text-sm bg-gray-50 p-2 rounded"
                 >
-                  <span className="text-green-600 font-bold">âœ”</span>
+                  <span className="text-green-600 font-bold">ÃƒÂ¢Ã…â€œÃ¢â‚¬Â</span>
                   {act}
                 </li>
               ))}
@@ -90,3 +89,5 @@ export default function CampaignTimeline() {
     </div>
   );
 }
+
+

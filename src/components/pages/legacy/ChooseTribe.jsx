@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ ChooseTribe.jsx (MVP-27.6 Stable Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ChooseTribe.jsx (MVP-27.6 Stable Edition)
 // ------------------------------------------------------------
-// Lets the user select a tribe (ðŸŒ¸ðŸ”¥âš¡ðŸ’«) safely and elegantly.
+// Lets the user select a tribe (ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ÃƒÂ¢Ã…Â¡Ã‚Â¡ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â«) safely and elegantly.
 // Fully compatible with backend endpoints:
 //   GET  /market/tribes
 //   POST /user/1/assign_tribe
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { getUserTribe, assignUserTribe } from "@services/api";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ export default function ChooseTribe() {
         if (Array.isArray(data)) setTribes(data);
         else setTribes([]); // fallback safety
       } catch (err) {
-        console.error(âš ï¸ Tribe fetch error:", err);
+        console.error(ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Tribe fetch error:", err);
         setError("Unable to load tribes. Please try again later.");
       } finally {
         setLoading(false);
@@ -49,11 +48,11 @@ export default function ChooseTribe() {
       });
       if (!res.ok) throw new Error("Failed to assign tribe");
       const data = await res.json();
-      console.log("âœ… Tribe joined:", data);
+      console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Tribe joined:", data);
       localStorage.setItem("user_tribe", tribe.name);
       setTimeout(() => navigate("/dashboard", { replace: true }), 800);
     } catch (err) {
-      console.error("âŒ Tribe selection error:", err);
+      console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Tribe selection error:", err);
       setError("Could not join tribe. Please try again.");
     }
   };
@@ -64,14 +63,14 @@ export default function ChooseTribe() {
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-yellow-400 animate-pulse">
-        Loading tribesâ€¦
+        Loading tribesÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
   if (error)
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-black text-red-400">
-        <p className="text-lg mb-2">âš ï¸ {error}</p>
+        <p className="text-lg mb-2">ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â {error}</p>
         <button
           onClick={() => window.location.reload()}
           className="px-4 py-2 rounded-xl bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
@@ -112,7 +111,7 @@ export default function ChooseTribe() {
             }`}
             onClick={() => handleSelect(t)}
           >
-            <div className="text-5xl mb-3">{t.badge || "ðŸŒ"}</div>
+            <div className="text-5xl mb-3">{t.badge || "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â"}</div>
             <h2 className="text-xl font-bold text-yellow-400 mb-2">{t.name}</h2>
             <p className="text-sm text-gray-400 mb-3">{t.description}</p>
             <p className="text-xs text-gray-500">
@@ -134,3 +133,5 @@ export default function ChooseTribe() {
   );
 }
 s
+
+

@@ -15,10 +15,11 @@ export default function PromoterCommissionPanel() {
 
   return (
     <div className="bg-gray-900 p-6 rounded-xl text-white">
-      <h2 className="text-2xl font-bold">ðŸ’° Your Earnings</h2>
+      <h2 className="text-2xl font-bold">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Your Earnings</h2>
       <p className="text-green-300 text-4xl mt-2">
         {earnings.toFixed(2)} SAR
       </p>
     </div>
   );
 }
+

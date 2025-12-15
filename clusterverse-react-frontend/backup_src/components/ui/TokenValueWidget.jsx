@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { getUserTokens, getCreatorLeaderboard, getMarketSummary } from "@services/tokenAPI";
 
 /**
- * Core4.AI – MVP 18
+ * Core4.AI â€“ MVP 18
  * Token Value Widget
  * -------------------------------------------------------------
  * Displays live C4T price, % change and user token balance.
@@ -14,7 +14,7 @@ export default function TokenValueWidget({ userId = 1 }) {
   const [price, setPrice] = useState(3.0);
   const [change, setChange] = useState(0);
   const [balance, setBalance] = useState(0);
-  const [status, setStatus] = useState("Stable 🌕");
+  const [status, setStatus] = useState("Stable ðŸŒ•");
 
   // Fetch live data
   async function refreshData() {
@@ -46,7 +46,7 @@ export default function TokenValueWidget({ userId = 1 }) {
         setBalance(tokens.remaining);
       }
     } catch (err) {
-      console.error("⚠️ Error loading token widget data:", err);
+      console.error("âš ï¸ Error loading token widget data:", err);
     }
   }
 
@@ -65,21 +65,21 @@ export default function TokenValueWidget({ userId = 1 }) {
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 200 }}
     >
-      {/* 💎 Token price */}
+      {/* ðŸ’Ž Token price */}
       <div className="flex flex-col mr-4">
         <span className="text-xs text-gray-400">C4T Token</span>
         <span className="text-lg font-bold text-yellow-400">${price}</span>
       </div>
 
-      {/* 📈 Change */}
+      {/* ðŸ“ˆ Change */}
       <div className="flex flex-col mr-4">
         <span className="text-xs text-gray-400">Change</span>
         <span className={`text-lg font-semibold ${changeColor}`}>
-          {change >= 0 ? "▲" : "▼"} {Math.abs(change)} %
+          {change >= 0 ? "â–²" : "â–¼"} {Math.abs(change)} %
         </span>
       </div>
 
-      {/* 🪙 Remaining tokens */}
+      {/* ðŸª™ Remaining tokens */}
       <div className="flex flex-col">
         <span className="text-xs text-gray-400">My Tokens</span>
         <span className="text-lg font-semibold text-blue-400">{balance}</span>

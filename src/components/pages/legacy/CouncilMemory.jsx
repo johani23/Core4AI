@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CouncilMemory.jsx (MVP-52 â€œAI Memory Correlationâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CouncilMemory.jsx (MVP-52 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œAI Memory CorrelationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Live Learning-Index feed from /ws/memory
-// âœ… Contrast-Analytics theme (dark-slate + violet-blue charts)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live Learning-Index feed from /ws/memory
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Contrast-Analytics theme (dark-slate + violet-blue charts)
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip,
   ResponsiveContainer, Legend, BarChart, Bar
@@ -58,7 +57,7 @@ export default function CouncilMemory() {
     <div className="min-h-screen bg-[#111827] text-gray-200 px-10 py-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold text-indigo-300">
-          ðŸ§  Council Memory Correlation
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Council Memory Correlation
         </h1>
         <div
           className={`px-3 py-1 text-sm rounded-full ${
@@ -100,7 +99,7 @@ export default function CouncilMemory() {
       {/* Correlation Strength */}
       <div className="bg-black/40 border border-indigo-800/40 rounded-2xl p-5 mb-6">
         <h2 className="text-lg font-medium text-indigo-300 mb-3">
-          Decisionâ€“Mood Correlation Strength
+          DecisionÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Mood Correlation Strength
         </h2>
         <div className="h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -130,3 +129,5 @@ export default function CouncilMemory() {
     </div>
   );
 }
+
+

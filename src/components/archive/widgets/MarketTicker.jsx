@@ -1,7 +1,6 @@
 // ============================================================
-// ðŸ’¬ MarketTicker.jsx â€“ Scrolling Market Events
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¬ MarketTicker.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Scrolling Market Events
 // ============================================================
-import React from "react";
 import { motion } from "framer-motion";
 
 export default function MarketTicker({ news = [] }) {
@@ -23,10 +22,12 @@ export default function MarketTicker({ news = [] }) {
       >
         {news.map((item, i) => (
           <span key={i} className="mx-6">
-            {item.tribe} â†’ {item.message}
+            {item.tribe} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ {item.message}
           </span>
         ))}
       </motion.div>
     </div>
   );
 }
+
+

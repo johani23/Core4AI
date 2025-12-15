@@ -23,13 +23,13 @@ export default function CreatePost({ onPointsEarned, accumulated }) {
     if (file) formData.append("file", file);
 
     try {
-      // 1️⃣ Save the post
+      // 1ï¸âƒ£ Save the post
       await fetch("http://127.0.0.1:8000/posts", {
         method: "POST",
         body: formData,
       });
 
-      // 2️⃣ Evaluate the post
+      // 2ï¸âƒ£ Evaluate the post
       const evalRes = await fetch("http://127.0.0.1:8000/evaluate-answer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ export default function CreatePost({ onPointsEarned, accumulated }) {
 
   return (
     <div style={{ padding: "12px", background: "white", borderRadius: "8px", marginBottom: "10px" }}>
-      <h2>✍️ Create Post</h2>
+      <h2>âœï¸ Create Post</h2>
       <form onSubmit={handleSubmit}>
         <textarea
           placeholder="Share something meaningful..."

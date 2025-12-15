@@ -1,11 +1,10 @@
 // ===================================================================
-// ðŸ’š Core4.AI â€“ MerchantHQ.jsx (Saudi Edition â€“ Unified Control Center)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantHQ.jsx (Saudi Edition ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Unified Control Center)
 // -------------------------------------------------------------------
-// â€¢ Multi-tab Saudi-styled HQ for merchants
-// â€¢ Connected to product endpoints + intel + campaigns + creators
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Multi-tab Saudi-styled HQ for merchants
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Connected to product endpoints + intel + campaigns + creators
 // ===================================================================
 
-import React, { useState, useEffect } from "react";
 import {
   FiBox,
   FiBarChart,
@@ -30,21 +29,21 @@ export default function MerchantHQ() {
   const [tab, setTab] = useState("overview");
 
   const tabs = [
-    { id: "overview", icon: <FiBarChart />, label: "Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©" },
-    { id: "products", icon: <FiBox />, label: "Ù…Ù†ØªØ¬Ø§ØªÙŠ" },
-    { id: "campaigns", icon: <FiTrendingUp />, label: "Ø§Ù„Ø­Ù…Ù„Ø§Øª" },
-    { id: "advisor", icon: <FiZap />, label: "Ø§Ù„Ù…Ø³ØªØ´Ø§Ø± Ø§Ù„Ø°ÙƒÙŠ" },
-    { id: "creators", icon: <FiUsers />, label: "Ø§Ù‚ØªØ±Ø§Ø­ Ù…Ø¤Ø«Ø±ÙŠÙ†" },
-    { id: "tribes", icon: <FiTarget />, label: "Ø§Ø³ØªÙ‡Ø¯Ø§Ù Ø§Ù„Ù‚Ø¨Ø§Ø¦Ù„" },
-    { id: "orders", icon: <FiRefreshCcw />, label: "Ø§Ù„Ø·Ù„Ø¨Ø§Øª" },
-    { id: "settings", icon: <FiSettings />, label: "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª" },
+    { id: "overview", icon: <FiBarChart />, label: "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â©" },
+    { id: "products", icon: <FiBox />, label: "Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â " },
+    { id: "campaigns", icon: <FiTrendingUp />, label: "ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª" },
+    { id: "advisor", icon: <FiZap />, label: "ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â´ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â " },
+    { id: "creators", icon: <FiUsers />, label: "ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â " },
+    { id: "tribes", icon: <FiTarget />, label: "ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Å¾" },
+    { id: "orders", icon: <FiRefreshCcw />, label: "ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª" },
+    { id: "settings", icon: <FiSettings />, label: "ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª" },
   ];
 
   return (
     <div className="min-h-screen bg-[#002b16] text-white p-8">
 
       <h1 className="text-3xl font-extrabold text-[#4cff9b] mb-6">
-        ðŸ¬ Ù…Ø±ÙƒØ² Ø§Ù„ØªØ§Ø¬Ø± â€“ Core4.AI
+        ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â±Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â² ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Core4.AI
       </h1>
 
       {/* ---------------- Tabs ---------------- */}
@@ -81,3 +80,5 @@ export default function MerchantHQ() {
     </div>
   );
 }
+
+

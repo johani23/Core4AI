@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’Ž Core4.AI â€“ Dashboard v200 (TURBO EDITION)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Dashboard v200 (TURBO EDITION)
 // ----------------------------------------------------------------------------
-// âš¡ Unified Platform Dashboard for All User Roles
-// âš¡ WS Status â€¢ Influence Metrics â€¢ Merchant Stats â€¢ Quick Actions
-// âš¡ Fully compatible with App.jsx v22 + New Page Structure
+// ÃƒÂ¢Ã…Â¡Ã‚Â¡ Unified Platform Dashboard for All User Roles
+// ÃƒÂ¢Ã…Â¡Ã‚Â¡ WS Status ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Influence Metrics ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Merchant Stats ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Quick Actions
+// ÃƒÂ¢Ã…Â¡Ã‚Â¡ Fully compatible with App.jsx v22 + New Page Structure
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@/context/CoreSyncContext";
 
@@ -24,7 +23,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-[#0A0F12] text-white p-10 space-y-10">
       
       {/* ------------------------------------------------------------
-         ðŸ”µ TOP SECTION â€” LIVE SYSTEM STATUS
+         ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Âµ TOP SECTION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â LIVE SYSTEM STATUS
       ------------------------------------------------------------ */}
       <div className="flex justify-between items-center bg-[#11161b] p-6 rounded-xl border border-gray-800 shadow-lg">
         <div>
@@ -46,7 +45,7 @@ export default function Dashboard() {
       </div>
 
       {/* ------------------------------------------------------------
-         ðŸ”¶ INFLUENCE INTELLIGENCE PANEL
+         ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¶ INFLUENCE INTELLIGENCE PANEL
       ------------------------------------------------------------ */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -84,7 +83,7 @@ export default function Dashboard() {
       </motion.div>
 
       {/* ------------------------------------------------------------
-         ðŸŸ© MERCHANT INTELLIGENCE PANEL
+         ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â© MERCHANT INTELLIGENCE PANEL
       ------------------------------------------------------------ */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -116,7 +115,7 @@ export default function Dashboard() {
       </motion.div>
 
       {/* ------------------------------------------------------------
-         ðŸŸ¦ QUICK ACCESS CENTER (Role-Aware Navigation)
+         ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¦ QUICK ACCESS CENTER (Role-Aware Navigation)
       ------------------------------------------------------------ */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
 
@@ -124,7 +123,7 @@ export default function Dashboard() {
           onClick={() => (window.location.href = "/merchant/dashboard")}
           className="p-6 bg-[#11161b] rounded-xl border border-gray-800 hover:border-green-600 hover:shadow-xl transition text-left"
         >
-          <p className="text-green-500 text-2xl mb-2">ðŸ›’</p>
+          <p className="text-green-500 text-2xl mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ¢â‚¬â„¢</p>
           <p className="font-semibold text-gray-200">Merchant Suite</p>
           <p className="text-gray-400 text-sm">Pricing, creative and campaigns</p>
         </button>
@@ -133,7 +132,7 @@ export default function Dashboard() {
           onClick={() => (window.location.href = "/creator-market")}
           className="p-6 bg-[#11161b] rounded-xl border border-gray-800 hover:border-purple-600 hover:shadow-xl transition text-left"
         >
-          <p className="text-purple-400 text-2xl mb-2">ðŸŽ¤</p>
+          <p className="text-purple-400 text-2xl mb-2">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¤</p>
           <p className="font-semibold text-gray-200">Creator Suite</p>
           <p className="text-gray-400 text-sm">Promote products & earn</p>
         </button>
@@ -142,7 +141,7 @@ export default function Dashboard() {
           onClick={() => (window.location.href = "/audience")}
           className="p-6 bg-[#11161b] rounded-xl border border-gray-800 hover:border-blue-600 hover:shadow-xl transition text-left"
         >
-          <p className="text-blue-400 text-2xl mb-2">ðŸŽ§</p>
+          <p className="text-blue-400 text-2xl mb-2">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â§</p>
           <p className="font-semibold text-gray-200">Buyer Layer</p>
           <p className="text-gray-400 text-sm">Discover products & creators</p>
         </button>
@@ -151,7 +150,7 @@ export default function Dashboard() {
           onClick={() => (window.location.href = "/tribe-exchange")}
           className="p-6 bg-[#11161b] rounded-xl border border-gray-800 hover:border-yellow-500 hover:shadow-xl transition text-left"
         >
-          <p className="text-yellow-400 text-2xl mb-2">ðŸ§­</p>
+          <p className="text-yellow-400 text-2xl mb-2">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­</p>
           <p className="font-semibold text-gray-200">Tribe Leader Suite</p>
           <p className="text-gray-400 text-sm">Manage tribes & cohorts</p>
         </button>
@@ -161,3 +160,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+

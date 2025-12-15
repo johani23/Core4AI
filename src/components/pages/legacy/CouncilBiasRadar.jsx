@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ§­ Core4.AI â€“ CouncilBiasRadar.jsx (MVP-54 â€œBias Radarâ€)
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CouncilBiasRadar.jsx (MVP-54 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBias RadarÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// Live radial chart of Council membersâ€™ behavior
+// Live radial chart of Council membersÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ behavior
 // Requires WebSocket feed from /ws/vis-stream
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
 import useVISSocket from "@hooks/useVISSocket";
@@ -94,3 +93,5 @@ export default function CouncilBiasRadar() {
     </div>
   );
 }
+
+

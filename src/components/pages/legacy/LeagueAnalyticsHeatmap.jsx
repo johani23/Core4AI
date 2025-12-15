@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ“Š Core4.AI â€“ LeagueAnalyticsHeatmap.jsx (MVP-53.9)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ LeagueAnalyticsHeatmap.jsx (MVP-53.9)
 // ------------------------------------------------------------
 // Live heatmap of Council votes & fairness index
 // Uses WebSocket (VIS stream) + Recharts Cell coloring
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from "recharts";
 import useVISSocket from "@hooks/useVISSocket";
 import { motion } from "framer-motion";
@@ -122,3 +121,5 @@ export default function LeagueAnalyticsHeatmap() {
     </div>
   );
 }
+
+

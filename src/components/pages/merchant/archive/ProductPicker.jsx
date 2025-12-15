@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ ProductPicker.jsx (v3.2 â€“ FIXED KEYS + FIXED NAVIGATION)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ProductPicker.jsx (v3.2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ FIXED KEYS + FIXED NAVIGATION)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -27,29 +26,29 @@ export default function ProductPicker() {
       const list = Array.isArray(data) ? data : data.products || [];
       setProducts(list);
     } catch (err) {
-      toast.error("âŒ ÙØ´Ù„ ØªØ­Ù…ÙŠÙ„ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª");
     }
     setLoading(false);
   };
 
   const selectProduct = (product) => {
     navigate("/merchant/campaign-builder", {
-      state: { product },    // âœ… FIXED â€” unified with ProductList
+      state: { product },    // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ FIXED ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â unified with ProductList
     });
   };
 
   return (
     <div className="max-w-5xl mx-auto mt-10">
       <h2 className="text-2xl font-bold text-green-700 mb-6">
-        Ø§Ø®ØªØ± Ø§Ù„Ù…Ù†ØªØ¬ Ù„Ø¨Ø¯Ø¡ Ø§Ù„Ø­Ù…Ù„Ø©
+        ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
       </h2>
 
-      {loading && <p className="text-gray-600">Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„...</p>}
+      {loading && <p className="text-gray-600">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾...</p>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {products.map((product) => (
           <div
-            key={product.id || product.name}   // âœ… FIXED KEY
+            key={product.id || product.name}   // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ FIXED KEY
             className="p-4 bg-white border rounded-xl shadow hover:shadow-md transition"
           >
 
@@ -61,16 +60,16 @@ export default function ProductPicker() {
               />
             ) : (
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
-                Ù„Ø§ ØªÙˆØ¬Ø¯ ØµÙˆØ±Ø©
+                Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ ÃƒËœÃ‚ÂµÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â©
               </div>
             )}
 
             <h3 className="text-lg font-bold text-gray-900">{product.name}</h3>
 
             <p className="text-gray-700 text-sm mt-1">
-              Ø§Ù„Ø³Ø¹Ø±:{" "}
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±:{" "}
               <span className="text-green-700 font-semibold">
-                {product.price} Ø±.Ø³
+                {product.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
               </span>
             </p>
 
@@ -92,7 +91,7 @@ export default function ProductPicker() {
               onClick={() => selectProduct(product)}
               className="mt-4 w-full bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold"
             >
-              âœ” Ø§Ø³ØªØ®Ø¯Ù… Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬
+              ÃƒÂ¢Ã…â€œÃ¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â®ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
             </button>
 
           </div>
@@ -101,3 +100,5 @@ export default function ProductPicker() {
     </div>
   );
 }
+
+

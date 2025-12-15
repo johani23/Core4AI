@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeDashboard.jsx (MVP-38.4 â€œTribe Deep Viewâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeDashboard.jsx (MVP-38.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTribe Deep ViewÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays single tribe details (mood, energy, balance)
-// âœ… Pulls live data from /tribes/mood + mock wallet
-// âœ… Animated mood dial + member list placeholder
-// âœ… Ready for MVP-39 integration with tribe analytics
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays single tribe details (mood, energy, balance)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Pulls live data from /tribes/mood + mock wallet
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated mood dial + member list placeholder
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ready for MVP-39 integration with tribe analytics
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -19,7 +18,7 @@ export default function TribeDashboard() {
   const [loading, setLoading] = useState(true);
 
   // ------------------------------------------------------------
-  // ðŸ§  Fetch tribe + wallet mock data
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Fetch tribe + wallet mock data
   // ------------------------------------------------------------
   async function fetchTribeDetails() {
     try {
@@ -47,7 +46,7 @@ export default function TribeDashboard() {
   }, [tribeName]);
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Mood color mapping
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Mood color mapping
   // ------------------------------------------------------------
   const moodColor = (mood) => {
     if (mood > 75) return "text-green-400";
@@ -72,14 +71,14 @@ export default function TribeDashboard() {
           onClick={() => navigate("/tribes")}
           className="mt-4 px-4 py-2 bg-yellow-500/80 rounded-lg text-black font-semibold"
         >
-          â† Back to Tribe Board
+          ÃƒÂ¢Ã¢â‚¬Â Ã‚Â Back to Tribe Board
         </button>
       </div>
     );
   }
 
   // ------------------------------------------------------------
-  // ðŸ“Š Dashboard UI
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Dashboard UI
   // ------------------------------------------------------------
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-6 pt-24 pb-16">
@@ -101,7 +100,7 @@ export default function TribeDashboard() {
             onClick={() => navigate("/tribes")}
             className="bg-gray-800 text-gray-300 px-3 py-1 rounded-lg hover:bg-gray-700 text-sm"
           >
-            â† Back
+            ÃƒÂ¢Ã¢â‚¬Â Ã‚Â Back
           </button>
         </motion.div>
 
@@ -135,7 +134,7 @@ export default function TribeDashboard() {
           <div className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
             <div className="text-gray-400 text-sm mb-1">Collective Balance</div>
             <div className="text-2xl font-bold text-yellow-300">
-              {wallet ? wallet.balance.toFixed(2) : "â€”"} C4T
+              {wallet ? wallet.balance.toFixed(2) : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"} C4T
             </div>
           </div>
           <div className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
@@ -171,9 +170,11 @@ export default function TribeDashboard() {
 
         {/* Footer */}
         <div className="text-center text-gray-500 text-xs mt-10">
-          âš™ï¸ Auto-updates every 8 seconds Â· MVP-38.4
+          ÃƒÂ¢Ã…Â¡Ã¢â€žÂ¢ÃƒÂ¯Ã‚Â¸Ã‚Â Auto-updates every 8 seconds Ãƒâ€šÃ‚Â· MVP-38.4
         </div>
       </div>
     </div>
   );
 }
+
+

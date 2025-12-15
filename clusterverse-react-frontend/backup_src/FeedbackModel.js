@@ -13,10 +13,10 @@ export default function FeedbackModel({ show, onClose, result, accumulated }) {
   return (
     <div className="modal-overlay">
       <div className={`modal-content ${success ? "success" : "fail"}`}>
-        <h3>{success ? "🎉 Points Earned!" : "⚠️ No Points This Time"}</h3>
+        <h3>{success ? "ðŸŽ‰ Points Earned!" : "âš ï¸ No Points This Time"}</h3>
         <p>
           {success
-            ? "Great contribution! Points awarded 🎊"
+            ? "Great contribution! Points awarded ðŸŽŠ"
             : "Try to add more depth or context to earn points."}
         </p>
 

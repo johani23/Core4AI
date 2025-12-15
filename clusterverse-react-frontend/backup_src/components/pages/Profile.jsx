@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { syncMarketData, getMoodColor } from "@data/dataSync";
 
 /**
- * 👤 Profile – MVP-24.9
+ * ðŸ‘¤ Profile â€“ MVP-24.9
  * Shows personal dopamine & market insight snapshot.
  */
 export default function Profile() {
@@ -21,14 +21,14 @@ export default function Profile() {
 
   return (
     <div className="p-6 min-h-screen text-white">
-      <h1 className="text-2xl font-bold text-yellow-400 mb-4">👤 Creator Snapshot</h1>
+      <h1 className="text-2xl font-bold text-yellow-400 mb-4">ðŸ‘¤ Creator Snapshot</h1>
 
       <div className="grid gap-4 md:grid-cols-2">
         {/* Wallet */}
         <div className="bg-gray-900 p-4 rounded-xl border border-gray-800">
           <h3 className="font-semibold">Wallet Balance</h3>
           <p className="text-gray-300">{profile.wallet.balance} C4T</p>
-          <p className="text-sm text-indigo-400">Dopamine: {profile.wallet.dopamine} ⚡</p>
+          <p className="text-sm text-indigo-400">Dopamine: {profile.wallet.dopamine} âš¡</p>
         </div>
 
         {/* Mood */}

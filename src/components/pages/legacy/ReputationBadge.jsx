@@ -13,3 +13,4 @@ function ReputationBadge({ points }) {
 }
 
 export default ReputationBadge;
+

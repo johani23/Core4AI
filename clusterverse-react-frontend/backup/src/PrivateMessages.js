@@ -7,7 +7,7 @@ export default function PrivateMessages({ userId = 1 }) {
   const [messages, setMessages] = useState([]);
   const [newMsg, setNewMsg] = useState("");
 
-  // جلب الأصدقاء
+  // Ø¬Ù„Ø¨ Ø§Ù„Ø£ØµØ¯Ù‚Ø§Ø¡
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/api/friends/${userId}`)
@@ -15,14 +15,14 @@ export default function PrivateMessages({ userId = 1 }) {
       .catch((err) => console.error("Error fetching friends:", err));
   }, [userId]);
 
-  // جلب الرسائل مع الصديق المختار
+  // Ø¬Ù„Ø¨ Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ Ù…Ø¹ Ø§Ù„ØµØ¯ÙŠÙ‚ Ø§Ù„Ù…Ø®ØªØ§Ø±
   useEffect(() => {
     if (selectedFriend) {
       axios
         .get(`http://127.0.0.1:8000/messages/${userId}`)
         .then((res) => {
           const msgs = res.data.messages || [];
-          // نعرض فقط الرسائل بيني وبين الصديق
+          // Ù†Ø¹Ø±Ø¶ ÙÙ‚Ø· Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ Ø¨ÙŠÙ†ÙŠ ÙˆØ¨ÙŠÙ† Ø§Ù„ØµØ¯ÙŠÙ‚
           const filtered = msgs.filter(
             (m) =>
               m.sender === `User${userId}` || m.sender === selectedFriend.name
@@ -33,7 +33,7 @@ export default function PrivateMessages({ userId = 1 }) {
     }
   }, [selectedFriend, userId]);
 
-  // إرسال رسالة
+  // Ø¥Ø±Ø³Ø§Ù„ Ø±Ø³Ø§Ù„Ø©
   const handleSend = async () => {
     if (!newMsg.trim() || !selectedFriend) return;
     try {
@@ -59,9 +59,9 @@ export default function PrivateMessages({ userId = 1 }) {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mt-4">
-      <h2 className="text-xl font-bold mb-3">💌 Private Messages</h2>
+      <h2 className="text-xl font-bold mb-3">ðŸ’Œ Private Messages</h2>
 
-      {/* اختيار صديق */}
+      {/* Ø§Ø®ØªÙŠØ§Ø± ØµØ¯ÙŠÙ‚ */}
       <div className="mb-3">
         <select
           value={selectedFriend ? selectedFriend.id : ""}
@@ -81,7 +81,7 @@ export default function PrivateMessages({ userId = 1 }) {
         </select>
       </div>
 
-      {/* الرسائل */}
+      {/* Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ */}
       {selectedFriend ? (
         <>
           <div className="h-40 overflow-y-auto border rounded p-2 mb-3">
@@ -98,7 +98,7 @@ export default function PrivateMessages({ userId = 1 }) {
             )}
           </div>
 
-          {/* كتابة رسالة جديدة */}
+          {/* ÙƒØªØ§Ø¨Ø© Ø±Ø³Ø§Ù„Ø© Ø¬Ø¯ÙŠØ¯Ø© */}
           <div className="flex gap-2">
             <input
               type="text"

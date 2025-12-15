@@ -1,5 +1,5 @@
 /**
- * 🧩 Core4.AI – Engagement Debug Panel
+ * ðŸ§© Core4.AI â€“ Engagement Debug Panel
  * -------------------------------------------------------
  * Displays real-time engagement logs from useEngagementTracker().
  * Appears as a small floating console in the corner.
@@ -40,7 +40,7 @@ export default function EngagementDebugPanel() {
           className="fixed bottom-5 right-5 bg-gray-900/90 text-yellow-400 text-xs rounded-lg p-3 w-64 border border-gray-700 shadow-lg z-50"
         >
           <div className="font-bold text-purple-400 mb-2">
-            ⚙️ Engagement Tracker
+            âš™ï¸ Engagement Tracker
           </div>
           <div className="max-h-40 overflow-y-auto space-y-1">
             {logs.map((log) => (

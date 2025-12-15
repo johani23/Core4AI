@@ -1,8 +1,7 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ MerchantRNDPanel.jsx
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantRNDPanel.jsx
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 
 export default function MerchantRNDPanel({ featureId }) {
 
@@ -36,3 +35,5 @@ export default function MerchantRNDPanel({ featureId }) {
     </div>
   );
 }
+
+

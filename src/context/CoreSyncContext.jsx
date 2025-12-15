@@ -1,20 +1,37 @@
-import React, { createContext, useContext, useState } from 'react';
+// ============================================================================
+// 💚 Core4.AI – CoreSyncContext (Unified Role Engine)
+// ----------------------------------------------------------------------------
+// - Stores the selected user role globally
+// - Syncs role with localStorage (core4_userRole)
+// - Used by RoleRouter v2 for dynamic routing
+// ============================================================================
 
-// Create Context
+import React, { createContext, useState, useContext } from "react";
+
+// Create context container
 const CoreSyncContext = createContext();
 
-// Custom hook to use CoreSync context
-export function useCoreSync() {
-  return useContext(CoreSyncContext);
-}
+// Provider wrapper
+export const CoreSyncProvider = ({ children }) => {
+  const STORAGE_KEY = "core4_userRole";
 
-// CoreSyncProvider component
-export function CoreSyncProvider({ children }) {
-  const [role, setRole] = useState(''); // Or any initial value for role
-  
+  // Load role from localStorage or default to "buyer"
+  const [role, setRoleState] = useState(
+    localStorage.getItem(STORAGE_KEY) || "buyer"
+  );
+
+  // Update role in both state + localStorage
+  const setRole = (newRole) => {
+    setRoleState(newRole);
+    localStorage.setItem(STORAGE_KEY, newRole);
+  };
+
   return (
     <CoreSyncContext.Provider value={{ role, setRole }}>
       {children}
     </CoreSyncContext.Provider>
   );
-}
+};
+
+// Custom hook to access role + setRole
+export const useCoreSync = () => useContext(CoreSyncContext);

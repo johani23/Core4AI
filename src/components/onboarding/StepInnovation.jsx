@@ -1,3 +1,7 @@
+// ============================================================================
+// 💡 Core4.AI – StepInnovation.jsx (Clean UTF-8, Final)
+// ============================================================================
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useOnboardingStore } from "../../state/onboardingStore";
@@ -15,79 +19,56 @@ export default function StepInnovation() {
         طريقة إبداعك وش لونها؟ ✨
       </h2>
 
-      <p className="text-gray-300 mb-8 leading-relaxed">
-        نبي نعرف كيف تطلع أفكارك وكيف تتعامل مع المشاكل…
-        عشان نحدد موقعك على خريطة الإبداع داخل Core4.AI.
-      </p>
-
-      <Label text="مستوى الإبداع عندك؟" />
+      {/* Creativity Level */}
+      <Label text="مستوى الإبداع عندك" />
       <Select
         value={innovation.creativityLevel}
         onChange={(v) => updateInnovation({ creativityLevel: v })}
         options={[
-          ["low", "أقلّد الأشياء اللي تعجبني"],
-          ["medium", "أطوّر الموجود"],
-          ["high", "أبتكر أفكار جديدة"],
+          ["low", "أقلد الأشياء اللي تعجبني"],
+          ["medium", "أطور الموجود وأضيف عليه"],
+          ["high", "أبتكر أفكار جديدة من الصفر"],
         ]}
       />
 
-      <Label text="كيف تتعامل مع المشاكل؟" />
+      {/* Problem Solving */}
+      <Label text="كيف تتعامل مع المشاكل عادة؟" />
       <Select
         value={innovation.problemSolvingStyle}
         onChange={(v) => updateInnovation({ problemSolvingStyle: v })}
         options={[
-          ["fixing", "أصلّح الغلط"],
-          ["analyzing", "أحلل التفاصيل"],
-          ["inventing", "أفكر بحل جديد"],
+          ["fix", "أصلّح الغلط مباشرة"],
+          ["analyze", "أحلل التفاصيل قبل التحرك"],
+          ["invent", "أخترع حل جديد من الأساس"],
         ]}
       />
 
-      <Label text="كيف تطلع أفكارك؟" />
+      {/* Idea Style */}
+      <Label text="كيف تطلع أفكارك غالبًا؟" />
       <Select
         value={innovation.ideaStyle}
         onChange={(v) => updateInnovation({ ideaStyle: v })}
         options={[
-          ["structured", "بطريقة مرتبة"],
-          ["random", "تصير فجأة"],
-          ["inspired", "إذا شفت شيء يلهمني"],
+          ["structured", "بطريقة مرتبة ومنظّمة"],
+          ["random", "تجيني أفكار فجأة بدون ترتيب"],
+          ["inspired", "أستلهم من الأشياء حولي"],
         ]}
       />
 
+      {/* Boldness */}
       <Label text="جرأتك في تجربة أفكار جديدة؟" />
       <Select
         value={innovation.boldness}
         onChange={(v) => updateInnovation({ boldness: v })}
         options={[
-          ["low", "أتردد"],
+          ["low", "أتردد غالبًا"],
           ["medium", "أجرب بحذر"],
           ["high", "أجرب بدون خوف"],
         ]}
       />
 
       <button
-        onClick={() => {
-          // EASY MODE: allow if at least ONE answer is selected
-          const hasAnyAnswer =
-            innovation.creativityLevel ||
-            innovation.problemSolvingStyle ||
-            innovation.ideaStyle ||
-            innovation.boldness;
-
-          if (!hasAnyAnswer) {
-            alert("على الأقل اختر إجابة واحدة للاستمرار 🌟");
-            return;
-          }
-
-          // SAFE DEFAULTS
-          updateInnovation({
-            creativityLevel: innovation.creativityLevel || "low",
-            problemSolvingStyle: innovation.problemSolvingStyle || "fixing",
-            ideaStyle: innovation.ideaStyle || "structured",
-            boldness: innovation.boldness || "low",
-          });
-
-          navigate("/onboarding/summary");
-        }}
+        onClick={() => navigate("/onboarding/summary")}
         className="w-full py-3 mt-6 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-white"
       >
         التالي →
@@ -107,7 +88,7 @@ function Select({ value, onChange, options }) {
       onChange={(e) => onChange(e.target.value)}
       className="w-full mb-6 p-3 bg-[#111122] border border-purple-500/40 text-white rounded-xl"
     >
-      <option value="">اختر…</option>
+      <option value="">اختر...</option>
       {options.map(([v, label]) => (
         <option key={v} value={v}>
           {label}

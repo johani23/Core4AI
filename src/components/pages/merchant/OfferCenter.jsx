@@ -1,160 +1,279 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ OfferCenter.jsx (v4 â€œOffer Builder Suiteâ€)
-// ----------------------------------------------------------------------------
-// Merchants can create discounts, bundles, and promo codes
-// â€¢ Ready for backend integration
-// â€¢ Clean UI, 100% Tailwind
+// 💚 Core4.AI – OfferCenter (FINAL — Human + Safe + MIT Linked)
 // ============================================================================
 
-import React, { useState } from "react";
-import { TagIcon, GiftIcon, KeyIcon } from "@heroicons/react/24/outline";
+import React, { useState, useEffect } from "react";
+import BackToMerchant from "@/components/common/BackToMerchant";
+import { motion } from "framer-motion";
 
 export default function OfferCenter() {
-  const [discounts, setDiscounts] = useState([]);
-  const [bundles, setBundles] = useState([]);
-  const [promoCodes, setPromoCodes] = useState([]);
+  // --------------------------------------------------------------------------
+  // LOAD OFFERS
+  // --------------------------------------------------------------------------
+  const [offers, setOffers] = useState([]);
+  const [form, setForm] = useState({
+    code: "",
+    type: "percent", // percent | fixed
+    value: "",
+    expires: "",
+  });
 
-  // Temporary demo fields
-  const [discountValue, setDiscountValue] = useState("");
-  const [bundleName, setBundleName] = useState("");
-  const [promoCode, setPromoCode] = useState("");
+  // --------------------------------------------------------------------------
+  // LOAD PROFIT ANALYSIS FROM PricingCenter
+  // --------------------------------------------------------------------------
+  const profit = JSON.parse(
+    localStorage.getItem("core4ai_profit_analysis") || "null"
+  );
 
-  // ----------------------------------------------
-  // Add Discount
-  // ----------------------------------------------
-  const addDiscount = () => {
-    if (!discountValue.trim()) return;
-    setDiscounts((prev) => [...prev, { id: Date.now(), value: discountValue }]);
-    setDiscountValue("");
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("core4ai_offers") || "[]");
+    setOffers(saved);
+  }, []);
+
+  // --------------------------------------------------------------------------
+  // DERIVED VALUES
+  // --------------------------------------------------------------------------
+  const safeLimit = profit?.maxSafeDiscount ?? 0;
+  const smartPrice = profit?.smartPrice ?? null;
+
+  const discountValue =
+    form.type === "percent" && smartPrice
+      ? (Number(form.value || 0) / 100) * smartPrice
+      : Number(form.value || 0);
+
+  const isSafe = discountValue <= safeLimit;
+
+  // --------------------------------------------------------------------------
+  // CREATE OFFER
+  // --------------------------------------------------------------------------
+  const createOffer = () => {
+    if (!form.code || !form.value) {
+      alert("يرجى إدخال كود الخصم وقيمة الخصم");
+      return;
+    }
+
+    if (!isSafe) {
+      alert(
+        `⚠️ الخصم المقترح (${discountValue} ريال) أكبر من الحد الآمن (${safeLimit} ريال)`
+      );
+      return;
+    }
+
+    const newOffer = {
+      id: Date.now(),
+      code: form.code.trim().toUpperCase(),
+      type: form.type,
+      value: Number(form.value),
+      expires: form.expires || null,
+      status: "active",
+      created_at: new Date().toISOString(),
+    };
+
+    const updated = [newOffer, ...offers];
+    setOffers(updated);
+    localStorage.setItem("core4ai_offers", JSON.stringify(updated));
+
+    setForm({ code: "", type: "percent", value: "", expires: "" });
+    alert("✔ تم إنشاء العرض بأمان");
   };
 
-  // ----------------------------------------------
-  // Add Bundle
-  // ----------------------------------------------
-  const addBundle = () => {
-    if (!bundleName.trim()) return;
-    setBundles((prev) => [...prev, { id: Date.now(), name: bundleName }]);
-    setBundleName("");
+  const markExpired = (id) => {
+    const updated = offers.map((o) =>
+      o.id === id ? { ...o, status: "expired" } : o
+    );
+    setOffers(updated);
+    localStorage.setItem("core4ai_offers", JSON.stringify(updated));
   };
 
-  // ----------------------------------------------
-  // Add Promo Code
-  // ----------------------------------------------
-  const addPromo = () => {
-    if (!promoCode.trim()) return;
-    setPromoCodes((prev) => [...prev, { id: Date.now(), code: promoCode }]);
-    setPromoCode("");
-  };
+  const active = offers.filter((o) => o.status === "active");
+  const expired = offers.filter((o) => o.status === "expired");
 
+  // --------------------------------------------------------------------------
+  // UI
+  // --------------------------------------------------------------------------
   return (
-    <div className="space-y-10">
-      {/* HEADER */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Offer Center</h1>
-        <p className="text-gray-500 mt-1">Create discounts, bundles and promo codes.</p>
-      </div>
+    <div className="max-w-5xl mx-auto p-6" dir="rtl">
+      <BackToMerchant />
 
-      {/* DISCOUNT CREATOR */}
-      <div className="bg-white p-6 rounded-xl shadow space-y-4">
-        <h2 className="text-xl font-semibold flex items-center gap-2">
-          <TagIcon className="w-6 h-6 text-green-600" />
-          Create Discount
-        </h2>
+      <h1 className="text-3xl font-extrabold mb-2">العروض والخصومات</h1>
+      <p className="text-gray-500 mb-8">
+        أنشئ عروضًا آمنة مبنية على التسعير الذكي والتكاليف الفعلية.
+      </p>
 
-        <input
-          type="text"
-          placeholder="Discount (e.g., 20% off)"
-          className="w-full p-3 rounded-lg border bg-gray-50"
-          value={discountValue}
-          onChange={(e) => setDiscountValue(e.target.value)}
-        />
+      {/* ================= PROFIT PROTECTION ================= */}
+      {profit && (
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-8">
+          <p className="font-bold text-green-800">
+            🧠 حماية الربحية مفعّلة (من PricingCenter)
+          </p>
+          <p className="text-sm text-green-700 mt-1">
+            السعر الذكي (MIT): {smartPrice} ريال — أقصى خصم آمن:
+            <strong> {safeLimit} ريال</strong>
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            المستفيد من هذا القيد: Merchant → Treasury → Campaign ROI
+          </p>
+        </div>
+      )}
 
-        <button
-          onClick={addDiscount}
-          className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition"
-        >
-          Add Discount
-        </button>
-
-        <ul className="space-y-2 pt-4">
-          {discounts.map((d) => (
-            <li
-              key={d.id}
-              className="bg-gray-100 text-gray-800 p-3 rounded-lg border"
-            >
-              ðŸ’¸ {d.value}
-            </li>
-          ))}
+      {/* ================= HOW TO USE ================= */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
+        <p className="font-bold text-blue-800 mb-1">💡 كيف تستخدم هذا القسم؟</p>
+        <ul className="list-disc pr-6 text-sm text-blue-700 space-y-1">
+          <li>كود الخصم: أي كلمة (الاسم لا يؤثر على الحساب).</li>
+          <li>اختر نوع الخصم: نسبة (%) أو مبلغ ثابت (ريال).</li>
+          <li>اكتب رقم فقط — لا تكتب % ولا ريال.</li>
+          <li>النظام يمنعك تلقائيًا من الخصم الخاسر.</li>
         </ul>
       </div>
 
-      {/* BUNDLE CREATOR */}
-      <div className="bg-white p-6 rounded-xl shadow space-y-4">
-        <h2 className="text-xl font-semibold flex items-center gap-2">
-          <GiftIcon className="w-6 h-6 text-purple-600" />
-          Create Bundle
-        </h2>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-        <input
-          type="text"
-          placeholder="Bundle Name (e.g., Summer Combo)"
-          className="w-full p-3 rounded-lg border bg-gray-50"
-          value={bundleName}
-          onChange={(e) => setBundleName(e.target.value)}
-        />
+        {/* ================= CREATE OFFER ================= */}
+        <motion.div className="bg-white border rounded-xl p-6 shadow-sm">
+          <h2 className="text-xl font-bold mb-4">➕ إنشاء عرض جديد</h2>
 
-        <button
-          onClick={addBundle}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition"
-        >
-          Add Bundle
-        </button>
+          <Field
+            label="كود الخصم"
+            placeholder="مثال: WINTER2025"
+            value={form.code}
+            onChange={(v) => setForm({ ...form, code: v })}
+          />
 
-        <ul className="space-y-2 pt-4">
-          {bundles.map((b) => (
-            <li
-              key={b.id}
-              className="bg-gray-100 text-gray-800 p-3 rounded-lg border"
+          <Field
+            label="نوع الخصم"
+            type="select"
+            value={form.type}
+            onChange={(v) => setForm({ ...form, type: v })}
+            options={[
+              { value: "percent", label: "نسبة مئوية (%)" },
+              { value: "fixed", label: "مبلغ ثابت (ريال)" },
+            ]}
+          />
+
+          <Field
+            label={
+              form.type === "percent"
+                ? "قيمة الخصم (%)"
+                : "قيمة الخصم (ريال)"
+            }
+            type="number"
+            placeholder="اكتب رقم فقط"
+            value={form.value}
+            onChange={(v) => setForm({ ...form, value: v.replace(/^0+/, "") })}
+          />
+
+          <Field
+            label="تاريخ الانتهاء (اختياري)"
+            type="date"
+            value={form.expires}
+            onChange={(v) => setForm({ ...form, expires: v })}
+          />
+
+          {/* LIVE FEEDBACK */}
+          {form.value && (
+            <p
+              className={`text-sm mt-3 font-bold ${
+                isSafe ? "text-green-700" : "text-red-600"
+              }`}
             >
-              ðŸŽ {b.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+              {isSafe
+                ? `✅ الخصم يعادل ${discountValue} ريال — آمن`
+                : `⚠️ الخصم يعادل ${discountValue} ريال — غير آمن`}
+            </p>
+          )}
 
-      {/* PROMO CODE CREATOR */}
-      <div className="bg-white p-6 rounded-xl shadow space-y-4">
-        <h2 className="text-xl font-semibold flex items-center gap-2">
-          <KeyIcon className="w-6 h-6 text-blue-600" />
-          Create Promo Code
-        </h2>
+          <button
+            className="btn-green w-full mt-6 py-3"
+            onClick={createOffer}
+          >
+            ✔ إنشاء العرض
+          </button>
+        </motion.div>
 
-        <input
-          type="text"
-          placeholder="Promo Code (e.g., CORE4AI25)"
-          className="w-full p-3 rounded-lg border bg-gray-50"
-          value={promoCode}
-          onChange={(e) => setPromoCode(e.target.value)}
-        />
-
-        <button
-          onClick={addPromo}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
-        >
-          Add Promo
-        </button>
-
-        <ul className="space-y-2 pt-4">
-          {promoCodes.map((p) => (
-            <li
-              key={p.id}
-              className="bg-gray-100 text-gray-800 p-3 rounded-lg border"
-            >
-              ðŸ”‘ {p.code}
-            </li>
-          ))}
-        </ul>
+        {/* ================= ACTIVE / EXPIRED ================= */}
+        <div className="lg:col-span-2 space-y-8">
+          <Section
+            title="العروض النشطة"
+            list={active}
+            markExpired={markExpired}
+          />
+          <Section
+            title="العروض المنتهية"
+            list={expired}
+            disabled
+          />
+        </div>
       </div>
     </div>
   );
 }
+
+// ============================================================================
+// COMPONENTS
+// ============================================================================
+
+const Field = ({
+  label,
+  value,
+  onChange,
+  type = "text",
+  placeholder,
+  options,
+}) => (
+  <div className="mb-4">
+    <label className="block text-sm font-medium mb-1">{label}</label>
+
+    {type === "select" ? (
+      <select
+        className="w-full border rounded-lg p-2"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    ) : (
+      <input
+        type={type}
+        className="w-full border rounded-lg p-2"
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    )}
+  </div>
+);
+
+const Section = ({ title, list, markExpired, disabled }) => (
+  <section className="bg-white border rounded-xl p-6 shadow-sm">
+    <h2 className="text-xl font-bold mb-4">{title}</h2>
+
+    {list.length === 0 && (
+      <p className="text-gray-500 text-sm">لا يوجد عناصر.</p>
+    )}
+
+    {list.map((offer) => (
+      <div key={offer.id} className="border rounded-lg p-4 mb-3">
+        <p className="font-bold">{offer.code}</p>
+        <p className="text-sm text-gray-600">
+          {offer.type === "percent"
+            ? `${offer.value}% خصم`
+            : `${offer.value} ريال خصم`}
+        </p>
+
+        {!disabled && (
+          <button
+            className="btn-gray mt-2"
+            onClick={() => markExpired(offer.id)}
+          >
+            إنهاء العرض
+          </button>
+        )}
+      </div>
+    ))}
+  </section>
+);

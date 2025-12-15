@@ -1,9 +1,8 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Reflection.jsx
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Reflection.jsx
 // Awareness Mirror: record motive + display live awareness gain
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const API = "http://127.0.0.1:8000";
@@ -46,15 +45,15 @@ export default function Reflection() {
   }
 
   const motives = [
-    { key: "curiosity", label: "ðŸ‘€ Curiosity" },
-    { key: "inspiration", label: "ðŸŒŸ Inspiration" },
-    { key: "validation", label: "ðŸ’¬ Validation" },
-    { key: "boredom", label: "ðŸ˜´ Boredom" },
+    { key: "curiosity", label: "ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â€šÂ¬ Curiosity" },
+    { key: "inspiration", label: "ÃƒÂ°Ã…Â¸Ã…â€™Ã…Â¸ Inspiration" },
+    { key: "validation", label: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¬ Validation" },
+    { key: "boredom", label: "ÃƒÂ°Ã…Â¸Ã‹Å“Ã‚Â´ Boredom" },
   ];
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">ðŸªž Awareness Mirror</h2>
+      <h2 className="text-2xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã‚ÂªÃ…Â¾ Awareness Mirror</h2>
 
       {/* Live awareness stats */}
       <div className="bg-gray-900 p-4 rounded-2xl border border-gray-700 mb-6">
@@ -105,3 +104,5 @@ export default function Reflection() {
     </div>
   );
 }
+
+

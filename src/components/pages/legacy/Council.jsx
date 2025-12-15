@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Council.jsx (v137.9 â€œSynaptic Stability + Ping Monitorâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Council.jsx (v137.9 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSynaptic Stability + Ping MonitorÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Fixes multi-socket duplication (clean close on unmount)
-// âœ… Adds Ping Monitor â†’ live count of WS messages per minute
-// âœ… Keeps mood sync, normalized dopamine, and D-index animation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fixes multi-socket duplication (clean close on unmount)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds Ping Monitor ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ live count of WS messages per minute
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Keeps mood sync, normalized dopamine, and D-index animation
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function Council() {
@@ -18,14 +17,14 @@ export default function Council() {
   const pingRef = useRef(0);
   const wsRef = useRef(null);
 
-  // ðŸŽ¨ mood color scale
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ mood color scale
   const getMoodColor = () => {
     if (dindex >= 70) return "text-green-400";
     if (dindex >= 50) return "text-yellow-400";
     return "text-red-400";
   };
 
-  // ðŸŒ WebSocket logic
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â WebSocket logic
   useEffect(() => {
     let ws;
     const connect = () => {
@@ -33,18 +32,18 @@ export default function Council() {
       wsRef.current = ws;
 
       ws.onopen = () => {
-        console.log("âœ… [Council] Connected to /ws/synaptic");
+        console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ [Council] Connected to /ws/synaptic");
         setWsStatus("Online");
       };
 
       ws.onclose = () => {
-        console.warn("âš ï¸ [Council] WS Closed â€“ reconnecting in 3s");
+        console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â [Council] WS Closed ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ reconnecting in 3s");
         setWsStatus("Reconnecting...");
         setTimeout(connect, 3000);
       };
 
       ws.onerror = (err) => {
-        console.error("âŒ [Council] WS Error:", err);
+        console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ [Council] WS Error:", err);
         setWsStatus("Error");
       };
 
@@ -71,21 +70,21 @@ export default function Council() {
             );
           }
         } catch (err) {
-          console.error("âŒ [Council] Parse Error:", err);
+          console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ [Council] Parse Error:", err);
         }
       };
     };
 
     connect();
 
-    // ðŸ§¹ cleanup â€“ close previous socket properly
+    // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â¹ cleanup ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ close previous socket properly
     return () => {
-      console.log("ðŸ”» [Council] Closing WS connection");
+      console.log("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â» [Council] Closing WS connection");
       ws && ws.close();
     };
   }, []);
 
-  // â±ï¸ Ping monitor â€“ update every 60s
+  // ÃƒÂ¢Ã‚ÂÃ‚Â±ÃƒÂ¯Ã‚Â¸Ã‚Â Ping monitor ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ update every 60s
   useEffect(() => {
     const interval = setInterval(() => {
       setPingCount(pingRef.current);
@@ -106,7 +105,7 @@ export default function Council() {
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold text-pink-400 flex items-center gap-2">
-          ðŸ§  Council Board
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Council Board
         </h1>
         <div className="flex gap-4 text-sm">
           <span>
@@ -200,7 +199,7 @@ export default function Council() {
         </motion.div>
       </div>
 
-      {/* ðŸ“¡ Ping Monitor */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡ Ping Monitor */}
       <div className="absolute top-6 right-6 text-xs bg-gray-900 border border-gray-700 px-3 py-1 rounded-lg shadow">
         <span className="text-gray-400">Ping/min:</span>{" "}
         <b className="text-indigo-400">{pingCount}</b>
@@ -208,3 +207,5 @@ export default function Council() {
     </div>
   );
 }
+
+

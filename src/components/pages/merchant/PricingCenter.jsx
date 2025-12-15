@@ -1,107 +1,135 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ PricingCenter.jsx (v13 â€œMIT Pricing Suiteâ€)
-// ----------------------------------------------------------------------------
-// Includes:
-// â€¢ Product Picker
-// â€¢ Pricing Overview
-// â€¢ Pricing Breakdown
-// â€¢ Elasticity Panel
-// â€¢ Demand Curve
-// â€¢ EVC Calculator
-// â€¢ Recommended Price Box
+// Core4.AI – PricingCenter
+// FINAL DECISION INTELLIGENCE VERSION
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
-
-import PricingOverview from "@/components/pricing/PricingOverview";
-import PricingBreakdown from "@/components/pricing/PricingBreakdown";
-import ElasticityPanel from "@/components/pricing/ElasticityPanel";
-import EVCCalculator from "@/components/pricing/EVCCalculator";
-import DemandCurve from "@/components/pricing/DemandCurve";
-import RecommendedPriceBox from "@/components/pricing/RecommendedPriceBox";
+import { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import BackToMerchant from "@/components/common/BackToMerchant";
 
 export default function PricingCenter() {
-  const [products, setProducts] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const { productId } = useParams();
+  const location = useLocation();
 
-  // ------------------------------------------------------------
-  // Demo product list â€” replace with backend later
-  // ------------------------------------------------------------
+  const demandSignal = location.state?.demandSignal || null;
+
+  const [product, setProduct] = useState(null);
+  const [mit, setMit] = useState(null);
+  const [rnd, setRnd] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const list = [
-      { id: 1, name: "Wireless Earbuds", price: 129 },
-      { id: 2, name: "Smart Watch X", price: 299 },
-      { id: 3, name: "Premium Backpack", price: 52 },
-    ];
-    setProducts(list);
-    setSelected(list[0]);
-  }, []);
+    async function load() {
+      try {
+        const pRes = await fetch(`/api/merchant/products/${productId}`);
+        if (!pRes.ok) return;
+        const p = await pRes.json();
+        setProduct(p);
+
+        const mRes = await fetch(`/api/merchant/products/${productId}/mit`);
+        if (mRes.ok) setMit(await mRes.json());
+
+        // 🔑 الصحيح: ربط RND بإشارة الطلب
+        if (demandSignal?.id) {
+          const rRes = await fetch(
+            `/api/rnd/value-insights?intention_id=${demandSignal.id}`
+          );
+          if (rRes.ok) setRnd(await rRes.json());
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    load();
+  }, [productId, demandSignal]);
+
+  if (loading) return <Message msg="جاري تحميل التحليل…" />;
+  if (!product || !mit) return <Message msg="البيانات غير مكتملة." />;
 
   return (
-    <div className="space-y-10">
-      {/* HEADER */}
-      <div>
-        <h1 className="text-3xl font-semibold text-gray-900">Pricing Intelligence</h1>
-        <p className="text-gray-500 mt-1">
-          MIT pricing suite powered by elasticity, EVC, demand modeling, and value metrics.
+    <div className="max-w-4xl mx-auto" dir="rtl">
+      <BackToMerchant />
+
+      <Box title="لماذا هذا التحليل؟">
+        <p className="text-sm text-gray-700">
+          هذا القرار مبني على طلب حقيقي من العملاء قبل إنشاء المنتج،
+          وتحليل السوق، وتقييم العملاء للميزة نفسها.
         </p>
-      </div>
+      </Box>
 
-      {/* PRODUCT PICKER */}
-      <div className="bg-white shadow p-6 rounded-xl">
-        <h2 className="text-xl font-semibold mb-4">Select a Product</h2>
-        <div className="flex space-x-4 overflow-x-auto pb-2">
-          {products.map((product) => (
-            <button
-              key={product.id}
-              onClick={() => setSelected(product)}
-              className={`px-4 py-2 rounded-lg border ${
-                selected?.id === product.id
-                  ? "bg-green-600 text-white border-green-700"
-                  : "border-gray-300 hover:bg-gray-100"
-              }`}
-            >
-              {product.name}
-            </button>
-          ))}
-        </div>
-      </div>
+      <Box title="المنتج">
+        <p><b>الاسم:</b> {product.name}</p>
+        <p><b>السعر الحالي:</b> {product.price} ريال</p>
+      </Box>
 
-      {selected && (
+      <Box title="تحليل السوق (MIT)">
+        <Line label="السعر الذكي المقترح" value={`${mit.smart_price} ريال`} />
+        <Line
+          label="نطاق السوق المقبول"
+          value={`${mit.market_floor} – ${mit.market_ceiling} ريال`}
+        />
+      </Box>
+
+      {rnd && (
         <>
-          {/* OVERVIEW + BREAKDOWN */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow">
-              <PricingOverview product={selected} />
-            </div>
+          <Box title="رأي العملاء عن السعر">
+            <Line
+              label="سعر السوق كما يراه العملاء"
+              value={`${rnd.perceived_market_price} ريال`}
+            />
+            <Line
+              label="السعر المناسب لهم"
+              value={`${rnd.recommended_price} ريال`}
+            />
+            <Line
+              label="حساسية السعر"
+              value={rnd.elasticity_label}
+            />
+          </Box>
 
-            <div className="bg-white p-6 rounded-xl shadow">
-              <PricingBreakdown product={selected} />
-            </div>
-          </div>
+          <Box title="تقييم العملاء للميزة">
+            <Line label="أهمية الميزة" value={`${rnd.importance}/5`} />
+            <Line label="تميّز الميزة" value={`${rnd.uniqueness}/5`} />
+            <Line label="الرضا المتوقع" value={`${rnd.satisfaction}/5`} />
 
-          {/* ELASTICITY + DEMAND CURVE */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow">
-              <ElasticityPanel product={selected} />
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow">
-              <DemandCurve product={selected} />
-            </div>
-          </div>
-
-          {/* EVC CALCULATOR */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <EVCCalculator product={selected} />
-          </div>
-
-          {/* FINAL RECOMMENDED PRICE */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <RecommendedPriceBox product={selected} />
-          </div>
+            {rnd.satisfaction < rnd.importance && (
+              <p className="text-yellow-700 font-bold mt-3">
+                تنبيه: العملاء يرون الميزة مهمة لكنهم غير متأكدين أنها
+                ستلبي توقعهم بالكامل. قد تحتاج تحسين المنتج أو شرح قيمته.
+              </p>
+            )}
+          </Box>
         </>
       )}
+
+      <Box title="ماذا تفعل الآن؟">
+        <p className="text-sm text-gray-700">
+          القرار النهائي بيدك:
+          <br />– إذا السعر أعلى من تصور العملاء: خفّض السعر أو حسّن القيمة  
+          <br />– إذا الميزة قوية: يمكنك حملة تحويل مباشرة  
+          <br />– إذا الميزة غير واضحة: حملة تعليمية أولًا
+        </p>
+      </Box>
     </div>
   );
 }
+
+// ---------------------------------------------------------------------------
+const Box = ({ title, children }) => (
+  <div className="bg-white border rounded-xl p-6 mb-6">
+    <h2 className="font-bold mb-3">{title}</h2>
+    {children}
+  </div>
+);
+
+const Line = ({ label, value }) => (
+  <div className="flex justify-between border-b py-2">
+    <span>{label}</span>
+    <span className="font-bold">{value}</span>
+  </div>
+);
+
+const Message = ({ msg }) => (
+  <div className="text-center text-gray-500 mt-20">{msg}</div>
+);

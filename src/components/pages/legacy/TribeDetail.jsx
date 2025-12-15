@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeDetail.jsx (MVP-57 â€œInsight Modeâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeDetail.jsx (MVP-57 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInsight ModeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
 // Mini radar chart for tribe members
 // + Compare to League button
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Radar } from "react-chartjs-2";
@@ -62,7 +61,7 @@ export default function TribeDetail() {
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
-      <Link to="/tribes" className="text-sm text-purple-400 hover:text-purple-300">â† Back to Tribes</Link>
+      <Link to="/tribes" className="text-sm text-purple-400 hover:text-purple-300">ÃƒÂ¢Ã¢â‚¬Â Ã‚Â Back to Tribes</Link>
       <div className="flex justify-between items-center mt-4 mb-3">
         <h1 className="text-3xl font-bold text-pink-400">Tribe {tribeData.tribe}</h1>
         <button
@@ -115,3 +114,5 @@ export default function TribeDetail() {
     </div>
   );
 }
+
+

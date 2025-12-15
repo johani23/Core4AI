@@ -38,7 +38,8 @@ export default function DopaminePulse({ userId = 1 }) {
       }}
       transition={{ duration: 1.8, repeat: Infinity }}
     >
-      âš¡
+      ÃƒÂ¢Ã…Â¡Ã‚Â¡
     </motion.div>
   );
 }
+

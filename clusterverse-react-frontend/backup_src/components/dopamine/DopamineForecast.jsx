@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 /**
- * 🧠 Core4.AI – Dopamine Forecast Panel (MVP 19.10)
+ * ðŸ§  Core4.AI â€“ Dopamine Forecast Panel (MVP 19.10)
  * Displays predicted dopamine trend over the next 12 hours.
  */
 
@@ -19,7 +19,7 @@ export default function DopamineForecast() {
         setForecast(json.forecast || []);
         setAvg(json.forecast_avg || 0);
       } catch (err) {
-        console.error("⚠️ Dopamine forecast fetch failed:", err);
+        console.error("âš ï¸ Dopamine forecast fetch failed:", err);
       }
     }
 
@@ -43,7 +43,7 @@ export default function DopamineForecast() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h2 className="text-xl font-semibold text-yellow-400 mb-4">🔮 Dopamine Forecast</h2>
+      <h2 className="text-xl font-semibold text-yellow-400 mb-4">ðŸ”® Dopamine Forecast</h2>
 
       <div className="text-sm text-gray-400 mb-2">
         <p>Average Forecast: <span className="text-yellow-400">{avg}%</span></p>

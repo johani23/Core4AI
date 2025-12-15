@@ -13,3 +13,4 @@ export default function CoreHeader({ title, subtitle, icon }) {
     </div>
   );
 }
+

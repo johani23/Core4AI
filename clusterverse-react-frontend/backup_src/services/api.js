@@ -1,12 +1,12 @@
 // ============================================================
-// 💎 Core4.AI – MVP-27 Unified API Layer (Tribe + Market Pulse)
+// ðŸ’Ž Core4.AI â€“ MVP-27 Unified API Layer (Tribe + Market Pulse)
 // ============================================================
 
 const API_BASE = "http://127.0.0.1:8000";
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
 /* ------------------------------------------------------------
- * ⚙️ Helpers
+ * âš™ï¸ Helpers
  * ------------------------------------------------------------ */
 async function handleResponse(res) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -17,13 +17,13 @@ async function safeFetch(url, fallback, options = {}) {
     const res = await fetch(url, options);
     return await handleResponse(res);
   } catch (err) {
-    console.warn(`⚠️ API fallback for ${url}:`, err.message);
+    console.warn(`âš ï¸ API fallback for ${url}:`, err.message);
     return fallback;
   }
 }
 
 /* ------------------------------------------------------------
- * 👤 USER PROFILE + TRIBE
+ * ðŸ‘¤ USER PROFILE + TRIBE
  * ------------------------------------------------------------ */
 export async function getUserProfile(userId = 1) {
   const fallback = { id: userId, name: "Core4 Creator", xp: 8600, level: 8, streak: 7, rank: "Top 10%" };
@@ -51,7 +51,7 @@ export async function assignUserTribe(userId = 1, tribeName = "Default Tribe") {
 }
 
 /* ------------------------------------------------------------
- * 💰 WALLET
+ * ðŸ’° WALLET
  * ------------------------------------------------------------ */
 export async function getWallet(userId = 1) {
   const fallback = { balance: 30, symbol: "C4T", dopamine: 50 };
@@ -64,12 +64,12 @@ export async function getUserTokens(userId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 📰 FEED
+ * ðŸ“° FEED
  * ------------------------------------------------------------ */
 export async function getPosts() {
   const fallback = [
-    { id: 1, title: "🔥 First Post!", content: "Testing dopamine sync...", votes: 5 },
-    { id: 2, title: "🚀 Market Rising", content: "Vibes are up!", votes: 8 },
+    { id: 1, title: "ðŸ”¥ First Post!", content: "Testing dopamine sync...", votes: 5 },
+    { id: 2, title: "ðŸš€ Market Rising", content: "Vibes are up!", votes: 8 },
   ];
   return safeFetch(`${API_BASE}/posts`, fallback);
 }
@@ -83,7 +83,7 @@ export async function addPost(title, content) {
 }
 
 /* ------------------------------------------------------------
- * 👥 GROUPS + LEADERBOARD + CLUSTERS
+ * ðŸ‘¥ GROUPS + LEADERBOARD + CLUSTERS
  * ------------------------------------------------------------ */
 export async function getGroups() {
   const fallback = [
@@ -114,21 +114,21 @@ export async function getGroupMetrics() {
 }
 
 /* ------------------------------------------------------------
- * ⚔️ CHALLENGES + REWARDS
+ * âš”ï¸ CHALLENGES + REWARDS
  * ------------------------------------------------------------ */
 export async function getChallenges() {
   const fallback = [
-    { id: 1, title: "🔥 Viral Surge", description: "Post highly emotional content.", points: 100 },
-    { id: 2, title: "💎 Bull Market Ride", description: "Hold tokens during EMI spike.", points: 80 },
-    { id: 3, title: "🎯 Predictor", description: "Predict next EMI movement.", points: 90 },
+    { id: 1, title: "ðŸ”¥ Viral Surge", description: "Post highly emotional content.", points: 100 },
+    { id: 2, title: "ðŸ’Ž Bull Market Ride", description: "Hold tokens during EMI spike.", points: 80 },
+    { id: 3, title: "ðŸŽ¯ Predictor", description: "Predict next EMI movement.", points: 90 },
   ];
   return safeFetch(`${API_BASE}/challenges`, fallback);
 }
 
 export async function getRewardHistory(userId = 1) {
   const fallback = [
-    { challenge: "🔥 Viral Surge", amount: 10, type: "token", timestamp: new Date().toISOString() },
-    { challenge: "🎯 Predictor", amount: 3.5, type: "dopamine", timestamp: new Date(Date.now() - 60000).toISOString() },
+    { challenge: "ðŸ”¥ Viral Surge", amount: 10, type: "token", timestamp: new Date().toISOString() },
+    { challenge: "ðŸŽ¯ Predictor", amount: 3.5, type: "dopamine", timestamp: new Date(Date.now() - 60000).toISOString() },
   ];
   return safeFetch(`${API_BASE}/rewards/history/${userId}`, fallback);
 }
@@ -155,7 +155,7 @@ export async function triggerRewardEvaluation(userId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 🧠 DOPAMINE ENGINE
+ * ðŸ§  DOPAMINE ENGINE
  * ------------------------------------------------------------ */
 export async function getDopamineProfile(userId = 1) {
   const fallback = { user_id: userId, dopamine: 50, balance: 30 };
@@ -185,10 +185,10 @@ export async function registerDopamine(userId = 1, intensity = 0.5, eventType = 
 }
 
 /* ------------------------------------------------------------
- * 📈 MARKET (Legacy)
+ * ðŸ“ˆ MARKET (Legacy)
  * ------------------------------------------------------------ */
 export async function getMarketMood() {
-  const fallback = { mood: "neutral", emoji: "🌤", label: "Calm", emi: 50 };
+  const fallback = { mood: "neutral", emoji: "ðŸŒ¤", label: "Calm", emi: 50 };
   return safeFetch(`${API_BASE}/market/mood`, fallback);
 }
 
@@ -201,12 +201,12 @@ export async function getMarketTrades() {
 }
 
 export async function getMarketMessages() {
-  const fallback = { message: "🌤 Mood steady — post uplifting content!", timestamp: new Date().toISOString() };
+  const fallback = { message: "ðŸŒ¤ Mood steady â€” post uplifting content!", timestamp: new Date().toISOString() };
   return safeFetch(`${API_BASE}/market/messages`, fallback);
 }
 
 /* ------------------------------------------------------------
- * 💹 MARKET PULSE + TRIBE COMPETITION (MVP-27)
+ * ðŸ’¹ MARKET PULSE + TRIBE COMPETITION (MVP-27)
  * ------------------------------------------------------------ */
 export async function getMarketPulse() {
   const fallback = [];
@@ -232,7 +232,7 @@ export async function refreshMarket() {
 }
 
 /* ------------------------------------------------------------
- * 🧭 DASHBOARD
+ * ðŸ§­ DASHBOARD
  * ------------------------------------------------------------ */
 export async function getDashboardSummary() {
   const fallback = {
@@ -244,7 +244,7 @@ export async function getDashboardSummary() {
 }
 
 /* ------------------------------------------------------------
- * 🧾 DEFAULT EXPORT
+ * ðŸ§¾ DEFAULT EXPORT
  * ------------------------------------------------------------ */
 export default {
   getUserProfile,
@@ -270,7 +270,7 @@ export default {
   getMarketTrades,
   getMarketMessages,
   getDashboardSummary,
-  // 🆕 MVP-27
+  // ðŸ†• MVP-27
   getMarketPulse,
   getMarketNews,
   getTribeLeaderboard,

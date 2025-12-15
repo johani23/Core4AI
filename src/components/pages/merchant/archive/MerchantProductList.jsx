@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ MerchantProductList.jsx (v6.0 â€“ AI Apply Price + Opportunity Score)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantProductList.jsx (v6.0 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AI Apply Price + Opportunity Score)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +29,7 @@ export default function MerchantProductList() {
 
       setProducts(list);
     } catch (err) {
-      toast.error("âŒ ÙØ´Ù„ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª");
     }
     setLoading(false);
   };
@@ -45,13 +44,13 @@ export default function MerchantProductList() {
       });
 
       if (res.ok) {
-        toast.success("ðŸ¤– ØªÙ… ØªØ·Ø¨ÙŠÙ‚ Ø³Ø¹Ø± Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ");
+        toast.success("ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ");
         loadProducts(); // refresh
       } else {
-        toast.error("âŒ ÙØ´Ù„ ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø¹Ø±");
+        toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±");
       }
     } catch (e) {
-      toast.error("âš ï¸ Ù…Ø´ÙƒÙ„Ø© Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…");
+      toast.error("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦");
     }
   };
 
@@ -59,12 +58,12 @@ export default function MerchantProductList() {
     <div className="max-w-5xl mx-auto mt-10">
 
       <h2 className="text-2xl font-bold text-green-700 mb-6">
-        Ù…Ù†ØªØ¬Ø§Øª Ø§Ù„ØªØ§Ø¬Ø±
+        Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±
       </h2>
 
       {loading && (
         <div className="text-center text-gray-500 mb-4">
-          Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„...
+          ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾...
         </div>
       )}
 
@@ -83,16 +82,16 @@ export default function MerchantProductList() {
               />
             ) : (
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
-                Ù„Ø§ ØªÙˆØ¬Ø¯ ØµÙˆØ±Ø©
+                Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ ÃƒËœÃ‚ÂµÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â©
               </div>
             )}
 
             <h3 className="text-lg font-bold text-gray-900">{product.name}</h3>
 
             <p className="text-gray-700 text-sm mt-1">
-              Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø­Ø§Ù„ÙŠ:{" "}
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â :{" "}
               <span className="font-semibold text-green-700">
-                {product.price} Ø±.Ø³
+                {product.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
               </span>
             </p>
 
@@ -100,7 +99,7 @@ export default function MerchantProductList() {
               {product.description}
             </p>
 
-            {/* â­ AI Pricing Snapshot */}
+            {/* ÃƒÂ¢Ã‚Â­Ã‚Â AI Pricing Snapshot */}
             <div className="mt-4 bg-gray-50 p-4 rounded-xl border">
               <UnifiedPricingCompact
                 productId={product.product_id}
@@ -108,7 +107,7 @@ export default function MerchantProductList() {
               />
             </div>
 
-            {/* â­ Opportunity Score (0â€“100) */}
+            {/* ÃƒÂ¢Ã‚Â­Ã‚Â Opportunity Score (0ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“100) */}
             {product.ai_price && product.optimal_price && (
               <p className="text-sm mt-3 font-semibold text-blue-600 bg-blue-50 p-2 rounded-lg">
                 Opportunity Score:{" "}
@@ -123,7 +122,7 @@ export default function MerchantProductList() {
               </p>
             )}
 
-            {/* â­ APPLY AI PRICE BUTTON */}
+            {/* ÃƒÂ¢Ã‚Â­Ã‚Â APPLY AI PRICE BUTTON */}
             <button
               onClick={() =>
                 applyAIPrice(
@@ -133,7 +132,7 @@ export default function MerchantProductList() {
               }
               className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold"
             >
-              ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­ ðŸ¤–
+              ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ
             </button>
 
             <button
@@ -144,7 +143,7 @@ export default function MerchantProductList() {
               }
               className="mt-4 w-full bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold"
             >
-              âœ” Ø§Ø³ØªØ®Ø¯Ù… Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬
+              ÃƒÂ¢Ã…â€œÃ¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â®ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
             </button>
 
           </div>
@@ -153,3 +152,5 @@ export default function MerchantProductList() {
     </div>
   );
 }
+
+

@@ -1,13 +1,12 @@
 // ============================================================================
-// âš¡ Core4.AI â€“ PowerBoard.jsx (v3.0 â€œSaudi-Tech A3 Editionâ€)
+// ÃƒÂ¢Ã…Â¡Ã‚Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ PowerBoard.jsx (v3.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSaudi-Tech A3 EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ----------------------------------------------------------------------------
-// â€¢ Fully redesigned UI with Saudi Dark + Green + Gold Identity
-// â€¢ Uses CorePanel + CoreHeader
-// â€¢ Unified Tribe Power, Orders, XP, Creator Impact, Promoter Earnings
-// â€¢ Pulse, Glow, and consistent styling across entire dashboard
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Fully redesigned UI with Saudi Dark + Green + Gold Identity
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Uses CorePanel + CoreHeader
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Unified Tribe Power, Orders, XP, Creator Impact, Promoter Earnings
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Pulse, Glow, and consistent styling across entire dashboard
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 import CorePanel from "@/components/ui/CorePanel";
@@ -60,7 +59,7 @@ export default function PowerBoard() {
       <CoreHeader
         title="Core Influence PowerBoard"
         subtitle="Real-time dopamine, XP flow, tribe impact & promoter analytics."
-        icon="âš¡"
+        icon="ÃƒÂ¢Ã…Â¡Ã‚Â¡"
       />
 
       {/* =======================================
@@ -137,7 +136,7 @@ export default function PowerBoard() {
           LIVE ORDERS
       ======================================== */}
       <section>
-        <CoreHeader title="Live Orders" icon="ðŸ“¡" />
+        <CoreHeader title="Live Orders" icon="ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡" />
         <CorePanel className="max-h-80 overflow-y-auto space-y-3">
           {orders.map((o, i) => (
             <div key={i} className="bg-[#11161A] p-4 rounded-xl">
@@ -154,7 +153,7 @@ export default function PowerBoard() {
           CREATOR IMPACT
       ======================================== */}
       <section>
-        <CoreHeader title="Creator Impact" icon="ðŸŽ¨" />
+        <CoreHeader title="Creator Impact" icon="ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨" />
         <CorePanel className="max-h-80 overflow-y-auto space-y-3">
           {creatorImpact.map((c, i) => (
             <div key={i} className="bg-[#11161A] p-4 rounded-xl">
@@ -170,7 +169,7 @@ export default function PowerBoard() {
           TRIBE BOOSTS
       ======================================== */}
       <section>
-        <CoreHeader title="Tribe Boosts" icon="ðŸ”¥" />
+        <CoreHeader title="Tribe Boosts" icon="ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥" />
         <CorePanel className="max-h-72 overflow-y-auto space-y-3">
           {tribeImpact.map((t, i) => (
             <div key={i} className="bg-[#11161A] p-4 rounded-xl">
@@ -184,3 +183,5 @@ export default function PowerBoard() {
     </div>
   );
 }
+
+

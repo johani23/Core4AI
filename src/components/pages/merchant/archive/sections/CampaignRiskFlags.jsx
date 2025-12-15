@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignRiskFlags.jsx (Phase 14 â€“ Campaign Risk Flags)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignRiskFlags.jsx (Phase 14 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Campaign Risk Flags)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignRiskFlags({
   productIQ,
@@ -43,11 +42,11 @@ export default function CampaignRiskFlags({
     <div className="p-6 border bg-white rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-red-700 mb-4">
-        ðŸš¨ Campaign Risk Flags
+        ÃƒÂ°Ã…Â¸Ã…Â¡Ã‚Â¨ Campaign Risk Flags
       </h2>
 
       <p className="text-gray-700 mb-4">
-        Price Gap: {data.price_gap} Ø±.Ø³
+        Price Gap: {data.price_gap} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
       </p>
 
       <ul className="list-disc pl-6 space-y-2 text-gray-800">
@@ -59,3 +58,5 @@ export default function CampaignRiskFlags({
     </div>
   );
 }
+
+

@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CompetitorMatchSection.jsx (v8.0 â€œUses ProductIQ Outputâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CompetitorMatchSection.jsx (v8.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUses ProductIQ OutputÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CompetitorMatchSection({ product, onLoaded }) {
   const [match, setMatch] = useState(null);
@@ -19,7 +18,7 @@ export default function CompetitorMatchSection({ product, onLoaded }) {
         body: JSON.stringify({
           product_name: product.name,
           features: product.features || [],
-          competitor_name: product.competitor_name || "Ø£Ù‚Ø±Ø¨ Ù…Ù†Ø§ÙØ³",
+          competitor_name: product.competitor_name || "ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¨ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³",
           competitor_price: product.competitor_price || 80
         })
       });
@@ -29,8 +28,8 @@ export default function CompetitorMatchSection({ product, onLoaded }) {
       const mapped = {
         competitor: data.competitor,
         price_gap: data.recommended_price - data.competitor.price,
-        advantages: ["Ù…ÙŠØ²Ø© Ø¥Ø¶Ø§ÙÙŠØ©", "Ø¬ÙˆØ¯Ø© Ù…Ø­Ø³Ù‘Ù†Ø©"],
-        weaknesses: data.feature_value < 15 ? ["Ù‚ÙŠÙ…Ø© Ù…ÙŠØ²Ø© Ù…Ù†Ø®ÙØ¶Ø©"] : []
+        advantages: ["Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â ÃƒËœÃ‚Â©", "ÃƒËœÃ‚Â¬Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬ËœÃƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â©"],
+        weaknesses: data.feature_value < 15 ? ["Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â®Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶ÃƒËœÃ‚Â©"] : []
       };
 
       setMatch(mapped);
@@ -38,32 +37,32 @@ export default function CompetitorMatchSection({ product, onLoaded }) {
 
     } catch (err) {
       console.error(err);
-      setMatch({ error: "âŒ ÙØ´Ù„ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ù†Ø§ÙØ³" });
+      setMatch({ error: "ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³" });
     }
   };
 
   return (
     <div className="bg-white border rounded-xl p-6 shadow-sm">
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        âš”ï¸ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ù†Ø§ÙØ³ â€” Competitor Match
+        ÃƒÂ¢Ã…Â¡Ã¢â‚¬ÂÃƒÂ¯Ã‚Â¸Ã‚Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Competitor Match
       </h2>
 
-      {!match && <p className="text-gray-500">Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù„ÙŠÙ„...</p>}
+      {!match && <p className="text-gray-500">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾...</p>}
 
       {match?.error && <p className="text-red-600">{match.error}</p>}
 
       {match && !match.error && (
         <div className="bg-gray-50 border p-4 rounded-lg">
-          <p><strong>Ø§Ù„Ù…Ù†Ø§ÙØ³:</strong> {match.competitor.name}</p>
-          <p><strong>Ø³Ø¹Ø± Ø§Ù„Ù…Ù†Ø§ÙØ³:</strong> {match.competitor.price} Ø±.Ø³</p>
-          <p><strong>ÙØ±Ù‚ Ø§Ù„Ø³Ø¹Ø±:</strong> {match.price_gap} Ø±.Ø³</p>
+          <p><strong>ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³:</strong> {match.competitor.name}</p>
+          <p><strong>ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³:</strong> {match.competitor.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+          <p><strong>Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±:</strong> {match.price_gap} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
 
-          <h4 className="font-semibold mt-4">Ù†Ù‚Ø§Ø· ØªÙÙˆÙ‘Ù‚ Ù…Ù†ØªØ¬Ùƒ:</h4>
+          <h4 className="font-semibold mt-4">Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â· ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬ËœÃƒâ„¢Ã¢â‚¬Å¡ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬Ãƒâ„¢Ã†â€™:</h4>
           <ul className="list-disc pl-6">
             {match.advantages.map((a, i) => <li key={i}>{a}</li>)}
           </ul>
 
-          <h4 className="font-semibold mt-4">Ù†Ù‚Ø§Ø· Ø§Ù„Ø¶Ø¹Ù:</h4>
+          <h4 className="font-semibold mt-4">Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â· ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‚Â:</h4>
           <ul className="list-disc pl-6">
             {match.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
           </ul>
@@ -72,3 +71,5 @@ export default function CompetitorMatchSection({ product, onLoaded }) {
     </div>
   );
 }
+
+

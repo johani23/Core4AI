@@ -1,5 +1,5 @@
 /**
- * 💎 Core4.AI – MVP-24.9 DataSync (Final Stable Version)
+ * ðŸ’Ž Core4.AI â€“ MVP-24.9 DataSync (Final Stable Version)
  * ------------------------------------------------------------
  * Unified logic for:
  *  - Market & Wallet Sync
@@ -17,7 +17,7 @@ import {
 } from "@services/api";
 
 /* ------------------------------------------------------------
- * 🧠 Unified Market Sync
+ * ðŸ§  Unified Market Sync
  * ------------------------------------------------------------ */
 export async function syncMarketData(userId = 1) {
   try {
@@ -39,17 +39,17 @@ export async function syncMarketData(userId = 1) {
     cacheMarketData(snapshot);
     return snapshot;
   } catch (err) {
-    console.warn("⚠️ DataSync fallback (mock mode):", err.message);
+    console.warn("âš ï¸ DataSync fallback (mock mode):", err.message);
 
     const fallback = {
       wallet: { balance: 30, symbol: "C4T", dopamine: 50 },
-      mood: { mood: "neutral", emoji: "🌤", label: "Calm", emi: 50 },
+      mood: { mood: "neutral", emoji: "ðŸŒ¤", label: "Calm", emi: 50 },
       trades: [
         { price: 3.42, qty: 15, t: new Date().toISOString() },
         { price: 3.39, qty: 22, t: new Date(Date.now() - 60000).toISOString() },
       ],
       message: {
-        message: "🌤 Calm day — keep posting meaningful content!",
+        message: "ðŸŒ¤ Calm day â€” keep posting meaningful content!",
         timestamp: new Date().toISOString(),
       },
       timestamp: new Date().toISOString(),
@@ -61,7 +61,7 @@ export async function syncMarketData(userId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 🎨 Market / Momentum Color Helpers
+ * ðŸŽ¨ Market / Momentum Color Helpers
  * ------------------------------------------------------------ */
 export function getMoodColor(mood) {
   if (!mood) return "#facc15"; // neutral yellow
@@ -72,13 +72,13 @@ export function getMoodColor(mood) {
   return "#facc15"; // yellow (neutral)
 }
 
-/* 🔗 Alias for Leaderboard compatibility */
+/* ðŸ”— Alias for Leaderboard compatibility */
 export function getMomentumColor(mood) {
   return getMoodColor(mood);
 }
 
 /* ------------------------------------------------------------
- * ⚙️ Local Cache
+ * âš™ï¸ Local Cache
  * ------------------------------------------------------------ */
 export function cacheMarketData(data) {
   try {
@@ -99,7 +99,7 @@ export function loadCachedMarketData() {
 }
 
 /* ------------------------------------------------------------
- * 🔁 Auto-Refresh Utility
+ * ðŸ” Auto-Refresh Utility
  * ------------------------------------------------------------ */
 export function startAutoSync(callback, interval = 60000, userId = 1) {
   async function refresh() {
@@ -111,7 +111,7 @@ export function startAutoSync(callback, interval = 60000, userId = 1) {
 }
 
 /* ------------------------------------------------------------
- * 🧠 Emotion Cluster Analysis (Feed.jsx)
+ * ðŸ§  Emotion Cluster Analysis (Feed.jsx)
  * ------------------------------------------------------------ */
 export async function analyzeEmotionCluster(text) {
   try {
@@ -123,7 +123,7 @@ export async function analyzeEmotionCluster(text) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
   } catch (err) {
-    console.warn("⚠️ Emotion Cluster fallback:", err.message);
+    console.warn("âš ï¸ Emotion Cluster fallback:", err.message);
     const tones = ["joy", "focus", "curiosity", "neutral", "tension"];
     const tone = tones[Math.floor(Math.random() * tones.length)];
     return {
@@ -131,19 +131,19 @@ export async function analyzeEmotionCluster(text) {
       cluster: `${tone.charAt(0).toUpperCase() + tone.slice(1)} Cluster`,
       dominant_tone: tone,
       value_density: Math.random().toFixed(2),
-      insight: `Offline mode — simulated ${tone} tone.`,
+      insight: `Offline mode â€” simulated ${tone} tone.`,
     };
   }
 }
 
 /* ------------------------------------------------------------
- * 🧬 Unified Stats (Profile / Leaderboard)
+ * ðŸ§¬ Unified Stats (Profile / Leaderboard)
  * ------------------------------------------------------------ */
 export function getUnifiedStats() {
   const mockClusters = [
-    { id: 1, name: "Visionary Squad", momentum: "Rising 🚀", description: "High creative synergy." },
-    { id: 2, name: "Neural Nomads", momentum: "Climbing 📈", description: "Strong adaptation and growth." },
-    { id: 3, name: "Data Dreamers", momentum: "Stable 🌕", description: "Consistent teamwork and results." },
+    { id: 1, name: "Visionary Squad", momentum: "Rising ðŸš€", description: "High creative synergy." },
+    { id: 2, name: "Neural Nomads", momentum: "Climbing ðŸ“ˆ", description: "Strong adaptation and growth." },
+    { id: 3, name: "Data Dreamers", momentum: "Stable ðŸŒ•", description: "Consistent teamwork and results." },
   ];
 
   return {

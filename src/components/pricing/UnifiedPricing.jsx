@@ -1,12 +1,11 @@
 // =====================================================================================
-// ðŸ’š Core4.AI â€“ UnifiedPricing.jsx (v3 FINAL â€“ With "Apply AI Price")
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ UnifiedPricing.jsx (v3 FINAL ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ With "Apply AI Price")
 // -------------------------------------------------------------------------------------
-// â€¢ Adds Apply AI Price button that updates product price instantly
-// â€¢ Sends POST to backend
-// â€¢ Updates local UI
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Adds Apply AI Price button that updates product price instantly
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Sends POST to backend
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Updates local UI
 // =====================================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function UnifiedPricing({ productId }) {
@@ -41,9 +40,9 @@ export default function UnifiedPricing({ productId }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ final_price: finalPrice }),
       });
-      toast.success("âœ”ï¸ ØªÙ…Øª Ø­ÙØ¸ Ø§Ù„Ø³Ø¹Ø±");
+      toast.success("ÃƒÂ¢Ã…â€œÃ¢â‚¬ÂÃƒÂ¯Ã‚Â¸Ã‚Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¸ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±");
     } catch (e) {
-      toast.error("âŒ ÙØ´Ù„ Ø­ÙØ¸ Ø§Ù„Ø³Ø¹Ø±");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â­Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¸ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±");
     }
     setSaving(false);
   };
@@ -67,21 +66,21 @@ export default function UnifiedPricing({ productId }) {
       });
 
       if (res.ok) {
-        toast.success("ðŸ¤– ØªÙ… ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù‚ØªØ±Ø­ Ø¨Ù†Ø¬Ø§Ø­");
+        toast.success("ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­");
         // Refresh local pricing panel
         loadPricing();
       } else {
-        toast.error("âŒ ÙØ´Ù„ ØªØ·Ø¨ÙŠÙ‚ Ø³Ø¹Ø± Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ");
+        toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â·ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ");
       }
     } catch (e) {
-      toast.error("âŒ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦");
     }
 
     setApplying(false);
   };
 
   if (!data)
-    return <div className="text-gray-400 mt-4">Loading unified pricingâ€¦</div>;
+    return <div className="text-gray-400 mt-4">Loading unified pricingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</div>;
 
   return (
     <div className="bg-white shadow-lg border rounded-2xl p-6 space-y-6">
@@ -116,7 +115,7 @@ export default function UnifiedPricing({ productId }) {
 
       {/* Revenue Projection */}
       <Section title="Revenue Projection">
-        <ListItem k="Estimated Conversions" v={`${data.conversions_min} â€“ ${data.conversions_max}`} />
+        <ListItem k="Estimated Conversions" v={`${data.conversions_min} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ${data.conversions_max}`} />
         <ListItem k="Expected Revenue" v={`${data.expected_revenue} SAR`} />
         <ListItem k="Core4.AI Fee" v={`${data.fee} SAR`} />
         <ListItem k="Net to Merchant" v={`${data.net_revenue} SAR`} />
@@ -125,10 +124,10 @@ export default function UnifiedPricing({ productId }) {
       {/* Sensitivity */}
       <Section title="Sensitivity Analysis">
         <p className="text-sm text-gray-600">
-          Price â†“ 10% â†’ Conversions â†‘ {data.sensitivity_down}%
+          Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Å“ 10% ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Conversions ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ {data.sensitivity_down}%
         </p>
         <p className="text-sm text-gray-600">
-          Price â†‘ 10% â†’ Conversions â†“ {data.sensitivity_up}%
+          Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ 10% ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Conversions ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Å“ {data.sensitivity_up}%
         </p>
       </Section>
 
@@ -151,7 +150,7 @@ export default function UnifiedPricing({ productId }) {
           disabled={applying}
           className="px-5 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700"
         >
-          {applying ? "Applyingâ€¦" : "Apply AI Price ðŸ¤–"}
+          {applying ? "ApplyingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦" : "Apply AI Price ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ"}
         </button>
 
         {/* USE AI FEBRUARY */}
@@ -168,7 +167,7 @@ export default function UnifiedPricing({ productId }) {
           className="px-5 py-3 rounded-xl bg-green-600 text-white font-semibold"
           disabled={saving}
         >
-          {saving ? "Savingâ€¦" : "Save Price"}
+          {saving ? "SavingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦" : "Save Price"}
         </button>
       </div>
     </div>
@@ -203,3 +202,5 @@ function ListItem({ k, v }) {
     </div>
   );
 }
+
+

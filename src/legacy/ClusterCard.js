@@ -19,7 +19,7 @@ export default function ClusterCard({ name, description, members }) {
     >
       <div>
         <h2 style={{ fontSize: "16px", fontWeight: "bold", marginBottom: "6px" }}>
-          🏙️ {name}
+          Ã°Å¸Ââ„¢Ã¯Â¸Â {name}
         </h2>
         <p style={{ fontSize: "14px", color: "#4b5563", marginBottom: "10px" }}>
           {description}
@@ -27,7 +27,7 @@ export default function ClusterCard({ name, description, members }) {
       </div>
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: "12px", color: "#6b7280" }}>👥 {members} members</span>
+        <span style={{ fontSize: "12px", color: "#6b7280" }}>Ã°Å¸â€˜Â¥ {members} members</span>
         <button
           onClick={() => setOpen(true)}
           style={{
@@ -78,7 +78,7 @@ export default function ClusterCard({ name, description, members }) {
               {description}
             </p>
             <p style={{ fontSize: "13px", color: "#6b7280", marginBottom: "20px" }}>
-              👥 Members in this ring: {members}
+              Ã°Å¸â€˜Â¥ Members in this ring: {members}
             </p>
 
             <button
@@ -99,3 +99,4 @@ export default function ClusterCard({ name, description, members }) {
     </div>
   );
 }
+

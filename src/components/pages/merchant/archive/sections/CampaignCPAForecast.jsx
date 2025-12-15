@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignCPAForecast.jsx (Phase 18 â€“ CPA Forecast)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignCPAForecast.jsx (Phase 18 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CPA Forecast)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignCPAForecast({
   budget,
@@ -39,7 +38,7 @@ export default function CampaignCPAForecast({
     return (
       <div className="p-6 bg-white border rounded-xl shadow mt-6">
         <p className="text-center text-gray-600">
-          âš ï¸ No conversions predicted â€” CPA cannot be calculated.
+          ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â No conversions predicted ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â CPA cannot be calculated.
         </p>
       </div>
     );
@@ -48,11 +47,11 @@ export default function CampaignCPAForecast({
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸŽ¯ CPA Forecast (Cost Per Acquisition)
+        ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ CPA Forecast (Cost Per Acquisition)
       </h2>
 
       <div className="space-y-4 text-gray-800">
-        <p><strong>CPA:</strong> {data.cpa} Ø±.Ø³</p>
+        <p><strong>CPA:</strong> {data.cpa} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
 
         <div className="mt-4 p-4 bg-green-50 border rounded text-center">
           <p className="text-gray-600 text-sm">
@@ -64,3 +63,5 @@ export default function CampaignCPAForecast({
     </div>
   );
 }
+
+

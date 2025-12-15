@@ -1,8 +1,7 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ PaymentSimulator.jsx (FINAL)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ PaymentSimulator.jsx (FINAL)
 // ============================================================
 
-import React from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -39,3 +38,5 @@ export default function PaymentSimulator() {
     </div>
   );
 }
+
+

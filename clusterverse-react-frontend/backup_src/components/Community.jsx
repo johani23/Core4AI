@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 
 function Community() {
   const [posts, setPosts] = useState([
-    { id: 1, content: "🚀 First post in the community!", author: "Noor" },
-    { id: 2, content: "🎉 Excited to join Core4!", author: "Sama" },
+    { id: 1, content: "ðŸš€ First post in the community!", author: "Noor" },
+    { id: 2, content: "ðŸŽ‰ Excited to join Core4!", author: "Sama" },
   ]);
 
   return (
     <div className="p-6 bg-white shadow-md rounded-xl">
-      <h1 className="text-2xl font-bold mb-4">🌍 Community</h1>
+      <h1 className="text-2xl font-bold mb-4">ðŸŒ Community</h1>
       <div className="space-y-4">
         {posts.map((p) => (
           <div key={p.id} className="p-4 border rounded bg-gray-50">

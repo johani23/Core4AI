@@ -10,7 +10,7 @@ export default function MomentumForecast() {
         const res = await getLiveAISummary();
         setForecast(res);
       } catch (err) {
-        console.warn("âš ï¸ Forecast load failed:", err);
+        console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Forecast load failed:", err);
       }
     }
     load();
@@ -25,15 +25,15 @@ export default function MomentumForecast() {
 
   const message =
     forecast.avg_cohesion > 80
-      ? "Strong alignment â€” teams emotionally synchronized."
+      ? "Strong alignment ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â teams emotionally synchronized."
       : forecast.avg_cohesion > 60
-      ? "Momentum steady â€” collaboration balanced."
-      : "Low emotional drive â€” potential fatigue phase.";
+      ? "Momentum steady ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â collaboration balanced."
+      : "Low emotional drive ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â potential fatigue phase.";
 
   return (
     <div className="bg-gray-900 p-5 rounded-xl border border-gray-800 shadow-md">
       <h2 className="text-xl font-semibold text-yellow-400 mb-2">
-        ðŸ”® Momentum Forecast
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® Momentum Forecast
       </h2>
       <p className="text-gray-300 text-sm mb-4">{message}</p>
       <div className="space-y-2 text-sm text-gray-400">
@@ -44,3 +44,4 @@ export default function MomentumForecast() {
     </div>
   );
 }
+

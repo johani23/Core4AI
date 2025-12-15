@@ -5,17 +5,17 @@ export default function Badges({ points }) {
 
   useEffect(() => {
     const earned = [];
-    if (points >= 10) earned.push("🌟 Beginner");
-    if (points >= 30) earned.push("🔥 Active");
-    if (points >= 50) earned.push("🎖 Explorer");
-    if (points >= 100) earned.push("🏆 Champion");
+    if (points >= 10) earned.push("Ã°Å¸Å’Å¸ Beginner");
+    if (points >= 30) earned.push("Ã°Å¸â€Â¥ Active");
+    if (points >= 50) earned.push("Ã°Å¸Å½â€“ Explorer");
+    if (points >= 100) earned.push("Ã°Å¸Ââ€  Champion");
     setBadges(earned);
   }, [points]);
 
   return (
     <div className="max-w-xl mx-auto bg-white p-6 rounded shadow">
-      <h2 className="text-2xl font-bold mb-4">🎖 Badges</h2>
-      <p className="mb-4">نقاطك الحالية: {points}</p>
+      <h2 className="text-2xl font-bold mb-4">Ã°Å¸Å½â€“ Badges</h2>
+      <p className="mb-4">Ã™â€ Ã™â€šÃ˜Â§Ã˜Â·Ã™Æ’ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â§Ã™â€žÃ™Å Ã˜Â©: {points}</p>
       <ul className="space-y-2">
         {badges.length > 0 ? (
           badges.map((b, i) => (
@@ -24,9 +24,10 @@ export default function Badges({ points }) {
             </li>
           ))
         ) : (
-          <p>🚀 لا يوجد بادجات حتى الآن</p>
+          <p>Ã°Å¸Å¡â‚¬ Ã™â€žÃ˜Â§ Ã™Å Ã™Ë†Ã˜Â¬Ã˜Â¯ Ã˜Â¨Ã˜Â§Ã˜Â¯Ã˜Â¬Ã˜Â§Ã˜Âª Ã˜Â­Ã˜ÂªÃ™â€° Ã˜Â§Ã™â€žÃ˜Â¢Ã™â€ </p>
         )}
       </ul>
     </div>
   );
 }
+

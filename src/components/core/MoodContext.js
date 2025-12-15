@@ -15,3 +15,4 @@ export function MoodProvider({ children }) {
 export function useMood() {
   return useContext(MoodContext);
 }
+

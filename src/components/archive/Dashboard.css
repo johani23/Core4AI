@@ -1,4 +1,4 @@
-.dashboard {
+﻿.dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,3 +27,4 @@
   min-width: 280px;
   flex: 1;
 }
+

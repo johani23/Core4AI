@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Groups.jsx (MVP-34 â€œUnified WS + Tribe Pulse Syncâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Groups.jsx (MVP-34 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified WS + Tribe Pulse SyncÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Single WebSocket endpoint (/ws)
-// âœ… Compatible with MVP-34 backend (Unified Sentiment Broadcast)
-// âœ… Recreates Tribe Pulse Map animation
-// âœ… Live mood propagation across all tribes
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Single WebSocket endpoint (/ws)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Compatible with MVP-34 backend (Unified Sentiment Broadcast)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Recreates Tribe Pulse Map animation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live mood propagation across all tribes
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_BASE = "http://127.0.0.1:8000";
@@ -18,23 +17,23 @@ export default function Groups() {
   const [leaders, setLeaders] = useState([]);
   const [pulseTribe, setPulseTribe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [status, setStatus] = useState("Connectingâ€¦");
+  const [status, setStatus] = useState("ConnectingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦");
   const [lastUpdate, setLastUpdate] = useState(null);
 
   // ------------------------------------------------------------
-  // ðŸ§  Load initial mock data + connect to unified /ws
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Load initial mock data + connect to unified /ws
   // ------------------------------------------------------------
   useEffect(() => {
     async function loadAll() {
       try {
-        // Generate mock groups if backend doesnâ€™t provide /groups
+        // Generate mock groups if backend doesnÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t provide /groups
         const resMarket = await fetch(`${API_BASE}/market`);
         const market = await resMarket.json();
 
         const mockGroups = [
-          { id: 1, name: "Core4AI 001", emoji: "ðŸŒ¸", mood: "positive", members: 23 },
-          { id: 2, name: "Core4AI 002", emoji: "âš¡", mood: "focused", members: 19 },
-          { id: 3, name: "Core4AI 003", emoji: "ðŸŒ¿", mood: "neutral", members: 31 },
+          { id: 1, name: "Core4AI 001", emoji: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¸", mood: "positive", members: 23 },
+          { id: 2, name: "Core4AI 002", emoji: "ÃƒÂ¢Ã…Â¡Ã‚Â¡", mood: "focused", members: 19 },
+          { id: 3, name: "Core4AI 003", emoji: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¿", mood: "neutral", members: 31 },
         ];
         setGroups(mockGroups);
 
@@ -59,11 +58,11 @@ export default function Groups() {
 
     loadAll();
 
-    // ðŸŒ Unified WebSocket
+    // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Unified WebSocket
     const ws = new WebSocket("ws://127.0.0.1:8000/ws");
 
     ws.onopen = () => {
-      console.log("âœ… Connected to /ws");
+      console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to /ws");
       setStatus("Live");
     };
 
@@ -90,21 +89,21 @@ export default function Groups() {
           });
         }
       } catch (err) {
-        console.warn("âš ï¸ Invalid WS message:", err);
+        console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Invalid WS message:", err);
       }
     };
 
     ws.onerror = () => setStatus("Disconnected");
     ws.onclose = () => {
-      console.warn("âš ï¸ WebSocket closed; fallback to polling.");
-      setStatus("Pollingâ€¦");
+      console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â WebSocket closed; fallback to polling.");
+      setStatus("PollingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦");
     };
 
     return () => ws.close();
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Helpers
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Helpers
   // ------------------------------------------------------------
   const getMoodColor = (mood) => {
     switch (mood) {
@@ -129,7 +128,7 @@ export default function Groups() {
   };
 
   // ------------------------------------------------------------
-  // ðŸ’« Tribe Pulse Map
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â« Tribe Pulse Map
   // ------------------------------------------------------------
   const renderPulseMap = () => (
     <div className="relative flex justify-center items-center mb-10">
@@ -181,7 +180,7 @@ export default function Groups() {
   );
 
   // ------------------------------------------------------------
-  // ðŸ§± Render Tribe Cards
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â± Render Tribe Cards
   // ------------------------------------------------------------
   return (
     <div className="min-h-screen bg-black text-white px-6 py-12">
@@ -190,12 +189,12 @@ export default function Groups() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        ðŸŒ Core4 Tribes â€“ Live Pulse Map
+        ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Core4 Tribes ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Live Pulse Map
       </motion.h1>
 
       <div className="text-center text-gray-400 text-sm mb-4">
-        Status: <span className="text-yellow-400">{status}</span> â€¢ Last update:{" "}
-        {lastUpdate || "â€”"}
+        Status: <span className="text-yellow-400">{status}</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Last update:{" "}
+        {lastUpdate || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}
       </div>
 
       {renderPulseMap()}
@@ -243,7 +242,7 @@ export default function Groups() {
                   <h2 className="text-lg font-semibold mb-2">{g.name}</h2>
 
                   <div className="text-gray-400 text-sm mb-2">
-                    ðŸ‘¥ {g.members} Members
+                    ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¥ {g.members} Members
                   </div>
 
                   <motion.div
@@ -257,7 +256,7 @@ export default function Groups() {
                       </span>
                     </div>
                     <div className="flex flex-col text-right">
-                      <span className="text-gray-400 text-xs">Î” 24h</span>
+                      <span className="text-gray-400 text-xs">ÃƒÅ½Ã¢â‚¬Â 24h</span>
                       <span
                         className={`font-semibold ${
                           changePct > 0 ? "text-green-400" : "text-red-400"
@@ -312,3 +311,5 @@ export default function Groups() {
     </div>
   );
 }
+
+

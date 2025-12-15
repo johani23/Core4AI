@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’¹ Core4.AI â€“ Market.jsx (MVP-93.1 â€œSynaptic Market Pulseâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Market.jsx (MVP-93.1 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSynaptic Market PulseÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Integrated with CoreSyncContext (no direct WebSocket)
-// âœ… Real-time dopamine sync from Synaptic Stream
-// âœ… Council risk auto-sync + pulse highlighting
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrated with CoreSyncContext (no direct WebSocket)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time dopamine sync from Synaptic Stream
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Council risk auto-sync + pulse highlighting
 // ============================================================
 
-import React from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import { motion } from "framer-motion";
 
@@ -21,7 +20,7 @@ export default function Market() {
         "Humor League": 0.6,
       };
 
-  // ðŸ” extract last risk if exists
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â extract last risk if exists
   const lastRiskEvent = synapticFeed.find((e) => e.risk);
   const risk = lastRiskEvent?.risk || "Low";
 
@@ -40,7 +39,7 @@ export default function Market() {
   return (
     <div className="p-8 bg-gray-950 min-h-screen text-gray-100">
       <h2 className="text-3xl font-bold mb-4 text-fuchsia-300">
-        ðŸ’¹ Synaptic Market Pulse
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Synaptic Market Pulse
       </h2>
       <p className="text-sm text-gray-400 mb-2">
         Token value mirrors tribe dopamine energy.
@@ -86,3 +85,5 @@ export default function Market() {
     </div>
   );
 }
+
+

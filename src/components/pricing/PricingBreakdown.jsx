@@ -24,7 +24,7 @@ export default function PricingBreakdown({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading pricing breakdown...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading pricing breakdown...
       </div>
     );
 
@@ -103,3 +103,4 @@ export default function PricingBreakdown({ productId }) {
     </div>
   );
 }
+

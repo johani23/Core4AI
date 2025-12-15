@@ -8,15 +8,15 @@ import {
 } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
-// ðŸ§­ Layout
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Layout
 import Navbar from "@components/Navbar";
 import GlobalPulseTopBar from "@components/GlobalPulseTopBar";
 
-// ðŸ§  Contexts
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Contexts
 import { CoreSyncProvider } from "@context/CoreSyncContext";
 import { CreatorProvider } from "@context/CreatorContext";
 
-// ðŸ§© Core Pages
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Core Pages
 import Dashboard from "@pages/Dashboard";
 import Feed from "@pages/Feed";
 import Leaderboard from "@pages/Leaderboard";
@@ -32,32 +32,32 @@ import Council from "@pages/Council";
 import Memory from "@pages/Memory";
 import SimulationHub from "@pages/SimulationHub";
 
-// ðŸ’  Creator / Public
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Creator / Public
 import CreatorProfile from "@pages/CreatorProfile";
 import PublicDashboard from "@pages/PublicDashboard";
 
-// ðŸ§‘â€ðŸ« Mentor Modules
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â« Mentor Modules
 import MentorLeagueBoard from "@pages/MentorLeagueBoard";
 import MentorPodium from "@pages/MentorPodium";
 
-// ðŸŽ‰ Celebration
+// ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° Celebration
 import LevelUpToast from "@components/LevelUpToast";
 
-// ðŸ§ª QA Tools
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Âª QA Tools
 import FeedTester from "@pages/FeedTester";
 import FeedUploader from "@pages/FeedUploader";
 
-// ðŸŒ Unified Ecosystem Views
+// ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Unified Ecosystem Views
 import EcosystemDashboard from "@pages/EcosystemDashboard";
 import EcosystemLiveWall from "@pages/EcosystemLiveWall";
 
 // ------------------------------------------------------------
-// ðŸŒ Inner Routing Shell
+// ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Inner Routing Shell
 // ------------------------------------------------------------
 const AppContent = () => {
   const location = useLocation();
 
-  // ðŸ”„ Reset scroll on route change
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Reset scroll on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -125,7 +125,7 @@ const AppContent = () => {
 };
 
 // ------------------------------------------------------------
-// ðŸ§© Final Wrapped Export (CreatorProvider + CoreSyncProvider)
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Final Wrapped Export (CreatorProvider + CoreSyncProvider)
 // ------------------------------------------------------------
 export default function App() {
   return (
@@ -138,3 +138,4 @@ export default function App() {
     </Router>
   );
 }
+

@@ -15,3 +15,4 @@ function ProgressBar({ value, max }) {
 }
 
 export default ProgressBar;
+

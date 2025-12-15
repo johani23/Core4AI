@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ ConversionLeaderboard.jsx (v1.0 â€œPowerBoardâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ConversionLeaderboard.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œPowerBoardÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Shows top tribes & creators ranked by Conversion Power
-// âœ… Merchants can identify high-ROI targets for campaigns
-// âœ… Animated ranking bars with Framer Motion
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Shows top tribes & creators ranked by Conversion Power
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Merchants can identify high-ROI targets for campaigns
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated ranking bars with Framer Motion
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 
 const tribeData = [
@@ -63,21 +62,21 @@ const creatorData = [
 export default function ConversionLeaderboard() {
   return (
     <div className="space-y-10">
-      {/* ðŸ† Header */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Header */}
       <div className="text-center">
         <h1 className="text-3xl font-bold text-purple-400">
-          ðŸ’¹ Conversion Power Index
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Conversion Power Index
         </h1>
         <p className="text-gray-400 text-sm mt-2">
-          Discover who drives real value â€” merchants can target top tribes and creators
+          Discover who drives real value ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â merchants can target top tribes and creators
           with the highest conversion impact.
         </p>
       </div>
 
-      {/* ðŸŒ€ Tribe Leaderboard */}
+      {/* ÃƒÂ°Ã…Â¸Ã…â€™Ã¢â€šÂ¬ Tribe Leaderboard */}
       <div>
         <h2 className="text-xl font-semibold text-yellow-400 mb-4">
-          ðŸ•ï¸ Tribe Rankings
+          ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â¢ÃƒÂ¯Ã‚Â¸Ã‚Â Tribe Rankings
         </h2>
         <div className="space-y-3">
           {tribeData.map((t, i) => (
@@ -90,11 +89,11 @@ export default function ConversionLeaderboard() {
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">{i + 1 === 1 ? "ðŸ¥‡" : i + 1 === 2 ? "ðŸ¥ˆ" : "ðŸ¥‰"}</span>
+                  <span className="text-xl">{i + 1 === 1 ? "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â¡" : i + 1 === 2 ? "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã‹â€ " : "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â°"}</span>
                   <div>
                     <h3 className="font-bold text-white">{t.name}</h3>
                     <p className="text-xs text-gray-400">
-                      CR {t.cr}% â€¢ Token Weight {t.weight}x â€¢ {t.revenue.toLocaleString()} C4T
+                      CR {t.cr}% ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Token Weight {t.weight}x ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {t.revenue.toLocaleString()} C4T
                     </p>
                   </div>
                 </div>
@@ -117,10 +116,10 @@ export default function ConversionLeaderboard() {
         </div>
       </div>
 
-      {/* ðŸ‘‘ Creator Leaderboard */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Ëœ Creator Leaderboard */}
       <div>
         <h2 className="text-xl font-semibold text-pink-400 mb-4">
-          ðŸ‘©â€ðŸ’» Top Creators
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â©ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â» Top Creators
         </h2>
         <div className="space-y-3">
           {creatorData.map((c, i) => (
@@ -137,7 +136,7 @@ export default function ConversionLeaderboard() {
                   <div>
                     <h3 className="font-bold text-white">{c.name}</h3>
                     <p className="text-xs text-gray-400">
-                      {c.tribe} â€¢ {c.cr}% CR â€¢ {c.revenue.toLocaleString()} C4T
+                      {c.tribe} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {c.cr}% CR ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {c.revenue.toLocaleString()} C4T
                     </p>
                   </div>
                 </div>
@@ -160,12 +159,14 @@ export default function ConversionLeaderboard() {
         </div>
       </div>
 
-      {/* ðŸŽ¯ Merchant CTA */}
+      {/* ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Merchant CTA */}
       <div className="text-center mt-10">
         <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-all">
-          ðŸŽ¯ Launch Campaign with Top Tribe
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Launch Campaign with Top Tribe
         </button>
       </div>
     </div>
   );
 }
+
+

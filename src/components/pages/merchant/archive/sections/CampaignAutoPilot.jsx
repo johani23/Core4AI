@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignAutoPilot.jsx (Phase 26 â€“ One-Click Auto Pilot Export)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignAutoPilot.jsx (Phase 26 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ One-Click Auto Pilot Export)
 // ============================================================================
 
-import React, { useState } from "react";
 
 export default function CampaignAutoPilot({
   product,
@@ -52,14 +51,14 @@ export default function CampaignAutoPilot({
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ¤– Campaign Auto-Pilot (One-Click Export)
+        ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ Campaign Auto-Pilot (One-Click Export)
       </h2>
 
       <button
         onClick={generate}
         className="w-full bg-green-700 text-white py-3 rounded-lg mb-4"
       >
-        ðŸš€ Generate Auto-Pilot Export
+        ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Generate Auto-Pilot Export
       </button>
 
       {exportData && (
@@ -70,3 +69,5 @@ export default function CampaignAutoPilot({
     </div>
   );
 }
+
+

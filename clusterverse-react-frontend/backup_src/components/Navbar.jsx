@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – Navbar.jsx (MVP-27: Market Pulse Integration)
+// ðŸ’Ž Core4.AI â€“ Navbar.jsx (MVP-27: Market Pulse Integration)
 // ============================================================
 
 import React from "react";
@@ -16,12 +16,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-yellow-500/20">
       <div className="flex items-center justify-between px-4 md:px-8 py-2">
-        {/* 🧠 Brand */}
+        {/* ðŸ§  Brand */}
         <div className="font-bold text-lg tracking-wide text-white">
           Core4.<span className="text-yellow-400">AI</span>
         </div>
 
-        {/* 🧭 Navigation Links */}
+        {/* ðŸ§­ Navigation Links */}
         <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
           <NavLink
             to="/feed"
@@ -29,7 +29,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            💬 Feed
+            ðŸ’¬ Feed
           </NavLink>
 
           <NavLink
@@ -38,7 +38,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            📊 Dashboard
+            ðŸ“Š Dashboard
           </NavLink>
 
           <NavLink
@@ -47,7 +47,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            🏅 Leaderboard
+            ðŸ… Leaderboard
           </NavLink>
 
           <NavLink
@@ -56,7 +56,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            👥 Groups
+            ðŸ‘¥ Groups
           </NavLink>
 
           <NavLink
@@ -65,7 +65,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            🔥 Challenges
+            ðŸ”¥ Challenges
           </NavLink>
 
           <NavLink
@@ -74,7 +74,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            🎁 Rewards
+            ðŸŽ Rewards
           </NavLink>
 
           <NavLink
@@ -83,7 +83,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            ✨ Spotlight
+            âœ¨ Spotlight
           </NavLink>
 
           <NavLink
@@ -92,7 +92,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            🌐 ClusterBoard
+            ðŸŒ ClusterBoard
           </NavLink>
 
           <NavLink
@@ -101,7 +101,7 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            💰 Wallet
+            ðŸ’° Wallet
           </NavLink>
 
           <NavLink
@@ -110,27 +110,27 @@ export default function Navbar() {
               `${base} ${isActive ? active : idle}`
             }
           >
-            🪙 Market
+            ðŸª™ Market
           </NavLink>
 
-          {/* 💹 NEW – Market Pulse */}
+          {/* ðŸ’¹ NEW â€“ Market Pulse */}
           <NavLink
             to="/market/pulse"
             className={({ isActive }) =>
               `${base} ${isActive ? active : idle}`
             }
           >
-            💹 Market Pulse
+            ðŸ’¹ Market Pulse
           </NavLink>
 
-          {/* 🏆 NEW – Tribe Leaderboard */}
+          {/* ðŸ† NEW â€“ Tribe Leaderboard */}
           <NavLink
             to="/tribes/leaderboard"
             className={({ isActive }) =>
               `${base} ${isActive ? active : idle}`
             }
           >
-            🏆 Tribe Leaders
+            ðŸ† Tribe Leaders
           </NavLink>
         </div>
       </div>

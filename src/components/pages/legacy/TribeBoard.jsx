@@ -11,7 +11,7 @@ export default function TribeBoard() {
   });
 
   // ------------------------------------------------------------
-  // ðŸŒ Connect to WebSocket /ws/synaptic
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Connect to WebSocket /ws/synaptic
   // ------------------------------------------------------------
   useEffect(() => {
     const ws = new WebSocket("ws://127.0.0.1:8000/ws/synaptic");
@@ -33,15 +33,15 @@ export default function TribeBoard() {
       }
     };
 
-    ws.onopen = () => console.log("ðŸ”— TribeBoard WebSocket connected");
-    ws.onclose = () => console.warn("âš ï¸ TribeBoard WebSocket closed");
-    ws.onerror = (e) => console.error("âŒ TribeBoard WS Error", e);
+    ws.onopen = () => console.log("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â€ TribeBoard WebSocket connected");
+    ws.onclose = () => console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â TribeBoard WebSocket closed");
+    ws.onerror = (e) => console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ TribeBoard WS Error", e);
 
     return () => ws.close();
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Helpers
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Helpers
   // ------------------------------------------------------------
   const getMoodGradient = (val) => {
     const v = parseFloat(val);
@@ -60,7 +60,7 @@ export default function TribeBoard() {
   const tribeEntries = Object.entries(tribes);
 
   // ------------------------------------------------------------
-  // ðŸ§± Render
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â± Render
   // ------------------------------------------------------------
   return (
     <div className="p-8 min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white">
@@ -70,10 +70,10 @@ export default function TribeBoard() {
         transition={{ duration: 0.4 }}
         className="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent"
       >
-        ðŸŒ Tribe Mood Board â€“ Live Dopamine Pulse
+        ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Tribe Mood Board ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Live Dopamine Pulse
       </motion.h2>
 
-      {/* ðŸ… Top Tribe Banner */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â¦ Top Tribe Banner */}
       <TopTribeBanner tribes={tribes} />
 
       <AnimatePresence mode="sync">
@@ -125,3 +125,4 @@ export default function TribeBoard() {
     </div>
   );
 }
+

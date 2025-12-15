@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š SmartPricingDashboardPanel.jsx (v4 â€“ Embedded MIT Pricing Panel)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ SmartPricingDashboardPanel.jsx (v4 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Embedded MIT Pricing Panel)
 // ----------------------------------------------------------------------------
-// â€¢ Lightweight version of SmartPricingDashboard
-// â€¢ Designed specifically for CampaignBuilder integration
-// â€¢ Shows MIT Final Price, Range, Confidence, Elasticity & Discount
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Lightweight version of SmartPricingDashboard
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Designed specifically for CampaignBuilder integration
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Shows MIT Final Price, Range, Confidence, Elasticity & Discount
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import RecommendedPriceBox from "@/components/analytics/RecommendedPriceBox";
 import PricingBreakdown from "@/components/analytics/PricingBreakdown";
 import ElasticityPanel from "@/components/analytics/ElasticityPanel";
@@ -36,21 +35,21 @@ export default function SmartPricingDashboardPanel({ productId }) {
   if (!productId)
     return (
       <div className="text-gray-400 text-center">
-        Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬ Ù…Ø­Ø¯Ø¯.
+        Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¯.
       </div>
     );
 
   if (loading)
     return (
       <div className="text-gray-400 text-center py-6">
-        â³ Loading Pricing Engineâ€¦
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading Pricing EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
   return (
     <div className="bg-gray-900 border border-gray-700 rounded-xl p-5 shadow mb-8">
       <h2 className="text-xl font-bold text-green-400 mb-4">
-        ðŸ”¥ MIT Smart Pricing Panel
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ MIT Smart Pricing Panel
       </h2>
 
       {/* Recommended Price */}
@@ -60,7 +59,7 @@ export default function SmartPricingDashboardPanel({ productId }) {
           {pricing?.recommended_price} SAR
         </p>
         <p className="text-sm text-gray-400 mt-1">
-          Optimal: {pricing?.range_min} â€“ {pricing?.range_max} SAR
+          Optimal: {pricing?.range_min} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ {pricing?.range_max} SAR
         </p>
         <p className="text-xs text-purple-300 mt-2">
           Confidence: {pricing?.confidence}%
@@ -83,10 +82,12 @@ export default function SmartPricingDashboardPanel({ productId }) {
       <div className="bg-gray-800 rounded-xl p-4 border border-gray-700 mt-3">
         <h3 className="font-semibold text-green-300 mb-2">MIT Summary</h3>
         <p className="text-gray-300 text-sm">
-          ÙŠØ¹ØªÙ…Ø¯ Ù‡Ø°Ø§ Ø§Ù„Ø³Ø¹Ø± Ø¹Ù„Ù‰ ØªØ­Ù„ÙŠÙ„ Ø´Ø§Ù…Ù„ Ù„Ù‚ÙŠÙ…Ø© Ø§Ù„Ù…ÙŠØ²Ø§ØªØŒ Ø³Ù„ÙˆÙƒ Ø§Ù„Ø³ÙˆÙ‚ØŒ 
-          Ù…Ø±ÙˆÙ†Ø© Ø§Ù„Ø³Ø¹Ø±ØŒ ÙˆÙ‚ÙˆØ© Ø§Ù„Ù…Ù†ØªØ¬ ÙÙŠ Ø£Ø¹ÙŠÙ† Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡.
+          Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â´ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂªÃƒËœÃ…â€™ ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã†â€™ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ…â€™ 
+          Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±ÃƒËœÃ…â€™ Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡.
         </p>
       </div>
     </div>
   );
 }
+
+

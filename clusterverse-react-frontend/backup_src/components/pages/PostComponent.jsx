@@ -36,7 +36,7 @@ function PostComponent({ posts, refresh }) {
           {p.type === "group" && (
             <div className="mb-2">
               <span className="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-full">
-                🏷️ Nominated by {p.groupName || "Group"}
+                ðŸ·ï¸ Nominated by {p.groupName || "Group"}
               </span>
             </div>
           )}
@@ -46,7 +46,7 @@ function PostComponent({ posts, refresh }) {
 
           {/* AI Tip */}
           {p.aiTip && (
-            <p className="text-xs text-purple-600 mb-2">💡 {p.aiTip}</p>
+            <p className="text-xs text-purple-600 mb-2">ðŸ’¡ {p.aiTip}</p>
           )}
 
           {/* Actions */}
@@ -57,13 +57,13 @@ function PostComponent({ posts, refresh }) {
                   onClick={() => handleVote(p.id, "up")}
                   className="text-green-600 hover:underline"
                 >
-                  👍 Nominate
+                  ðŸ‘ Nominate
                 </button>
                 <button
                   onClick={() => handleVote(p.id, "down")}
                   className="text-red-600 hover:underline"
                 >
-                  👎 Reject
+                  ðŸ‘Ž Reject
                 </button>
               </>
             ) : (
@@ -72,13 +72,13 @@ function PostComponent({ posts, refresh }) {
                   onClick={() => handleVote(p.id, "up")}
                   className="text-green-600 hover:underline"
                 >
-                  👍 Upvote
+                  ðŸ‘ Upvote
                 </button>
                 <button
                   onClick={() => handleVote(p.id, "down")}
                   className="text-red-600 hover:underline"
                 >
-                  👎 Downvote
+                  ðŸ‘Ž Downvote
                 </button>
               </>
             )}
@@ -86,7 +86,7 @@ function PostComponent({ posts, refresh }) {
 
           {/* Comments */}
           <div>
-            <h4 className="text-xs font-semibold mb-1">💬 Comments</h4>
+            <h4 className="text-xs font-semibold mb-1">ðŸ’¬ Comments</h4>
             <ul className="mb-2">
               {(comments[p.id] || []).map((c, i) => (
                 <li

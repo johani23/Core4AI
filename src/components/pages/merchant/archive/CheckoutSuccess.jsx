@@ -1,8 +1,7 @@
 // ============================================================
-// ðŸŽ‰ CheckoutSuccess.jsx â€“ Core4.AI (Final)
+// ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° CheckoutSuccess.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Core4.AI (Final)
 // ============================================================
 
-import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function CheckoutSuccess() {
@@ -11,7 +10,7 @@ export default function CheckoutSuccess() {
 
   return (
     <div className="p-8 text-center max-w-xl mx-auto">
-      <h1 className="text-3xl font-bold text-green-700">Payment Successful ðŸŽ‰</h1>
+      <h1 className="text-3xl font-bold text-green-700">Payment Successful ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â°</h1>
 
       <p className="text-gray-600 mt-2 mb-6">
         Your purchase has been confirmed.
@@ -26,3 +25,5 @@ export default function CheckoutSuccess() {
     </div>
   );
 }
+
+

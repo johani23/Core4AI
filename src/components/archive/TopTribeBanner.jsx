@@ -7,7 +7,7 @@ export default function TopTribeBanner({ tribes = {} }) {
   const [isCrowning, setIsCrowning] = useState(false);
 
   useEffect(() => {
-    // ðŸŒ Connect to Synaptic WebSocket
+    // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Connect to Synaptic WebSocket
     const ws = new WebSocket("ws://127.0.0.1:8000/ws/synaptic");
 
     ws.onmessage = (event) => {
@@ -21,7 +21,7 @@ export default function TopTribeBanner({ tribes = {} }) {
 
           if (sorted.length > 0) {
             const newTop = sorted[0];
-            // ðŸ‘‘ Crown transition if top tribe changes
+            // ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Ëœ Crown transition if top tribe changes
             if (top && newTop.name !== top.name) {
               setPrevName(top.name);
               setIsCrowning(true);
@@ -35,9 +35,9 @@ export default function TopTribeBanner({ tribes = {} }) {
       }
     };
 
-    ws.onopen = () => console.log("ðŸ”— TopTribeBanner WS connected");
-    ws.onclose = () => console.warn("âš ï¸ TopTribeBanner WS closed");
-    ws.onerror = (e) => console.error("âŒ WS Error:", e);
+    ws.onopen = () => console.log("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â€ TopTribeBanner WS connected");
+    ws.onclose = () => console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â TopTribeBanner WS closed");
+    ws.onerror = (e) => console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ WS Error:", e);
 
     return () => ws.close();
   }, []);
@@ -49,7 +49,7 @@ export default function TopTribeBanner({ tribes = {} }) {
       </div>
     );
 
-  // ðŸŒˆ Mood-based color
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‹â€  Mood-based color
   const moodColor =
     top.mood_index >= 70
       ? "from-emerald-400 via-green-500 to-lime-400"
@@ -59,7 +59,7 @@ export default function TopTribeBanner({ tribes = {} }) {
 
   return (
     <div className="relative mb-8 flex justify-center">
-      {/* âœ¨ Glow background */}
+      {/* ÃƒÂ¢Ã…â€œÃ‚Â¨ Glow background */}
       <motion.div
         key={top.name}
         initial={{ opacity: 0, scale: 0.95 }}
@@ -68,7 +68,7 @@ export default function TopTribeBanner({ tribes = {} }) {
         className={`absolute inset-0 bg-gradient-to-r ${moodColor} blur-2xl opacity-30 animate-pulse`}
       ></motion.div>
 
-      {/* ðŸ‘‘ Crown animation layer */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Ëœ Crown animation layer */}
       <AnimatePresence>
         {isCrowning && (
           <motion.div
@@ -84,13 +84,13 @@ export default function TopTribeBanner({ tribes = {} }) {
               transition={{ repeat: 1, duration: 1.5 }}
               className="text-5xl drop-shadow-[0_0_12px_gold]"
             >
-              ðŸ‘‘
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Ëœ
             </motion.span>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ðŸ’« Content card */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â« Content card */}
       <motion.div
         key={top.name}
         initial={{ opacity: 0, y: 15 }}
@@ -117,7 +117,7 @@ export default function TopTribeBanner({ tribes = {} }) {
             transition={{ delay: 0.2 }}
             className="text-yellow-400 text-lg"
           >
-            â­
+            ÃƒÂ¢Ã‚Â­Ã‚Â
           </motion.span>
         </div>
         <p className="text-sm text-yellow-200 mt-1">
@@ -125,7 +125,7 @@ export default function TopTribeBanner({ tribes = {} }) {
         </p>
       </motion.div>
 
-      {/* ðŸŽ Transition text for previous tribe */}
+      {/* ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â Transition text for previous tribe */}
       <AnimatePresence>
         {isCrowning && prevName && (
           <motion.div
@@ -136,10 +136,11 @@ export default function TopTribeBanner({ tribes = {} }) {
             transition={{ duration: 1.2 }}
             className="absolute bottom-[-1.5rem] text-sm text-gray-400 italic"
           >
-            {prevName} gracefully passed the crown ðŸ‘‘
+            {prevName} gracefully passed the crown ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Ëœ
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
 }
+

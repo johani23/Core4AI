@@ -3,7 +3,7 @@ import { getLeaderboardData } from "@services/api";
 import { getMomentumColor } from "@data/dataSync";
 
 /**
- * 💎 Core4.AI – MVP-24.9 Leaderboard.jsx
+ * ðŸ’Ž Core4.AI â€“ MVP-24.9 Leaderboard.jsx
  * ------------------------------------------------------------
  * Displays top-performing Core4 groups with live momentum
  * indicators and dopamine-inspired visuals.
@@ -20,7 +20,7 @@ export default function Leaderboard() {
         const data = await getLeaderboardData();
         setLeaderboard(data);
       } catch (err) {
-        console.warn("⚠️ Error loading leaderboard:", err.message);
+        console.warn("âš ï¸ Error loading leaderboard:", err.message);
       } finally {
         setLoading(false);
       }
@@ -31,14 +31,14 @@ export default function Leaderboard() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-400 text-lg">
-        Loading leaderboard…
+        Loading leaderboardâ€¦
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">🏆 Core4 Leaderboard</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">ðŸ† Core4 Leaderboard</h1>
 
       <div className="max-w-4xl mx-auto space-y-4">
         {leaderboard.map((entry) => {

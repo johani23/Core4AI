@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž CouncilDreams.jsx â€“ MVP-82.7 â€œDream Layerâ€
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ CouncilDreams.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP-82.7 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDream LayerÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
 // ------------------------------------------------------------
 // Shows generated dream narratives from the Council
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CouncilDreams() {
   const [dreams, setDreams] = useState([]);
@@ -23,7 +22,7 @@ export default function CouncilDreams() {
   return (
     <div className="p-8 bg-black text-white min-h-screen">
       <h1 className="text-2xl text-purple-400 font-bold mb-6">
-        ðŸŒ™ Council Dream Archive
+        ÃƒÂ°Ã…Â¸Ã…â€™Ã¢â€žÂ¢ Council Dream Archive
       </h1>
       {dreams.slice().reverse().map((d, i) => (
         <div key={i}
@@ -42,3 +41,5 @@ export default function CouncilDreams() {
     </div>
   );
 }
+
+

@@ -1,3 +1,55 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* -----------------------------------
+   GLOBAL SAUDI TYPOGRAPHY
+----------------------------------- */
+html {
+  font-family: 'Changa', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -----------------------------------
+   SAFE BODY BACKGROUND (NO WHITE SCREEN)
+----------------------------------- */
+body {
+  background-color: #f8fafc; /* أو احذف السطر بالكامل */
+}
+
+/* -----------------------------------
+   RTL CONTROL
+----------------------------------- */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* -----------------------------------
+   MERCHANT LIGHT MODE SAFE VERSION
+----------------------------------- */
+.merchant-light {
+  background-color: #f1f5f9;
+  color: #1a1a1a;
+}
+
+.merchant-light input,
+.merchant-light textarea,
+.merchant-light select {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.merchant-light input:focus,
+.merchant-light textarea:focus,
+.merchant-light select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.15);
+}

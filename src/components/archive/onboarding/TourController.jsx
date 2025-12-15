@@ -1,19 +1,18 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TourController.jsx (v1.0 â€œBeta Users Engineâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TourController.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBeta Users EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// ðŸ§  Central hub for ALL tours:
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Central hub for ALL tours:
 //    - Creator Tour
 //    - Merchant Tour
 //    - Audience Tour
 //    - Dynamic D-Index / Merchant ROI tooltips
 // ------------------------------------------------------------
-// ðŸš€ Handles:
+// ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Handles:
 //    - Auto-run per userRole
 //    - LocalStorage tracking
 //    - Safe re-triggering from /tour page
 // ============================================================
 
-import React, { useEffect } from "react";
 import CreatorTour from "./tours/CreatorTour";
 import MerchantTour from "./tours/MerchantTour";
 import AudienceTour from "./tours/AudienceTour";
@@ -71,3 +70,5 @@ export default function TourController({ userRole, manualStart }) {
     </>
   );
 }
+
+

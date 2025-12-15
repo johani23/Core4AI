@@ -1,14 +1,13 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ EcosystemLiveWall.jsx (v6.1 â€œCinematic Synaptic Flow â€“ Stable Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ EcosystemLiveWall.jsx (v6.1 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCinematic Synaptic Flow ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Stable EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Split-screen cinematic layout for large displays
-// âœ… Left: Dopamine Heat Flow (animated orbs)
-// âœ… Right: Live Leaderboard (auto reordering)
-// âœ… Top: TopTribeBanner crown overlay
-// âœ… UTF-8 safe â€“ no emoji characters in logs
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Split-screen cinematic layout for large displays
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Left: Dopamine Heat Flow (animated orbs)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Right: Live Leaderboard (auto reordering)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Top: TopTribeBanner crown overlay
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ UTF-8 safe ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ no emoji characters in logs
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TopTribeBanner from "@components/TopTribeBanner";
 
@@ -18,7 +17,7 @@ export default function EcosystemLiveWall() {
   const wsRef = useRef(null);
 
   // ------------------------------------------------------------
-  // ðŸŒ WebSocket Sync
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â WebSocket Sync
   // ------------------------------------------------------------
   useEffect(() => {
     const ws = new WebSocket("ws://127.0.0.1:8000/ws/synaptic");
@@ -57,7 +56,7 @@ export default function EcosystemLiveWall() {
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸ† Leaderboard Fetch
+  // ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Leaderboard Fetch
   // ------------------------------------------------------------
   const fetchLeaderboard = async () => {
     try {
@@ -70,7 +69,7 @@ export default function EcosystemLiveWall() {
             creator: e.creator,
             tribe: e.tribe,
             score: parseFloat(e.score || 0),
-            level: e.level || "â€”",
+            level: e.level || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â",
             tokens: e.tokens || 0,
           }))
         );
@@ -81,7 +80,7 @@ export default function EcosystemLiveWall() {
   };
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Tribe Color Mapping
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Tribe Color Mapping
   // ------------------------------------------------------------
   const tribeColors = {
     Thinkers: "#60a5fa",
@@ -91,7 +90,7 @@ export default function EcosystemLiveWall() {
   };
 
   // ------------------------------------------------------------
-  // ðŸ§± Render
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â± Render
   // ------------------------------------------------------------
   return (
     <div className="relative min-h-screen bg-black overflow-hidden text-white">
@@ -183,7 +182,7 @@ export default function EcosystemLiveWall() {
                   <div>
                     <div className="font-bold">{entry.creator}</div>
                     <div className="text-xs text-gray-400">
-                      {entry.tribe} â€¢ {entry.level}
+                      {entry.tribe} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {entry.level}
                     </div>
                   </div>
                 </div>
@@ -210,3 +209,5 @@ export default function EcosystemLiveWall() {
     </div>
   );
 }
+
+

@@ -1,0 +1,32 @@
+/* ========================================================================
+   Core4.AI – Merchant UI Styles (Final 2025)
+   Needed by AddProductWizard and all merchant forms
+   ======================================================================== */
+
+/* Input Fields */
+.input {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50
+         focus:bg-white focus:border-purple-500 focus:ring-2 
+         focus:ring-purple-300 outline-none transition mb-2 text-gray-800;
+}
+
+/* Buttons */
+.btn-green {
+  @apply bg-green-600 hover:bg-green-500 text-white font-bold 
+         px-6 py-2 rounded-xl shadow;
+}
+
+.btn-gray {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold 
+         px-6 py-2 rounded-xl;
+}
+
+.btn-purple {
+  @apply bg-purple-600 hover:bg-purple-500 text-white font-bold 
+         rounded-xl shadow-md;
+}
+
+/* Card Container */
+.core-card {
+  @apply bg-white shadow-md rounded-xl border border-gray-200 p-6;
+}

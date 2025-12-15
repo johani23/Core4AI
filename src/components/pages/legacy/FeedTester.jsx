@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ FeedTester.jsx (v1.0 â€œCredibility QA Harnessâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ FeedTester.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCredibility QA HarnessÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Sends auto-generated posts to /api/content/score
-// âœ… Displays AI score breakdowns including Credibility
-// âœ… Polls /credibility/heatmap to show Tribe Trust Index
-// âœ… Works independently from Feed.jsx
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Sends auto-generated posts to /api/content/score
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays AI score breakdowns including Credibility
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Polls /credibility/heatmap to show Tribe Trust Index
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Works independently from Feed.jsx
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 
 const API_BASE = "http://127.0.0.1:8000";
 
@@ -60,10 +59,10 @@ export default function FeedTester() {
   return (
     <div className="min-h-screen bg-black text-white px-8 py-10">
       <h1 className="text-2xl font-bold mb-2 text-center">
-        ðŸ§  Core4.AI FeedTester
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Core4.AI FeedTester
       </h1>
       <p className="text-center text-gray-400 mb-8">
-        Auto-evaluates 5 demo posts â†’ monitors Tribe Trust Heatmap
+        Auto-evaluates 5 demo posts ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ monitors Tribe Trust Heatmap
       </p>
 
       <div className="text-center mb-8">
@@ -81,7 +80,7 @@ export default function FeedTester() {
       {/* Tribe Trust Heatmap */}
       <div className="bg-zinc-900 p-4 rounded-xl max-w-3xl mx-auto mb-10">
         <h2 className="text-lg font-semibold mb-2 text-purple-400">
-          ðŸ§­ Tribe Trust Index
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Tribe Trust Index
         </h2>
         {Object.keys(trust).length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
@@ -118,25 +117,25 @@ export default function FeedTester() {
             className="bg-zinc-900 p-4 rounded-xl border border-zinc-800"
           >
             <p className="text-sm text-gray-400 mb-2">
-              #{i + 1} â€” <span className="text-gray-300">{r.tribe}</span>
+              #{i + 1} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â <span className="text-gray-300">{r.tribe}</span>
             </p>
             <p className="text-white mb-3 italic">
               {samplePosts[i] || "Sample text"}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <div>ðŸ’¡ Insight: <span className="text-blue-400">{r.insight}%</span></div>
-              <div>âœ¨ Originality: <span className="text-green-400">{r.originality}%</span></div>
-              <div>ðŸ”¥ Engagement: <span className="text-yellow-400">{r.engagement}%</span></div>
-              <div>ðŸ§­ Credibility: <span className="text-purple-400">{r.credibility}%</span></div>
+              <div>ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡ Insight: <span className="text-blue-400">{r.insight}%</span></div>
+              <div>ÃƒÂ¢Ã…â€œÃ‚Â¨ Originality: <span className="text-green-400">{r.originality}%</span></div>
+              <div>ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Engagement: <span className="text-yellow-400">{r.engagement}%</span></div>
+              <div>ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Credibility: <span className="text-purple-400">{r.credibility}%</span></div>
             </div>
             <div className="mt-2 text-gray-400 text-xs">
-              Score: <span className="text-white">{(r.score * 100).toFixed(1)}%</span> â€¢ Tokens:{" "}
-              <span className="text-amber-400">{r.tokens}</span> â€¢ Dopamine:{" "}
+              Score: <span className="text-white">{(r.score * 100).toFixed(1)}%</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tokens:{" "}
+              <span className="text-amber-400">{r.tokens}</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Dopamine:{" "}
               <span className="text-pink-400">{r.dopamine}</span>
             </div>
             {r.credibility < 50 && (
               <p className="text-red-400 text-xs mt-1">
-                âš ï¸ Low credibility detected (possible misinformation)
+                ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Low credibility detected (possible misinformation)
               </p>
             )}
           </div>
@@ -145,9 +144,11 @@ export default function FeedTester() {
 
       {!results.length && (
         <p className="text-center text-gray-600 mt-10 text-sm">
-          Press â€œRun Feed Testâ€ to send 5 posts for evaluation.
+          Press ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œRun Feed TestÃƒÂ¢Ã¢â€šÂ¬Ã‚Â to send 5 posts for evaluation.
         </p>
       )}
     </div>
   );
 }
+
+

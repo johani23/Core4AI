@@ -1,10 +1,6 @@
-// ============================================================
-// ðŸ’« Core4.AI â€“ CoreMentorPanel.jsx (v1.0 â€œFloating Assistantâ€)
-// ------------------------------------------------------------
-// âœ… Persistent floating assistant (bottom-right corner)
-// âœ… Context-aware messages per route
-// âœ… Future-ready for CoreSyncContext integration
-// ============================================================
+// ============================================================================
+// ðŸ’Ž Core4.AI â€“ CoreMentorPanel.jsx (Noor FIXED v3)
+// ============================================================================
 
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -19,19 +15,19 @@ export default function CoreMentorPanel() {
   useEffect(() => {
     switch (location.pathname) {
       case "/":
-        setMessage("ðŸ‘‹ Welcome! Ready to explore your creator journey?");
+        setMessage("ðŸ‘‹ Ø£Ù‡Ù„Ø§Ù‹! Ø¬Ø§Ù‡Ø² ØªØ¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ Ø¯Ø§Ø®Ù„ Core4.AIØŸ");
         break;
       case "/grow":
-        setMessage("ðŸš€ Tip: Collaborate with your Tribe to multiply rewards.");
+        setMessage("ðŸ”¥ Ù†ØµÙŠØ­Ø©: ØªØ¹Ø§ÙˆÙ† Ù…Ø¹ Ù‚Ø¨ÙŠÙ„ØªÙƒâ€¦ Ù‚ÙˆØ© Ø§Ù„ØªØ£Ø«ÙŠØ± ØªØªØ¶Ø§Ø¹Ù!");
         break;
       case "/wallet":
-        setMessage("ðŸ’° Every transaction increases your C4T level â€” keep it up!");
+        setMessage("ðŸ’° ÙƒÙ„ ØªÙØ§Ø¹Ù„ ÙŠØ²ÙŠØ¯ Ù…Ø³ØªÙˆÙ‰ C4T Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ.");
         break;
       case "/pulse":
-        setMessage("ðŸŒ D-Index rising? That means the network is thriving!");
+        setMessage("ðŸ“¡ Ù…Ø¤Ø´Ø± D-Index ÙŠØ±ØªÙØ¹ØŸ Ø§Ù„Ø´Ø¨ÙƒØ© ØªØªÙØ§Ø¹Ù„ Ø¨Ø´ÙƒÙ„ Ù…Ù…ØªØ§Ø²!");
         break;
       default:
-        setMessage("âœ¨ Letâ€™s keep exploring the Core4.AI ecosystem.");
+        setMessage("âœ¨ Ø§Ø³ØªÙ…Ø± ÙÙŠ Ø§Ø³ØªÙƒØ´Ø§Ù Ù†Ø¸Ø§Ù… Core4.AI.");
     }
   }, [location.pathname]);
 
@@ -56,10 +52,11 @@ export default function CoreMentorPanel() {
             onClick={() => setVisible(false)}
             className="mt-3 text-xs text-gray-500 hover:text-gray-300 self-end"
           >
-            Hide
+            Ø¥Ø®ÙØ§Ø¡
           </button>
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
+

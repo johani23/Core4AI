@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ§  Core4.AI â€“ CouncilDashboardV2.jsx (MVP-53.3)
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CouncilDashboardV2.jsx (MVP-53.3)
 // ------------------------------------------------------------
-// Council members vote â†’ triggers VIS + token updates
+// Council members vote ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ triggers VIS + token updates
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 
 const API_BASE = "http://127.0.0.1:8000";
 
@@ -31,7 +30,7 @@ export default function CouncilDashboardV2() {
       body: JSON.stringify(payload),
     });
     const data = await res.json();
-    setMessage(`âœ… Vote recorded for Creator #${id} â†’ New VIS ${data.new_VIS}`);
+    setMessage(`ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Vote recorded for Creator #${id} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ New VIS ${data.new_VIS}`);
   }
 
   return (
@@ -65,7 +64,7 @@ export default function CouncilDashboardV2() {
                   onClick={() => handleVote(c.id, 1, 0.7)}
                   className="px-3 py-1 bg-yellow-500 text-black rounded-md hover:bg-yellow-400"
                 >
-                  ðŸ‘ Upvote
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â Upvote
                 </button>
               </td>
             </tr>
@@ -75,3 +74,5 @@ export default function CouncilDashboardV2() {
     </div>
   );
 }
+
+

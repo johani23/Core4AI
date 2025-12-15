@@ -20,21 +20,21 @@ function CreateGroup() {
         .filter((id) => !isNaN(id));
 
       if (ids.length === 0) {
-        setMessage("⚠️ Please enter at least one valid user ID.");
+        setMessage("âš ï¸ Please enter at least one valid user ID.");
         setLoading(false);
         return;
       }
 
       const newGroup = await createGroup(ids);
-      setMessage(`✅ Group ${newGroup.id} created successfully!`);
+      setMessage(`âœ… Group ${newGroup.id} created successfully!`);
 
-      // بعد 1.5 ثانية روح لصفحة المجموعات
+      // Ø¨Ø¹Ø¯ 1.5 Ø«Ø§Ù†ÙŠØ© Ø±ÙˆØ­ Ù„ØµÙØ­Ø© Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª
       setTimeout(() => {
         navigate("/groups");
       }, 1500);
     } catch (err) {
       console.error("createGroup failed", err);
-      setMessage("❌ Failed to create group.");
+      setMessage("âŒ Failed to create group.");
     } finally {
       setLoading(false);
     }
@@ -42,7 +42,7 @@ function CreateGroup() {
 
   return (
     <div className="p-6 max-w-lg mx-auto">
-      <h2 className="text-2xl font-bold mb-4">➕ Create New Group</h2>
+      <h2 className="text-2xl font-bold mb-4">âž• Create New Group</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

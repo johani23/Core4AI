@@ -1,8 +1,7 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TokenFlow.jsx (MVP-101.2 â€œReward Live Preview Finalâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TokenFlow.jsx (MVP-101.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œReward Live Preview FinalÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function TokenFlow() {
   const [rewards, setRewards] = useState([]);
@@ -16,9 +15,9 @@ export default function TokenFlow() {
       const base = import.meta.env.VITE_WS_BASE || "ws://127.0.0.1:8000";
       ws = new WebSocket(`${base}/ws/synaptic`);
 
-      ws.onopen = () => setStatus("ðŸŸ¢ live");
+      ws.onopen = () => setStatus("ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢ live");
       ws.onclose = () => {
-        setStatus("ðŸ”´ disconnected â€“ retrying...");
+        setStatus("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ disconnected ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ retrying...");
         setTimeout(connect, 3000);
       };
       ws.onmessage = (e) => {
@@ -50,7 +49,7 @@ export default function TokenFlow() {
   return (
     <div className="p-5 bg-gray-900 rounded-2xl shadow-xl text-white mt-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold">ðŸ’° Token Flow & Dopamine Pulse</h2>
+        <h2 className="text-lg font-bold">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Token Flow & Dopamine Pulse</h2>
         <span className="text-sm text-gray-400">{status}</span>
       </div>
 
@@ -92,7 +91,7 @@ export default function TokenFlow() {
             <th>Tribe</th>
             <th>Eng.</th>
             <th>D-Idx</th>
-            <th>Ã—Mult</th>
+            <th>ÃƒÆ’Ã¢â‚¬â€Mult</th>
             <th>C4T</th>
             <th>TribeT</th>
             <th>Total</th>
@@ -115,3 +114,5 @@ export default function TokenFlow() {
     </div>
   );
 }
+
+

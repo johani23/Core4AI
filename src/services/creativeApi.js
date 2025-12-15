@@ -7,7 +7,7 @@ const ROUTES = [
 ];
 
 export async function generateCreative(payload = {}) {
-  // 1) جرّب POST
+  // 1) Ã˜Â¬Ã˜Â±Ã™â€˜Ã˜Â¨ POST
   for (const route of ROUTES) {
     try {
       const res = await fetch(route, {
@@ -20,7 +20,7 @@ export async function generateCreative(payload = {}) {
     } catch (_) {}
   }
 
-  // 2) جرّب GET fallback
+  // 2) Ã˜Â¬Ã˜Â±Ã™â€˜Ã˜Â¨ GET fallback
   for (const route of ROUTES) {
     try {
       const res = await fetch(route);
@@ -29,5 +29,6 @@ export async function generateCreative(payload = {}) {
     } catch (_) {}
   }
 
-  throw new Error("❌ No creative generation API route found");
+  throw new Error("Ã¢ÂÅ’ No creative generation API route found");
 }
+

@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š AnalyticsTabs.jsx â€” v22 ML Edition (Clean + Unified)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ AnalyticsTabs.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â v22 ML Edition (Clean + Unified)
 // ============================================================================
 
-import React, { useState, useEffect } from "react";
 import PricingIntelligence from "../merchant/PricingIntelligence";
 import { useSearchParams } from "react-router-dom";
 
@@ -27,3 +26,5 @@ export default function AnalyticsTabs() {
     </div>
   );
 }
+
+

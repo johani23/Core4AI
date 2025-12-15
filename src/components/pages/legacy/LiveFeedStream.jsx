@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’  Core4.AI â€“ LiveFeedStream.jsx (MVP-71.5 â€œAutonomous Feed Pulseâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ LiveFeedStream.jsx (MVP-71.5 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œAutonomous Feed PulseÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Connects to ws://127.0.0.1:8000/ws/ai-pulse
-// âœ… Streams simulated posts + tribe dopamine events
-// âœ… Fixes 'reading user' error with safe optional chaining
-// âœ… Animated entry for each new event
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connects to ws://127.0.0.1:8000/ws/ai-pulse
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Streams simulated posts + tribe dopamine events
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fixes 'reading user' error with safe optional chaining
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated entry for each new event
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function LiveFeedStream() {
@@ -21,7 +20,7 @@ export default function LiveFeedStream() {
 
       ws.onopen = () => {
         setConnected(true);
-        console.log("âœ… Connected to AI-Pulse Stream");
+        console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to AI-Pulse Stream");
       };
 
       ws.onmessage = (e) => {
@@ -41,7 +40,7 @@ export default function LiveFeedStream() {
 
       ws.onclose = () => {
         setConnected(false);
-        console.log("ðŸ”´ Disconnected from AI-Pulse Stream, retryingâ€¦");
+        console.log("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Disconnected from AI-Pulse Stream, retryingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦");
         setTimeout(connect, 3000);
       };
     };
@@ -53,7 +52,7 @@ export default function LiveFeedStream() {
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 p-8">
       <h1 className="text-3xl font-bold text-center text-fuchsia-400 mb-2">
-        ðŸ”¥ Live Simulation Feed
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Live Simulation Feed
       </h1>
       <p className="text-center text-gray-400 mb-6">
         Watch AI-generated users, posts, and votes stream in real time.
@@ -97,7 +96,7 @@ export default function LiveFeedStream() {
                       </p>
                       <p className="text-sm text-gray-400">
                         {event?.post?.title
-                          ? `ðŸ“ ${event.post.title} â€” Engagement ${event.post.engagement}`
+                          ? `ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â ${event.post.title} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Engagement ${event.post.engagement}`
                           : "New simulation activity detected"}
                       </p>
                     </div>
@@ -112,8 +111,10 @@ export default function LiveFeedStream() {
       </div>
 
       <div className="text-center text-gray-500 text-xs mt-6">
-        Beta Core v7.1.5 â€¢ Live Feed Engine
+        Beta Core v7.1.5 ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Live Feed Engine
       </div>
     </div>
   );
 }
+
+

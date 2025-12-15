@@ -1,13 +1,12 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CampaignLauncher.jsx (E13 â€œAuto Campaign + QR Trackingâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CampaignLauncher.jsx (E13 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œAuto Campaign + QR TrackingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ----------------------------------------------------------------------------
-// â€¢ Auto Campaign Creation
-// â€¢ QR Tracking per Influencer
-// â€¢ Creator Reward Integration
-// â€¢ Campaign Modes: Standard / Events / Seeding
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto Campaign Creation
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ QR Tracking per Influencer
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Creator Reward Integration
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Campaign Modes: Standard / Events / Seeding
 // ============================================================================
 
-import React, { useState } from "react";
 import {
   FiPlayCircle,
   FiUsers,
@@ -63,17 +62,17 @@ export default function CampaignLauncher() {
 
       {/* Header */}
       <h1 className="text-3xl font-extrabold text-[#4cff9b] flex items-center gap-3">
-        <FiPlayCircle /> E13 â€” Auto Campaign Launcher
+        <FiPlayCircle /> E13 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Auto Campaign Launcher
       </h1>
 
       <p className="text-gray-300">
-        Ø§Ù„Ù†Ø¸Ø§Ù… ÙŠÙ†Ø´Ø¦ Ø­Ù…Ù„Ø© ÙƒØ§Ù…Ù„Ø©: Ø±ÙˆØ§Ø¨Ø· + QR + ØªÙˆØ²ÙŠØ¹ Ù…Ø¤Ø«Ø±ÙŠÙ† + Ù…ÙƒØ§ÙØ¢Øª Ù…Ø¨ÙŠØ¹Ø§Øª.
+        ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â´ÃƒËœÃ‚Â¦ ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©: ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â· + QR + ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â²Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  + Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¢ÃƒËœÃ‚Âª Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª.
       </p>
 
       {/* Form */}
       <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl space-y-5">
         <input
-          placeholder="Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬"
+          placeholder="ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
@@ -84,7 +83,7 @@ export default function CampaignLauncher() {
           onChange={(e) => setTribe(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
         >
-          <option value="">Ø§Ø®ØªØ± Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø©</option>
+          <option value="">ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©</option>
           <option value="Techy">Techy</option>
           <option value="Fashionists">Fashionists</option>
           <option value="EventGoers">EventGoers</option>
@@ -97,15 +96,15 @@ export default function CampaignLauncher() {
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
         >
           <option value="standard">Standard Campaign</option>
-          <option value="events">Events Mode (ÙØ¹Ø§Ù„ÙŠØ§Øª)</option>
-          <option value="seeding">Seeding Mode (Ù‡Ø¯Ø§ÙŠØ§)</option>
+          <option value="events">Events Mode (Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª)</option>
+          <option value="seeding">Seeding Mode (Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§)</option>
         </select>
 
         <button
           onClick={launchCampaign}
           className="w-full py-3 bg-[#4cff9b] text-black font-extrabold rounded-lg flex items-center justify-center gap-2"
         >
-          Ø¥Ø·Ù„Ø§Ù‚ Ø§Ù„Ø­Ù…Ù„Ø©
+          ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
         </button>
       </div>
 
@@ -115,20 +114,20 @@ export default function CampaignLauncher() {
 
           {/* Basic Info */}
           <h2 className="text-2xl font-bold text-[#4cff9b]">
-            ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø­Ù…Ù„Ø© Ø¨Ù†Ø¬Ø§Ø­ ðŸŽ‰
+            ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¥Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â´ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â°
           </h2>
 
-          <p className="text-gray-300">Ø±Ù‚Ù… Ø§Ù„Ø­Ù…Ù„Ø©: {campaign.id}</p>
-          <p className="text-gray-300">Ø§Ù„Ù…Ù†ØªØ¬: {campaign.product}</p>
-          <p className="text-gray-300">Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø©: {campaign.tribe}</p>
-          <p className="text-gray-300">Ø§Ù„ÙˆØ¶Ø¹: {campaign.mode}</p>
+          <p className="text-gray-300">ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©: {campaign.id}</p>
+          <p className="text-gray-300">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬: {campaign.product}</p>
+          <p className="text-gray-300">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©: {campaign.tribe}</p>
+          <p className="text-gray-300">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â¹: {campaign.mode}</p>
 
           <hr className="border-[#1b6647]" />
 
           {/* Global QR */}
           <div>
             <h3 className="text-xl font-bold text-[#4cff9b] flex items-center gap-2">
-              <FiLink /> QR Ø¹Ø§Ù… Ù„Ù„Ø­Ù…Ù„Ø©
+              <FiLink /> QR ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
             </h3>
             <div className="mt-3 bg-white p-4 inline-block rounded-lg">
               <QRCode value={campaign.global_qr} size={150} />
@@ -139,7 +138,7 @@ export default function CampaignLauncher() {
           {/* Influencers */}
           <div className="space-y-8">
             <h3 className="text-xl font-bold text-[#4cff9b] flex items-center gap-2">
-              <FiUsers /> Ø±ÙˆØ§Ø¨Ø· Ø§Ù„ØªØªØ¨Ø¹ + QR Ù„ÙƒÙ„ Ù…Ø¤Ø«Ø±
+              <FiUsers /> ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â· ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂªÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ + QR Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±
             </h3>
 
             {campaign.influencers.map((inf, idx) => (
@@ -163,14 +162,14 @@ export default function CampaignLauncher() {
           {/* Rewards Logic */}
           <div>
             <h3 className="text-xl font-bold text-[#4cff9b] flex items-center gap-2">
-              <FiTrendingUp /> Ù†Ø¸Ø§Ù… Ø§Ù„Ù…ÙƒØ§ÙØ¢Øª
+              <FiTrendingUp /> Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¢ÃƒËœÃ‚Âª
             </h3>
 
             <ul className="text-gray-300 mt-3 space-y-2">
-              <li>â€¢ ÙƒÙ„ Ø¹Ù…Ù„ÙŠØ© Ø´Ø±Ø§Ø¡ â†” Ù…ÙƒØ§ÙØ£Ø© Ù…Ø¨Ø§Ø´Ø±Ø© Ù„Ù„Ù…Ø¤Ø«Ø±</li>
-              <li>â€¢ Ø±ÙØ¹ Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø© (dopamine + token)</li>
-              <li>â€¢ ØªØ­Ø³ÙŠÙ† D-Index</li>
-              <li>â€¢ Ø¯Ø¹Ù… ØªØ±Ø´ÙŠØ­ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ù„Ù„Ø­Ù…Ù„Ø§Øª Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©</li>
+              <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â£ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±</li>
+              <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚Â±Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© (dopamine + token)</li>
+              <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  D-Index</li>
+              <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â´Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â­ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â©</li>
             </ul>
           </div>
 
@@ -179,3 +178,5 @@ export default function CampaignLauncher() {
     </div>
   );
 }
+
+

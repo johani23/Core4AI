@@ -13,18 +13,18 @@ export default function Matching({ userCluster }) {
 
   return (
     <div className="max-w-xl mx-auto bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4">💞 Matching</h2>
+      <h2 className="text-2xl font-bold mb-4">ðŸ’ž Matching</h2>
       {!userCluster ? (
-        <p className="text-gray-500">⚠️ الرجاء إكمال الكويز لتحديد كلسترك أولاً.</p>
+        <p className="text-gray-500">âš ï¸ Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø¥ÙƒÙ…Ø§Ù„ Ø§Ù„ÙƒÙˆÙŠØ² Ù„ØªØ­Ø¯ÙŠØ¯ ÙƒÙ„Ø³ØªØ±Ùƒ Ø£ÙˆÙ„Ø§Ù‹.</p>
       ) : matches.length === 0 ? (
-        <p className="text-gray-500">لا يوجد تطابقات حالياً.</p>
+        <p className="text-gray-500">Ù„Ø§ ÙŠÙˆØ¬Ø¯ ØªØ·Ø§Ø¨Ù‚Ø§Øª Ø­Ø§Ù„ÙŠØ§Ù‹.</p>
       ) : (
         <ul className="space-y-3">
           {matches.map((m) => (
             <li key={m.id} className="border p-3 rounded">
               <p className="font-semibold">{m.name}</p>
               <p className="text-sm text-gray-600">
-                التوافق: {m.compatibility}% 🎯
+                Ø§Ù„ØªÙˆØ§ÙÙ‚: {m.compatibility}% ðŸŽ¯
               </p>
               <p className="text-xs text-gray-400">{m.reason}</p>
             </li>

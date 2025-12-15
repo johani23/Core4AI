@@ -1,5 +1,5 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ LeagueIntelligenceHub.jsx (v55.3 Live WebSocket Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ LeagueIntelligenceHub.jsx (v55.3 Live WebSocket Edition)
 // ------------------------------------------------------------
 // Real-time Council analytics dashboard
 //  - Fairness Index (auto-updates)
@@ -8,17 +8,16 @@
 //  - Live WebSocket data sync from backend
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, Tooltip } from "recharts";
 
 export default function LeagueIntelligenceHub() {
   const [creators, setCreators] = useState([]);
   const [fairness, setFairness] = useState(0);
-  const [liveStatus, setLiveStatus] = useState("ðŸ”´ Disconnected");
+  const [liveStatus, setLiveStatus] = useState("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Disconnected");
   const socketRef = useRef(null);
 
   // ------------------------------------------------------------
-  // ðŸ§  Calculate Fairness dynamically
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Calculate Fairness dynamically
   // ------------------------------------------------------------
   const updateFairness = (data) => {
     if (!data || data.length === 0) return;
@@ -29,7 +28,7 @@ export default function LeagueIntelligenceHub() {
   };
 
   // ------------------------------------------------------------
-  // âš™ï¸ Initial Fetch (on page load)
+  // ÃƒÂ¢Ã…Â¡Ã¢â€žÂ¢ÃƒÂ¯Ã‚Â¸Ã‚Â Initial Fetch (on page load)
   // ------------------------------------------------------------
   async function fetchInitialData() {
     try {
@@ -43,7 +42,7 @@ export default function LeagueIntelligenceHub() {
   }
 
   // ------------------------------------------------------------
-  // ðŸŒ Live WebSocket Stream
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Live WebSocket Stream
   // ------------------------------------------------------------
   useEffect(() => {
     fetchInitialData();
@@ -52,8 +51,8 @@ export default function LeagueIntelligenceHub() {
     socketRef.current = socket;
 
     socket.onopen = () => {
-      setLiveStatus("ðŸŸ¢ Live");
-      console.log("âœ… Connected to council WebSocket");
+      setLiveStatus("ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢ Live");
+      console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to council WebSocket");
     };
 
     socket.onmessage = (event) => {
@@ -80,12 +79,12 @@ export default function LeagueIntelligenceHub() {
 
     socket.onerror = (err) => {
       console.error("WebSocket error:", err);
-      setLiveStatus("âš ï¸ Error");
+      setLiveStatus("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Error");
     };
 
     socket.onclose = () => {
-      console.log("âŒ Council WebSocket closed");
-      setLiveStatus("ðŸ”´ Disconnected");
+      console.log("ÃƒÂ¢Ã‚ÂÃ…â€™ Council WebSocket closed");
+      setLiveStatus("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Disconnected");
       setTimeout(() => {
         setLiveStatus("Reconnecting...");
         fetchInitialData();
@@ -96,13 +95,13 @@ export default function LeagueIntelligenceHub() {
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸ§© Render
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Render
   // ------------------------------------------------------------
   return (
     <div className="p-6 text-white">
-      <h1 className="text-3xl font-bold mb-1">âš¡ AI Arena â€“ Live Intelligence Hub</h1>
+      <h1 className="text-3xl font-bold mb-1">ÃƒÂ¢Ã…Â¡Ã‚Â¡ AI Arena ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Live Intelligence Hub</h1>
       <p className="text-gray-400 mb-4">
-        Real-time council analytics â€“ bias radar, fairness index, and VIS balance.
+        Real-time council analytics ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ bias radar, fairness index, and VIS balance.
       </p>
 
       {/* Connection Status */}
@@ -180,7 +179,7 @@ export default function LeagueIntelligenceHub() {
 
       {/* Token Flow Section */}
       <div className="mt-8 bg-gray-900 rounded-xl p-4">
-        <h2 className="text-green-400 font-semibold mb-2">ðŸ’« Live Token Flow</h2>
+        <h2 className="text-green-400 font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â« Live Token Flow</h2>
         <p className="text-gray-500 text-center py-4">
           Token activity updates automatically from council voting and market actions.
         </p>
@@ -188,3 +187,5 @@ export default function LeagueIntelligenceHub() {
     </div>
   );
 }
+
+

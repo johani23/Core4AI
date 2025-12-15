@@ -1,73 +1,100 @@
-// ============================================================
-// ðŸ§­ Core4.AI â€“ TribeLeaderboard.jsx (v1.0 â€œInsight Pulse Boardâ€)
-// ------------------------------------------------------------
-// âœ… Displays top tribes by mood, conversion, and engagement
-// âœ… Simulated dopamine pulse animation
-// ============================================================
+﻿// ============================================================================
+// 💡 TribeLeaderboard.jsx — Phase 4 (Influence ↔ Tribe Integration)
+// ============================================================================
 
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { TrendingUp, Smile, Users } from "lucide-react";
-
-const baseTribes = [
-  { name: "Fashion Tribe", color: "from-pink-500 to-purple-500" },
-  { name: "Tech Tribe", color: "from-blue-500 to-cyan-500" },
-  { name: "Event Tribe", color: "from-orange-400 to-red-500" },
-  { name: "Health Tribe", color: "from-green-400 to-emerald-600" },
-];
+import React from "react";
+import { useInfluence } from "@/context/InfluenceScoreContext";
+import PulseValue from "@/components/influence/PulseValue";
 
 export default function TribeLeaderboard() {
-  const [tribes, setTribes] = useState([]);
+  const { influence } = useInfluence();
 
-  useEffect(() => {
-    const data = baseTribes.map((t) => ({
-      ...t,
-      mood: Math.random().toFixed(2),
-      conversion: (Math.random() * (6 - 2) + 2).toFixed(1),
-      members: Math.floor(Math.random() * 800 + 200),
-    }));
-    setTribes(data.sort((a, b) => b.mood - a.mood));
-  }, []);
+  // بيانات القبائل — الآن تشمل قبيلة المستخدم + قبائل أخرى
+  const tribes = [
+    {
+      id: 0,
+      name: "قبيلتك",
+      strength: influence.tribeStrength,
+      members: influence.tribeMembers,
+      power: influence.tribePower,
+      rank: influence.tribeRank,
+      mood: influence.tribeMood,
+    },
+    {
+      id: 1,
+      name: "TechWave",
+      strength: 210,
+      members: 180,
+      power: 95,
+      rank: 5,
+      mood: "نشيطة 🔥",
+    },
+    {
+      id: 2,
+      name: "TrendMakers",
+      strength: 180,
+      members: 140,
+      power: 75,
+      rank: 9,
+      mood: "متحفّزة",
+    },
+    {
+      id: 3,
+      name: "StyleHub",
+      strength: 240,
+      members: 220,
+      power: 110,
+      rank: 3,
+      mood: "قوية جدًا ⚡",
+    },
+    {
+      id: 4,
+      name: "EcoTribe",
+      strength: 150,
+      members: 90,
+      power: 60,
+      rank: 12,
+      mood: "هادئة",
+    },
+  ];
+
+  // إعادة ترتيب القبائل حسب strength
+  const sorted = tribes.sort((a, b) => b.strength - a.strength);
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-extrabold text-cyan-400 flex items-center gap-2">
-        <Users className="w-7 h-7" /> Tribe Leaderboard
-      </h1>
-      <p className="text-gray-400 text-sm">
-        Live tribe performance board. Dopamine pulse = average engagement vibe.
-      </p>
+    <div className="p-6 space-y-6" dir="rtl">
+      <h1 className="text-2xl font-bold text-purple-300">ترتيب القبائل</h1>
 
-      {tribes.map((t, i) => (
-        <motion.div
-          key={i}
-          whileHover={{ scale: 1.01 }}
-          className="bg-[#111827] border border-gray-700 rounded-xl p-5 shadow-md"
+      {sorted.map((tribe, index) => (
+        <div
+          key={tribe.id}
+          className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl flex justify-between items-center"
         >
-          <div className="flex justify-between items-center mb-3">
-            <h2 className="text-white font-semibold text-lg">{t.name}</h2>
-            <span className="text-xs text-gray-400">#{i + 1}</span>
+          {/* ترتيب القبيلة */}
+          <div className="text-purple-300 font-extrabold text-xl w-10">
+            #{index + 1}
           </div>
 
-          <div className="relative h-2 bg-gray-800 rounded-full overflow-hidden mb-2">
-            <motion.div
-              className={`absolute left-0 top-0 h-full bg-gradient-to-r ${t.color}`}
-              initial={{ width: 0 }}
-              animate={{ width: `${t.mood * 100}%` }}
-              transition={{ duration: 1.5 }}
-            />
+          {/* اسم القبيلة */}
+          <div>
+            <div className="text-white font-semibold text-lg">
+              {tribe.name}
+            </div>
+            <div className="text-gray-400 text-xs">{tribe.mood}</div>
           </div>
 
-          <div className="flex justify-between text-xs text-gray-400">
-            <span className="flex items-center gap-1">
-              <Smile className="w-3 h-3 text-yellow-400" /> Mood {t.mood}
-            </span>
-            <span className="flex items-center gap-1">
-              <TrendingUp className="w-3 h-3 text-green-400" /> {t.conversion}% CR
-            </span>
-            <span>{t.members} members</span>
+          {/* القوة */}
+          <PulseValue value={tribe.strength}>
+            <div className="text-green-300 font-bold text-lg">
+              {tribe.strength}
+            </div>
+          </PulseValue>
+
+          {/* أفراد القبيلة */}
+          <div className="text-gray-400 text-sm ml-6">
+            👥 {tribe.members}
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );

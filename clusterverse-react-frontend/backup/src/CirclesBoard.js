@@ -1,7 +1,7 @@
 import React from "react";
 
 function CirclesBoard({ points }) {
-  // تحديد الدائرة الأقرب بناءً على النقاط
+  // ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ø¯Ø§Ø¦Ø±Ø© Ø§Ù„Ø£Ù‚Ø±Ø¨ Ø¨Ù†Ø§Ø¡Ù‹ Ø¹Ù„Ù‰ Ø§Ù„Ù†Ù‚Ø§Ø·
   const getActiveCircle = () => {
     if (points < 20) return "Travelers";
     if (points < 40) return "Book Lovers";
@@ -13,16 +13,16 @@ function CirclesBoard({ points }) {
   const activeCircle = getActiveCircle();
 
   const circles = [
-    { name: "Travelers 🌍", key: "Travelers" },
-    { name: "Book Lovers 📚", key: "Book Lovers" },
-    { name: "Event Enthusiasts 🎉", key: "Event Enthusiasts" },
-    { name: "Health & Fitness 🏋️", key: "Health & Fitness" },
-    { name: "Creatives & Artists 🎨", key: "Creatives & Artists" },
+    { name: "Travelers ðŸŒ", key: "Travelers" },
+    { name: "Book Lovers ðŸ“š", key: "Book Lovers" },
+    { name: "Event Enthusiasts ðŸŽ‰", key: "Event Enthusiasts" },
+    { name: "Health & Fitness ðŸ‹ï¸", key: "Health & Fitness" },
+    { name: "Creatives & Artists ðŸŽ¨", key: "Creatives & Artists" },
   ];
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 mt-8 w-full max-w-4xl">
-      <h2 className="text-2xl font-bold mb-6 text-center">🌐 Your Circles</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">ðŸŒ Your Circles</h2>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
         {circles.map((circle) => (
           <div
@@ -41,7 +41,7 @@ function CirclesBoard({ points }) {
               {circle.name}
             </span>
             {activeCircle === circle.key && (
-              <p className="mt-2 text-sm text-green-600">✨ You are here!</p>
+              <p className="mt-2 text-sm text-green-600">âœ¨ You are here!</p>
             )}
           </div>
         ))}

@@ -10,7 +10,7 @@ export default function ProgressBar({ step }) {
   }[step];
 
   return (
-    <div className="w-full mb-10">
+    <div className="w-full mb-10" style={{ direction: "rtl" }}>
       <div className="h-2 w-full bg-[#1a1a1a] rounded-full overflow-hidden shadow-inner">
         <motion.div
           initial={{ width: 0 }}
@@ -21,7 +21,7 @@ export default function ProgressBar({ step }) {
       </div>
 
       <p className="text-gray-400 text-sm mt-2 text-right">
-        الخطوة {step} من ٤
+        الخطوة {step} من 4
       </p>
     </div>
   );

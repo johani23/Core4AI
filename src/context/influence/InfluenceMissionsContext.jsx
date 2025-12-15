@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const InfluenceMissionsContext = createContext();
 
@@ -26,3 +26,4 @@ export function InfluenceMissionsProvider({ children }) {
 export function useInfluenceMissions() {
   return useContext(InfluenceMissionsContext);
 }
+

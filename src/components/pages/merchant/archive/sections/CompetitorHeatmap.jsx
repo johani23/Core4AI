@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CompetitorHeatmap.jsx (Phase 6 â€“ Competitor Heatmap)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CompetitorHeatmap.jsx (Phase 6 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Competitor Heatmap)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CompetitorHeatmap({ product, productIQ }) {
   const [points, setPoints] = useState([]);
@@ -29,7 +28,7 @@ export default function CompetitorHeatmap({ product, productIQ }) {
   return (
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ—ºï¸ Competitor Heatmap
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â€Ã‚ÂºÃƒÂ¯Ã‚Â¸Ã‚Â Competitor Heatmap
       </h2>
 
       <div className="relative w-full h-64 bg-gray-100 border rounded-xl">
@@ -53,3 +52,5 @@ export default function CompetitorHeatmap({ product, productIQ }) {
     </div>
   );
 }
+
+

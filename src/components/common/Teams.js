@@ -32,7 +32,7 @@ export default function Teams() {
 
   return (
     <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
-      <h2 className="text-xl font-semibold mb-4">👥 Teams & Voting</h2>
+      <h2 className="text-xl font-semibold mb-4">Ã°Å¸â€˜Â¥ Teams & Voting</h2>
 
       <div className="flex gap-3 mb-4">
         <button
@@ -61,7 +61,7 @@ export default function Teams() {
           <ul className="list-disc ml-6 mb-4">
             {team.members.map((m) => (
               <li key={m.id}>
-                <strong>{m.name}</strong> — {m.role}
+                <strong>{m.name}</strong> Ã¢â‚¬â€ {m.role}
               </li>
             ))}
           </ul>
@@ -69,9 +69,9 @@ export default function Teams() {
           <Voting
             teamId={team.id}
             initialContents={[
-              { id: 1, text: "Best team idea 💡", votes: 0 },
-              { id: 2, text: "Strongest contribution 💪", votes: 0 },
-              { id: 3, text: "Funniest moment 😂", votes: 0 },
+              { id: 1, text: "Best team idea Ã°Å¸â€™Â¡", votes: 0 },
+              { id: 2, text: "Strongest contribution Ã°Å¸â€™Âª", votes: 0 },
+              { id: 3, text: "Funniest moment Ã°Å¸Ëœâ€š", votes: 0 },
             ]}
           />
         </div>
@@ -79,3 +79,4 @@ export default function Teams() {
     </div>
   );
 }
+

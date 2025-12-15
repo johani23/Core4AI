@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ GlobalPulseTopBar.jsx (v4.5 â€œLive Status Badgeâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ GlobalPulseTopBar.jsx (v4.5 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Status BadgeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays D-Index + WS connection status
-// âœ… Syncs color with backendStatus from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays D-Index + WS connection status
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Syncs color with backendStatus from CoreSyncContext
 // ============================================================
 
-import React from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import { Wifi, WifiOff } from "lucide-react";
 
@@ -18,11 +17,11 @@ export default function GlobalPulseTopBar() {
       <div className="flex items-center gap-2">
         <span className="text-gray-400">D-Index</span>
         <span className="text-yellow-400 font-bold">
-          {council?.dindex?.toFixed?.(1) ?? "â€”"}
+          {council?.dindex?.toFixed?.(1) ?? "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}
         </span>
       </div>
 
-      {/* ðŸŸ¢ Live WS indicator */}
+      {/* ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢ Live WS indicator */}
       <div
         className={`flex items-center gap-1 px-2 py-0.5 rounded-full border ${
           isOnline
@@ -45,3 +44,5 @@ export default function GlobalPulseTopBar() {
     </div>
   );
 }
+
+

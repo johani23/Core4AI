@@ -1,15 +1,14 @@
 // ======================================================================
-// ðŸ’š Core4.AI â€“ CreatorEarningsDashboard.jsx (v1.0 PREMIUM UI)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreatorEarningsDashboard.jsx (v1.0 PREMIUM UI)
 // ----------------------------------------------------------------------
 // Shows:
-//   â€¢ Total Earnings
-//   â€¢ Monthly Earnings
-//   â€¢ Breakdown by Source
-//   â€¢ Last 10 Earnings Events
-//   â€¢ Creator Wallet + XP preview
+//   ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Total Earnings
+//   ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Monthly Earnings
+//   ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Breakdown by Source
+//   ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Last 10 Earnings Events
+//   ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Creator Wallet + XP preview
 // ======================================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function CreatorEarningsDashboard() {
@@ -69,10 +68,10 @@ export default function CreatorEarningsDashboard() {
       >
         <h2 className="text-xl font-bold mb-3">Breakdown</h2>
         <ul className="space-y-2 text-gray-700">
-          <li>â€¢ Conversions Earnings: {earnings.total_earnings * 0.55} SAR (est)</li>
-          <li>â€¢ Tribe Split Earnings: {earnings.total_earnings * 0.25} SAR (est)</li>
-          <li>â€¢ Merchant Deals: {earnings.total_earnings * 0.15} SAR (est)</li>
-          <li>â€¢ Bonus Rewards: {earnings.total_earnings * 0.05} SAR (est)</li>
+          <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Conversions Earnings: {earnings.total_earnings * 0.55} SAR (est)</li>
+          <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tribe Split Earnings: {earnings.total_earnings * 0.25} SAR (est)</li>
+          <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Merchant Deals: {earnings.total_earnings * 0.15} SAR (est)</li>
+          <li>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Bonus Rewards: {earnings.total_earnings * 0.05} SAR (est)</li>
         </ul>
       </motion.div>
 
@@ -88,7 +87,7 @@ export default function CreatorEarningsDashboard() {
           <ul className="space-y-4">
             {earnings.events.map((ev, i) => (
               <li key={i} className="flex gap-4 items-start">
-                <span className="text-2xl">ðŸ’µ</span>
+                <span className="text-2xl">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Âµ</span>
                 <div>
                   <div className="font-semibold text-gray-800 text-sm">
                     +{ev.amount} SAR from {ev.source}
@@ -126,3 +125,5 @@ function EarningCard({ title, value, color }) {
     </motion.div>
   );
 }
+
+

@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MentorRadar.jsx (MVP-84 â€œMentorship Radarâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MentorRadar.jsx (MVP-84 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œMentorship RadarÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Visualizes mentor â†” apprentice relations
-// âœ… Live radar feed (Skill, Creativity, Consistency, Empathy, Influence)
-// âœ… Growth pulse indicator + toggle from SimulationHub
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Visualizes mentor ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Â apprentice relations
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live radar feed (Skill, Creativity, Consistency, Empathy, Influence)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Growth pulse indicator + toggle from SimulationHub
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip,
   ResponsiveContainer
@@ -68,7 +67,7 @@ export default function MentorRadar({ visible, onClose }) {
           onClick={onClose}
           className="bg-gray-800 hover:bg-gray-700 text-sm px-3 py-1 rounded-xl border border-purple-500/40"
         >
-          âœ• Close Mentor Mode
+          ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¢ Close Mentor Mode
         </button>
       </div>
 
@@ -76,7 +75,7 @@ export default function MentorRadar({ visible, onClose }) {
         Mentorship Radar
       </div>
       <div className="text-gray-400 text-sm mb-4">
-        Visualizing Skillâ€“Creativityâ€“Empathyâ€“Influence networks
+        Visualizing SkillÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“CreativityÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“EmpathyÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Influence networks
       </div>
 
       <div className="w-[600px] h-[400px]">
@@ -131,11 +130,11 @@ export default function MentorRadar({ visible, onClose }) {
             className="flex justify-between items-center mb-1 p-2 rounded bg-gray-800/40 border border-gray-700"
           >
             <span>
-              ðŸ§  <span className="text-purple-300">{m.mentor}</span>{" "}
-              â†’ <span className="text-emerald-300">{m.apprentice}</span>
+              ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  <span className="text-purple-300">{m.mentor}</span>{" "}
+              ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ <span className="text-emerald-300">{m.apprentice}</span>
             </span>
             <span className="text-xs text-gray-400">
-              Î” {m.growth}% â€¢ {m.axis}
+              ÃƒÅ½Ã¢â‚¬Â {m.growth}% ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {m.axis}
             </span>
           </div>
         ))}
@@ -144,9 +143,11 @@ export default function MentorRadar({ visible, onClose }) {
       {/* Growth Pulse Indicator */}
       {pulse && (
         <div className="absolute bottom-10 text-2xl text-emerald-400 animate-pulse">
-          âœ¨ Mentor {pulse} triggered a Growth Pulse!
+          ÃƒÂ¢Ã…â€œÃ‚Â¨ Mentor {pulse} triggered a Growth Pulse!
         </div>
       )}
     </div>
   );
 }
+
+

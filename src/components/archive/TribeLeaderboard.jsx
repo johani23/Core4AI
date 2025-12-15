@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TribeLeaderboard.jsx (v167 â€œDynamic Tribe Leaderboardâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TribeLeaderboard.jsx (v167 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDynamic Tribe LeaderboardÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Real-time tribe ranking by tokenValue + dopamine + influence
-// âœ… Animated color cues for rise/fall
-// âœ… Auto-updates from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time tribe ranking by tokenValue + dopamine + influence
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated color cues for rise/fall
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-updates from CoreSyncContext
 // ============================================================
 
-import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -40,7 +39,7 @@ export default function TribeLeaderboard() {
   return (
     <div className="bg-[#111827] border border-gray-700 rounded-2xl p-6">
       <h3 className="text-pink-400 font-semibold mb-3">
-        ðŸ† Dynamic Tribe Leaderboard
+        ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Dynamic Tribe Leaderboard
       </h3>
       <p className="text-gray-400 text-sm mb-4">
         Sorted by token value (auto-refreshes live)
@@ -83,3 +82,5 @@ export default function TribeLeaderboard() {
     </div>
   );
 }
+
+

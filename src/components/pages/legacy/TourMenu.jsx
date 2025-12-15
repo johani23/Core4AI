@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ TourMenu.jsx
-// v1.0 â€œUnified Tour Menu (Audience / Creator / Merchant)â€
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ TourMenu.jsx
+// v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified Tour Menu (Audience / Creator / Merchant)ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
 // ------------------------------------------------------------
-// â€¢ Clean Apple-style cards
-// â€¢ Works with App.jsx v7.6
-// â€¢ Each card routes to the correct Tour
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean Apple-style cards
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Works with App.jsx v7.6
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Each card routes to the correct Tour
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -18,21 +17,21 @@ export default function TourMenu() {
     {
       title: "Audience Tour",
       subtitle: "Explore content, join tribes, and influence rankings.",
-      icon: "ðŸ‘ï¸",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚ÂÃƒÂ¯Ã‚Â¸Ã‚Â",
       route: "/tour/audience",
       gradient: "from-purple-500 to-pink-500",
     },
     {
       title: "Creator Tour",
       subtitle: "Learn how to build mastery and earn high-value tokens.",
-      icon: "ðŸ§¬",
+      icon: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â¬",
       route: "/tour/creator",
       gradient: "from-blue-500 to-purple-500",
     },
     {
       title: "Merchant Tour",
       subtitle: "Run smart campaigns and work with high-impact creators.",
-      icon: "ðŸ’¼",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¼",
       route: "/tour/merchant",
       gradient: "from-yellow-500 to-orange-500",
     },
@@ -92,9 +91,11 @@ export default function TourMenu() {
         whileHover={{ scale: 1.05 }}
         className="mt-12 text-gray-300 hover:text-white transition underline"
       >
-        Skip â€” Enter Platform
+        Skip ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Enter Platform
       </motion.button>
 
     </div>
   );
 }
+
+

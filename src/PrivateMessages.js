@@ -47,7 +47,7 @@ export default function PrivateMessages({ userId = 1 }) {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mt-4">
-      <h2 className="text-xl font-bold mb-3">💌 Private Messages</h2>
+      <h2 className="text-xl font-bold mb-3">Ã°Å¸â€™Å’ Private Messages</h2>
 
       {/* Select friend */}
       <div className="mb-3">
@@ -109,3 +109,4 @@ export default function PrivateMessages({ userId = 1 }) {
     </div>
   );
 }
+

@@ -24,7 +24,7 @@ export default function EVCPanel({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading EVC...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading EVC...
       </div>
     );
 
@@ -43,7 +43,7 @@ export default function EVCPanel({ productId }) {
       {/* Reference Price */}
       <div className={card}>
         <h3 className="font-semibold text-gray-300 mb-2">
-          Reference Price (Ø¨Ø¯ÙŠÙ„ Ø§Ù„Ø³ÙˆÙ‚)
+          Reference Price (ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡)
         </h3>
         <p className="text-2xl font-bold text-blue-300">
           {data.reference_price} SAR
@@ -53,13 +53,13 @@ export default function EVCPanel({ productId }) {
       {/* Differentiation Value */}
       <div className={card}>
         <h3 className="font-semibold text-gray-300 mb-2">
-          Differentiation Value (Ù‚ÙŠÙ…Ø© Ø§Ù„ØªÙ…ÙŠÙ‘Ø²)
+          Differentiation Value (Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬ËœÃƒËœÃ‚Â²)
         </h3>
         <p className="text-2xl font-bold text-yellow-300">
           {data.diff_value} SAR
         </p>
         <p className="text-gray-400 mt-2">
-          Ù…Ø¬Ù…ÙˆØ¹ Ù‚ÙŠÙ… Ø§Ù„Ù…Ù…ÙŠØ²Ø§Øª ÙƒÙ…Ø§ ØªÙ… Ø§Ø­ØªØ³Ø§Ø¨Ù‡Ø§ ÙÙŠ Ù†Ù…ÙˆØ°Ø¬ Conjoint.
+          Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§ Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â°ÃƒËœÃ‚Â¬ Conjoint.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export default function EVCPanel({ productId }) {
       {/* Total EVC */}
       <div className={card}>
         <h3 className="font-semibold text-gray-300 mb-2">
-          Total EVC (Ø§Ù„Ù‚ÙŠÙ…Ø© Ø§Ù„Ø§Ù‚ØªØµØ§Ø¯ÙŠØ© Ù„Ù„Ø¹Ù…ÙŠÙ„)
+          Total EVC (ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾)
         </h3>
         <p className="text-3xl font-bold text-purple-300">
           {data.total_evc} SAR
@@ -109,7 +109,7 @@ export default function EVCPanel({ productId }) {
 
         <div className={card}>
           <h3 className="font-semibold text-gray-300 mb-2">
-            Fair Price (Ø³Ø¹Ø± Ù…Ù†Ø·Ù‚ÙŠ)
+            Fair Price (ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â )
           </h3>
           <p className="text-3xl font-bold text-blue-300">
             {data.fair_price} SAR
@@ -118,7 +118,7 @@ export default function EVCPanel({ productId }) {
 
         <div className={card}>
           <h3 className="font-semibold text-gray-300 mb-2">
-            Premium Price (Ø³Ø¹Ø± Ù…Ù…ÙŠØ²)
+            Premium Price (ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²)
           </h3>
           <p className="text-3xl font-bold text-yellow-300">
             {data.premium_price} SAR
@@ -139,3 +139,4 @@ export default function EVCPanel({ productId }) {
     </div>
   );
 }
+

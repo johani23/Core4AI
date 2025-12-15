@@ -9,7 +9,7 @@ export default function ClusterTable() {
 
   return (
     <div className="card">
-      <h2>📊 Clusters Overview</h2>
+      <h2>Ã°Å¸â€œÅ  Clusters Overview</h2>
       <table>
         <thead>
           <tr><th>Name</th><th>Members</th></tr>
@@ -23,3 +23,4 @@ export default function ClusterTable() {
     </div>
   );
 }
+

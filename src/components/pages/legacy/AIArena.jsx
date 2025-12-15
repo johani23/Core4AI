@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ AIArena.jsx (MVP-94.4 â€œSynaptic Cinematic Modeâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AIArena.jsx (MVP-94.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSynaptic Cinematic ModeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Builds upon MVP-94.3 Unified Synaptic Arena
-// âœ… Adds 3-D Cinematic Orbit of tribes (react-three-fiber)
-// âœ… Tribe radius & glow depend on dopamine value
-// âœ… D-Index light pulse animates central core
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Builds upon MVP-94.3 Unified Synaptic Arena
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds 3-D Cinematic Orbit of tribes (react-three-fiber)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Tribe radius & glow depend on dopamine value
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ D-Index light pulse animates central core
 // ============================================================
 
-import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
@@ -15,7 +14,7 @@ import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
 // ----------------------------
-// ðŸŽ‡ Tribe node
+// ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â¡ Tribe node
 // ----------------------------
 function TribeNode({ name, color, dopamine, index, total, radius, speed }) {
   const mesh = useRef();
@@ -49,7 +48,7 @@ function TribeNode({ name, color, dopamine, index, total, radius, speed }) {
 }
 
 // ----------------------------
-// ðŸŒ Main Arena
+// ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Main Arena
 // ----------------------------
 export default function AIArena() {
   const { heatmap = {}, avgMood = 0.5 } = useCoreSync() || {};
@@ -89,7 +88,7 @@ export default function AIArena() {
       <Canvas camera={{ position: [0, 0, 18], fov: 55 }}>
         <ambientLight intensity={0.4} />
         <pointLight position={[0, 0, 0]} intensity={1.6} color={coreColor} />
-        {/* ðŸ”® Core Pulse */}
+        {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® Core Pulse */}
         <mesh>
           <sphereGeometry args={[1.2, 64, 64]} />
           <meshStandardMaterial
@@ -100,7 +99,7 @@ export default function AIArena() {
           />
         </mesh>
 
-        {/* ðŸª Tribe Nodes */}
+        {/* ÃƒÂ°Ã…Â¸Ã‚ÂªÃ‚Â Tribe Nodes */}
         {tribes.map((t, i) => (
           <TribeNode
             key={i}
@@ -129,13 +128,15 @@ export default function AIArena() {
         className="absolute bottom-5 left-5 h-2 rounded-full w-1/3 shadow-[0_0_20px_2px_rgba(244,114,182,0.5)]"
       />
       <div className="absolute bottom-2 left-5 text-xs text-gray-400">
-        D-Index {(dindex * 100).toFixed(1)} â€¢ Mood {(avgMood * 100).toFixed(0)} %
+        D-Index {(dindex * 100).toFixed(1)} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Mood {(avgMood * 100).toFixed(0)} %
       </div>
 
       {/* Footer */}
       <div className="absolute bottom-2 right-4 text-xs text-gray-500">
-        Beta Core v9.44 â€¢ Synaptic Cinematic Mode
+        Beta Core v9.44 ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Synaptic Cinematic Mode
       </div>
     </div>
   );
 }
+
+

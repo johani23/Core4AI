@@ -1,70 +1,126 @@
-// ============================================================
-// ðŸ’š Core4.AI â€“ BuyerRND.jsx (v1)
-// "Willingness-To-Pay UX"
-// ============================================================
+﻿// ============================================================================
+// Core4.AI – BuyerRND (FINAL)
+// للمشتري: عبّر عن رغبتك وتصورك عن السعر
+// ============================================================================
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import CorePanel from "@/components/ui/CorePanel";
+import { useNavigate } from "react-router-dom";
+import { useAudience } from "@/context/AudienceContext";
 
-export default function BuyerRND({ feature }) {
+export default function BuyerRND() {
+  const navigate = useNavigate();
+  const { persona } = useAudience();
 
-  const [value, setValue] = useState(3);
-  const [submitted, setSubmitted] = useState(false);
+  const [featureIntent, setFeatureIntent] = useState({
+    freeText: "",
+    displayTech: "",
+    size: "",
+    useCase: "",
+    event: "",
+  });
 
-  const submit = async () => {
-    const res = await fetch("/api/rnd/wtp/submit", {
+  const [answers, setAnswers] = useState({
+    importance: 0,
+    uniqueness: 0,
+    satisfaction: 0,
+    bargainPrice: "",
+    expensivePrice: "",
+    perceivedMarketPrice: "",
+  });
+
+  const num = (v) => Number(v || 0);
+
+  async function submit() {
+    // 1) رأي المشتري (بحث تسعيري)
+    await fetch("/api/rnd/value-insights", {
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        buyer_id: "buyer_001",
-        feature_id: feature.feature_id,
-        wtp_value: value,
+        feature_intent: featureIntent,
+        importance: answers.importance,
+        uniqueness: answers.uniqueness,
+        satisfaction: answers.satisfaction,
+        recommended_price: num(answers.bargainPrice),
+        perceived_market_price: num(answers.perceivedMarketPrice),
+        max_price: num(answers.expensivePrice),
+        buyer_cluster: persona?.cluster ?? "عام",
       }),
     });
 
-    if (res.ok) setSubmitted(true);
-  };
+    // 2) إشارة طلب للسوق (للتاجر)
+    await fetch("/api/market-intentions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        feature_text: featureIntent.freeText,
+        normalized_features: featureIntent,
+        target_price: num(answers.bargainPrice),
+        max_price: num(answers.expensivePrice),
+        time_horizon: featureIntent.event,
+        buyer_cluster: persona?.cluster ?? "عام",
+      }),
+    });
 
-  if (submitted)
-    return (
-      <div className="p-6 text-center text-green-600 font-bold">
-        âœ”ï¸ Ø´ÙƒØ±Ø§Ù‹! ØªÙ… Ø¥Ø±Ø³Ø§Ù„ ØªÙ‚ÙŠÙŠÙ…Ùƒ Ù„Ù„Ù…ÙŠØ²Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©.
-      </div>
-    );
+    navigate("/buyer/dashboard");
+  }
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow">
+    <div className="min-h-screen p-8 bg-[#0A0F12] text-white" dir="rtl">
+      <h1 className="text-3xl font-bold mb-2">قل لنا ماذا تريد</h1>
+      <p className="text-gray-300 mb-8">
+        اكتب رغبتك بصراحة، نحن لا نبيعك الآن، بل نفهم السوق.
+      </p>
 
-      <h2 className="text-xl font-bold mb-3">{feature.title}</h2>
-      <p className="text-gray-600 mb-4">{feature.description}</p>
+      <CorePanel className="mb-6">
+        <textarea
+          placeholder="مثال: تلفزيون كبير للمباريات"
+          className="w-full p-3 bg-white/10 rounded"
+          onChange={(e) =>
+            setFeatureIntent({ ...featureIntent, freeText: e.target.value })
+          }
+        />
+      </CorePanel>
 
-      {feature.media_urls.map((url) => (
-        <img key={url} src={url} className="rounded mb-4" />
-      ))}
+      <CorePanel className="mb-6">
+        <p className="mb-2 font-bold">برأيك، كم سعره الآن في السوق؟</p>
+        <input
+          type="number"
+          className="w-full p-2 bg-white/10 rounded"
+          onChange={(e) =>
+            setAnswers({ ...answers, perceivedMarketPrice: e.target.value })
+          }
+        />
+      </CorePanel>
 
-      <label className="block font-semibold mb-2">
-        ÙƒÙ… ØªØ¹ØªÙ‚Ø¯ ÙŠØ³ØªØ­Ù‚ Ø³Ø¹Ø± Ù‡Ø°Ù‡ Ø§Ù„Ø¥Ø¶Ø§ÙØ©ØŸ
-      </label>
+      <CorePanel className="mb-6">
+        <p className="mb-2 font-bold">كم سعر مناسب لك؟</p>
+        <input
+          type="number"
+          className="w-full p-2 bg-white/10 rounded"
+          onChange={(e) =>
+            setAnswers({ ...answers, bargainPrice: e.target.value })
+          }
+        />
+      </CorePanel>
 
-      <input
-        type="range"
-        min="1"
-        max="5"
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-        className="w-full"
-      />
-
-      <div className="text-center text-lg font-semibold mt-2">
-        ØªÙ‚ÙŠÙŠÙ…Ùƒ: <span className="text-green-700">{value}</span> / 5
-      </div>
+      <CorePanel className="mb-6">
+        <p className="mb-2 font-bold">أقصى سعر ممكن تقبله؟</p>
+        <input
+          type="number"
+          className="w-full p-2 bg-white/10 rounded"
+          onChange={(e) =>
+            setAnswers({ ...answers, expensivePrice: e.target.value })
+          }
+        />
+      </CorePanel>
 
       <button
         onClick={submit}
-        className="mt-5 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+        className="w-full bg-purple-600 py-3 rounded font-bold"
       >
-        Ø¥Ø±Ø³Ø§Ù„
+        إرسال الرغبة
       </button>
-
     </div>
   );
 }

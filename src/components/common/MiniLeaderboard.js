@@ -4,12 +4,12 @@ export default function MiniLeaderboard({ userPoints }) {
   const [leaders, setLeaders] = useState([]);
 
   useEffect(() => {
-    // 🔗 جلب بيانات من الـ backend لاحقًا
+    // Ã°Å¸â€â€” Ã˜Â¬Ã™â€žÃ˜Â¨ Ã˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ™â‚¬ backend Ã™â€žÃ˜Â§Ã˜Â­Ã™â€šÃ™â€¹Ã˜Â§
     fetch("http://127.0.0.1:8000/leaderboard")
       .then((res) => res.json())
       .then((data) => setLeaders(data))
       .catch(() => {
-        // بيانات تجريبية في حال ما فيه Backend
+        // Ã˜Â¨Ã™Å Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜ÂªÃ˜Â¬Ã˜Â±Ã™Å Ã˜Â¨Ã™Å Ã˜Â© Ã™ÂÃ™Å  Ã˜Â­Ã˜Â§Ã™â€ž Ã™â€¦Ã˜Â§ Ã™ÂÃ™Å Ã™â€¡ Backend
         setLeaders([
           { user: "Ahmed", points: 120 },
           { user: "Sara", points: 95 },
@@ -20,7 +20,7 @@ export default function MiniLeaderboard({ userPoints }) {
 
   return (
     <div>
-      <h3>🏆 Leaderboard</h3>
+      <h3>Ã°Å¸Ââ€  Leaderboard</h3>
       <p style={{ fontSize: "12px", color: "#6b7280" }}>
         (Top users across clusters)
       </p>
@@ -42,8 +42,9 @@ export default function MiniLeaderboard({ userPoints }) {
           fontSize: "14px",
         }}
       >
-        <strong>✨ You:</strong> {userPoints} pts
+        <strong>Ã¢Å“Â¨ You:</strong> {userPoints} pts
       </div>
     </div>
   );
 }
+

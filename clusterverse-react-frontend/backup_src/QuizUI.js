@@ -20,7 +20,7 @@ export default function QuizUI() {
 
   return (
     <div className="quiz-container bg-gray-900 text-white p-6 rounded-xl shadow-lg max-w-lg mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-6">📝 Quiz</h2>
+      <h2 className="text-2xl font-bold mb-6">ðŸ“ Quiz</h2>
 
       {!submitted ? (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -57,11 +57,11 @@ export default function QuizUI() {
         </form>
       ) : (
         <div className="result mt-6 text-center">
-          <h3 className="text-xl font-bold">🎉 Welcome, {name}!</h3>
+          <h3 className="text-xl font-bold">ðŸŽ‰ Welcome, {name}!</h3>
           <p className="mt-2">
-            You’ve chosen the role: <span className="font-semibold">{role}</span>
+            Youâ€™ve chosen the role: <span className="font-semibold">{role}</span>
           </p>
-          <p className="mt-4 text-green-400">Your journey in Clusterverse begins 🚀</p>
+          <p className="mt-4 text-green-400">Your journey in Clusterverse begins ðŸš€</p>
         </div>
       )}
     </div>

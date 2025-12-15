@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ HeatflowNetwork.jsx (MVP-46 â€œLive Neural Pulse Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ HeatflowNetwork.jsx (MVP-46 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Neural Pulse EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Auto-Replay with sentiment-based progress bar
-// âœ… Cinematic glow + live swarm mood animation
-// âœ… Fully synchronized HUD + dynamic color transitions
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-Replay with sentiment-based progress bar
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Cinematic glow + live swarm mood animation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fully synchronized HUD + dynamic color transitions
 // ============================================================
 
-import React, { useRef, useEffect, useState } from "react";
 import ForceGraph2D from "react-force-graph-2d";
 import { motion } from "framer-motion";
 import { Line } from "react-chartjs-2";
@@ -38,14 +37,14 @@ export default function HeatflowNetwork() {
   const [replayIndex, setReplayIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  // ðŸ§­ Sentiment-based color helper
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Sentiment-based color helper
   const getMoodColor = (s) => {
     if (s > 0.25) return "#22c55e"; // green
     if (s < -0.25) return "#ef4444"; // red
     return "#eab308"; // yellow
   };
 
-  // ðŸ•’ animate time for breathing effects
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¢Ã¢â‚¬â„¢ animate time for breathing effects
   useEffect(() => {
     let frame;
     const tick = (t) => {
@@ -56,7 +55,7 @@ export default function HeatflowNetwork() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  // ðŸŒ WebSocket â€“ disabled during replay
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â WebSocket ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ disabled during replay
   useEffect(() => {
     if (replay || autoReplay) return;
     let ws;
@@ -113,7 +112,7 @@ export default function HeatflowNetwork() {
     return () => ws && ws.close();
   }, [replay, autoReplay]);
 
-  // ðŸ§© Handle manual snapshot replay
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Handle manual snapshot replay
   const handleReplay = (index) => {
     const s = snapshots[index];
     if (!s) return;
@@ -138,7 +137,7 @@ export default function HeatflowNetwork() {
     setHud({ avgSentiment: s.s, totalHeat: s.h, tribes: s.tribes.length });
   };
 
-  // ðŸŽž Auto-Replay Mode
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ Auto-Replay Mode
   const startAutoReplay = () => {
     if (snapshots.length === 0) return;
     if (wsRef.current) wsRef.current.close();
@@ -169,7 +168,7 @@ export default function HeatflowNetwork() {
 
   useEffect(() => () => clearInterval(replayTimer.current), []);
 
-  // ðŸ“ˆ Timeline Chart
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Timeline Chart
   const chartData = {
     labels: memory.map((m) =>
       new Date(m.t).toLocaleTimeString("en-US", {
@@ -208,7 +207,7 @@ export default function HeatflowNetwork() {
     },
   };
 
-  // ðŸ§¬ Node + Link rendering
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â¬ Node + Link rendering
   const drawLink = (l, ctx) => {
     if (!l.source?.x || !l.target?.x) return;
     const glow = (Math.sin(time * 3 + l.value * 10) + 1) / 2;
@@ -247,7 +246,7 @@ export default function HeatflowNetwork() {
     ctx.fill();
   };
 
-  // ðŸŽ¨ Progress bar color = sentiment heat blend
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Progress bar color = sentiment heat blend
   const barColor = getMoodColor(hud.avgSentiment);
 
   return (
@@ -264,23 +263,23 @@ export default function HeatflowNetwork() {
       {(replay || autoReplay) && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-purple-900/70 border border-purple-500/30 px-6 py-2 rounded-xl text-sm shadow-lg z-50 backdrop-blur-md flex items-center gap-3">
           {autoReplay ? (
-            <span>ðŸŽž Auto-Replay {replayIndex + 1}/{snapshots.length}</span>
+            <span>ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ Auto-Replay {replayIndex + 1}/{snapshots.length}</span>
           ) : (
-            <span>â± Snapshot â€“ {new Date(replay.t).toLocaleTimeString()}</span>
+            <span>ÃƒÂ¢Ã‚ÂÃ‚Â± Snapshot ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ {new Date(replay.t).toLocaleTimeString()}</span>
           )}
           {!autoReplay ? (
             <button
               onClick={startAutoReplay}
               className="bg-purple-600 hover:bg-purple-700 text-white rounded-md px-3 py-1 text-xs font-medium"
             >
-              â–¶ Auto
+              ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¶ Auto
             </button>
           ) : (
             <button
               onClick={stopAutoReplay}
               className="bg-red-600 hover:bg-red-700 text-white rounded-md px-3 py-1 text-xs font-medium"
             >
-              â¹ Stop
+              ÃƒÂ¢Ã‚ÂÃ‚Â¹ Stop
             </button>
           )}
         </div>
@@ -289,29 +288,29 @@ export default function HeatflowNetwork() {
       {/* HUD */}
       <div className="absolute top-4 right-4 bg-black/40 border border-gray-700/50 rounded-2xl px-5 py-3 backdrop-blur-md shadow-lg text-sm flex flex-col gap-1 z-40">
         <div className="flex justify-between">
-          <span className="text-gray-400">ðŸ§  Sentiment</span>
+          <span className="text-gray-400">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Sentiment</span>
           <span style={{ color: barColor }} className="font-semibold">
             {hud.avgSentiment.toFixed(2)}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-400">âš¡ Heat</span>
+          <span className="text-gray-400">ÃƒÂ¢Ã…Â¡Ã‚Â¡ Heat</span>
           <span className="text-purple-400 font-semibold">
             {hud.totalHeat.toFixed(2)}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-400">ðŸ”¥ Tribes</span>
+          <span className="text-gray-400">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Tribes</span>
           <span className="text-blue-400 font-semibold">{hud.tribes}</span>
         </div>
         <div className="mt-1 text-xs text-gray-500 text-right">
           {connected
-            ? "ðŸŸ¢ Live"
+            ? "ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢ Live"
             : autoReplay
-            ? "ðŸŽž Auto Replay"
+            ? "ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ Auto Replay"
             : replay
-            ? "â± Snapshot"
-            : "ðŸ”´ Disconnected"}
+            ? "ÃƒÂ¢Ã‚ÂÃ‚Â± Snapshot"
+            : "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Disconnected"}
         </div>
       </div>
 
@@ -339,10 +338,10 @@ export default function HeatflowNetwork() {
           />
         </div>
 
-        {/* ðŸ§  Timeline with Sentiment Progress */}
+        {/* ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Timeline with Sentiment Progress */}
         <div className="mt-10 p-4 rounded-2xl bg-black/40 border border-gray-800 shadow-lg relative">
           <h2 className="text-center text-gray-300 text-sm mb-2">
-            ðŸ§  Swarm Memory Timeline
+            ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Swarm Memory Timeline
           </h2>
           <Line data={chartData} options={chartOptions} height={80} />
           {autoReplay && (
@@ -364,10 +363,12 @@ export default function HeatflowNetwork() {
             href="/dashboard"
             className="px-5 py-2 bg-gray-800 hover:bg-gray-700 rounded-xl text-white font-medium transition"
           >
-            â† Back to Dashboard
+            ÃƒÂ¢Ã¢â‚¬Â Ã‚Â Back to Dashboard
           </a>
         </div>
       </motion.div>
     </div>
   );
 }
+
+

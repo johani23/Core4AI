@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – Feed.jsx (MVP-28-Live)
+// ðŸ’Ž Core4.AI â€“ Feed.jsx (MVP-28-Live)
 // ------------------------------------------------------------
 // Posts trigger mock sentiment analysis & token reward.
 // Real-time WebSocket pushes tribe mood/token updates.
@@ -21,11 +21,11 @@ export default function Feed() {
     ws.onmessage = (e) => {
       const msg = JSON.parse(e.data);
       if (msg.type === "sentiment_update")
-        console.log("💫 Sentiment event:", msg.data);
+        console.log("ðŸ’« Sentiment event:", msg.data);
       if (msg.type === "token_transfer")
-        console.log("💰 Token flow:", msg.data);
+        console.log("ðŸ’° Token flow:", msg.data);
       if (msg.type === "market_pulse")
-        console.log("📈 Market pulse:", msg.data.time);
+        console.log("ðŸ“ˆ Market pulse:", msg.data.time);
     };
     return () => ws.close();
   }, []);
@@ -60,14 +60,14 @@ export default function Feed() {
         });
       }
     } catch (e) {
-      console.error("❌ Error:", e);
+      console.error("âŒ Error:", e);
     }
     setLoading(false);
   }
 
   return (
     <div className="p-6 text-white">
-      <h1 className="text-2xl font-bold mb-4">🗞 Tribe Feed</h1>
+      <h1 className="text-2xl font-bold mb-4">ðŸ—ž Tribe Feed</h1>
       <div className="bg-gray-800 p-4 rounded-xl mb-6">
         <textarea
           value={text}

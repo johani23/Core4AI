@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MVP-31.6 â€œDopamine Overlayâ€
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP-31.6 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDopamine OverlayÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
 // ------------------------------------------------------------
 // Adds animated background color pulses based on market mood
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer,
@@ -20,13 +19,13 @@ export default function IntelligenceBoard() {
   const [selectedToken, setSelectedToken] = useState("C4AI");
   const [ohlcData, setOhlcData] = useState([]);
   const [alerts, setAlerts] = useState([]);
-  const [pulseColor, setPulseColor] = useState(null); // ðŸ”¥ overlay color state
+  const [pulseColor, setPulseColor] = useState(null); // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ overlay color state
 
   const wsMarketRef = useRef(null);
   const wsTribeRefs = useRef({});
 
   // ------------------------------------------------------------------
-  // ðŸ§© Fetch Data
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Fetch Data
   // ------------------------------------------------------------------
   async function fetchData() {
     try {
@@ -55,7 +54,7 @@ export default function IntelligenceBoard() {
   }
 
   // ------------------------------------------------------------------
-  // ðŸ”” Live Alerts + Dopamine Pulse trigger
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Â Live Alerts + Dopamine Pulse trigger
   // ------------------------------------------------------------------
   const pushAlert = (msg, type = "info") => {
     const id = Date.now();
@@ -72,7 +71,7 @@ export default function IntelligenceBoard() {
   };
 
   // ------------------------------------------------------------------
-  // ðŸ“¡ WebSocket connections
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡ WebSocket connections
   // ------------------------------------------------------------------
   const connectMarketWS = () => {
     wsMarketRef.current = new WebSocket(`${WS_BASE}/ws/market`);
@@ -96,16 +95,16 @@ export default function IntelligenceBoard() {
     ws.onmessage = (e) => {
       const d = JSON.parse(e.data);
       if (d.mood_index < 30)
-        pushAlert(`âš ï¸ Tribe ${tribeId} mood dropped (${d.mood_index.toFixed(1)}%)`, "down");
+        pushAlert(`ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Tribe ${tribeId} mood dropped (${d.mood_index.toFixed(1)}%)`, "down");
       if (d.mood_index > 80)
-        pushAlert(`ðŸ”¥ Tribe ${tribeId} mood surged (${d.mood_index.toFixed(1)}%)`, "up");
+        pushAlert(`ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Tribe ${tribeId} mood surged (${d.mood_index.toFixed(1)}%)`, "up");
     };
     ws.onclose = () => setTimeout(() => connectTribeWS(tribeId), 3000);
     wsTribeRefs.current[tribeId] = ws;
   };
 
   // ------------------------------------------------------------------
-  // â™»ï¸ Lifecycle
+  // ÃƒÂ¢Ã¢â€žÂ¢Ã‚Â»ÃƒÂ¯Ã‚Â¸Ã‚Â Lifecycle
   // ------------------------------------------------------------------
   useEffect(() => {
     fetchData();
@@ -120,7 +119,7 @@ export default function IntelligenceBoard() {
   }, [selectedToken]);
 
   // ------------------------------------------------------------------
-  // ðŸ’Ž UI
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ UI
   // ------------------------------------------------------------------
   return (
     <div className="relative p-6 text-white bg-black min-h-screen overflow-hidden">
@@ -143,7 +142,7 @@ export default function IntelligenceBoard() {
         )}
       </AnimatePresence>
 
-      {/* ðŸ”” Live Alerts */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Â Live Alerts */}
       <div className="fixed top-4 right-4 z-50 space-y-2 w-80">
         <AnimatePresence>
           {alerts.map((a) => (
@@ -172,7 +171,7 @@ export default function IntelligenceBoard() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        ðŸ§  Core4.AI Intelligence Board
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Core4.AI Intelligence Board
       </motion.h1>
 
       {/* Global Mood */}
@@ -196,7 +195,7 @@ export default function IntelligenceBoard() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h3 className="text-lg font-semibold mb-2">ðŸŒ¸ Tribe {t.tribe_id}</h3>
+            <h3 className="text-lg font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¸ Tribe {t.tribe_id}</h3>
             <p className="text-sm text-gray-400">
               Avg Mood: {t.avg_mood_index.toFixed(1)}%
             </p>
@@ -219,14 +218,14 @@ export default function IntelligenceBoard() {
 
       {/* Market Overview */}
       <div className="bg-zinc-950 rounded-2xl p-4 shadow-lg mb-8 relative z-10">
-        <h2 className="text-xl font-semibold mb-4">ðŸ“ˆ Market Overview</h2>
+        <h2 className="text-xl font-semibold mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Market Overview</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead className="border-b border-zinc-700 text-sm text-gray-400">
               <tr>
                 <th className="py-2">Token</th>
                 <th>Price</th>
-                <th>Î”%</th>
+                <th>ÃƒÅ½Ã¢â‚¬Â%</th>
                 <th>Trend</th>
                 <th>Sentiment</th>
               </tr>
@@ -264,7 +263,7 @@ export default function IntelligenceBoard() {
       {/* Token Chart */}
       <div className="bg-zinc-950 rounded-2xl p-4 shadow-lg relative z-10">
         <h2 className="text-xl font-semibold mb-4">
-          ðŸª™ Token Analytics: {selectedToken}
+          ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Token Analytics: {selectedToken}
         </h2>
         {ohlcData.length > 0 ? (
           <ResponsiveContainer width="100%" height={300}>
@@ -283,3 +282,5 @@ export default function IntelligenceBoard() {
     </div>
   );
 }
+
+

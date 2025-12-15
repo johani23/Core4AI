@@ -19,7 +19,7 @@ export default function InnerCircle() {
 
   return (
     <div className="card">
-      <h2>👥 Inner Circle</h2>
+      <h2>Ã°Å¸â€˜Â¥ Inner Circle</h2>
       <div className="chat-box">
         {messages.map((m) => (
           <div key={m.id} className="chat-msg">{m.text}</div>
@@ -35,7 +35,7 @@ export default function InnerCircle() {
         <button onClick={sendMessage}>Send</button>
       </div>
 
-      <h3>🔒 Secret Nominations</h3>
+      <h3>Ã°Å¸â€â€™ Secret Nominations</h3>
       <ul>
         {members.map((m) => (
           <li key={m}>
@@ -47,3 +47,4 @@ export default function InnerCircle() {
     </div>
   );
 }
+

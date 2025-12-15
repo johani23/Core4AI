@@ -1,5 +1,5 @@
 // ============================================================================
-// 💚 Core4.AI – audienceApi.js (v2 FINAL)
+// Ã°Å¸â€™Å¡ Core4.AI Ã¢â‚¬â€œ audienceApi.js (v2 FINAL)
 // ----------------------------------------------------------------------------
 // Includes: Persona fallback + Full Feed (6 Tribes) + Thumbnails
 // ============================================================================
@@ -10,15 +10,15 @@ export async function fetchBuyerPersona(buyerId = "buyer_001") {
     if (!res.ok) throw new Error("Failed persona");
     return await res.json();
   } catch (e) {
-    console.warn("⚠️ Using fallback persona (no backend yet)", e);
+    console.warn("Ã¢Å¡Â Ã¯Â¸Â Using fallback persona (no backend yet)", e);
 
     return {
       buyer_id: buyerId,
-      name: "ضيف Core4",
+      name: "Ã˜Â¶Ã™Å Ã™Â Core4",
       tribe: "Techy Tribe",
-      mood: "مرتاح",
+      mood: "Ã™â€¦Ã˜Â±Ã˜ÂªÃ˜Â§Ã˜Â­",
       influence_score: 72,
-      tags: ["قهوة", "تقنية", "عروض سريعة"],
+      tags: ["Ã™â€šÃ™â€¡Ã™Ë†Ã˜Â©", "Ã˜ÂªÃ™â€šÃ™â€ Ã™Å Ã˜Â©", "Ã˜Â¹Ã˜Â±Ã™Ë†Ã˜Â¶ Ã˜Â³Ã˜Â±Ã™Å Ã˜Â¹Ã˜Â©"],
       level: "Rising Micro-Influencer",
       heat_score: 55,
       cluster: 3,
@@ -32,10 +32,10 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
     if (!res.ok) throw new Error("Failed feed");
     return await res.json();
   } catch (e) {
-    console.warn("⚠️ Using fallback feed (no backend yet)", e);
+    console.warn("Ã¢Å¡Â Ã¯Â¸Â Using fallback feed (no backend yet)", e);
 
     // ======================================================================
-    // FULL FEED (6 TRIBES) — balanced, with thumbnails, curated by Noor & Sama
+    // FULL FEED (6 TRIBES) Ã¢â‚¬â€ balanced, with thumbnails, curated by Noor & Sama
     // ======================================================================
 
     return [
@@ -44,20 +44,20 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
         id: "t1",
         type: "product",
         tribe: "Techy Tribe",
-        title: "سماعة بلوتوث مع عزل ضوضاء",
-        subtitle: "مناسبة للعمل من الكوفي",
-        merchant_name: "كوفي زاوية الراحة",
-        dopamine_hint: "هدوء + تركيز",
+        title: "Ã˜Â³Ã™â€¦Ã˜Â§Ã˜Â¹Ã˜Â© Ã˜Â¨Ã™â€žÃ™Ë†Ã˜ÂªÃ™Ë†Ã˜Â« Ã™â€¦Ã˜Â¹ Ã˜Â¹Ã˜Â²Ã™â€ž Ã˜Â¶Ã™Ë†Ã˜Â¶Ã˜Â§Ã˜Â¡",
+        subtitle: "Ã™â€¦Ã™â€ Ã˜Â§Ã˜Â³Ã˜Â¨Ã˜Â© Ã™â€žÃ™â€žÃ˜Â¹Ã™â€¦Ã™â€ž Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ™Æ’Ã™Ë†Ã™ÂÃ™Å ",
+        merchant_name: "Ã™Æ’Ã™Ë†Ã™ÂÃ™Å  Ã˜Â²Ã˜Â§Ã™Ë†Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â±Ã˜Â§Ã˜Â­Ã˜Â©",
+        dopamine_hint: "Ã™â€¡Ã˜Â¯Ã™Ë†Ã˜Â¡ + Ã˜ÂªÃ˜Â±Ã™Æ’Ã™Å Ã˜Â²",
         thumbnail: "https://picsum.photos/300?random=101",
       },
       {
         id: "t2",
         type: "product",
         tribe: "Techy Tribe",
-        title: "كيبورد ميكانيكي RGB",
-        subtitle: "مصمم للمبرمجين وعشاق التقنية",
+        title: "Ã™Æ’Ã™Å Ã˜Â¨Ã™Ë†Ã˜Â±Ã˜Â¯ Ã™â€¦Ã™Å Ã™Æ’Ã˜Â§Ã™â€ Ã™Å Ã™Æ’Ã™Å  RGB",
+        subtitle: "Ã™â€¦Ã˜ÂµÃ™â€¦Ã™â€¦ Ã™â€žÃ™â€žÃ™â€¦Ã˜Â¨Ã˜Â±Ã™â€¦Ã˜Â¬Ã™Å Ã™â€  Ã™Ë†Ã˜Â¹Ã˜Â´Ã˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ˜ÂªÃ™â€šÃ™â€ Ã™Å Ã˜Â©",
         merchant_name: "Tech World",
-        dopamine_hint: "صوت الكتابة 😍",
+        dopamine_hint: "Ã˜ÂµÃ™Ë†Ã˜Âª Ã˜Â§Ã™â€žÃ™Æ’Ã˜ÂªÃ˜Â§Ã˜Â¨Ã˜Â© Ã°Å¸ËœÂ",
         thumbnail: "https://picsum.photos/300?random=102",
       },
 
@@ -66,20 +66,20 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
         id: "a1",
         type: "content",
         tribe: "Adventurers",
-        title: "فلوغ: يوم كامل من العمل المتنقل",
+        title: "Ã™ÂÃ™â€žÃ™Ë†Ã˜Âº: Ã™Å Ã™Ë†Ã™â€¦ Ã™Æ’Ã˜Â§Ã™â€¦Ã™â€ž Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™â€ Ã™â€šÃ™â€ž",
         creator_name: "Tech Nomad",
-        subtitle: "كيف تخلي العالم مكتبك؟",
-        dopamine_hint: "حماس + حركة",
+        subtitle: "Ã™Æ’Ã™Å Ã™Â Ã˜ÂªÃ˜Â®Ã™â€žÃ™Å  Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã™â€žÃ™â€¦ Ã™â€¦Ã™Æ’Ã˜ÂªÃ˜Â¨Ã™Æ’Ã˜Å¸",
+        dopamine_hint: "Ã˜Â­Ã™â€¦Ã˜Â§Ã˜Â³ + Ã˜Â­Ã˜Â±Ã™Æ’Ã˜Â©",
         thumbnail: "https://picsum.photos/300?random=201",
       },
       {
         id: "a2",
         type: "product",
         tribe: "Adventurers",
-        title: "باور بانك خارق 30000mAh",
-        subtitle: "للرحلات المتنقلة والمغامرات",
+        title: "Ã˜Â¨Ã˜Â§Ã™Ë†Ã˜Â± Ã˜Â¨Ã˜Â§Ã™â€ Ã™Æ’ Ã˜Â®Ã˜Â§Ã˜Â±Ã™â€š 30000mAh",
+        subtitle: "Ã™â€žÃ™â€žÃ˜Â±Ã˜Â­Ã™â€žÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™â€ Ã™â€šÃ™â€žÃ˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂºÃ˜Â§Ã™â€¦Ã˜Â±Ã˜Â§Ã˜Âª",
         merchant_name: "Adventure Hub",
-        dopamine_hint: "تحرر + أمان",
+        dopamine_hint: "Ã˜ÂªÃ˜Â­Ã˜Â±Ã˜Â± + Ã˜Â£Ã™â€¦Ã˜Â§Ã™â€ ",
         thumbnail: "https://picsum.photos/300?random=202",
       },
 
@@ -88,20 +88,20 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
         id: "e1",
         type: "product",
         tribe: "EventGoers",
-        title: "باكج تذاكر + قهوة لموسم الرياض",
-        subtitle: "تجربة ذكية لعشاق الفعاليات",
+        title: "Ã˜Â¨Ã˜Â§Ã™Æ’Ã˜Â¬ Ã˜ÂªÃ˜Â°Ã˜Â§Ã™Æ’Ã˜Â± + Ã™â€šÃ™â€¡Ã™Ë†Ã˜Â© Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â³Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â±Ã™Å Ã˜Â§Ã˜Â¶",
+        subtitle: "Ã˜ÂªÃ˜Â¬Ã˜Â±Ã˜Â¨Ã˜Â© Ã˜Â°Ã™Æ’Ã™Å Ã˜Â© Ã™â€žÃ˜Â¹Ã˜Â´Ã˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ™ÂÃ˜Â¹Ã˜Â§Ã™â€žÃ™Å Ã˜Â§Ã˜Âª",
         merchant_name: "Riyadh Events Hub",
-        dopamine_hint: "اجتماعات + تجربة",
+        dopamine_hint: "Ã˜Â§Ã˜Â¬Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜Â¹Ã˜Â§Ã˜Âª + Ã˜ÂªÃ˜Â¬Ã˜Â±Ã˜Â¨Ã˜Â©",
         thumbnail: "https://picsum.photos/300?random=301",
       },
       {
         id: "e2",
         type: "content",
         tribe: "EventGoers",
-        title: "أفضل فعاليات هذا الأسبوع",
-        subtitle: "توصيات حسب اهتماماتك",
+        title: "Ã˜Â£Ã™ÂÃ˜Â¶Ã™â€ž Ã™ÂÃ˜Â¹Ã˜Â§Ã™â€žÃ™Å Ã˜Â§Ã˜Âª Ã™â€¡Ã˜Â°Ã˜Â§ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã˜Â¨Ã™Ë†Ã˜Â¹",
+        subtitle: "Ã˜ÂªÃ™Ë†Ã˜ÂµÃ™Å Ã˜Â§Ã˜Âª Ã˜Â­Ã˜Â³Ã˜Â¨ Ã˜Â§Ã™â€¡Ã˜ÂªÃ™â€¦Ã˜Â§Ã™â€¦Ã˜Â§Ã˜ÂªÃ™Æ’",
         creator_name: "Riyadh Guide",
-        dopamine_hint: "تجارب جديدة",
+        dopamine_hint: "Ã˜ÂªÃ˜Â¬Ã˜Â§Ã˜Â±Ã˜Â¨ Ã˜Â¬Ã˜Â¯Ã™Å Ã˜Â¯Ã˜Â©",
         thumbnail: "https://picsum.photos/300?random=302",
       },
 
@@ -110,20 +110,20 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
         id: "f1",
         type: "product",
         tribe: "Fashionists",
-        title: "شنطة يد فاخرة",
-        subtitle: "ستايل أنيق يناسب المشاوير",
+        title: "Ã˜Â´Ã™â€ Ã˜Â·Ã˜Â© Ã™Å Ã˜Â¯ Ã™ÂÃ˜Â§Ã˜Â®Ã˜Â±Ã˜Â©",
+        subtitle: "Ã˜Â³Ã˜ÂªÃ˜Â§Ã™Å Ã™â€ž Ã˜Â£Ã™â€ Ã™Å Ã™â€š Ã™Å Ã™â€ Ã˜Â§Ã˜Â³Ã˜Â¨ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â´Ã˜Â§Ã™Ë†Ã™Å Ã˜Â±",
         merchant_name: "Luxury Boutique",
-        dopamine_hint: "أناقة + ثقة",
+        dopamine_hint: "Ã˜Â£Ã™â€ Ã˜Â§Ã™â€šÃ˜Â© + Ã˜Â«Ã™â€šÃ˜Â©",
         thumbnail: "https://picsum.photos/300?random=401",
       },
       {
         id: "f2",
         type: "product",
         tribe: "Fashionists",
-        title: "نظارة شمسية Signature",
-        subtitle: "تصميم راقي لعشاق الموضة",
+        title: "Ã™â€ Ã˜Â¸Ã˜Â§Ã˜Â±Ã˜Â© Ã˜Â´Ã™â€¦Ã˜Â³Ã™Å Ã˜Â© Signature",
+        subtitle: "Ã˜ÂªÃ˜ÂµÃ™â€¦Ã™Å Ã™â€¦ Ã˜Â±Ã˜Â§Ã™â€šÃ™Å  Ã™â€žÃ˜Â¹Ã˜Â´Ã˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â¶Ã˜Â©",
         merchant_name: "Style House",
-        dopamine_hint: "إطلالة + تميز",
+        dopamine_hint: "Ã˜Â¥Ã˜Â·Ã™â€žÃ˜Â§Ã™â€žÃ˜Â© + Ã˜ÂªÃ™â€¦Ã™Å Ã˜Â²",
         thumbnail: "https://picsum.photos/300?random=402",
       },
 
@@ -132,22 +132,23 @@ export async function fetchAudienceFeed(buyerId = "buyer_001") {
         id: "fo1",
         type: "product",
         tribe: "Foodies",
-        title: "باكج تذوق المطاعم الجديدة",
-        subtitle: "مثالي لعشاق الأكل والاستكشاف",
+        title: "Ã˜Â¨Ã˜Â§Ã™Æ’Ã˜Â¬ Ã˜ÂªÃ˜Â°Ã™Ë†Ã™â€š Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â·Ã˜Â§Ã˜Â¹Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â¯Ã™Å Ã˜Â¯Ã˜Â©",
+        subtitle: "Ã™â€¦Ã˜Â«Ã˜Â§Ã™â€žÃ™Å  Ã™â€žÃ˜Â¹Ã˜Â´Ã˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ˜Â£Ã™Æ’Ã™â€ž Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â³Ã˜ÂªÃ™Æ’Ã˜Â´Ã˜Â§Ã™Â",
         merchant_name: "Taste Hub",
-        dopamine_hint: "نكهات + تجربة",
+        dopamine_hint: "Ã™â€ Ã™Æ’Ã™â€¡Ã˜Â§Ã˜Âª + Ã˜ÂªÃ˜Â¬Ã˜Â±Ã˜Â¨Ã˜Â©",
         thumbnail: "https://picsum.photos/300?random=501",
       },
       {
         id: "fo2",
         type: "content",
         tribe: "Foodies",
-        title: "أفضل مطاعم الأسبوع",
-        subtitle: "اختيارات حسب ذوقك",
+        title: "Ã˜Â£Ã™ÂÃ˜Â¶Ã™â€ž Ã™â€¦Ã˜Â·Ã˜Â§Ã˜Â¹Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã˜Â¨Ã™Ë†Ã˜Â¹",
+        subtitle: "Ã˜Â§Ã˜Â®Ã˜ÂªÃ™Å Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â­Ã˜Â³Ã˜Â¨ Ã˜Â°Ã™Ë†Ã™â€šÃ™Æ’",
         creator_name: "Food Diary",
-        dopamine_hint: "لذة + اكتشاف",
+        dopamine_hint: "Ã™â€žÃ˜Â°Ã˜Â© + Ã˜Â§Ã™Æ’Ã˜ÂªÃ˜Â´Ã˜Â§Ã™Â",
         thumbnail: "https://picsum.photos/300?random=502",
       },
     ];
   }
 }
+

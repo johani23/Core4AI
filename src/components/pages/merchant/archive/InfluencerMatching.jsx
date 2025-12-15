@@ -1,12 +1,11 @@
 // ======================================================================
-// ðŸ’š Core4.AI â€“ InfluencerMatching.jsx (v1.0 E4 Saudi Intelligence)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ InfluencerMatching.jsx (v1.0 E4 Saudi Intelligence)
 // ----------------------------------------------------------------------
-// â€¢ Product â†’ Tribe â†’ Audience â†’ AI Matching
-// â€¢ Scores: Influence, Engagement, Quality, Conversion Fit
-// â€¢ AI selects Top Picks for merchant
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Product ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Tribe ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Audience ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ AI Matching
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Scores: Influence, Engagement, Quality, Conversion Fit
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI selects Top Picks for merchant
 // ======================================================================
 
-import React, { useState } from "react";
 import {
   FiUsers,
   FiTarget,
@@ -109,21 +108,21 @@ export default function InfluencerMatching() {
       {/* HEADER */}
       <div>
         <h1 className="text-3xl font-extrabold text-[#4cff9b] flex items-center gap-3">
-          <FiUsers /> Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ø°ÙƒÙŠ
+          <FiUsers /> ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â 
         </h1>
         <p className="text-gray-300">
-          Ø°ÙƒØ§Ø¡ Core4.AI ÙŠÙ‚ØªØ±Ø­ Ø£ÙØ¶Ù„ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ù…Ù†ØªØ¬Ùƒ Ø­Ø³Ø¨ Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø© ÙˆØ§Ù„Ø¬Ù…Ù‡ÙˆØ±.
+          ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ Core4.AI Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬Ãƒâ„¢Ã†â€™ ÃƒËœÃ‚Â­ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±.
         </p>
       </div>
 
       {/* PRODUCT INPUT */}
       <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl space-y-5">
         <h2 className="text-xl text-white font-bold flex items-center gap-2">
-          <FiFilter className="text-[#4cff9b]" /> Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ù…Ù†ØªØ¬
+          <FiFilter className="text-[#4cff9b]" /> Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
         </h2>
 
         <input
-          placeholder="Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬ (Ù…Ø«Ø§Ù„: Samsung S24 Ultra)"
+          placeholder="ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ (Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾: Samsung S24 Ultra)"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
           className="px-4 py-3 rounded-lg bg-[#002015] border border-[#145536] text-white w-full"
@@ -135,7 +134,7 @@ export default function InfluencerMatching() {
           className="px-4 py-3 rounded-lg bg-[#002015] border border-[#145536] text-white w-full"
         >
           <option value="" disabled>
-            Ø§Ø®ØªØ± Ø§Ù„ÙØ¦Ø©
+            ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¦ÃƒËœÃ‚Â©
           </option>
           {CATEGORIES.map((c) => (
             <option key={c} value={c}>
@@ -148,14 +147,14 @@ export default function InfluencerMatching() {
           onClick={generateMatches}
           className="w-full py-3 rounded-lg font-extrabold bg-[#4cff9b] text-black flex items-center justify-center gap-2"
         >
-          <FiZap /> ØªØ­Ù„ÙŠÙ„ ÙˆØ§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ†
+          <FiZap /> ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â 
         </button>
       </div>
 
       {/* LOADING */}
       {loading && (
         <div className="text-center text-gray-300 text-lg py-10 animate-pulse">
-          Ø¬Ø§Ø±ÙŠ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ†â€¦
+          ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
         </div>
       )}
 
@@ -166,7 +165,7 @@ export default function InfluencerMatching() {
           {/* TRIBE MATCH */}
           <div className="bg-[#002015] border border-[#145536] p-6 rounded-xl">
             <h3 className="text-xl text-[#4cff9b] font-bold flex items-center gap-2">
-              <FiTarget /> Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø© Ø§Ù„Ø£Ù†Ø³Ø¨ Ù„Ù„Ù…Ù†ØªØ¬
+              <FiTarget /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
             </h3>
             <p className="text-3xl font-extrabold text-white mt-2">
               {matches.tribe}
@@ -176,7 +175,7 @@ export default function InfluencerMatching() {
           {/* CREATOR RESULTS */}
           <div className="space-y-6">
             <h3 className="text-2xl text-[#4cff9b] font-bold flex items-center gap-2">
-              <FiTrendingUp /> Ø§Ù„Ù…Ø¤Ø«Ø±ÙˆÙ† Ø§Ù„Ù…Ù‚ØªØ±Ø­ÙˆÙ†
+              <FiTrendingUp /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â 
             </h3>
 
             {matches.creators.map((c, idx) => (
@@ -188,10 +187,10 @@ export default function InfluencerMatching() {
                   <div>
                     <p className="text-lg font-bold text-white">{c.name}</p>
                     <p className="text-gray-400 text-sm">
-                      Ù‚Ø¨ÙŠÙ„Ø©: {c.tribe}
+                      Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©: {c.tribe}
                     </p>
                     <p className="text-gray-400 text-sm">
-                      Ø§Ù„Ù…ØªØ§Ø¨Ø¹ÙˆÙ†: {c.followers.toLocaleString()}
+                      ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â : {c.followers.toLocaleString()}
                     </p>
                     <p className="text-gray-400 text-sm">
                       Engagement: {c.engagement}%
@@ -214,3 +213,5 @@ export default function InfluencerMatching() {
     </div>
   );
 }
+
+

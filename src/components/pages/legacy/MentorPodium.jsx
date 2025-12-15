@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MentorPodium.jsx (MVP-89 â€œLive Growth Pulse Arenaâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MentorPodium.jsx (MVP-89 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Growth Pulse ArenaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Keeps 3-D podium view from MVP-88
-// âœ… Adds live WebSocket connection to /ws/radar
-// âœ… Real-time glow + lift animation on growth_pulse events
-// âœ… Smooth particle burst feedback
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Keeps 3-D podium view from MVP-88
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds live WebSocket connection to /ws/radar
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time glow + lift animation on growth_pulse events
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Smooth particle burst feedback
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, Text3D } from "@react-three/drei";
 import * as THREE from "three";
@@ -81,12 +80,12 @@ function FloatingPodium({ mentor, color, height, activePulse }) {
         position={[-0.35, height + 0.7, 0]}
       >
         {mentor.badge === "Diamond"
-          ? "ðŸ’ "
+          ? "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â "
           : mentor.badge === "Gold"
-          ? "ðŸ¥‡"
+          ? "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â¡"
           : mentor.badge === "Silver"
-          ? "ðŸ¥ˆ"
-          : "ðŸŒ±"}
+          ? "ÃƒÂ°Ã…Â¸Ã‚Â¥Ã‹â€ "
+          : "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â±"}
         <meshStandardMaterial color={color} />
       </Text3D>
     </group>
@@ -165,7 +164,7 @@ export default function MentorPodium() {
       {/* UI overlay */}
       <div className="absolute top-4 left-4 bg-gray-900/70 border border-purple-400/30 p-3 rounded-2xl">
         <div className="text-purple-300 font-semibold text-lg">
-          âš¡ Live Mentor Arena
+          ÃƒÂ¢Ã…Â¡Ã‚Â¡ Live Mentor Arena
         </div>
         <div className="text-gray-400 text-sm">
           Podiums glow on <span className="text-purple-400">growth pulses</span>
@@ -173,8 +172,10 @@ export default function MentorPodium() {
       </div>
 
       <div className="absolute bottom-4 right-4 text-gray-400 text-xs">
-        Auto-updates every 20 s â€¢ Live WebSocket feed
+        Auto-updates every 20 s ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Live WebSocket feed
       </div>
     </div>
   );
 }
+
+

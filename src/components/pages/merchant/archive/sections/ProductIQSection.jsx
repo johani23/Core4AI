@@ -33,7 +33,7 @@ export default function ProductIQSection({ product, onLoaded }) {
     <div className="p-6 border rounded-xl shadow bg-white">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸŽ¯ ProductIQ â€” Phase 4 AI Pricing
+        ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ ProductIQ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Phase 4 AI Pricing
       </h2>
 
       {loading && <p className="text-gray-500">...loading</p>}
@@ -52,3 +52,4 @@ export default function ProductIQSection({ product, onLoaded }) {
     </div>
   );
 }
+

@@ -11,7 +11,7 @@ export default function TokenStore() {
 
   return (
     <div className="p-8 text-center">
-      <h1 className="text-3xl font-bold mb-4">ðŸ’° Token Store</h1>
+      <h1 className="text-3xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Token Store</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {items.map((item) => (
           <div
@@ -27,3 +27,4 @@ export default function TokenStore() {
     </div>
   );
 }
+

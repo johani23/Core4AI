@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MerchantKPISummary.jsx (v1.0 â€œStub Componentâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantKPISummary.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œStub ComponentÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Prevents import errors in MerchantIntelligenceHub
-// âœ… Displays top merchant KPIs placeholder
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Prevents import errors in MerchantIntelligenceHub
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays top merchant KPIs placeholder
 // ============================================================
 
-import React from "react";
 
 export default function MerchantKPISummary() {
   return (
@@ -30,3 +29,5 @@ export default function MerchantKPISummary() {
     </div>
   );
 }
+
+

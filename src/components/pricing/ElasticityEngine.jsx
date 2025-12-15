@@ -1,15 +1,14 @@
 // ============================================================================
-// ðŸ’š ElasticityEngine.jsx (v3.0 BETA COMPLETE)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ ElasticityEngine.jsx (v3.0 BETA COMPLETE)
 // ----------------------------------------------------------------------------
-// â€¢ Elasticity Score
-// â€¢ Optimal Price
-// â€¢ Revenue Projection
-// â€¢ Overpricing Detector
-// â€¢ Opportunity Score (0â€“100)
-// â€¢ Demand + Revenue Charts
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Elasticity Score
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Optimal Price
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Revenue Projection
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Overpricing Detector
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Opportunity Score (0ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“100)
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Demand + Revenue Charts
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import PricingCharts from "@/components/pricing/PricingCharts";
 import { detectPriceStatus } from "@/components/pricing/PricingSignals";
 import { calculateOpportunityScore } from "@/components/pricing/OpportunityScore";
@@ -65,7 +64,7 @@ export default function ElasticityEngine({ productId }) {
         optimalPrice: optimal.price,
       });
 
-      // ðŸš€ Opportunity Score (NEW)
+      // ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Opportunity Score (NEW)
       const opportunity = calculateOpportunityScore({
         elasticity,
         optimalPrice: optimal.price,
@@ -92,7 +91,7 @@ export default function ElasticityEngine({ productId }) {
   if (!data) {
     return (
       <div className="text-gray-500 text-sm py-3 text-center">
-        â³ ØªØ­Ù…ÙŠÙ„ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ø±ÙˆÙ†Ø©...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â©...
       </div>
     );
   }
@@ -110,7 +109,7 @@ export default function ElasticityEngine({ productId }) {
       <div className="p-4 bg-gray-50 rounded-xl border">
         <p className="text-xs text-gray-500">Optimal Price (Revenue-Max)</p>
         <p className="text-xl font-bold text-green-700">
-          {Math.round(data.optimalPrice)} Ø±.Ø³
+          {Math.round(data.optimalPrice)} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
         </p>
       </div>
 
@@ -122,9 +121,9 @@ export default function ElasticityEngine({ productId }) {
         </p>
 
         <p className="text-sm mt-1 text-gray-600">
-          {data.opportunity > 80 && "ðŸ”¥ ÙØ±ØµØ© Ù…Ù…ØªØ§Ø²Ø© â€” Ø§Ø¨Ø¯Ø£ Ø­Ù…Ù„Ø© Ø§Ù„Ø¢Ù†"}
-          {data.opportunity > 50 && data.opportunity <= 80 && "ðŸ’¡ ÙØ±ØµØ© Ø¬ÙŠØ¯Ø© â€” ØªØ³ØªØ­Ù‚ Ø§Ù„ØªØ¬Ø±Ø¨Ø©"}
-          {data.opportunity <= 50 && "âš ï¸ ÙØ±ØµØ© Ù…Ù†Ø®ÙØ¶Ø© â€” Ù‚Ø¯ Ù„Ø§ ÙŠÙƒÙˆÙ† Ø§Ù„ÙˆÙ‚Øª Ù…Ù†Ø§Ø³Ø¨"}
+          {data.opportunity > 80 && "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â±ÃƒËœÃ‚ÂµÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â£ ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â "}
+          {data.opportunity > 50 && data.opportunity <= 80 && "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â±ÃƒËœÃ‚ÂµÃƒËœÃ‚Â© ÃƒËœÃ‚Â¬Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â©"}
+          {data.opportunity <= 50 && "ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â±ÃƒËœÃ‚ÂµÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â®Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶ÃƒËœÃ‚Â© ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Âª Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨"}
         </p>
       </div>
 
@@ -132,7 +131,7 @@ export default function ElasticityEngine({ productId }) {
       <div className="p-4 bg-gray-50 rounded-xl border">
         <p className="text-xs text-gray-500">Projected Revenue at Optimal</p>
         <p className="text-lg font-semibold">
-          {Math.round(data.optimalRevenue)} Ø±.Ø³
+          {Math.round(data.optimalRevenue)} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
         </p>
       </div>
 
@@ -141,9 +140,9 @@ export default function ElasticityEngine({ productId }) {
         className={`p-4 rounded-xl border mt-4 bg-${data.status.color}-50`}
       >
         <h3 className={`font-bold text-${data.status.color}-700 mb-1`}>
-          {data.status.status === "overpriced" && "ðŸ“‰ Ø§Ù„Ù…Ù†ØªØ¬ Ù…Ø³Ø¹Ø± Ø£Ø¹Ù„Ù‰ Ù…Ù† Ø§Ù„Ù„Ø§Ø²Ù…"}
-          {data.status.status === "underpriced" && "ðŸ“ˆ Ø§Ù„Ù…Ù†ØªØ¬ Ù…Ø³Ø¹Ø± Ø£Ù‚Ù„ Ù…Ù† Ø§Ù„Ù„Ø§Ø²Ù…"}
-          {data.status.status === "ideal" && "â­ Ø§Ù„Ø³Ø¹Ø± Ù…Ø«Ø§Ù„ÙŠ"}
+          {data.status.status === "overpriced" && "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â²Ãƒâ„¢Ã¢â‚¬Â¦"}
+          {data.status.status === "underpriced" && "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â²Ãƒâ„¢Ã¢â‚¬Â¦"}
+          {data.status.status === "ideal" && "ÃƒÂ¢Ã‚Â­Ã‚Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â "}
         </h3>
         <p className="text-gray-700 text-sm">{data.status.message}</p>
       </div>
@@ -159,3 +158,5 @@ export default function ElasticityEngine({ productId }) {
     </div>
   );
 }
+
+

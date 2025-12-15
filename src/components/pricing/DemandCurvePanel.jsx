@@ -24,7 +24,7 @@ export default function DemandCurvePanel({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading demand curve...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading demand curve...
       </div>
     );
 
@@ -49,7 +49,7 @@ export default function DemandCurvePanel({ productId }) {
       {/* Demand Curve Chart (Custom SVG) */}
       <div className={card}>
         <h3 className="text-gray-300 font-semibold mb-3">
-          Demand Curve (Price â†’ Quantity)
+          Demand Curve (Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Quantity)
         </h3>
 
         <svg width="100%" height="260">
@@ -127,3 +127,4 @@ export default function DemandCurvePanel({ productId }) {
     </div>
   );
 }
+

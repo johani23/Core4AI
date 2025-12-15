@@ -14,7 +14,7 @@ export default function PersonaCard() {
 
   return (
     <div className="p-8 flex flex-col items-center text-center">
-      <h1 className="text-3xl font-bold mb-4">ðŸ§  Persona Intelligence</h1>
+      <h1 className="text-3xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Persona Intelligence</h1>
       <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg w-80">
         <h2 className="text-xl font-semibold">{persona.username}</h2>
         <p className="text-gray-500 mb-2">Tribe: {persona.tribe}</p>
@@ -26,3 +26,4 @@ export default function PersonaCard() {
     </div>
   );
 }
+

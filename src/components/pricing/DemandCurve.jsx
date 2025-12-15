@@ -1,5 +1,5 @@
 // ============================================================================
-// ðŸ’š DemandCurve.jsx â€” MIT Phase 2 (Monadic Price Testing UI)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ DemandCurve.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MIT Phase 2 (Monadic Price Testing UI)
 // ============================================================================
 // Works with:
 //   POST /api/pricing/monadic/start
@@ -7,7 +7,6 @@
 //   GET  /api/pricing/monadic/curve/{productId}
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function DemandCurve({ productId }) {
   const [curve, setCurve] = useState(null);
@@ -40,7 +39,7 @@ export default function DemandCurve({ productId }) {
       .map((x) => parseFloat(x.trim()))
       .filter((x) => !isNaN(x));
 
-    if (!list.length) return alert("â— Add at least one price.");
+    if (!list.length) return alert("ÃƒÂ¢Ã‚ÂÃ¢â‚¬â€ Add at least one price.");
 
     const res = await fetch(`/api/pricing/monadic/start`, {
       method: "POST",
@@ -75,7 +74,7 @@ export default function DemandCurve({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading demand curve...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading demand curve...
       </div>
     );
 
@@ -123,7 +122,7 @@ export default function DemandCurve({ productId }) {
             value={votePrice}
             onChange={(e) => setVotePrice(e.target.value)}
           >
-            <option value="">Choose priceâ€¦</option>
+            <option value="">Choose priceÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</option>
             {curve.curve.map((c, i) => (
               <option key={i} value={c.price}>
                 {c.price} SAR
@@ -191,7 +190,7 @@ export default function DemandCurve({ productId }) {
         <div className="mb-6 p-4 bg-gray-800 rounded-xl">
           <h3 className="font-semibold mb-2">Optimal Price Zone</h3>
           <p className="text-xl text-purple-300">
-            {curve.optimal_price_zone.join(" â†’ ")} SAR
+            {curve.optimal_price_zone.join(" ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ ")} SAR
           </p>
         </div>
       )}
@@ -199,3 +198,5 @@ export default function DemandCurve({ productId }) {
     </div>
   );
 }
+
+

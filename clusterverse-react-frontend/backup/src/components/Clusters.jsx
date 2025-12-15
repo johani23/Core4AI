@@ -21,7 +21,7 @@ function Clusters() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">🌐 Clusters</h2>
+      <h2 className="text-2xl font-bold mb-4">ðŸŒ Clusters</h2>
       <ul>
         {clusters.map((cl) => (
           <li

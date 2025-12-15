@@ -15,3 +15,4 @@ export function WalletProvider({ children }) {
 export function useWallet() {
   return useContext(WalletContext);
 }
+

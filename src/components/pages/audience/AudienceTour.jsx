@@ -1,9 +1,6 @@
-// ============================================================
-// ðŸ’Ž Core4.AI â€“ AudienceTour.jsx  
-// v2.3 â€œBeta Optimized â€“ Value-First Experienceâ€
-// ============================================================
-
-import React from "react";
+// ============================================================================
+// 💚 Core4.AI – AudienceTour.jsx (Arabic Clean Edition)
+// ============================================================================
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -12,36 +9,38 @@ export default function AudienceTour() {
 
   const steps = [
     {
-      icon: "ðŸ‘ï¸",
-      title: "See High-Value Content",
-      text: "Discover posts ranked by real cognitive and emotional impact â€” not vanity metrics.",
+      icon: "🔥",
+      title: "شاهد أفضل المحتويات",
+      text: "استكشف منشورات مرتّبة حسب التأثير الحقيقي — مش مجرد لايكات.",
     },
     {
-      icon: "ðŸ§­",
-      title: "Follow Smart Tribes",
-      text: "Each tribe is a mastery domain. Following tribes tailors your entire experience.",
+      icon: "👥",
+      title: "تابع القبائل الذكية",
+      text: "كل قبيلة تمثّل مجال مهاري. متابعتها يضبط لك التجربة بالكامل.",
     },
     {
-      icon: "âš¡",
-      title: "Influence the Ecosystem",
-      text: "Your votes and engagement boost meaningful creators and push down low-value noise.",
+      icon: "✨",
+      title: "أثّر في المنصة",
+      text: "تفاعلك وتصويتك يرفع صناع المحتوى المميزين ويقلل من الضجيج.",
     },
     {
-      icon: "ðŸš€",
-      title: "Upgrade Anytime",
-      text: "Switch into Creator Mode whenever you're ready â€” your audience history builds credibility.",
+      icon: "🚀",
+      title: "طوّر وضعك وقت ما تبغى",
+      text: "تقدر تنتقل لوضع المؤثر بأي وقت — وتاريخ تفاعلك يبني مصداقيتك.",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white px-8 py-14 flex flex-col items-center">
-
+    <div
+      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white px-8 py-14 flex flex-col items-center"
+      style={{ direction: "rtl" }}
+    >
       <motion.h1
         className="text-4xl font-extrabold mb-10 text-center"
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        Audience Tour
+        جولة الجمهور 🌟
       </motion.h1>
 
       <div className="w-full max-w-3xl space-y-6">
@@ -67,7 +66,7 @@ export default function AudienceTour() {
         className="mt-10 bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-pink-500/40 transition"
         whileHover={{ scale: 1.05 }}
       >
-        Enter Platform
+        الدخول إلى المنصة →
       </motion.button>
     </div>
   );

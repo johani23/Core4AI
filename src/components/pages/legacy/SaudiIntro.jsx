@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’šðŸ‡¸ðŸ‡¦ Core4.AI â€“ SaudiIntro.jsx (v1.0 â€œSaudi Launch Screenâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¦ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SaudiIntro.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSaudi Launch ScreenÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// â€¢ Shows Saudi flag + geolocation
-// â€¢ Lightweight, fast, TikTok-style welcome
-// â€¢ Auto continues to TourMenu
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Shows Saudi flag + geolocation
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Lightweight, fast, TikTok-style welcome
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto continues to TourMenu
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -41,7 +40,7 @@ export default function SaudiIntro() {
         transition={{ delay: 0.4, duration: 0.8 }}
         className="text-3xl font-bold text-green-400"
       >
-        Ø£Ù‡Ù„Ø§Ù‹ ÙˆØ³Ù‡Ù„Ø§Ù‹ Ø¨Ùƒ ðŸ‘‹
+        ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹ Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã†â€™ ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Â¹
       </motion.h1>
 
       {/* User Location */}
@@ -51,7 +50,7 @@ export default function SaudiIntro() {
         transition={{ delay: 0.8 }}
         className="text-gray-300 mt-3"
       >
-        Ù† detected that you're visiting from:  
+        Ãƒâ„¢Ã¢â‚¬Â  detected that you're visiting from:  
         <span className="text-green-300 font-semibold"> {country}</span>
       </motion.p>
 
@@ -63,9 +62,11 @@ export default function SaudiIntro() {
         className="mt-10 bg-green-600 text-white px-8 py-3 rounded-full 
                    text-lg font-semibold shadow-lg hover:bg-green-500 transition"
       >
-        Ø§Ø¨Ø¯Ø£ ØªØ¬Ø±Ø¨ØªÙŠ
+        ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â£ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¨ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â 
       </motion.button>
 
     </div>
   );
 }
+
+

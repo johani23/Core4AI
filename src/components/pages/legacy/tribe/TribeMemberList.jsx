@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ‘¥ TribeMemberList.jsx â€” Saudi-Tech A3 Edition
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¥ TribeMemberList.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Saudi-Tech A3 Edition
 // ----------------------------------------------------------------------------
 // - Beautiful Saudi dark theme
 // - Clean member cards
 // - Actions using CoreButton
 // ============================================================================
 
-import React from "react";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
 import CoreButton from "@/components/ui/CoreButton";
@@ -23,7 +22,7 @@ export default function TribeMemberList() {
       <CoreHeader
         title="Tribe Members"
         subtitle="Monitor activity, manage membership and ensure authenticity."
-        icon="ðŸ‘¥"
+        icon="ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¥"
       />
 
       <div className="space-y-6 max-w-4xl">
@@ -36,7 +35,7 @@ export default function TribeMemberList() {
               <div>
                 <p className="text-xl font-bold text-[#4FBF77]">{m.name}</p>
                 <p className="text-sm text-gray-400">
-                  {m.status.toUpperCase()} â€¢ XP {m.xp}
+                  {m.status.toUpperCase()} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ XP {m.xp}
                 </p>
               </div>
 
@@ -54,3 +53,5 @@ export default function TribeMemberList() {
     </div>
   );
 }
+
+

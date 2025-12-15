@@ -20,21 +20,21 @@ function CreateGroup() {
         .filter((id) => !isNaN(id));
 
       if (ids.length === 0) {
-        setMessage("âš ï¸ Please enter at least one valid user ID.");
+        setMessage("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Please enter at least one valid user ID.");
         setLoading(false);
         return;
       }
 
       const newGroup = await createGroup(ids);
-      setMessage(`âœ… Group ${newGroup.id} created successfully!`);
+      setMessage(`ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Group ${newGroup.id} created successfully!`);
 
-      // Ø¨Ø¹Ø¯ 1.5 Ø«Ø§Ù†ÙŠØ© Ø±ÙˆØ­ Ù„ØµÙØ­Ø© Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª
+      // ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯ 1.5 ÃƒËœÃ‚Â«ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â­ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂµÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â­ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª
       setTimeout(() => {
         navigate("/groups");
       }, 1500);
     } catch (err) {
       console.error("createGroup failed", err);
-      setMessage("âŒ Failed to create group.");
+      setMessage("ÃƒÂ¢Ã‚ÂÃ…â€™ Failed to create group.");
     } finally {
       setLoading(false);
     }
@@ -42,7 +42,7 @@ function CreateGroup() {
 
   return (
     <div className="p-6 max-w-lg mx-auto">
-      <h2 className="text-2xl font-bold mb-4">âž• Create New Group</h2>
+      <h2 className="text-2xl font-bold mb-4">ÃƒÂ¢Ã…Â¾Ã¢â‚¬Â¢ Create New Group</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -75,3 +75,4 @@ function CreateGroup() {
 }
 
 export default CreateGroup;
+

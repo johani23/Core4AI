@@ -1,5 +1,5 @@
 /**
- * 🧠 Core4.AI – Engagement Tracker Hook
+ * ðŸ§  Core4.AI â€“ Engagement Tracker Hook
  * ----------------------------------------
  * Automatically logs engagement events (page view, scroll, click).
  * Uses recordEngagement() from api.js

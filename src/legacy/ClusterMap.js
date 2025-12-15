@@ -12,7 +12,7 @@ function ClusterTable() {
 
   return (
     <div className="max-w-3xl w-full bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4">📊 Clustered Users</h2>
+      <h2 className="text-2xl font-bold mb-4">Ã°Å¸â€œÅ  Clustered Users</h2>
       <table className="min-w-full border border-gray-300 text-center">
         <thead>
           <tr className="bg-gray-100">
@@ -36,3 +36,4 @@ function ClusterTable() {
 }
 
 export default ClusterTable;
+

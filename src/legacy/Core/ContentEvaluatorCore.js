@@ -1,5 +1,5 @@
 // ============================================================
-// 🧠 Core4.AI – ContentEvaluatorCore.js
+// Ã°Å¸Â§Â  Core4.AI Ã¢â‚¬â€œ ContentEvaluatorCore.js
 // ------------------------------------------------------------
 // Basic semantic heuristics to simulate AI evaluation
 // ============================================================
@@ -13,3 +13,4 @@ export function evaluateContent(text) {
   const total = (lengthScore + curiosity + emotional + structure) / 4;
   return parseFloat(total.toFixed(2));
 }
+

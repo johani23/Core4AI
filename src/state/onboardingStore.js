@@ -46,3 +46,4 @@ export const useOnboardingStore = create((set) => ({
   setInnovationMaturity: (score) => set({ innovationMaturity: score }),
   setTribeMatch: (tribe) => set({ tribeMatch: tribe }),
 }));
+

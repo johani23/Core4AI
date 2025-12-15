@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ HeatflowReplayPanel.jsx (MVP-65 â€œEmotional Replayâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ HeatflowReplayPanel.jsx (MVP-65 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œEmotional ReplayÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Records dopamine scores over time
-// âœ… Visual heatbar + time scrub slider
-// âœ… Replays emotional energy timeline (5-minute window)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Records dopamine scores over time
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Visual heatbar + time scrub slider
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Replays emotional energy timeline (5-minute window)
 // ============================================================
 
-import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -16,7 +15,7 @@ export default function HeatflowReplayPanel({ width = 520, height = 80 }) {
   const [cursor, setCursor] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // ðŸŽ§ Convert logs â†’ dopamine energy history
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â§ Convert logs ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ dopamine energy history
   useEffect(() => {
     if (!logs.length) return;
     const weights = { "user.created": 2, "user.join": 4, "post.created": 6, "post.voted": 3, "user.rep": 5 };
@@ -27,7 +26,7 @@ export default function HeatflowReplayPanel({ width = 520, height = 80 }) {
     setTimeline((prev) => [...prev.slice(-299), entry]); // ~5min @1s sampling
   }, [logs]);
 
-  // ðŸŽžï¸ Playback controller
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ÃƒÂ¯Ã‚Â¸Ã‚Â Playback controller
   useEffect(() => {
     if (!isPlaying) return;
     const interval = setInterval(() => {
@@ -38,12 +37,12 @@ export default function HeatflowReplayPanel({ width = 520, height = 80 }) {
 
   const gradientStops = timeline
     .map((t, i) => {
-      const hue = Math.round(260 - (t.score / 100) * 160); // purpleâ†’greenâ†’red
+      const hue = Math.round(260 - (t.score / 100) * 160); // purpleÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢greenÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢red
       return `${hue},100%,${40 + (t.score / 100) * 40}%`;
     })
     .join(" | ");
 
-  // ðŸ§® helper for color
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® helper for color
   const getColor = (s) => {
     const hue = Math.round(260 - (s / 100) * 160);
     return `hsl(${hue},100%,50%)`;
@@ -104,20 +103,20 @@ export default function HeatflowReplayPanel({ width = 520, height = 80 }) {
               : "bg-green-600 hover:bg-green-700"
           }`}
         >
-          {isPlaying ? "â¹ Pause" : "â–¶ï¸ Play"}
+          {isPlaying ? "ÃƒÂ¢Ã‚ÂÃ‚Â¹ Pause" : "ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¶ÃƒÂ¯Ã‚Â¸Ã‚Â Play"}
         </button>
         <button
           onClick={() => setCursor(0)}
           className="px-3 py-1 rounded-md bg-gray-700 hover:bg-gray-600 text-sm"
         >
-          â® Reset
+          ÃƒÂ¢Ã‚ÂÃ‚Â® Reset
         </button>
       </div>
 
       {/* Current Value */}
       {timeline[cursor] && (
         <div className="mt-3 text-xs text-gray-400">
-          {new Date(timeline[cursor].ts).toLocaleTimeString()} Â·{" "}
+          {new Date(timeline[cursor].ts).toLocaleTimeString()} Ãƒâ€šÃ‚Â·{" "}
           <span style={{ color: getColor(timeline[cursor].score) }}>
             {timeline[cursor].score.toFixed(1)}%
           </span>
@@ -126,3 +125,5 @@ export default function HeatflowReplayPanel({ width = 520, height = 80 }) {
     </div>
   );
 }
+
+

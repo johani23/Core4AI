@@ -1,8 +1,7 @@
 // ============================================================================
-// 💚 Core4 حياتك – HayatikShoppingPicks.jsx (v1 Minimal Lifestyle Catalog)
+// Ã°Å¸â€™Å¡ Core4 Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Æ’ Ã¢â‚¬â€œ HayatikShoppingPicks.jsx (v1 Minimal Lifestyle Catalog)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function HayatikShoppingPicks() {
   const [items, setItems] = useState(null);
@@ -12,32 +11,32 @@ export default function HayatikShoppingPicks() {
   }, []);
 
   const loadItems = async () => {
-    // Later → connect to /api/hayatik/shopping
+    // Later Ã¢â€ â€™ connect to /api/hayatik/shopping
     const demo = [
       {
-        title: "منظف أرضيات فندقي",
-        desc: "يعطي لمعة فخمة ويخلّي ريحة البيت نظيفة.",
-        price: "29 ريال",
+        title: "Ã™â€¦Ã™â€ Ã˜Â¸Ã™Â Ã˜Â£Ã˜Â±Ã˜Â¶Ã™Å Ã˜Â§Ã˜Âª Ã™ÂÃ™â€ Ã˜Â¯Ã™â€šÃ™Å ",
+        desc: "Ã™Å Ã˜Â¹Ã˜Â·Ã™Å  Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â© Ã™ÂÃ˜Â®Ã™â€¦Ã˜Â© Ã™Ë†Ã™Å Ã˜Â®Ã™â€žÃ™â€˜Ã™Å  Ã˜Â±Ã™Å Ã˜Â­Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¨Ã™Å Ã˜Âª Ã™â€ Ã˜Â¸Ã™Å Ã™ÂÃ˜Â©.",
+        price: "29 Ã˜Â±Ã™Å Ã˜Â§Ã™â€ž",
       },
       {
-        title: "قهوة محمصة مختصة",
-        desc: "تناسب مزاجك وتضبط صباحك.",
-        price: "38 ريال",
+        title: "Ã™â€šÃ™â€¡Ã™Ë†Ã˜Â© Ã™â€¦Ã˜Â­Ã™â€¦Ã˜ÂµÃ˜Â© Ã™â€¦Ã˜Â®Ã˜ÂªÃ˜ÂµÃ˜Â©",
+        desc: "Ã˜ÂªÃ™â€ Ã˜Â§Ã˜Â³Ã˜Â¨ Ã™â€¦Ã˜Â²Ã˜Â§Ã˜Â¬Ã™Æ’ Ã™Ë†Ã˜ÂªÃ˜Â¶Ã˜Â¨Ã˜Â· Ã˜ÂµÃ˜Â¨Ã˜Â§Ã˜Â­Ã™Æ’.",
+        price: "38 Ã˜Â±Ã™Å Ã˜Â§Ã™â€ž",
       },
       {
-        title: "مناديل معطرة",
-        desc: "مثالية للاستخدام اليومي.",
-        price: "12 ريال",
+        title: "Ã™â€¦Ã™â€ Ã˜Â§Ã˜Â¯Ã™Å Ã™â€ž Ã™â€¦Ã˜Â¹Ã˜Â·Ã˜Â±Ã˜Â©",
+        desc: "Ã™â€¦Ã˜Â«Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã™â€žÃ™â€žÃ˜Â§Ã˜Â³Ã˜ÂªÃ˜Â®Ã˜Â¯Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ™Å Ã™Ë†Ã™â€¦Ã™Å .",
+        price: "12 Ã˜Â±Ã™Å Ã˜Â§Ã™â€ž",
       },
       {
-        title: "منظف أسطح متعدد",
-        desc: "لترتيب وتنظيم أسرع بدون عناء.",
-        price: "18 ريال",
+        title: "Ã™â€¦Ã™â€ Ã˜Â¸Ã™Â Ã˜Â£Ã˜Â³Ã˜Â·Ã˜Â­ Ã™â€¦Ã˜ÂªÃ˜Â¹Ã˜Â¯Ã˜Â¯",
+        desc: "Ã™â€žÃ˜ÂªÃ˜Â±Ã˜ÂªÃ™Å Ã˜Â¨ Ã™Ë†Ã˜ÂªÃ™â€ Ã˜Â¸Ã™Å Ã™â€¦ Ã˜Â£Ã˜Â³Ã˜Â±Ã˜Â¹ Ã˜Â¨Ã˜Â¯Ã™Ë†Ã™â€  Ã˜Â¹Ã™â€ Ã˜Â§Ã˜Â¡.",
+        price: "18 Ã˜Â±Ã™Å Ã˜Â§Ã™â€ž",
       },
       {
-        title: "شمعة روائح مهدئة",
-        desc: "أجواء مسائية هادئة ومريحة.",
-        price: "54 ريال",
+        title: "Ã˜Â´Ã™â€¦Ã˜Â¹Ã˜Â© Ã˜Â±Ã™Ë†Ã˜Â§Ã˜Â¦Ã˜Â­ Ã™â€¦Ã™â€¡Ã˜Â¯Ã˜Â¦Ã˜Â©",
+        desc: "Ã˜Â£Ã˜Â¬Ã™Ë†Ã˜Â§Ã˜Â¡ Ã™â€¦Ã˜Â³Ã˜Â§Ã˜Â¦Ã™Å Ã˜Â© Ã™â€¡Ã˜Â§Ã˜Â¯Ã˜Â¦Ã˜Â© Ã™Ë†Ã™â€¦Ã˜Â±Ã™Å Ã˜Â­Ã˜Â©.",
+        price: "54 Ã˜Â±Ã™Å Ã˜Â§Ã™â€ž",
       },
     ];
 
@@ -49,12 +48,12 @@ export default function HayatikShoppingPicks() {
 
       {/* Title */}
       <h1 className="text-3xl font-semibold mb-8 text-[#2A2F32]">
-        منتجات تناسب حياتك
+        Ã™â€¦Ã™â€ Ã˜ÂªÃ˜Â¬Ã˜Â§Ã˜Âª Ã˜ÂªÃ™â€ Ã˜Â§Ã˜Â³Ã˜Â¨ Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Æ’
       </h1>
 
       {/* Loading */}
       {!items && (
-        <p className="text-gray-400 text-center py-6">...يتم التحميل</p>
+        <p className="text-gray-400 text-center py-6">...Ã™Å Ã˜ÂªÃ™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã™â€¦Ã™Å Ã™â€ž</p>
       )}
 
       {/* Products Grid */}
@@ -79,7 +78,7 @@ export default function HayatikShoppingPicks() {
                 className="mt-5 w-full py-3 rounded-xl bg-[#4CAF9B] text-white font-medium hover:opacity-90 transition"
                 onClick={() => console.log("Added:", item.title)}
               >
-                أضف للسلة
+                Ã˜Â£Ã˜Â¶Ã™Â Ã™â€žÃ™â€žÃ˜Â³Ã™â€žÃ˜Â©
               </button>
             </div>
           ))}
@@ -88,3 +87,5 @@ export default function HayatikShoppingPicks() {
     </div>
   );
 }
+
+

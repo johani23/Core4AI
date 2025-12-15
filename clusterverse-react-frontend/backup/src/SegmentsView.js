@@ -13,7 +13,7 @@ export default function SegmentsView() {
   }, []);
 
   const handleVote = async (id) => {
-    // نستخدم "segments" كـ team_id مبدئياً
+    // Ù†Ø³ØªØ®Ø¯Ù… "segments" ÙƒÙ€ team_id Ù…Ø¨Ø¯Ø¦ÙŠØ§Ù‹
     const res = await voteForIdea("segments", id);
     if (res) {
       setContents(
@@ -26,7 +26,7 @@ export default function SegmentsView() {
 
   return (
     <div className="bg-gray-800 p-6 rounded-xl shadow-lg mt-8">
-      <h2 className="text-xl font-bold mb-4">📢 Segment Submissions</h2>
+      <h2 className="text-xl font-bold mb-4">ðŸ“¢ Segment Submissions</h2>
       <ul className="space-y-3">
         {contents.map((c) => (
           <li

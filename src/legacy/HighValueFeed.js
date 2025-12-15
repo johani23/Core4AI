@@ -12,7 +12,7 @@ export default function HighValueFeed() {
 
   return (
     <div>
-      <h2>🌍 Global Highlights</h2>
+      <h2>Ã°Å¸Å’Â Global Highlights</h2>
       {posts
         .filter((p) => p.scope === "global")
         .map((post) => (
@@ -52,7 +52,7 @@ export default function HighValueFeed() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    📎 Download File
+                    Ã°Å¸â€œÅ½ Download File
                   </a>
                 )}
               </div>
@@ -60,7 +60,7 @@ export default function HighValueFeed() {
 
             {post.score && (
               <div style={{ marginTop: "6px", fontSize: "14px" }}>
-                <p>📊 <strong>Evaluation:</strong></p>
+                <p>Ã°Å¸â€œÅ  <strong>Evaluation:</strong></p>
                 <ul>
                   <li>Usefulness: {post.score.usefulness}</li>
                   <li>Emotional Depth: {post.score.emotional_depth}</li>
@@ -76,3 +76,4 @@ export default function HighValueFeed() {
     </div>
   );
 }
+

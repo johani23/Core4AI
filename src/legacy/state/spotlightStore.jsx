@@ -13,3 +13,4 @@ class SpotlightStore {
 }
 
 export const spotlightStore = new SpotlightStore();
+

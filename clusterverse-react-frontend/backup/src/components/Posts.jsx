@@ -13,7 +13,7 @@ export const ProfileProvider = ({ children }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const xpData = await getUserXP(1); // userId=1 (مؤقت)
+      const xpData = await getUserXP(1); // userId=1 (Ù…Ø¤Ù‚Øª)
       setXp(xpData.xp);
       setLevel(xpData.level);
 
@@ -26,7 +26,7 @@ export const ProfileProvider = ({ children }) => {
   const addXP = (amount) => {
     setXp((prev) => {
       const newXP = prev + amount;
-      setLevel(Math.floor(newXP / 100) + 1); // كل 100 نقطة → Level Up
+      setLevel(Math.floor(newXP / 100) + 1); // ÙƒÙ„ 100 Ù†Ù‚Ø·Ø© â†’ Level Up
       return newXP;
     });
   };

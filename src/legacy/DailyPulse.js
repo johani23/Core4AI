@@ -16,26 +16,26 @@ export default function DailyPulse({ onAddPoints }) {
 
       const data = await res.json();
       if (data.reward) {
-        onAddPoints(data.points); // ✅ Add points dynamically
-        setFeedback(`✅ ${data.message}`);
+        onAddPoints(data.points); // Ã¢Å“â€¦ Add points dynamically
+        setFeedback(`Ã¢Å“â€¦ ${data.message}`);
       } else {
-        setFeedback(`⚠️ ${data.message}`);
+        setFeedback(`Ã¢Å¡Â Ã¯Â¸Â ${data.message}`);
       }
     } catch (err) {
       console.error(err);
-      setFeedback("❌ Error sending your answer. Try again later.");
+      setFeedback("Ã¢ÂÅ’ Error sending your answer. Try again later.");
     }
   };
 
   return (
     <div>
-      <h2>✨ Daily Pulse</h2>
-      <p>☀️ ما أجمل لحظة في يومك حتى الآن؟</p>
+      <h2>Ã¢Å“Â¨ Daily Pulse</h2>
+      <p>Ã¢Ëœâ‚¬Ã¯Â¸Â Ã™â€¦Ã˜Â§ Ã˜Â£Ã˜Â¬Ã™â€¦Ã™â€ž Ã™â€žÃ˜Â­Ã˜Â¸Ã˜Â© Ã™ÂÃ™Å  Ã™Å Ã™Ë†Ã™â€¦Ã™Æ’ Ã˜Â­Ã˜ÂªÃ™â€° Ã˜Â§Ã™â€žÃ˜Â¢Ã™â€ Ã˜Å¸</p>
 
       <textarea
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
-        placeholder="اكتب لحظتك هنا..."
+        placeholder="Ã˜Â§Ã™Æ’Ã˜ÂªÃ˜Â¨ Ã™â€žÃ˜Â­Ã˜Â¸Ã˜ÂªÃ™Æ’ Ã™â€¡Ã™â€ Ã˜Â§..."
         style={{ width: "100%", padding: "6px", marginBottom: "6px" }}
       />
 
@@ -56,3 +56,4 @@ export default function DailyPulse({ onAddPoints }) {
     </div>
   );
 }
+

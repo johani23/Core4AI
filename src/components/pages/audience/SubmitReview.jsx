@@ -8,50 +8,58 @@ import { useCoreSync } from "@/context/CoreSyncContext";
 export default function SubmitReview() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { sendEvent } = useCoreSync();   // â­ Ù†Ø³ØªÙ‚Ø¨Ù„ Ø¨Ø« CoreSync
+  const { sendEvent } = useCoreSync();
+
   const { product } = location.state || {};
   const [text, setText] = useState("");
 
   const sendReview = async () => {
-  if (!text.trim()) return;
+    if (!text.trim()) return;
 
-  // â­ 1) Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø­Ø¯Ø« Ø¥Ù„Ù‰ CoreSync (in-memory)
-  sendEvent({
-    type: "BUYER_REVIEW_SUBMITTED",
-    product,
-    text,
-    xp: 10,
-    timestamp: new Date().toISOString(),
-  });
+    // 1) إرسال الحدث إلى CoreSync (in-memory)
+    sendEvent({
+      type: "BUYER_REVIEW_SUBMITTED",
+      product,
+      text,
+      xp: 10,
+      timestamp: new Date().toISOString(),
+    });
 
-  // â­ 2) Ø¥Ø¬Ø¨Ø§Ø± Ø§Ù„Ù†Ø¸Ø§Ù… Ø¹Ù„Ù‰ ØªØ«Ø¨ÙŠØª Ø¯ÙˆØ± Buyer
-  localStorage.setItem("userRole", "buyer");
+    // 2) حفظ دور المستخدم كـ Buyer
+    localStorage.setItem("userRole", "buyer");
 
-  // â­ 3) Ø§Ù„ØªÙˆØ¬ÙŠÙ‡ Ø¥Ù„Ù‰ Buyer Dashboard Ø¨Ø¯ÙˆÙ† Ø¥Ù…ÙƒØ§Ù†ÙŠØ© Ø±Ø¬ÙˆØ¹
-  navigate("/buyer/dashboard", { replace: true });
-};
+    // 3) الانتقال مباشرة للوحة التحكم
+    navigate("/buyer/dashboard", { replace: true });
+  };
 
   return (
-    <div className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10">
+    <div
+      className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10"
+      style={{ direction: "rtl" }}
+    >
       <CoreHeader
-        title={`Review: ${product}`}
-        subtitle="Write your honest feedback â€” your XP depends on it."
-        icon="ðŸ“"
+        title={`مراجعة: ${product}`}
+        subtitle="اكتب رأيك بصراحة — نقاط الـ XP تعتمد على جودة تقييمك."
+        icon="📝"
       />
 
       <CorePanel className="max-w-2xl mx-auto">
+
+        {/* Text Area */}
         <textarea
           className="w-full h-40 p-4 bg-[#11161A] border border-[#4FBF77]/30 rounded-xl text-white"
-          placeholder="Write your review here..."
+          placeholder="اكتب مراجعتك هنا..."
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
 
+        {/* Submit Button */}
         <CoreButton
-          label="Submit Review"
+          label="إرسال المراجعة"
           onClick={sendReview}
           className="mt-4"
         />
+
       </CorePanel>
     </div>
   );

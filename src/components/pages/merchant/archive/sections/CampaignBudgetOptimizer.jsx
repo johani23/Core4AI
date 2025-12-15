@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignBudgetOptimizer.jsx (Phase 15 â€“ Budget Optimizer)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignBudgetOptimizer.jsx (Phase 15 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Budget Optimizer)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignBudgetOptimizer({
   productIQ,
@@ -42,24 +41,26 @@ export default function CampaignBudgetOptimizer({
   return (
     <div className="p-6 border bg-white rounded-xl shadow mt-6">
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ’° Campaign Budget Optimizer
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Campaign Budget Optimizer
       </h2>
 
       <div className="space-y-3 text-gray-800">
 
-        <p><strong>Base Budget:</strong> {data.base} Ø±.Ø³</p>
-        <p><strong>Quality Factor:</strong> {data.quality_factor} Ø±.Ø³</p>
-        <p><strong>Readiness Factor:</strong> {data.readiness_factor} Ø±.Ø³</p>
-        <p><strong>Price Factor:</strong> {data.price_factor} Ø±.Ø³</p>
+        <p><strong>Base Budget:</strong> {data.base} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+        <p><strong>Quality Factor:</strong> {data.quality_factor} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+        <p><strong>Readiness Factor:</strong> {data.readiness_factor} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+        <p><strong>Price Factor:</strong> {data.price_factor} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
 
         <div className="mt-4 p-4 bg-gray-50 border rounded-lg">
-          <p className="font-bold text-gray-700">ðŸŽ› Ù…ÙŠØ²Ø§Ù†ÙŠØ© Ø§Ù„Ø­Ù…Ù„Ø©:</p>
-          <p>â€¢ Ø®Ø·Ø© Ù…Ù†Ø®ÙØ¶Ø©: {data.tiers.low} Ø±.Ø³</p>
-          <p>â€¢ Ø®Ø·Ø© Ù…Ù‚ØªØ±Ø­Ø©: {data.tiers.recommended} Ø±.Ø³</p>
-          <p>â€¢ Ø®Ø·Ø© Ù‚ÙˆÙŠØ©: {data.tiers.aggressive} Ø±.Ø³</p>
+          <p className="font-bold text-gray-700">ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Âº Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©:</p>
+          <p>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚Â®ÃƒËœÃ‚Â·ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â®Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶ÃƒËœÃ‚Â©: {data.tiers.low} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+          <p>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚Â®ÃƒËœÃ‚Â·ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­ÃƒËœÃ‚Â©: {data.tiers.recommended} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
+          <p>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ÃƒËœÃ‚Â®ÃƒËœÃ‚Â·ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â©: {data.tiers.aggressive} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
         </div>
 
       </div>
     </div>
   );
 }
+
+

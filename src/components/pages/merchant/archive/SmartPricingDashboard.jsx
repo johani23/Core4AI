@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ SmartPricingDashboard.jsx (v4 FINAL â€“ Full MIT Engine Page)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SmartPricingDashboard.jsx (v4 FINAL ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Full MIT Engine Page)
 // ============================================================================
 
-import React, { useState, useEffect } from "react";
 import PricingOverview from "@/components/analytics/PricingOverview";
 import PricingBreakdown from "@/components/analytics/PricingBreakdown";
 import ElasticityPanel from "@/components/analytics/ElasticityPanel";
@@ -57,7 +56,7 @@ export default function SmartPricingDashboard() {
   if (!activeProductId)
     return (
       <div className="text-center mt-14 text-gray-500">
-        Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª â€” Ù‚Ù… Ø¨Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬ Ù„Ø¨Ø¯Ø¡ Ø§Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª.
+        Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª.
       </div>
     );
 
@@ -65,7 +64,7 @@ export default function SmartPricingDashboard() {
     <div className="max-w-6xl mx-auto p-6">
 
       <h1 className="text-3xl font-bold text-green-400 mb-6">
-        ðŸ”¥ Smart Pricing Dashboard (MIT Engine)
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Smart Pricing Dashboard (MIT Engine)
       </h1>
 
       {/* Tabs */}
@@ -92,3 +91,5 @@ export default function SmartPricingDashboard() {
     </div>
   );
 }
+
+

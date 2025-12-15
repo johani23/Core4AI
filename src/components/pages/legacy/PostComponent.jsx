@@ -36,7 +36,7 @@ function PostComponent({ posts, refresh }) {
           {p.type === "group" && (
             <div className="mb-2">
               <span className="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-full">
-                ðŸ·ï¸ Nominated by {p.groupName || "Group"}
+                ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â·ÃƒÂ¯Ã‚Â¸Ã‚Â Nominated by {p.groupName || "Group"}
               </span>
             </div>
           )}
@@ -46,7 +46,7 @@ function PostComponent({ posts, refresh }) {
 
           {/* AI Tip */}
           {p.aiTip && (
-            <p className="text-xs text-purple-600 mb-2">ðŸ’¡ {p.aiTip}</p>
+            <p className="text-xs text-purple-600 mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡ {p.aiTip}</p>
           )}
 
           {/* Actions */}
@@ -57,13 +57,13 @@ function PostComponent({ posts, refresh }) {
                   onClick={() => handleVote(p.id, "up")}
                   className="text-green-600 hover:underline"
                 >
-                  ðŸ‘ Nominate
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â Nominate
                 </button>
                 <button
                   onClick={() => handleVote(p.id, "down")}
                   className="text-red-600 hover:underline"
                 >
-                  ðŸ‘Ž Reject
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ…Â½ Reject
                 </button>
               </>
             ) : (
@@ -72,13 +72,13 @@ function PostComponent({ posts, refresh }) {
                   onClick={() => handleVote(p.id, "up")}
                   className="text-green-600 hover:underline"
                 >
-                  ðŸ‘ Upvote
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â Upvote
                 </button>
                 <button
                   onClick={() => handleVote(p.id, "down")}
                   className="text-red-600 hover:underline"
                 >
-                  ðŸ‘Ž Downvote
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ…Â½ Downvote
                 </button>
               </>
             )}
@@ -86,7 +86,7 @@ function PostComponent({ posts, refresh }) {
 
           {/* Comments */}
           <div>
-            <h4 className="text-xs font-semibold mb-1">ðŸ’¬ Comments</h4>
+            <h4 className="text-xs font-semibold mb-1">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¬ Comments</h4>
             <ul className="mb-2">
               {(comments[p.id] || []).map((c, i) => (
                 <li
@@ -130,3 +130,4 @@ function CommentBox({ onAdd }) {
 }
 
 export default PostComponent;
+

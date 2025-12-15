@@ -15,15 +15,15 @@ export default function GlobalPulseTopBar() {
 
         setStatus(
           avg > 75
-            ? "🔥 Peak Energy"
+            ? "ðŸ”¥ Peak Energy"
             : avg > 60
-            ? "🌤 Rising"
+            ? "ðŸŒ¤ Rising"
             : avg > 45
-            ? "🌫 Calm"
-            : "🌧 Low"
+            ? "ðŸŒ« Calm"
+            : "ðŸŒ§ Low"
         );
       } catch (err) {
-        console.warn("⚠️ Pulse fetch failed:", err.message);
+        console.warn("âš ï¸ Pulse fetch failed:", err.message);
       }
     }
 
@@ -49,7 +49,7 @@ export default function GlobalPulseTopBar() {
       transition={{ duration: 1.8, repeat: Infinity }}
     >
       <div className="absolute right-3 -top-6 text-xs text-gray-300 font-medium tracking-wide select-none">
-        {status} • {avg.toFixed(1)}
+        {status} â€¢ {avg.toFixed(1)}
       </div>
     </motion.div>
   );

@@ -16,7 +16,7 @@ export default function TribeMoodBar() {
     }
   }, []);
 
-  // 🔁 auto-refresh every 10 s
+  // ðŸ” auto-refresh every 10 s
   useLivePulse(fetchMoods, 10000);
 
   return (
@@ -25,9 +25,9 @@ export default function TribeMoodBar() {
         <div key={m.tribe} className="flex items-center gap-2">
           <span
             className={`w-3 h-3 rounded-full animate-pulse ${
-              m.correlation_hint === "↑"
+              m.correlation_hint === "â†‘"
                 ? "bg-green-500"
-                : m.correlation_hint === "↓"
+                : m.correlation_hint === "â†“"
                 ? "bg-red-500"
                 : "bg-yellow-400"
             }`}

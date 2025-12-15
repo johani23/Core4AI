@@ -17,7 +17,7 @@ export default function Voting({ teamId, initialContents }) {
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl shadow-lg mt-6">
-      <h2 className="text-lg font-semibold mb-4">👍 Voting for {teamId}</h2>
+      <h2 className="text-lg font-semibold mb-4">Ã°Å¸â€˜Â Voting for {teamId}</h2>
       <ul className="space-y-3">
         {contents.map((c) => (
           <li
@@ -40,3 +40,4 @@ export default function Voting({ teamId, initialContents }) {
     </div>
   );
 }
+

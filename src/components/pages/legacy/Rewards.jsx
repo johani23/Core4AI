@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Rewards.jsx (MVP-34.9 â€œLive Hub Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Rewards.jsx (MVP-34.9 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Hub EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Real-time reward history
-// âœ… Integrated with Wallet + XP + Achievements
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time reward history
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrated with Wallet + XP + Achievements
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_BASE = "http://127.0.0.1:8000";
@@ -43,7 +42,7 @@ export default function Rewards() {
           setXp(msg.xp_total);
           setLevel(msg.level);
           setBadges(msg.all_badges);
-          setToast(`ðŸ’Ž +${msg.amount} C4T â€¢ +${msg.xp_gain} XP`);
+          setToast(`ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ +${msg.amount} C4T ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ +${msg.xp_gain} XP`);
           setTimeout(() => setToast(null), 4000);
         }
       } catch {}
@@ -54,17 +53,17 @@ export default function Rewards() {
   if (!wallet)
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-yellow-400 animate-pulse">
-        Loading rewardsâ€¦
+        Loading rewardsÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <h1 className="text-2xl font-bold text-yellow-400 mb-4">
-        ðŸŽ Live Rewards Center
+        ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â Live Rewards Center
       </h1>
       <p className="text-gray-400 text-sm mb-6">
-        Balance: <span className="text-emerald-400 font-semibold">{wallet.balance.toFixed(2)} {wallet.symbol}</span> â€¢
+        Balance: <span className="text-emerald-400 font-semibold">{wallet.balance.toFixed(2)} {wallet.symbol}</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢
         Level {level} ({xp}/100 XP)
       </p>
 
@@ -84,10 +83,10 @@ export default function Rewards() {
               >
                 <div>
                   <p className="font-semibold text-amber-400">
-                    +{r.amount} C4T â€¢ +{r.xp_gain} XP
+                    +{r.amount} C4T ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ +{r.xp_gain} XP
                   </p>
                   <p className="text-xs text-gray-400">
-                    {new Date(r.timestamp).toLocaleTimeString()} â€¢ Level {r.level}
+                    {new Date(r.timestamp).toLocaleTimeString()} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Level {r.level}
                   </p>
                 </div>
                 <p className="text-sm text-gray-400">{r.new_badges?.join(", ")}</p>
@@ -114,3 +113,5 @@ export default function Rewards() {
     </div>
   );
 }
+
+

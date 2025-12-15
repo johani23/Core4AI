@@ -1,5 +1,4 @@
 // src/components/PostCard.jsx
-import React, { useState } from "react";
 import { useProfile } from "../context/ProfileContext";
 import { votePost } from "../services/api";
 
@@ -10,7 +9,7 @@ const PostCard = ({ post }) => {
   const handleVote = async (type) => {
     const res = await votePost(post.id, type);
     setVotes(res.votes);
-    addXP(5); // ÙƒÙ„ ØªØµÙˆÙŠØª ÙŠØ¹Ø·ÙŠ 5 XP
+    addXP(5); // Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚ÂµÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Âª Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â·Ãƒâ„¢Ã…Â  5 XP
   };
 
   return (
@@ -23,13 +22,13 @@ const PostCard = ({ post }) => {
           onClick={() => handleVote("up")}
           className="px-3 py-1 bg-green-100 hover:bg-green-200 rounded-lg"
         >
-          ðŸ‘
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â
         </button>
         <button
           onClick={() => handleVote("down")}
           className="px-3 py-1 bg-red-100 hover:bg-red-200 rounded-lg"
         >
-          ðŸ‘Ž
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ…Â½
         </button>
         <span className="text-gray-600">Votes: {votes}</span>
       </div>
@@ -38,3 +37,5 @@ const PostCard = ({ post }) => {
 };
 
 export default PostCard;
+
+

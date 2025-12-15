@@ -27,7 +27,7 @@ export default function SegmentVoting() {
     }
   };
 
-  if (loading) return <p className="text-gray-400">⏳ Loading segments...</p>;
+  if (loading) return <p className="text-gray-400">Ã¢ÂÂ³ Loading segments...</p>;
 
   const grouped = contents.reduce((acc, item) => {
     if (!acc[item.segment]) acc[item.segment] = [];
@@ -37,15 +37,15 @@ export default function SegmentVoting() {
 
   return (
     <div className="bg-gray-900 p-6 rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold mb-6">🌍 Segments Voting</h2>
+      <h2 className="text-2xl font-bold mb-6">Ã°Å¸Å’Â Segments Voting</h2>
 
       {Object.keys(grouped).map((segment) => (
         <div key={segment} className="mb-8">
           <h3 className="text-xl font-semibold mb-4 capitalize">
-            {segment === "fashion" && "👗 Fashion"}
-            {segment === "humor" && "😂 Humor"}
-            {segment === "thinkers" && "🤔 Thinkers"}
-            {segment === "event-goers" && "🎉 Event-goers"}
+            {segment === "fashion" && "Ã°Å¸â€˜â€” Fashion"}
+            {segment === "humor" && "Ã°Å¸Ëœâ€š Humor"}
+            {segment === "thinkers" && "Ã°Å¸Â¤â€ Thinkers"}
+            {segment === "event-goers" && "Ã°Å¸Å½â€° Event-goers"}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -78,3 +78,4 @@ export default function SegmentVoting() {
     </div>
   );
 }
+

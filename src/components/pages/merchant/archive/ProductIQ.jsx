@@ -1,5 +1,5 @@
 # =============================================================================
-# ðŸ’š ProductIQ v17 â€” Competitor Price Required + Feature Value Logic
+# ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ ProductIQ v17 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Competitor Price Required + Feature Value Logic
 # =============================================================================
 
 class ProductIQInput(BaseModel):
@@ -41,3 +41,4 @@ def product_iq(req: ProductIQInput):
         "fair_price": round(fair, 2),
         "premium_price": round(premium, 2)
     }
+

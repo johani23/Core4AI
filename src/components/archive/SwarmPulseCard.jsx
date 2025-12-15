@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SwarmPulseCard.jsx (MVP-41 Reactive Signal Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SwarmPulseCard.jsx (MVP-41 Reactive Signal Edition)
 // ------------------------------------------------------------
-// âœ… Adds audio + visual pulse when |Mood Corr.| â‰¥ 0.8
-// âœ… Smart 3-second glow and subtle ping
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds audio + visual pulse when |Mood Corr.| ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¥ 0.8
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Smart 3-second glow and subtle ping
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Line } from "react-chartjs-2";
 import {
@@ -29,7 +28,7 @@ export default function SwarmPulseCard() {
   const audioRef = useRef(null);
   const MAX_POINTS = 40;
 
-  // ðŸ§  Swarm Socket
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Swarm Socket
   useEffect(() => {
     let ws;
     const connect = () => {
@@ -58,7 +57,7 @@ export default function SwarmPulseCard() {
     return () => ws && ws.close();
   }, []);
 
-  // ðŸ”¥ Heatflow Socket
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Heatflow Socket
   useEffect(() => {
     let ws;
     const connect = () => {
@@ -83,7 +82,7 @@ export default function SwarmPulseCard() {
     return () => ws && ws.close();
   }, []);
 
-  // ðŸ§® Correlation
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Correlation
   useEffect(() => {
     if (sentimentData.length > 10 && trendData.length > 10) {
       const n = Math.min(sentimentData.length, trendData.length);
@@ -160,10 +159,10 @@ export default function SwarmPulseCard() {
       animate={{ scale: connected ? 1.01 : 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* ðŸ”Š Ping Sound */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ…Â  Ping Sound */}
       <audio ref={audioRef} src="/sounds/ping.mp3" preload="auto" />
 
-      {/* âš ï¸ Alert */}
+      {/* ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Alert */}
       {alertActive && (
         <motion.div
           initial={{ opacity: 0, y: -6 }}
@@ -176,13 +175,13 @@ export default function SwarmPulseCard() {
               : "bg-red-500/30 text-red-200 border border-red-400/30"
           }`}
         >
-          âš ï¸ Pulse Insight â€“ High Predictive Confidence
+          ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Pulse Insight ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ High Predictive Confidence
         </motion.div>
       )}
 
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-xl font-semibold text-white">âš¡ Core4 Market Radar</h2>
+        <h2 className="text-xl font-semibold text-white">ÃƒÂ¢Ã…Â¡Ã‚Â¡ Core4 Market Radar</h2>
         <div className="flex gap-2">
           <StatusBadge label="Swarm" active={connected} />
           <StatusBadge label="Heatflow" active={sentimentConnected} />
@@ -195,10 +194,10 @@ export default function SwarmPulseCard() {
             <Metric title="Trend" value={pulse.trend} />
             <Metric title="Energy" value={`${pulse.energy.toFixed(1)}%`} />
             <Metric title="Wisdom" value={pulse.wisdom_index.toFixed(2)} />
-            <Metric title="Tribe Î”" value={pulse.tribe_delta.toFixed(1)} />
+            <Metric title="Tribe ÃƒÅ½Ã¢â‚¬Â" value={pulse.tribe_delta.toFixed(1)} />
             <Metric
               title="Mood Corr."
-              value={correlation ? correlation.toFixed(2) : "â€“"}
+              value={correlation ? correlation.toFixed(2) : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“"}
               color={corrColor}
             />
           </div>
@@ -213,7 +212,7 @@ export default function SwarmPulseCard() {
         </>
       ) : (
         <p className="text-sm opacity-70 text-center mt-2">
-          Waiting for swarm signalâ€¦
+          Waiting for swarm signalÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
         </p>
       )}
     </motion.div>
@@ -238,7 +237,9 @@ function StatusBadge({ label, active }) {
           : "bg-red-500/20 text-red-300 border border-red-400/30"
       }`}
     >
-      {label} {active ? "â—" : "â—‹"}
+      {label} {active ? "ÃƒÂ¢Ã¢â‚¬â€Ã‚Â" : "ÃƒÂ¢Ã¢â‚¬â€Ã¢â‚¬Â¹"}
     </span>
   );
 }
+
+

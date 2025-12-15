@@ -1,104 +1,197 @@
 // ============================================================================
-// 💚 Core4.AI – OrderDetails.jsx (Amazon-Style Tracking v2 – Final Clean Version)
+// 📦 Core4.AI – OrderDetails v10 (FINAL API EDITION)
+// Loads real order from backend + safe fallbacks + clean UI
 // ============================================================================
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import BuyerLayout from "../../buyer/BuyerLayout";
-import PurchasesStatusBadge from "../../buyer/PurchasesStatusBadge";
+import PurchasesStatusBadge from "./PurchasesStatusBadge";
+import { sendEvent } from "@/analytics/eventBus";
 
 export default function OrderDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Mock order (replace with backend later)
-  const order = {
-    id,
-    name: "Smart Kettle X1",
-    img: "https://i.imgur.com/IOhNf5b.png",
-    seller: "Core4 Marketplace Seller",
-    price: "249 SAR",
-    status: "Delivered",
-    placedOn: "2025-11-18",
-    deliveredOn: "2025-11-20",
-    tracking: [
-      { step: "Order Placed", date: "2025-11-18" },
-      { step: "Processing", date: "2025-11-19" },
-      { step: "Shipped", date: "2025-11-19" },
-      { step: "Out for Delivery", date: "2025-11-20" },
-      { step: "Delivered", date: "2025-11-20" },
-    ],
-  };
+  const [order, setOrder] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
+  // ---------------------------------------------------------------------------
+  // Load order from backend
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    async function load() {
+      try {
+        const res = await fetch(`/api/orders/${id}`);
+        if (!res.ok) throw new Error("Order not found");
+        const data = await res.json();
+
+        const normalized = {
+          id: data.id,
+          name: data.product_name,
+          img:
+            data.image_url ||
+            "https://via.placeholder.com/600x400?text=Product",
+          seller: data.seller || "Core4 Marketplace",
+          price: data.total_price,
+          status: data.status || "Pending",
+          placedOn: data.created_at?.substring(0, 10),
+          deliveredOn: data.delivered_at?.substring(0, 10) || null,
+          tracking: data.tracking || [],
+          promotedFeature: data.promoted_feature || null,
+        };
+
+        setOrder(normalized);
+
+        // Analytics
+        sendEvent("ORDER_VIEWED", {
+          order_id: normalized.id,
+          product_name: normalized.name,
+          status: normalized.status,
+        });
+      } catch (err) {
+        console.error(err);
+        setNotFound(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    load();
+  }, [id]);
+
+  // ---------------------------------------------------------------------------
+  // Loading / Error states
+  // ---------------------------------------------------------------------------
+  if (loading)
+    return (
+      <div className="p-8 text-white text-center">... جاري تحميل تفاصيل الطلب</div>
+    );
+
+  if (notFound || !order)
+    return (
+      <div className="p-8 text-center text-red-400">
+        ⚠️ الطلب غير موجود
+        <div className="mt-4">
+          <button
+            onClick={() => navigate("/buyer/orders")}
+            className="px-5 py-2 bg-purple-600 rounded-xl text-white"
+          >
+            عرض جميع الطلبات
+          </button>
+        </div>
+      </div>
+    );
+
+  // ---------------------------------------------------------------------------
+  // UI
+  // ---------------------------------------------------------------------------
   return (
-    <BuyerLayout title={order.name} subtitle="تفاصيل الطلب بالكامل">
+    <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
 
-      {/* Header Card */}
-      <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5 flex gap-5 items-start mb-6">
+      {/* BACK BUTTON */}
+      <button
+        className="text-gray-300 hover:text-white mb-6"
+        onClick={() => navigate(-1)}
+      >
+        ← رجوع
+      </button>
+
+      {/* HEADER */}
+      <h1 className="text-3xl font-bold text-purple-400 mb-6">
+        تفاصيل الطلب 📦
+      </h1>
+
+      {/* ORDER CARD */}
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex gap-6 mb-10">
         <img
           src={order.img}
           alt={order.name}
-          className="w-28 h-28 rounded-xl border border-slate-700 object-cover"
+          className="w-32 h-32 object-cover rounded-xl border border-white/10"
         />
 
         <div className="flex-1">
-          <h2 className="text-slate-100 text-xl font-semibold">{order.name}</h2>
+          <h2 className="text-xl font-bold">{order.name}</h2>
 
           <div className="mt-1">
             <PurchasesStatusBadge status={order.status} />
           </div>
 
-          <p className="text-slate-400 text-sm mt-2">
-            Sold by: <span className="text-slate-300">{order.seller}</span>
+          <p className="text-gray-400 text-sm mt-2">
+            البائع: <span className="text-gray-200">{order.seller}</span>
           </p>
 
           <p className="text-emerald-400 text-sm font-semibold mt-1">
-            Price: {order.price}
+            السعر: {order.price} SAR
+          </p>
+
+          <p className="text-gray-400 text-sm mt-1">رقم الطلب: #{order.id}</p>
+          <p className="text-gray-400 text-xs mt-1">
+            تاريخ الطلب: {order.placedOn}
           </p>
         </div>
       </div>
 
-      {/* Tracking Section */}
-      <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5 mb-6">
-        <h3 className="text-slate-100 font-semibold text-lg mb-3">
-          Tracking Timeline
+      {/* TRACKING TIMELINE */}
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-10">
+        <h3 className="text-lg font-bold text-purple-300 mb-4">
+          حالة الطلب
         </h3>
 
-        <ul className="space-y-2">
-          {order.tracking.map((t, idx) => (
-            <li key={idx} className="text-slate-300 text-sm">
-              • <span className="font-medium">{t.step}</span>{" "}
-              <span className="text-slate-500">— {t.date}</span>
-            </li>
-          ))}
-        </ul>
+        {order.tracking.length === 0 ? (
+          <p className="text-gray-400 text-sm">لا يوجد تتبع متاح حالياً.</p>
+        ) : (
+          <ul className="space-y-4 text-gray-300 text-sm">
+            {order.tracking.map((t, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="text-purple-300 text-lg">•</div>
+                <div>
+                  <p className="font-semibold">{t.step}</p>
+                  {t.date && (
+                    <p className="text-gray-500 text-xs mt-1">{t.date}</p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      {/* Action Buttons */}
-      <div className="flex flex-wrap gap-3">
+      {/* ACTIONS */}
+      <div className="flex flex-wrap gap-4">
+
+        {/* Write Review */}
         <button
-          className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 rounded-xl text-sm font-semibold"
-          onClick={() => navigate(`/buyer/activity`)}
+          onClick={() => navigate("/buyer/activity")}
+          className="px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-semibold"
         >
-          Write Review
+          ✍️ اكتب تقييم
         </button>
 
-        <button className="px-4 py-2 bg-purple-500 hover:bg-purple-400 text-white rounded-xl text-sm font-semibold">
-          Track Package
-        </button>
-
+        {/* Tracking */}
         <button
-          className="px-4 py-2 bg-rose-500 hover:bg-rose-400 text-white rounded-xl text-sm font-semibold"
-          onClick={() => navigate(`/buyer/claims`)}
+          onClick={() => navigate(`/buyer/tracking/${order.id}`)}
+          className="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-semibold"
         >
-          Raise Claim
+          🚚 تتبع الشحنة
         </button>
 
-        <button className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold">
-          Reorder
+        {/* Claim */}
+        <button
+          onClick={() => navigate("/buyer/claims")}
+          className="px-5 py-3 bg-red-600 hover:bg-red-500 text-white rounded-xl text-sm font-semibold"
+        >
+          🛡 فتح مطالبة
+        </button>
+
+        {/* Reorder */}
+        <button
+          onClick={() => navigate(`/buyer/checkout/${order.id}`)}
+          className="px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-semibold"
+        >
+          🔁 إعادة الطلب
         </button>
       </div>
-
-    </BuyerLayout>
+    </div>
   );
 }

@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’  Core4.AI â€“ SimControl.jsx (MVP-65.4 â€œStable Game Consoleâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SimControl.jsx (MVP-65.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œStable Game ConsoleÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Safe handling for undefined values (no more .toFixed() crash)
-// âœ… Adds live indicator + total events + scenario hint
-// âœ… Auto-hides when simulation layer not active
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Safe handling for undefined values (no more .toFixed() crash)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds live indicator + total events + scenario hint
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-hides when simulation layer not active
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -22,7 +21,7 @@ export default function SimControl() {
     setSimScenario,
   } = useCoreSync();
 
-  // ðŸ§® Defensive numeric formatter
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Defensive numeric formatter
   const fmt = (v, digits = 1) =>
     Number.isFinite(v) ? v.toFixed(digits) : (0).toFixed(digits);
 
@@ -36,7 +35,7 @@ export default function SimControl() {
     >
       <div className="flex justify-between items-center mb-2">
         <div className="font-semibold text-fuchsia-400">
-          ðŸŽ® Simulation Control
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â® Simulation Control
         </div>
         <div
           className={`w-2.5 h-2.5 rounded-full ${
@@ -89,14 +88,14 @@ export default function SimControl() {
           onClick={stopSim}
           className="w-full bg-red-600 hover:bg-red-700 rounded-md py-1 transition-colors"
         >
-          â¹ Stop Simulation
+          ÃƒÂ¢Ã‚ÂÃ‚Â¹ Stop Simulation
         </button>
       ) : (
         <button
           onClick={startSim}
           className="w-full bg-green-600 hover:bg-green-700 rounded-md py-1 transition-colors"
         >
-          â–¶ï¸ Start Simulation
+          ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¶ÃƒÂ¯Ã‚Â¸Ã‚Â Start Simulation
         </button>
       )}
 
@@ -113,3 +112,5 @@ export default function SimControl() {
     </motion.div>
   );
 }
+
+

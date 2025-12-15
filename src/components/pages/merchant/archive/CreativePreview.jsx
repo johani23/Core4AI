@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CreativePreview.jsx (v13 PRO)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreativePreview.jsx (v13 PRO)
 // ----------------------------------------------------------------------------
-// â€¢ Interactive viewer for storyboard, ads, and creative elements
-// â€¢ Works with /api/creative/generate output
-// â€¢ Used inside CampaignBuilder v13 and above
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Interactive viewer for storyboard, ads, and creative elements
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Works with /api/creative/generate output
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Used inside CampaignBuilder v13 and above
 // ============================================================================
 
-import React from "react";
 
 export default function CreativePreview({ kit }) {
   if (!kit) {
@@ -30,13 +29,13 @@ export default function CreativePreview({ kit }) {
   return (
     <div className="bg-white border shadow-lg rounded-xl p-8 mb-10">
       <h2 className="text-3xl font-extrabold text-[#006C35] mb-6">
-        ðŸŽ¨ Creative Preview
+        ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Creative Preview
       </h2>
 
       {/* ====================== STORYBOARD ====================== */}
       <section className="mb-10">
         <h3 className="text-2xl font-bold text-purple-700 mb-4">
-          ðŸŽ¬ Storyboard (6 Scenes)
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ Storyboard (6 Scenes)
         </h3>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -48,7 +47,7 @@ export default function CreativePreview({ kit }) {
               <p className="text-gray-700">{scene.description}</p>
 
               <p className="mt-3 text-sm font-semibold text-gray-800">
-                ðŸŽ¤ Audio: <span className="font-normal">{scene.audio}</span>
+                ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¤ Audio: <span className="font-normal">{scene.audio}</span>
               </p>
 
               <p className="mt-2 p-2 bg-white rounded-lg border text-sm italic">
@@ -56,7 +55,7 @@ export default function CreativePreview({ kit }) {
               </p>
 
               <p className="text-xs text-gray-500 mt-1">
-                ðŸ“· Camera: {scene.camera}
+                ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â· Camera: {scene.camera}
               </p>
             </div>
           ))}
@@ -66,7 +65,7 @@ export default function CreativePreview({ kit }) {
       {/* ====================== AD VARIATIONS ====================== */}
       <section className="mb-10">
         <h3 className="text-2xl font-bold text-green-700 mb-4">
-          ðŸ“£ Ad Variations (30 Concepts)
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â£ Ad Variations (30 Concepts)
         </h3>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -101,7 +100,7 @@ export default function CreativePreview({ kit }) {
 
       {/* ====================== AUDIO & SFX ====================== */}
       <section className="mb-10">
-        <h3 className="text-xl font-bold text-yellow-700 mb-3">ðŸŽ§ Audio Style</h3>
+        <h3 className="text-xl font-bold text-yellow-700 mb-3">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â§ Audio Style</h3>
 
         <div className="p-4 border rounded-xl bg-gray-50">
           <p><strong>Tone:</strong> {audio_style.tone}</p>
@@ -112,7 +111,7 @@ export default function CreativePreview({ kit }) {
 
       {/* ====================== HASHTAGS ====================== */}
       <section className="mb-10">
-        <h3 className="text-xl font-bold text-blue-700 mb-3">#ï¸âƒ£ Hashtags</h3>
+        <h3 className="text-xl font-bold text-blue-700 mb-3">#ÃƒÂ¯Ã‚Â¸Ã‚ÂÃƒÂ¢Ã†â€™Ã‚Â£ Hashtags</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-gray-50 p-3 border rounded">
@@ -133,7 +132,7 @@ export default function CreativePreview({ kit }) {
       {/* ====================== EMOTIONAL TRIGGERS ====================== */}
       <section className="mb-10">
         <h3 className="text-xl font-bold text-red-700 mb-3">
-          â¤ï¸ Emotional Triggers
+          ÃƒÂ¢Ã‚ÂÃ‚Â¤ÃƒÂ¯Ã‚Â¸Ã‚Â Emotional Triggers
         </h3>
 
         <ul className="list-disc ml-5 text-sm text-gray-600">
@@ -147,13 +146,13 @@ export default function CreativePreview({ kit }) {
 
       {/* ====================== SELLING ANGLES ====================== */}
       <section className="mb-10">
-        <h3 className="text-xl font-bold text-black mb-3">ðŸ”¥ Selling Angles</h3>
+        <h3 className="text-xl font-bold text-black mb-3">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Selling Angles</h3>
         <p className="text-sm text-gray-700">{selling_angles.join(", ")}</p>
       </section>
 
       {/* ====================== TIPS ====================== */}
       <section>
-        <h3 className="text-xl font-bold text-green-700 mb-3">âœ¨ Enhancement Tips</h3>
+        <h3 className="text-xl font-bold text-green-700 mb-3">ÃƒÂ¢Ã…â€œÃ‚Â¨ Enhancement Tips</h3>
 
         <ul className="list-disc ml-5 text-sm text-gray-600">
           {enhancement_tips.map((t, idx) => (
@@ -164,3 +163,5 @@ export default function CreativePreview({ kit }) {
     </div>
   );
 }
+
+

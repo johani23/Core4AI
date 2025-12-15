@@ -1,8 +1,7 @@
 // ============================================================================
-// 💚 Core4 حياتك – HayatikAutoMode.jsx (v1 Minimal AI Action Button)
+// Ã°Å¸â€™Å¡ Core4 Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Æ’ Ã¢â‚¬â€œ HayatikAutoMode.jsx (v1 Minimal AI Action Button)
 // ============================================================================
 
-import React, { useState } from "react";
 
 export default function HayatikAutoMode({ onActivate }) {
   const [loading, setLoading] = useState(false);
@@ -29,17 +28,19 @@ export default function HayatikAutoMode({ onActivate }) {
           text-white`}
       >
         {loading
-          ? "… جاري التحسين"
+          ? "Ã¢â‚¬Â¦ Ã˜Â¬Ã˜Â§Ã˜Â±Ã™Å  Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â³Ã™Å Ã™â€ "
           : done
-          ? "✓ تم تحسين يومك"
-          : "تحسين حياتي"}
+          ? "Ã¢Å“â€œ Ã˜ÂªÃ™â€¦ Ã˜ÂªÃ˜Â­Ã˜Â³Ã™Å Ã™â€  Ã™Å Ã™Ë†Ã™â€¦Ã™Æ’"
+          : "Ã˜ÂªÃ˜Â­Ã˜Â³Ã™Å Ã™â€  Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Å "}
       </button>
 
       {done && (
         <p className="text-center text-[#4CAF9B] mt-3 text-sm">
-          تم ضبط يومك على الإعدادات المثالية ✨
+          Ã˜ÂªÃ™â€¦ Ã˜Â¶Ã˜Â¨Ã˜Â· Ã™Å Ã™Ë†Ã™â€¦Ã™Æ’ Ã˜Â¹Ã™â€žÃ™â€° Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¹Ã˜Â¯Ã˜Â§Ã˜Â¯Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â«Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã¢Å“Â¨
         </p>
       )}
     </div>
   );
 }
+
+

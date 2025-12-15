@@ -21,7 +21,7 @@ export default function Market() {
   const [rewardMsg, setRewardMsg] = useState(null);
   const [rewards, setRewards] = useState([]);
 
-  const fmt = (v) => (typeof v === "number" && !isNaN(v) ? v.toFixed(2) : "—");
+  const fmt = (v) => (typeof v === "number" && !isNaN(v) ? v.toFixed(2) : "â€”");
 
   /* ---------------- REFRESH ---------------- */
   async function fetchMarket() {
@@ -41,7 +41,7 @@ export default function Market() {
         setTimeout(() => setPriceChange(0), 1200);
       }
     } catch (e) {
-      console.error("⚠️ Market fetch error:", e);
+      console.error("âš ï¸ Market fetch error:", e);
     }
   }
 
@@ -77,13 +77,13 @@ export default function Market() {
       const res = await triggerRewardEvaluation(1);
       if (res?.result?.count > 0) {
         setRewardMsg(
-          `🎁 ${res.result.count} reward${res.result.count > 1 ? "s" : ""} earned!`
+          `ðŸŽ ${res.result.count} reward${res.result.count > 1 ? "s" : ""} earned!`
         );
         setTimeout(() => setRewardMsg(null), 5000);
         fetchRewardHistory();
       }
     } catch (err) {
-      console.warn("⚠️ Emotion/Reward sync failed:", err);
+      console.warn("âš ï¸ Emotion/Reward sync failed:", err);
     }
   }
 
@@ -104,7 +104,7 @@ export default function Market() {
         : { mood: "bearish", score: Math.max(mood.score - 2, 0) };
     setMood(newMood);
 
-    // 🔗 broadcast to GlobalPulseTopBar
+    // ðŸ”— broadcast to GlobalPulseTopBar
     window.dispatchEvent(new CustomEvent("marketMoodUpdate", { detail: newMood }));
 
     syncEmotionAndReward(side);
@@ -118,13 +118,13 @@ export default function Market() {
       ? "from-red-900/40 via-black to-black"
       : "from-purple-900/30 via-black to-black";
 
-  const emojiMap = { bullish: "😎", bearish: "😨", neutral: "😐" };
+  const emojiMap = { bullish: "ðŸ˜Ž", bearish: "ðŸ˜¨", neutral: "ðŸ˜" };
 
   return (
     <div
       className={`min-h-screen bg-gradient-to-b ${bgGlow} text-white flex flex-col items-center justify-start py-10 px-4 transition-all duration-700`}
     >
-      {/* 🟢 Title */}
+      {/* ðŸŸ¢ Title */}
       <div className="flex items-center gap-2 mb-4">
         <motion.span
           className="w-3 h-3 bg-green-400 rounded-full"
@@ -136,7 +136,7 @@ export default function Market() {
         </h1>
       </div>
 
-      {/* 💰 Current Price */}
+      {/* ðŸ’° Current Price */}
       <motion.div
         animate={{
           scale: priceChange === 1 ? 1.05 : priceChange === -1 ? 0.95 : 1,
@@ -157,23 +157,23 @@ export default function Market() {
           <span className="text-3xl">{emojiMap[mood.mood]}</span>
         </p>
         <p className="text-sm text-gray-400 mt-2">
-          {mood.mood.toUpperCase()} • Score: {fmt(mood.score)}
+          {mood.mood.toUpperCase()} â€¢ Score: {fmt(mood.score)}
         </p>
       </motion.div>
 
-      {/* 📊 Summary */}
+      {/* ðŸ“Š Summary */}
       {market && (
         <div className="bg-[#0B0B11] mt-10 p-6 rounded-2xl shadow-xl max-w-md w-full border border-gray-800">
           <h2 className="text-lg font-semibold mb-3 text-yellow-300">
             Market Summary
           </h2>
           <ul className="space-y-2 text-sm">
-            <li>🟢 <b>Highest Bid:</b> {fmt(market.best_buy)} C4T</li>
-            <li>🔴 <b>Lowest Ask:</b> {fmt(market.best_sell)} C4T</li>
-            <li>🪙 <b>Last Trade:</b> {fmt(market.last_trade)} C4T</li>
-            <li>📊 <b>Total Trades:</b> {trades.length}</li>
+            <li>ðŸŸ¢ <b>Highest Bid:</b> {fmt(market.best_buy)} C4T</li>
+            <li>ðŸ”´ <b>Lowest Ask:</b> {fmt(market.best_sell)} C4T</li>
+            <li>ðŸª™ <b>Last Trade:</b> {fmt(market.last_trade)} C4T</li>
+            <li>ðŸ“Š <b>Total Trades:</b> {trades.length}</li>
             <li>
-              💬 <b>Community Sentiment:</b>{" "}
+              ðŸ’¬ <b>Community Sentiment:</b>{" "}
               {mood.mood.charAt(0).toUpperCase() + mood.mood.slice(1)}
             </li>
           </ul>
@@ -191,7 +191,7 @@ export default function Market() {
         <Sparkline data={trades.map((t) => t.price)} />
       </div>
 
-      {/* 🧩 Trading Pad */}
+      {/* ðŸ§© Trading Pad */}
       <div className="mt-14 bg-[#0B0B11] border border-gray-800 rounded-2xl p-6 w-full max-w-md shadow-xl">
         <h2 className="text-lg font-semibold text-yellow-300 mb-4">
           Simulated Trading Pad
@@ -235,7 +235,7 @@ export default function Market() {
             animate={{ opacity: 1, y: 0 }}
             className="mt-4 text-sm text-gray-400 text-center"
           >
-            ✅ {lastOrder.side} order for {lastOrder.qty} @{" "}
+            âœ… {lastOrder.side} order for {lastOrder.qty} @{" "}
             {lastOrder.price.toFixed(2)} C4T
           </motion.div>
         )}
@@ -253,7 +253,7 @@ export default function Market() {
       </div>
 
       <p className="text-gray-500 text-xs mt-6 italic">
-        Trading simulation live in MVP-24.2 🚀
+        Trading simulation live in MVP-24.2 ðŸš€
       </p>
 
       <RewardLedger
@@ -333,7 +333,7 @@ function RewardLedger({ rewards = [], mood, onViewAll }) {
         </div>
         {(!rewards || rewards.length === 0) && (
           <div className="text-xs text-gray-500">
-            No rewards yet — complete a challenge!
+            No rewards yet â€” complete a challenge!
           </div>
         )}
         <ul className="space-y-2 mt-2">
@@ -344,12 +344,12 @@ function RewardLedger({ rewards = [], mood, onViewAll }) {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-start gap-2 rounded-lg border border-gray-800/70 bg-black/30 px-3 py-2 relative z-10"
             >
-              <span className="text-lg">🎁</span>
+              <span className="text-lg">ðŸŽ</span>
               <div className="text-xs">
                 <div className="text-gray-200">
                   <span className="font-medium capitalize">{r.type}</span>
                   {typeof r.amount === "number" ? ` +${r.amount}` : ""}
-                  {r.challenge_id ? ` • #${r.challenge_id}` : ""}
+                  {r.challenge_id ? ` â€¢ #${r.challenge_id}` : ""}
                 </div>
                 <div className="text-[11px] text-gray-500">
                   {timeAgo(r.timestamp)}
@@ -363,7 +363,7 @@ function RewardLedger({ rewards = [], mood, onViewAll }) {
             onClick={onViewAll}
             className="mt-3 text-[11px] text-yellow-400 hover:text-yellow-300 underline transition"
           >
-            View all rewards →
+            View all rewards â†’
           </button>
         )}
       </div>

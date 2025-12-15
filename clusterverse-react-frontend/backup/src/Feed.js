@@ -20,7 +20,7 @@ function Feed() {
 
   return (
     <div style={styles.container}>
-      <h3 style={styles.title}>🌍 Community Feed</h3>
+      <h3 style={styles.title}>ðŸŒ Community Feed</h3>
 
       {/* Post Box */}
       <div style={styles.postBox}>

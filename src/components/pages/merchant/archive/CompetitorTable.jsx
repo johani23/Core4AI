@@ -1,13 +1,12 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CompetitorTable.jsx (v3.0 â€œSmart Competitor Comparisonâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CompetitorTable.jsx (v3.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSmart Competitor ComparisonÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // -----------------------------------------------------------------------------
-// â€¢ Zero input: ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ productName ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹
-// â€¢ Auto-load competitor info from ProductIQ backend
-// â€¢ Simple, clean competitor comparison card
-// â€¢ Optional component â€” safe to include or hide
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Zero input: Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° productName ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-load competitor info from ProductIQ backend
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Simple, clean competitor comparison card
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Optional component ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â safe to include or hide
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function CompetitorTable({ productName }) {
@@ -38,7 +37,7 @@ export default function CompetitorTable({ productName }) {
       setCompetitor(data.competitor);
     } catch (err) {
       console.error(err);
-      toast.error("âŒ ÙØ´Ù„ ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù†Ø§ÙØ³");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³");
     }
 
     setLoading(false);
@@ -50,7 +49,7 @@ export default function CompetitorTable({ productName }) {
   if (!productName) {
     return (
       <div className="max-w-2xl mx-auto mt-6 p-4 bg-white shadow rounded border">
-        <p className="text-center text-gray-600">Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¹Ø¯.</p>
+        <p className="text-center text-gray-600">Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.</p>
       </div>
     );
   }
@@ -61,7 +60,7 @@ export default function CompetitorTable({ productName }) {
       {/* HEADER */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-bold text-gray-800">
-          ðŸ†š Ù…Ù‚Ø§Ø±Ù†Ø© Ù…Ø¹ Ø§Ù„Ù…Ù†Ø§ÙØ³ Ø§Ù„Ù…Ø¨Ø§Ø´Ø±
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Â Ã…Â¡ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±
         </h3>
 
         <button
@@ -69,12 +68,12 @@ export default function CompetitorTable({ productName }) {
           disabled={loading}
           className="px-3 py-1 bg-gray-800 text-white text-sm rounded hover:bg-black disabled:opacity-50"
         >
-          {loading ? "â³" : "ðŸ”„ ØªØ­Ø¯ÙŠØ«"}
+          {loading ? "ÃƒÂ¢Ã‚ÂÃ‚Â³" : "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â«"}
         </button>
       </div>
 
       {/* LOADING */}
-      {loading && <p className="text-gray-600 text-sm">Ø¬Ø§Ø± ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù†Ø§ÙØ³...</p>}
+      {loading && <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³...</p>}
 
       {/* COMPETITOR CARD */}
       {!loading && competitor && (
@@ -86,14 +85,14 @@ export default function CompetitorTable({ productName }) {
 
           <div className="mt-2 text-sm text-gray-700 space-y-1">
             <p>
-              ðŸ’° Ø§Ù„Ø³Ø¹Ø±:{" "}
-              <span className="font-semibold">{competitor.price} Ø±.Ø³</span>
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±:{" "}
+              <span className="font-semibold">{competitor.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</span>
             </p>
 
             <p>
-              âš ï¸ Ù…ÙŠØ²Ø© Ù…ÙÙ‚ÙˆØ¯Ø©:{" "}
+              ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â©:{" "}
               <span className="font-semibold">
-                {competitor.missing_feature ? "Ù†Ø¹Ù…" : "Ù„Ø§"}
+                {competitor.missing_feature ? "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦" : "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§"}
               </span>
             </p>
           </div>
@@ -103,9 +102,11 @@ export default function CompetitorTable({ productName }) {
 
       {!loading && !competitor && (
         <p className="mt-4 text-center text-gray-500 text-sm">
-          Ù„Ù… ÙŠØªÙ… ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù†Ø§ÙØ³ Ø¨Ø¹Ø¯.
+          Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.
         </p>
       )}
     </div>
   );
 }
+
+

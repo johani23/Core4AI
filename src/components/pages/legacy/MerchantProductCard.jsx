@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ MerchantProductCard.jsx (Saudi Minimal)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantProductCard.jsx (Saudi Minimal)
 // ------------------------------------------------------------
-// â€¢ Reusable product card for merchant dashboard
-// â€¢ Clean white/green Saudi design
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Reusable product card for merchant dashboard
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean white/green Saudi design
 // ============================================================
 
-import React from "react";
 
 export default function MerchantProductCard({ product, onClick }) {
   return (
@@ -41,10 +40,12 @@ export default function MerchantProductCard({ product, onClick }) {
             className="bg-[#006C35] text-white px-4 py-2 rounded-lg
                        hover:bg-green-700 transition"
           >
-            ØªØ¹Ø¯ÙŠÙ„
+            ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾
           </button>
         </div>
       </div>
     </div>
   );
 }
+
+

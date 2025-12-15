@@ -9,20 +9,20 @@ import {
   getClusterShadow,
   getReputation,
   incrementReputation,
-} from "../services/api"; // Ù„Ø§Ø­Ø¸ ../ Ù„Ø£Ù†Ù†Ø§ Ø®Ø±Ø¬Ù†Ø§ Ù…Ù† Ù…Ø¬Ù„Ø¯ components
+} from "../services/api"; // Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ÃƒËœÃ‚Â¸ ../ Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â®ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¯ components
 
 function ApiPlayground() {
   const [username, setUsername] = useState("");
   const [log, setLog] = useState([]);
 
-  // Helper Ù„Ø¹Ø±Ø¶ Ø§Ù„Ù†ØªØ§Ø¦Ø¬
+  // Helper Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¶ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦ÃƒËœÃ‚Â¬
   const logResult = (action, data) => {
     setLog((prev) => [...prev, `${action}: ${JSON.stringify(data)}`]);
   };
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">ðŸš€ Core4AI API Test</h1>
+      <h1 className="text-2xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Core4AI API Test</h1>
 
       {/* Signup */}
       <div className="mb-4">
@@ -183,3 +183,4 @@ function ApiPlayground() {
 }
 
 export default ApiPlayground;
+

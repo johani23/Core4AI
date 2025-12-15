@@ -9,20 +9,20 @@ import {
   getClusterShadow,
   getReputation,
   incrementReputation,
-} from "../services/api"; // لاحظ ../ لأننا خرجنا من مجلد components
+} from "../services/api"; // Ù„Ø§Ø­Ø¸ ../ Ù„Ø£Ù†Ù†Ø§ Ø®Ø±Ø¬Ù†Ø§ Ù…Ù† Ù…Ø¬Ù„Ø¯ components
 
 function ApiPlayground() {
   const [username, setUsername] = useState("");
   const [log, setLog] = useState([]);
 
-  // Helper لعرض النتائج
+  // Helper Ù„Ø¹Ø±Ø¶ Ø§Ù„Ù†ØªØ§Ø¦Ø¬
   const logResult = (action, data) => {
     setLog((prev) => [...prev, `${action}: ${JSON.stringify(data)}`]);
   };
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">🚀 Core4AI API Test</h1>
+      <h1 className="text-2xl font-bold mb-4">ðŸš€ Core4AI API Test</h1>
 
       {/* Signup */}
       <div className="mb-4">

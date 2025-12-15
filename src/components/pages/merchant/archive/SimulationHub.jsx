@@ -1,14 +1,13 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SimulationHub.jsx (v FINAL â€“ Buyer Pulse Integrated)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SimulationHub.jsx (v FINAL ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Buyer Pulse Integrated)
 // ------------------------------------------------------------
-// âœ… Animated circular wallets (Influencer Tokens)
-// âœ… Tribe Split Visualization
-// âœ… Merchant Sales Live
-// âœ… Buyer Pulse (Tokens, R&D, Referrals, Influence Score)
-// âœ… Real-time WebSocket Feed (/ws/synaptic)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated circular wallets (Influencer Tokens)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Tribe Split Visualization
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Merchant Sales Live
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Buyer Pulse (Tokens, R&D, Referrals, Influence Score)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time WebSocket Feed (/ws/synaptic)
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import SimulationBuyerPulse from "@components/SimulationBuyerPulse";
@@ -26,7 +25,7 @@ export default function SimulationHub() {
   const [lastEvent, setLastEvent] = useState(null);
 
   // ------------------------------------------------------------
-  // ðŸ”Œ Real-time WebSocket Connection (synaptic)
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ…â€™ Real-time WebSocket Connection (synaptic)
   // ------------------------------------------------------------
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8000/ws/synaptic");
@@ -36,7 +35,7 @@ export default function SimulationHub() {
 
       setFlywheel((prev) => ({
         ...prev,
-        buyer: data.buyer ?? prev.buyer, // â† NEW BUYER SNAPSHOT
+        buyer: data.buyer ?? prev.buyer, // ÃƒÂ¢Ã¢â‚¬Â Ã‚Â NEW BUYER SNAPSHOT
       }));
     };
 
@@ -45,7 +44,7 @@ export default function SimulationHub() {
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸ§ª Trigger Fake Conversion (for Merchant + Influencer Tokens)
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Âª Trigger Fake Conversion (for Merchant + Influencer Tokens)
   // ------------------------------------------------------------
   const triggerConversion = async () => {
     const event = {
@@ -70,7 +69,7 @@ export default function SimulationHub() {
     <div className="p-8 text-white bg-gradient-to-br from-[#0e0920] to-[#1a1038] min-h-screen">
 
       {/* Title */}
-      <h1 className="text-3xl font-bold mb-6 text-cyan-300">ðŸª™ Tokenized Flywheel</h1>
+      <h1 className="text-3xl font-bold mb-6 text-cyan-300">ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Tokenized Flywheel</h1>
 
       {/* Mode Controls */}
       <div className="flex gap-4 mb-8">
@@ -101,7 +100,7 @@ export default function SimulationHub() {
       </div>
 
       {/* ============================================================
-          ðŸŸ¦ REAL-TIME GRID (Influencer, Tribe, Merchant, Buyer)
+          ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¦ REAL-TIME GRID (Influencer, Tribe, Merchant, Buyer)
          ============================================================ */}
       <div className="grid grid-cols-3 gap-6">
 
@@ -127,7 +126,7 @@ export default function SimulationHub() {
           color="orange"
         />
 
-        {/* Buyer Pulse ðŸ’š */}
+        {/* Buyer Pulse ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ */}
         <div className="col-span-3">
           <SimulationBuyerPulse data={flywheel.buyer} />
         </div>
@@ -143,7 +142,7 @@ export default function SimulationHub() {
             transition={{ duration: 0.8 }}
             className="fixed bottom-10 right-10 bg-violet-600 text-white px-6 py-3 rounded-full shadow-lg"
           >
-            ðŸ¤ Tribe Collaboration Activated:{" "}
+            ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Tribe Collaboration Activated:{" "}
             {lastEvent.tribes.join(" + ")} share profits!
           </motion.div>
         )}
@@ -151,13 +150,13 @@ export default function SimulationHub() {
     </div>
   );
 }
-      {/* â­ Buyer Event Stream  */}
+      {/* ÃƒÂ¢Ã‚Â­Ã‚Â Buyer Event Stream  */}
 <div className="col-span-3">
   <BuyerEventStream events={flywheel.buyer?.events || []} />
 </div>
 
 // ------------------------------------------------------------
-// ðŸª™ Animated Wallet Card (Circular Progress)
+// ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Animated Wallet Card (Circular Progress)
 // ------------------------------------------------------------
 function WalletCard({ title, data }) {
   return (
@@ -208,7 +207,7 @@ function CircularWallet({ name, value }) {
 }
 
 // ------------------------------------------------------------
-// ðŸ¤ Tribe Split Visualization
+// ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Tribe Split Visualization
 // ------------------------------------------------------------
 function TribeCard({ title, data, lastEvent }) {
   return (
@@ -244,7 +243,7 @@ function TribeCard({ title, data, lastEvent }) {
 }
 
 // ------------------------------------------------------------
-// ðŸ’° Merchant Sales Card
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Merchant Sales Card
 // ------------------------------------------------------------
 function Card({ title, data, color }) {
   return (
@@ -266,3 +265,5 @@ function Card({ title, data, color }) {
     </motion.div>
   );
 }
+
+

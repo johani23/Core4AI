@@ -9,7 +9,7 @@ export default function ClusterTable() {
 
   return (
     <div className="card">
-      <h2>📊 Clusters Overview</h2>
+      <h2>ðŸ“Š Clusters Overview</h2>
       <table>
         <thead>
           <tr><th>Name</th><th>Members</th></tr>

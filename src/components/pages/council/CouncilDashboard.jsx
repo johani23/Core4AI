@@ -8,7 +8,7 @@ export default function CouncilDashboard() {
   return (
     <div className="min-h-screen bg-black text-white p-8 space-y-8">
       <h1 className="text-3xl font-bold text-purple-400">
-        ðŸ› Council Fusion Dashboard
+        ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Âº Council Fusion Dashboard
       </h1>
 
       <MarketSentimentFusion />
@@ -18,3 +18,4 @@ export default function CouncilDashboard() {
     </div>
   );
 }
+

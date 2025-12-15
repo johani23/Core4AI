@@ -21,7 +21,7 @@ export default function RecommendedPriceBox({ productId }) {
     setLoading(false);
   };
 
-  if (loading) return <div className="text-gray-300 p-10">â³ Loadingâ€¦</div>;
+  if (loading) return <div className="text-gray-300 p-10">ÃƒÂ¢Ã‚ÂÃ‚Â³ LoadingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</div>;
   if (!data) return null;
 
   return (
@@ -44,3 +44,4 @@ export default function RecommendedPriceBox({ productId }) {
     </div>
   );
 }
+

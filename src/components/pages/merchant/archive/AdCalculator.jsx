@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ AdCalculator.jsx (v4.0 â€œZero-Input Smart Pricing Engineâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AdCalculator.jsx (v4.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œZero-Input Smart Pricing EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // -----------------------------------------------------------------------------
-// â€¢ Zero input: ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ productName ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹
-// â€¢ Auto-load Recommended Pricing + Competitor Analysis
-// â€¢ Clean, simple, fast UI
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Zero input: Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° productName ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-load Recommended Pricing + Competitor Analysis
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean, simple, fast UI
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function AdCalculator({ productName }) {
@@ -37,7 +36,7 @@ export default function AdCalculator({ productName }) {
       setData(json);
     } catch (err) {
       console.error(err);
-      toast.error("âŒ ÙØ´Ù„ ÙÙŠ Ø¬Ù„Ø¨ Ø¨ÙŠØ§Ù†Ø§Øª ProductIQ");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ProductIQ");
     }
 
     setLoading(false);
@@ -46,7 +45,7 @@ export default function AdCalculator({ productName }) {
   if (!productName) {
     return (
       <div className="max-w-3xl mx-auto mt-10 bg-white p-6 rounded-xl border shadow">
-        <p className="text-center text-gray-600">Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¹Ø¯.</p>
+        <p className="text-center text-gray-600">Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.</p>
       </div>
     );
   }
@@ -58,13 +57,13 @@ export default function AdCalculator({ productName }) {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-xl font-bold text-blue-700">
-            Ad Calculator â€“ Ø­Ø§Ø³Ø¨Ø© Ø§Ù„Ø¥Ø¹Ù„Ø§Ù†
+            Ad Calculator ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â 
           </h2>
           <p className="text-sm text-gray-600">
-            ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ù†Ø§ÙØ³ÙŠÙ† + ØªÙˆØµÙŠØ© Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø£Ù…Ø«Ù„
+            ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  + ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚ÂµÃƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«Ãƒâ„¢Ã¢â‚¬Å¾
           </p>
           <p className="mt-2 text-sm text-gray-700">
-            Ø§Ù„Ù…Ù†ØªØ¬: <span className="font-semibold">{productName}</span>
+            ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬: <span className="font-semibold">{productName}</span>
           </p>
         </div>
 
@@ -73,12 +72,12 @@ export default function AdCalculator({ productName }) {
           disabled={loading}
           className="px-4 py-2 rounded-lg bg-blue-700 text-white text-sm font-semibold hover:bg-blue-800 disabled:opacity-60"
         >
-          {loading ? "â³ Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„..." : "ðŸ”„ Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ­Ù…ÙŠÙ„"}
+          {loading ? "ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾..." : "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾"}
         </button>
       </div>
 
       {/* LOADING */}
-      {loading && <p className="text-gray-600 text-sm">Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª...</p>}
+      {loading && <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª...</p>}
 
       {/* CONTENT */}
       {!loading && data && (
@@ -87,7 +86,7 @@ export default function AdCalculator({ productName }) {
           {/* COMPETITOR */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-3">
-              ðŸ†š Ø§Ù„Ù…Ù†Ø§ÙØ³ Ø§Ù„Ù…Ø¨Ø§Ø´Ø±
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬Â Ã…Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±
             </h3>
 
             <div className="p-4 bg-gray-50 border rounded-lg shadow-sm">
@@ -95,13 +94,13 @@ export default function AdCalculator({ productName }) {
                 {data.competitor.name}
               </p>
               <p className="text-sm text-gray-600">
-                Ø§Ù„Ø³Ø¹Ø±:{" "}
-                <span className="font-semibold">{data.competitor.price} Ø±.Ø³</span>
+                ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±:{" "}
+                <span className="font-semibold">{data.competitor.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</span>
               </p>
               <p className="text-sm text-gray-600">
-                Ù…ÙŠØ²Ø© Ù…ÙÙ‚ÙˆØ¯Ø©:{" "}
+                Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â©:{" "}
                 <span className="font-semibold">
-                  {data.competitor.missing_feature ? "Ù†Ø¹Ù…" : "Ù„Ø§"}
+                  {data.competitor.missing_feature ? "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦" : "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§"}
                 </span>
               </p>
             </div>
@@ -110,12 +109,12 @@ export default function AdCalculator({ productName }) {
           {/* FEATURE VALUE */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-3">
-              ðŸ’Ž Ù‚ÙŠÙ…Ø© Ø§Ù„Ù…ÙŠØ²Ø© Ø§Ù„Ù…Ø¶Ø§ÙØ©
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â©
             </h3>
 
             <div className="p-4 bg-white border rounded-lg shadow-sm">
               <p className="text-2xl font-bold text-blue-700">
-                +{data.feature_value} Ø±.Ø³
+                +{data.feature_value} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
               </p>
             </div>
           </div>
@@ -123,29 +122,29 @@ export default function AdCalculator({ productName }) {
           {/* PRICING */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-3">
-              ðŸ’° Ø§Ù„ØªÙˆØµÙŠØ© Ø§Ù„Ø³Ø¹Ø±ÙŠØ©
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚ÂµÃƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â©
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
               <div className="p-4 bg-gray-50 border rounded-lg text-center shadow-sm">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø¹Ø§Ø¯Ù„</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Å¾</p>
                 <p className="mt-2 text-xl font-bold text-blue-600">
-                  {data.fair_price} Ø±.Ø³
+                  {data.fair_price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
               <div className="p-4 bg-white border rounded-lg text-center shadow shadow-md">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…ÙˆØµÙ‰ Ø¨Ù‡</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚ÂµÃƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â¡</p>
                 <p className="mt-2 text-2xl font-bold text-blue-700">
-                  {data.recommended_price} Ø±.Ø³
+                  {data.recommended_price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
               <div className="p-4 bg-gray-50 border rounded-lg text-center shadow-sm">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù…ÙŠØ²</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²</p>
                 <p className="mt-2 text-xl font-bold text-blue-600">
-                  {data.premium_price} Ø±.Ø³
+                  {data.premium_price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
@@ -158,9 +157,11 @@ export default function AdCalculator({ productName }) {
       {/* EMPTY */}
       {!loading && !data && (
         <p className="mt-4 text-sm text-gray-500 text-center">
-          Ù„Ù… ÙŠØªÙ… Ø¬Ù„Ø¨ Ø£ÙŠ Ø¨ÙŠØ§Ù†Ø§Øª Ø¨Ø¹Ø¯. Ø§Ø¶ØºØ· "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ­Ù…ÙŠÙ„".
+          Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨ ÃƒËœÃ‚Â£Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯. ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¶ÃƒËœÃ‚ÂºÃƒËœÃ‚Â· "ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾".
         </p>
       )}
     </div>
   );
 }
+
+

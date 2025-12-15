@@ -1,17 +1,16 @@
 // ============================================================================
-// ðŸ’Ž Core4.AI â€“ Welcome.jsx (v7 â€œSaudi + Smart Auto Tour Redirectâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Welcome.jsx (v7 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSaudi + Smart Auto Tour RedirectÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export default function Welcome() {
   const navigate = useNavigate();
-  const [country, setCountry] = useState("Saudi Arabia ðŸ‡¸ðŸ‡¦");
+  const [country, setCountry] = useState("Saudi Arabia ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¦");
 
   // ------------------------------------------------------------
-  // ðŸŒ Geo IP Lookup (Safe Fallback)
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Geo IP Lookup (Safe Fallback)
   // ------------------------------------------------------------
   useEffect(() => {
     fetch("https://ipapi.co/country_name/")
@@ -21,7 +20,7 @@ export default function Welcome() {
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸ” Auto redirect to /tour ON FIRST VISIT
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â Auto redirect to /tour ON FIRST VISIT
   // ------------------------------------------------------------
   useEffect(() => {
     const seenTour = localStorage.getItem("seenTour");
@@ -46,7 +45,7 @@ export default function Welcome() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        Turn Your Influence Into Real Income â€” with Core4.AI
+        Turn Your Influence Into Real Income ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â with Core4.AI
       </motion.h1>
 
       <p className="text-gray-400 text-sm mb-6">
@@ -73,3 +72,5 @@ export default function Welcome() {
     </div>
   );
 }
+
+

@@ -12,12 +12,13 @@ export default function StepIdentity() {
     <div>
       <ProgressBar step={1} />
 
+      {/* HEADER */}
       <motion.h2
         className="text-3xl font-bold mb-4 text-purple-300 text-right"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        خلّنا نعرف هويتك أكثر ⚡
+        خلّنا نعرّف هويتك أكثر ✨
       </motion.h2>
 
       <motion.p
@@ -26,17 +27,18 @@ export default function StepIdentity() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.15 }}
       >
-        نبي نفهم أنت وين رايح؟ ووش الشي اللي يحركك؟  
-        قبل نبدأ رحلتك داخل Core4.AI ونحدد قبيلتك المناسبة فعلاً.
+        نبي نفهم أكثر وش يمثّل لك النجاح، وش الأشياء اللي تحرّكك،
+        وكيف تشوف نفسك داخل Core4.AI. هالمعلومات تساعد النظام يضبط لك تجربة
+        حياة، نمو، وتأثير متناسقة معك تمامًا.
       </motion.p>
 
       {/* Core Values */}
-      <FieldLabel text="وش القيم اللي تمثّلك أكثر شيء؟" />
+      <FieldLabel text="وش القيمة اللي تمثّل أكثر شيء لك؟" />
       <SelectField
         value={identity.values}
         onChange={(v) => updateIdentity({ values: v })}
         options={[
-          ["growth", "أحب أتطور دائم"],
+          ["growth", "أحب أتطور دائمًا"],
           ["stability", "أحب الاستقرار"],
           ["impact", "أبي أترك بصمة"],
           ["creativity", "أحب الإبداع"],
@@ -47,22 +49,22 @@ export default function StepIdentity() {
       />
 
       {/* Life Purpose */}
-      <FieldLabel text="هدفك الحالي بالحياة وش هو؟" />
+      <FieldLabel text="هدفك في الحياة وش هو؟" />
       <SelectField
         value={identity.purpose}
         onChange={(v) => updateIdentity({ purpose: v })}
         options={[
           ["discover_myself", "أكتشف نفسي أكثر"],
-          ["build_career", "أبني مستقبلي"],
+          ["build_career", "أبني مستقبل مهني"],
           ["financial_growth", "أزيد دخلي"],
           ["influence", "أصير مؤثر"],
           ["learn_new_skills", "أتعلم مهارات جديدة"],
-          ["start_business", "أبي أبدأ مشروعي"],
+          ["start_business", "أبدأ مشروع"],
         ]}
       />
 
       {/* Emotional Signature */}
-      <FieldLabel text="عادة… كيف تكون ردّة فعلك العاطفية؟" />
+      <FieldLabel text="الغالب عليك أغلب الوقت؟" />
       <SelectField
         value={identity.emotionalSignature}
         onChange={(v) => updateIdentity({ emotionalSignature: v })}
@@ -75,7 +77,10 @@ export default function StepIdentity() {
         ]}
       />
 
-      <MainButton onClick={() => navigate("/onboarding/cognitive")} text="التالي" />
+      <MainButton
+        onClick={() => navigate("/onboarding/cognitive")}
+        text="التالي"
+      />
     </div>
   );
 }
@@ -91,7 +96,7 @@ function SelectField({ value, onChange, options }) {
       onChange={(e) => onChange(e.target.value)}
       className="w-full mb-6 p-3 rounded-xl bg-[#111122] border border-purple-500/30 text-white focus:ring-2 ring-purple-500 transition"
     >
-      <option value="">اختر…</option>
+      <option value="">اختر...</option>
       {options.map(([v, label]) => (
         <option key={v} value={v}>
           {label}

@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ SimulationBuyerPulse (v3.0 CINEMATIC)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SimulationBuyerPulse (v3.0 CINEMATIC)
 // ------------------------------------------------------------
 // Dynamic Halo + Badge + Shockwave + Live Stats
 // Works directly with /ws/synaptic buyer snapshots
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 
 // ---------------------------------------
@@ -15,25 +14,25 @@ const tierStyles = {
   "Newbie": {
     color: "#6b7280",
     glow: "0 0 8px #6b7280",
-    badge: "ðŸ§Š Beginner",
+    badge: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã…Â  Beginner",
     halo: "rgba(107, 114, 128, 0.15)"
   },
   "Active Buyer": {
     color: "#10b981",
     glow: "0 0 10px #10b981",
-    badge: "ðŸ’Ž Engaged",
+    badge: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Engaged",
     halo: "rgba(16, 185, 129, 0.25)"
   },
   "Rising Influencer": {
     color: "#f59e0b",
     glow: "0 0 12px #f59e0b",
-    badge: "ðŸ”¥ Rising Star",
+    badge: "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Rising Star",
     halo: "rgba(245, 158, 11, 0.35)"
   },
   "Influencer": {
     color: "#8b5cf6",
     glow: "0 0 15px #8b5cf6",
-    badge: "âš¡ Influencer Level I",
+    badge: "ÃƒÂ¢Ã…Â¡Ã‚Â¡ Influencer Level I",
     halo: "rgba(139, 92, 246, 0.50)"
   }
 };
@@ -100,7 +99,7 @@ export default function SimulationBuyerPulse({ data }) {
           className="text-2xl font-bold mb-3"
           style={{ color: style.color }}
         >
-          ðŸ’š Buyer Pulse
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Buyer Pulse
         </h2>
 
         {/* Badge */}
@@ -161,3 +160,5 @@ function getTier(b) {
   if (score >= 3) return "Active Buyer";
   return "Newbie";
 }
+
+

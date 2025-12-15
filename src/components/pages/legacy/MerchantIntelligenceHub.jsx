@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MerchantIntelligenceHub.jsx (v140.2 â€œStable API Fixâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantIntelligenceHub.jsx (v140.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œStable API FixÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Fixed 500 error by updating route to /api/merchant/transactions
-// âœ… Compatible with main.py v141.2
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fixed 500 error by updating route to /api/merchant/transactions
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Compatible with main.py v141.2
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import MerchantKPISummary from "@components/MerchantKPISummary";
@@ -28,7 +27,7 @@ export default function MerchantIntelligenceHub() {
         setTransactions(res.data.transactions || []);
         setLoading(false);
       } catch (e) {
-        console.error("âŒ Error fetching merchant data:", e);
+        console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Error fetching merchant data:", e);
       }
     };
     fetchTx();
@@ -45,7 +44,7 @@ export default function MerchantIntelligenceHub() {
   return (
     <div className="p-6 min-h-[90vh] bg-gradient-to-b from-gray-950 via-gray-900 to-black text-gray-200">
       <h1 className="text-3xl font-bold text-purple-400 mb-6 flex items-center gap-2">
-        ðŸ§­ Merchant Intelligence Dashboard
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Merchant Intelligence Dashboard
       </h1>
 
       <MerchantKPISummary />
@@ -148,3 +147,5 @@ export default function MerchantIntelligenceHub() {
     </div>
   );
 }
+
+

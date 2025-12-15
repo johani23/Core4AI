@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CreativeStudioSection.jsx (v6.0 â€“ FINAL STABLE / Zero Crash)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CreativeStudioSection.jsx (v6.0 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ FINAL STABLE / Zero Crash)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CreativeStudioSection({ product, onLoaded }) {
   const [creative, setCreative] = useState(null);
@@ -24,7 +23,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           product_name: product.name,
-          message: `Ø§Ø¹Ù„Ø§Ù† Ù…Ù†ØªØ¬ ${product.name}`,
+          message: `ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ${product.name}`,
           tone: "friendly",
           target: "Saudi Youth",
         }),
@@ -36,7 +35,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
     } catch (err) {
       console.error(err);
-      setCreative({ error: "âŒ ÙØ´Ù„ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø­ØªÙˆÙ‰" });
+      setCreative({ error: "ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â°" });
     }
 
     setLoading(false);
@@ -47,11 +46,11 @@ export default function CreativeStudioSection({ product, onLoaded }) {
   return (
     <div className="bg-white border rounded-xl p-6 mt-6 shadow-sm">
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸŽ¨ Creative Studio â€” ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ Ø§Ù„Ø¥Ø¨Ø¯Ø§Ø¹ÙŠ
+        ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Creative Studio ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â 
       </h2>
 
       {loading && (
-        <p className="text-gray-500">â³ Ø¬Ø§Ø±ÙŠ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø­ØªÙˆÙ‰â€¦</p>
+        <p className="text-gray-500">ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â°ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</p>
       )}
 
       {/* ERROR */}
@@ -65,11 +64,11 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
           {/* STORYBOARD */}
           <div>
-            <h3 className="font-bold mb-2">ðŸŽ¬ Ø§Ù„Ø³ØªÙˆØ±ÙŠ Ø¨ÙˆØ±Ø¯</h3>
+            <h3 className="font-bold mb-2">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â¨Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¯</h3>
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
               {safe(creative.storyboard).map((s, i) => (
                 <li key={i}>
-                  Ù…Ø´Ù‡Ø¯ {s.scene}: {s.script} â€” ({s.shot})
+                  Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â¯ {s.scene}: {s.script} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ({s.shot})
                 </li>
               ))}
             </ul>
@@ -77,7 +76,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
           {/* HOOKS */}
           <div>
-            <h3 className="font-bold mt-6 mb-2">ðŸ§² Hooks</h3>
+            <h3 className="font-bold mt-6 mb-2">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â² Hooks</h3>
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
               {safe(creative.hooks).map((h, i) => (
                 <li key={i}>{h}</li>
@@ -87,7 +86,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
           {/* TIKTOK PACK */}
           <div>
-            <h3 className="font-bold mt-6 mb-2">ðŸŽ¥ TikTok Pack</h3>
+            <h3 className="font-bold mt-6 mb-2">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ TikTok Pack</h3>
             <ul className="space-y-2 pl-1">
               {safe(creative.tiktok_pack).map((item, i) => (
                 <li key={i} className="p-3 bg-white border rounded">
@@ -100,7 +99,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
           {/* REELS PACK */}
           <div>
-            <h3 className="font-bold mt-6 mb-2">ðŸŽžï¸ Reels Pack</h3>
+            <h3 className="font-bold mt-6 mb-2">ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ÃƒÂ¯Ã‚Â¸Ã‚Â Reels Pack</h3>
             <ul className="space-y-2 pl-1">
               {safe(creative.reels_pack).map((item, i) => (
                 <li key={i} className="p-3 bg-white border rounded">
@@ -113,7 +112,7 @@ export default function CreativeStudioSection({ product, onLoaded }) {
 
           {/* CAROUSEL PACK */}
           <div>
-            <h3 className="font-bold mt-6 mb-2">ðŸ–¼ï¸ Carousel Pack</h3>
+            <h3 className="font-bold mt-6 mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬â€œÃ‚Â¼ÃƒÂ¯Ã‚Â¸Ã‚Â Carousel Pack</h3>
             <ul className="space-y-2 pl-1">
               {safe(creative.carousel_pack).map((item, i) => (
                 <li key={i} className="p-3 bg-white border rounded">
@@ -129,3 +128,5 @@ export default function CreativeStudioSection({ product, onLoaded }) {
     </div>
   );
 }
+
+

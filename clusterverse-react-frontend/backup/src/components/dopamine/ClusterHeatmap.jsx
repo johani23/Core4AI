@@ -13,7 +13,7 @@ export default function ClusterHeatmap() {
         const json = await res.json();
         setClusters(json.clusters || []);
       } catch (err) {
-        console.error("⚠️ Cluster heatmap fetch failed:", err);
+        console.error("âš ï¸ Cluster heatmap fetch failed:", err);
       } finally {
         setLoading(false);
       }
@@ -41,7 +41,7 @@ export default function ClusterHeatmap() {
 
   return (
     <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 shadow-lg">
-      <h2 className="text-xl font-bold text-yellow-400 mb-2">🌐 Cluster Dopamine Heatmap</h2>
+      <h2 className="text-xl font-bold text-yellow-400 mb-2">ðŸŒ Cluster Dopamine Heatmap</h2>
       <p className="text-gray-400 text-sm mb-4">
         Total Clusters: <span className="text-purple-400 font-semibold">{clusters.length}</span>
       </p>
@@ -78,7 +78,7 @@ export default function ClusterHeatmap() {
         animate={{ scale: [1, 1.1, 1], opacity: [0.8, 1, 0.8] }}
         transition={{ duration: 2.5, repeat: Infinity }}
       >
-        💫
+        ðŸ’«
       </motion.div>
     </div>
   );

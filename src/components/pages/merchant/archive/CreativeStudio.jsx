@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CreativeStudio.jsx (v5.0 FIXED â€“ Stable + Safe + API-Aligned)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreativeStudio.jsx (v5.0 FIXED ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Stable + Safe + API-Aligned)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function CreativeStudio({ productName }) {
@@ -35,7 +34,7 @@ export default function CreativeStudio({ productName }) {
 
     } catch (err) {
       console.error(err);
-      toast.error("âŒ ÙØ´Ù„ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ Ø§Ù„Ø¥Ø¨Ø¯Ø§Ø¹ÙŠ");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ");
     }
 
     setLoading(false);
@@ -44,7 +43,7 @@ export default function CreativeStudio({ productName }) {
   if (!productName) {
     return (
       <div className="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-xl border shadow text-center">
-        Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¹Ø¯.
+        Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.
       </div>
     );
   }
@@ -58,13 +57,13 @@ export default function CreativeStudio({ productName }) {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-xl font-bold text-green-700">
-            Creative Studio â€“ Ø§Ù„Ø§Ø³ØªÙˆØ¯ÙŠÙˆ Ø§Ù„Ø¥Ø¨Ø¯Ø§Ø¹ÙŠ
+            Creative Studio ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â 
           </h2>
           <p className="text-sm text-gray-600 mt-1">
-            ØªÙˆÙ„ÙŠØ¯ ØªÙ„Ù‚Ø§Ø¦ÙŠ Ù„Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆÙ‡Ø§Øª Ø§Ù„ÙÙŠØ¯ÙŠÙˆ + Hooks + Ù…Ø­ØªÙˆÙ‰ Ø¬Ø§Ù‡Ø².
+            ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€  + Hooks + Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â².
           </p>
           <p className="mt-2 text-sm text-gray-700">
-            Ø§Ù„Ù…Ù†ØªØ¬: <span className="font-semibold">{productName}</span>
+            ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬: <span className="font-semibold">{productName}</span>
           </p>
         </div>
 
@@ -73,12 +72,12 @@ export default function CreativeStudio({ productName }) {
           disabled={loading}
           className="px-4 py-2 rounded-lg bg-green-700 text-white text-sm font-semibold hover:bg-green-800 disabled:opacity-60"
         >
-          {loading ? "â³ Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªÙˆÙ„ÙŠØ¯..." : "ðŸ”„ Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªÙˆÙ„ÙŠØ¯"}
+          {loading ? "ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯..." : "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯"}
         </button>
       </div>
 
       {loading && (
-        <p className="text-gray-600 text-sm">Ø¬Ø§Ø±ÙŠ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ Ø§Ù„Ø¥Ø¨Ø¯Ø§Ø¹ÙŠ...</p>
+        <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ...</p>
       )}
 
       {/* CONTENT */}
@@ -87,13 +86,13 @@ export default function CreativeStudio({ productName }) {
 
           {/* STORYBOARD */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">ðŸŽ¬ Ø§Ù„Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {safe(creative.storyboard).map((scene, idx) => (
                 <div key={idx} className="p-4 bg-gray-50 border rounded-lg shadow-sm">
                   <p className="font-bold text-green-700 mb-1">
-                    Ù…Ø´Ù‡Ø¯ {scene.scene} â€“ {scene.shot}
+                    Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â¯ {scene.scene} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ {scene.shot}
                   </p>
                   <p className="text-sm text-gray-700 mb-2">{scene.script}</p>
                   <p className="text-xs text-gray-500">{scene.camera}</p>
@@ -104,7 +103,7 @@ export default function CreativeStudio({ productName }) {
 
           {/* HOOKS */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">ðŸ§² Hooks</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â² Hooks</h3>
             <ul className="list-disc ml-6 text-gray-700 space-y-1">
               {safe(creative.hooks).map((h, idx) => (
                 <li key={idx}>{h}</li>
@@ -114,7 +113,7 @@ export default function CreativeStudio({ productName }) {
 
           {/* TIKTOK PACK */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">ðŸŽ¥ TikTok Pack</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ TikTok Pack</h3>
 
             <div className="space-y-3">
               {safe(creative.tiktok_pack).map((item, idx) => (
@@ -128,7 +127,7 @@ export default function CreativeStudio({ productName }) {
 
           {/* REELS PACK */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">ðŸŽžï¸ Reels Pack</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">ÃƒÂ°Ã…Â¸Ã…Â½Ã…Â¾ÃƒÂ¯Ã‚Â¸Ã‚Â Reels Pack</h3>
 
             <div className="space-y-3">
               {safe(creative.reels_pack).map((item, idx) => (
@@ -142,7 +141,7 @@ export default function CreativeStudio({ productName }) {
 
           {/* CAROUSEL PACK */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">ðŸ–¼ï¸ Carousel Pack</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">ÃƒÂ°Ã…Â¸Ã¢â‚¬â€œÃ‚Â¼ÃƒÂ¯Ã‚Â¸Ã‚Â Carousel Pack</h3>
 
             <div className="space-y-3">
               {safe(creative.carousel_pack).map((item, idx) => (
@@ -159,9 +158,11 @@ export default function CreativeStudio({ productName }) {
 
       {!loading && !creative && (
         <p className="mt-4 text-sm text-gray-500">
-          Ù„Ù… ÙŠØªÙ… ØªÙˆÙ„ÙŠØ¯ Ø£ÙŠ Ù…Ø­ØªÙˆÙ‰ Ø¨Ø¹Ø¯. Ø§Ø¶ØºØ· "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªÙˆÙ„ÙŠØ¯".
+          Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â£Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯. ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¶ÃƒËœÃ‚ÂºÃƒËœÃ‚Â· "ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯".
         </p>
       )}
     </div>
   );
 }
+
+

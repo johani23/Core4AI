@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Wallet.jsx (MVP-38 Safe XP Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Wallet.jsx (MVP-38 Safe XP Edition)
 // ------------------------------------------------------------
-// âœ… Optional chaining to prevent crashes
-// âœ… Adds link to AI Arena Twin test
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Optional chaining to prevent crashes
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds link to AI Arena Twin test
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -58,7 +57,7 @@ export default function Wallet() {
   if (!wallet)
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-yellow-400 animate-pulse">
-        Loading walletâ€¦
+        Loading walletÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
@@ -71,7 +70,7 @@ export default function Wallet() {
         animate={{ opacity: 1, y: 0 }}
         className="text-2xl font-bold text-yellow-400 mb-6"
       >
-        ðŸ’° My Core4 Wallet
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° My Core4 Wallet
       </motion.h1>
 
       <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 max-w-md mx-auto shadow-lg">
@@ -86,7 +85,7 @@ export default function Wallet() {
         {/* XP */}
         <div className="mt-6">
           <p className="text-sm text-zinc-400 mb-1">
-            Level {level} â€¢ Experience
+            Level {level} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Experience
           </p>
           <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
             <motion.div
@@ -123,22 +122,22 @@ export default function Wallet() {
             onClick={() => navigate("/groups")}
             className="py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-400 text-black font-semibold hover:from-emerald-400 hover:to-green-300 transition-all"
           >
-            ðŸ‘¥ My Group
+            ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¥ My Group
           </button>
           <button
             onClick={() => navigate("/rewards")}
             className="py-2 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-semibold hover:from-yellow-400 hover:to-amber-300 transition-all"
           >
-            ðŸŽ Rewards
+            ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â Rewards
           </button>
         </div>
 
-        {/* ðŸªž New Twin Button */}
+        {/* ÃƒÂ°Ã…Â¸Ã‚ÂªÃ…Â¾ New Twin Button */}
         <button
           onClick={() => (window.location.href = "/ai-arena")}
           className="mt-6 w-full py-2 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white font-semibold hover:from-fuchsia-400 hover:to-purple-500 transition-all"
         >
-          ðŸªž Test My AI Twin
+          ÃƒÂ°Ã…Â¸Ã‚ÂªÃ…Â¾ Test My AI Twin
         </button>
       </div>
 
@@ -159,3 +158,5 @@ export default function Wallet() {
     </div>
   );
 }
+
+

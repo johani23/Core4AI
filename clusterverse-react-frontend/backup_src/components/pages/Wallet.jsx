@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – Wallet.jsx (Group Edition – Style A)
+// ðŸ’Ž Core4.AI â€“ Wallet.jsx (Group Edition â€“ Style A)
 // ------------------------------------------------------------
 // Shows personal balance + group pool + engagement energy
 // Elegantly styled with dark background + gold/emerald glow
@@ -19,14 +19,14 @@ export default function Wallet() {
   useEffect(() => {
     async function loadData() {
       try {
-        const w = await getWallet(1); // 🔹 real wallet endpoint
-        const groups = await getGroups(); // 🔹 group-level data
+        const w = await getWallet(1); // ðŸ”¹ real wallet endpoint
+        const groups = await getGroups(); // ðŸ”¹ group-level data
         // for demo: assume user belongs to group 1
         const myGroup = groups?.[0] || null;
         setWallet(w);
         setGroup(myGroup);
       } catch (err) {
-        console.error("⚠️ Wallet load error:", err);
+        console.error("âš ï¸ Wallet load error:", err);
       } finally {
         setLoading(false);
       }
@@ -37,18 +37,18 @@ export default function Wallet() {
   if (loading || !wallet) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-yellow-400 animate-pulse">
-        Loading wallet data…
+        Loading wallet dataâ€¦
       </div>
     );
   }
 
-  // 💰 Extracted values
+  // ðŸ’° Extracted values
   const { username, balance, symbol, dopamine } = wallet;
   const pool = group?.pool_balance ?? 0;
   const share = pool / 4; // each member 25%
   const engagement = group?.engagement ?? 0;
 
-  // 🎚️ Progress bars
+  // ðŸŽšï¸ Progress bars
   const dopPercent = Math.min(Math.max((dopamine / 100) * 100, 0), 100);
   const engPercent = Math.min(Math.max((engagement / 100) * 100, 0), 100);
 
@@ -73,7 +73,7 @@ export default function Wallet() {
         animate={{ opacity: 1, y: 0 }}
         className="text-2xl font-bold text-yellow-400 mb-6"
       >
-        💰 My Core4 Wallet
+        ðŸ’° My Core4 Wallet
       </motion.h1>
 
       <motion.div
@@ -106,7 +106,7 @@ export default function Wallet() {
 
         {/* Share */}
         <div className="flex justify-between items-center mb-3">
-          <span className="text-gray-400">My Share (¼)</span>
+          <span className="text-gray-400">My Share (Â¼)</span>
           <span className="text-white font-semibold">
             {share.toFixed(2)} C4T
           </span>
@@ -150,13 +150,13 @@ export default function Wallet() {
             onClick={() => navigate("/groups")}
             className="py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-400 text-black font-semibold hover:from-emerald-400 hover:to-green-300 transition-all"
           >
-            👥 My Group
+            ðŸ‘¥ My Group
           </button>
           <button
             onClick={() => navigate("/market/pulse")}
             className="py-2 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-semibold hover:from-yellow-400 hover:to-amber-300 transition-all"
           >
-            💹 Market Pulse
+            ðŸ’¹ Market Pulse
           </button>
         </div>
       </motion.div>

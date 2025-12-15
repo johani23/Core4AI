@@ -1,8 +1,7 @@
 // ============================================================================
-// 💚 Core4.AI – InfluenceRing (Sama Motion Edition)
+// Ã°Å¸â€™Å¡ Core4.AI Ã¢â‚¬â€œ InfluenceRing (Sama Motion Edition)
 // ============================================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 
 export default function InfluenceRing({ score, max = 200 }) {
@@ -57,3 +56,5 @@ export default function InfluenceRing({ score, max = 200 }) {
     </div>
   );
 }
+
+

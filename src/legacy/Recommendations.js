@@ -1,7 +1,7 @@
 import React from "react";
 
 function Recommendations({ points }) {
-  // دالة لتوليد التوصيات مع النقاط المحتملة
+  // Ã˜Â¯Ã˜Â§Ã™â€žÃ˜Â© Ã™â€žÃ˜ÂªÃ™Ë†Ã™â€žÃ™Å Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã˜ÂµÃ™Å Ã˜Â§Ã˜Âª Ã™â€¦Ã˜Â¹ Ã˜Â§Ã™â€žÃ™â€ Ã™â€šÃ˜Â§Ã˜Â· Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â­Ã˜ÂªÃ™â€¦Ã™â€žÃ˜Â©
   const getRecommendations = () => {
     if (points < 20) {
       return {
@@ -25,7 +25,7 @@ function Recommendations({ points }) {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 mt-8 w-full max-w-2xl text-center">
-      <h2 className="text-2xl font-bold mb-4">✨ Recommendations</h2>
+      <h2 className="text-2xl font-bold mb-4">Ã¢Å“Â¨ Recommendations</h2>
       <p className="text-gray-700">
         {recommendation.text}
       </p>
@@ -37,3 +37,4 @@ function Recommendations({ points }) {
 }
 
 export default Recommendations;
+

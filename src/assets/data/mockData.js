@@ -1,5 +1,5 @@
 /**
- * Core4.AI – MVP 10 Mock Data
+ * Core4.AI Ã¢â‚¬â€œ MVP 10 Mock Data
  * Provides base data for local simulation (used by dataSync.js)
  */
 
@@ -11,9 +11,9 @@ export const mockGroups = [
     growth: "+14%",
     members: 4,
     ai: {
-      momentum: "Rising 🚀",
+      momentum: "Rising Ã°Å¸Å¡â‚¬",
       forecast: "17.5% expected growth next cycle",
-      insight: "Leading cluster — driving innovation trends.",
+      insight: "Leading cluster Ã¢â‚¬â€ driving innovation trends.",
     },
   },
   {
@@ -23,9 +23,9 @@ export const mockGroups = [
     growth: "+9%",
     members: 5,
     ai: {
-      momentum: "Stable 🌕",
+      momentum: "Stable Ã°Å¸Å’â€¢",
       forecast: "10.2% expected growth next cycle",
-      insight: "Maintaining steady performance — consistent creators.",
+      insight: "Maintaining steady performance Ã¢â‚¬â€ consistent creators.",
     },
   },
   {
@@ -35,7 +35,7 @@ export const mockGroups = [
     growth: "+6%",
     members: 3,
     ai: {
-      momentum: "Cooling 💤",
+      momentum: "Cooling Ã°Å¸â€™Â¤",
       forecast: "5.1% expected growth next cycle",
       insight: "Needs renewed engagement and visual creativity.",
     },
@@ -49,10 +49,10 @@ export const mockIndividuals = [
     xp: 420,
     posts: 5,
     nominations: 2,
-    badges: ["Rising Star ⭐", "Trend Setter 🚀"],
+    badges: ["Rising Star Ã¢Â­Â", "Trend Setter Ã°Å¸Å¡â‚¬"],
     influence: {
       baseScore: 72,
-      tier: "Rising 🔥",
+      tier: "Rising Ã°Å¸â€Â¥",
       color: "purple",
     },
   },
@@ -62,10 +62,10 @@ export const mockIndividuals = [
     xp: 230,
     posts: 3,
     nominations: 1,
-    badges: ["Creative Mind 💡"],
+    badges: ["Creative Mind Ã°Å¸â€™Â¡"],
     influence: {
       baseScore: 55,
-      tier: "Stable 🌕",
+      tier: "Stable Ã°Å¸Å’â€¢",
       color: "yellow",
     },
   },
@@ -75,19 +75,19 @@ export const mockPosts = [
   {
     id: 1001,
     userId: 1,
-    text: "AI is changing the way we create and connect 💡",
+    text: "AI is changing the way we create and connect Ã°Å¸â€™Â¡",
     createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
   },
   {
     id: 1002,
     userId: 2,
-    text: "Creativity without fear of failure is where true innovation begins 🔥",
+    text: "Creativity without fear of failure is where true innovation begins Ã°Å¸â€Â¥",
     createdAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
   },
   {
     id: 1003,
     userId: 1,
-    text: "Design is not what it looks like, it’s how it works.",
+    text: "Design is not what it looks like, itÃ¢â‚¬â„¢s how it works.",
     createdAt: new Date(Date.now() - 1000 * 60 * 60 * 8).toISOString(),
   },
 ];
@@ -114,3 +114,4 @@ export const mockData = {
   nominations: mockNominations,
   individuals: mockIndividuals,
 };
+

@@ -1,14 +1,13 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ AudienceCloning.jsx (v1.0 â€œSaudi Lookalike Engineâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AudienceCloning.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSaudi Lookalike EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ----------------------------------------------------------------------------
-// â€¢ Generates buyer seeds + lookalikes (1% | 2% | 5% | 10%)
-// â€¢ Behavioral segmentation engine (Saudi Market Version)
-// â€¢ Interest stacking for Meta + TikTok
-// â€¢ Exportable audience profiles (JSON / CSV)
-// â€¢ Designed for merchants to scale ads intelligently
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Generates buyer seeds + lookalikes (1% | 2% | 5% | 10%)
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Behavioral segmentation engine (Saudi Market Version)
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Interest stacking for Meta + TikTok
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Exportable audience profiles (JSON / CSV)
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Designed for merchants to scale ads intelligently
 // ============================================================================
 
-import React, { useState } from "react";
 import {
   FiUsers,
   FiTarget,
@@ -121,16 +120,16 @@ export default function AudienceCloning() {
     <div className="space-y-10">
 
       <h1 className="text-3xl font-extrabold text-[#4cff9b] flex items-center gap-3">
-        <FiUsers /> E9 â€” Audience Cloning Engine
+        <FiUsers /> E9 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Audience Cloning Engine
       </h1>
       <p className="text-gray-300">
-        Ø¨Ù†Ø§Ø¡ Ø¬Ù…Ø§Ù‡ÙŠØ± Ø´Ø¨ÙŠÙ‡Ø© (Lookalike Audiences) Ø¨Ø¬ÙˆØ¯Ø© Ø¹Ø§Ù„ÙŠØ© Ù„Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ.
+        ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â± ÃƒËœÃ‚Â´ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â© (Lookalike Audiences) ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¬Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â .
       </p>
 
       {/* INPUTS */}
       <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl space-y-5">
         <input
-          placeholder="Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬"
+          placeholder="ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
@@ -141,7 +140,7 @@ export default function AudienceCloning() {
           onChange={(e) => setTribe(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
         >
-          <option value="">Ø§Ø®ØªØ± Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø©</option>
+          <option value="">ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©</option>
           {TRIBES.map((t) => (
             <option key={t}>{t}</option>
           ))}
@@ -159,7 +158,7 @@ export default function AudienceCloning() {
           onClick={buildAudience}
           className="w-full py-3 bg-[#4cff9b] text-black font-extrabold rounded-lg flex items-center justify-center gap-2"
         >
-          <FiTarget /> ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ø¬Ù…Ù‡ÙˆØ±
+          <FiTarget /> ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±
         </button>
       </div>
 
@@ -168,19 +167,19 @@ export default function AudienceCloning() {
         <div className="space-y-10">
 
           <Section
-            title="Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø© Ø§Ù„Ù…Ø®ØªØ§Ø±Ø©"
+            title="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â±ÃƒËœÃ‚Â©"
             icon={<FiLayers />}
             content={results.tribe}
           />
 
           <SectionList
-            title="Ø§Ù‡ØªÙ…Ø§Ù…Ø§Øª Ø§Ù„Ø¬Ù…Ù‡ÙˆØ± (Interest Layers)"
+            title="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â± (Interest Layers)"
             icon={<FiSearch />}
             items={results.interests}
           />
 
           <SectionList
-            title="Ø§Ù„Ø³Ù„ÙˆÙƒÙŠØ§Øª Ø§Ù„Ø´Ø±Ø§Ø¦ÙŠØ© (Behavioral Signals)"
+            title="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© (Behavioral Signals)"
             icon={<FiActivity />}
             items={results.behavior}
           />
@@ -192,7 +191,7 @@ export default function AudienceCloning() {
             <ul className="list-disc ml-6 text-gray-300 space-y-2 mt-3">
               {Object.entries(results.lookalikes).map(([k, v]) => (
                 <li key={k}>
-                  {k} Audience â†’ <span className="text-white font-bold">{v} users</span>
+                  {k} Audience ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ <span className="text-white font-bold">{v} users</span>
                 </li>
               ))}
             </ul>
@@ -235,3 +234,5 @@ function SectionList({ title, icon, items }) {
     </div>
   );
 }
+
+

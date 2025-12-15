@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 function LiveUpdates() {
   const [updates] = useState([
-    "Ahmed shared a reflection note 📝",
-    "Mona earned 10 points 🎉",
-    "Ali joined the Harmony Circle 🎶",
-    "Sara reached the Illumination Circle ✨",
+    "Ahmed shared a reflection note ðŸ“",
+    "Mona earned 10 points ðŸŽ‰",
+    "Ali joined the Harmony Circle ðŸŽ¶",
+    "Sara reached the Illumination Circle âœ¨",
   ]);
   const [current, setCurrent] = useState(0);
 
@@ -19,7 +19,7 @@ function LiveUpdates() {
   return (
     <div className="bg-yellow-100 border border-yellow-300 rounded p-3 mb-4 shadow-md transition-all duration-500 animate-pulse">
       <p className="text-sm font-medium text-yellow-900">
-        <span className="font-bold">🔔 Live Updates:</span> {updates[current]}
+        <span className="font-bold">ðŸ”” Live Updates:</span> {updates[current]}
       </p>
     </div>
   );

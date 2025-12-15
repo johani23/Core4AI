@@ -1,12 +1,11 @@
 // ============================================================
-// âš¡ Core4.AI â€“ AnimatedIntro.jsx (v1.0 â€œTikTok High-Impact Introâ€)
+// ÃƒÂ¢Ã…Â¡Ã‚Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AnimatedIntro.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTikTok High-Impact IntroÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// â€¢ Neon animation
-// â€¢ Floating particles
-// â€¢ Auto-continue in 3.5 seconds
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Neon animation
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Floating particles
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-continue in 3.5 seconds
 // ============================================================
 
-import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -45,3 +44,5 @@ export default function AnimatedIntro() {
     </div>
   );
 }
+
+

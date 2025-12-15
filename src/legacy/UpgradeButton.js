@@ -7,11 +7,11 @@ function UpgradeButton() {
 
   const handleUpgrade = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/upgrade/1"); // 👈 Sama's ID in URL
-      setResponseMessage("✅ " + res.data.message);
+      const res = await axios.post("http://localhost:8000/upgrade/1"); // Ã°Å¸â€˜Ë† Sama's ID in URL
+      setResponseMessage("Ã¢Å“â€¦ " + res.data.message);
       setUpgraded(true);
     } catch (err) {
-      setResponseMessage("❌ Upgrade failed: " + (err.response?.data?.detail || err.message));
+      setResponseMessage("Ã¢ÂÅ’ Upgrade failed: " + (err.response?.data?.detail || err.message));
       setUpgraded(true);
     }
   };
@@ -20,11 +20,11 @@ function UpgradeButton() {
     <div style={{ padding: "20px", textAlign: "center" }}>
       {!upgraded ? (
         <button onClick={handleUpgrade} style={{ padding: "10px 20px", fontSize: "16px" }}>
-          🚀 Upgrade Sama
+          Ã°Å¸Å¡â‚¬ Upgrade Sama
         </button>
       ) : (
         <p style={{ fontSize: "18px", color: "green" }}>
-          ✅ {responseMessage}
+          Ã¢Å“â€¦ {responseMessage}
         </p>
       )}
     </div>
@@ -32,3 +32,4 @@ function UpgradeButton() {
 }
 
 export default UpgradeButton;
+

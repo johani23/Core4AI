@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ§® AdPricingCalculator.jsx â€” (v1.0 FINAL)
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® AdPricingCalculator.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â (v1.0 FINAL)
 // ------------------------------------------------------------
-// â€¢ Smart Ad Pricing Calculator for Merchants
-// â€¢ Estimates clicks, conversions & revenue
-// â€¢ Uses /api/merchant/ad_pricing backend
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Smart Ad Pricing Calculator for Merchants
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Estimates clicks, conversions & revenue
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Uses /api/merchant/ad_pricing backend
 // ============================================================
 
-import React, { useState } from "react";
 import axios from "axios";
 
 export default function AdPricingCalculator({ onClose }) {
@@ -40,41 +39,41 @@ export default function AdPricingCalculator({ onClose }) {
 
         {/* Header */}
         <h2 className="text-2xl font-bold mb-4 text-[#006C35]">
-          ðŸ§® Ø­Ø§Ø³Ø¨Ø© Ø§Ù„Ø¥Ø¹Ù„Ø§Ù† Ø§Ù„Ø°ÙƒÙŠØ©
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â©
         </h2>
 
         {/* Budget */}
-        <label className="block font-semibold mt-3">ðŸ’° Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ© (SAR)</label>
+        <label className="block font-semibold mt-3">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© (SAR)</label>
         <input
           type="number"
           value={budget}
           onChange={(e) => setBudget(e.target.value)}
           className="w-full border p-2 rounded mt-1"
-          placeholder="Ù…Ø«Ù„: 1000"
+          placeholder="Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«Ãƒâ„¢Ã¢â‚¬Å¾: 1000"
         />
 
         {/* CPC */}
         <label className="block font-semibold mt-3">
-          ðŸ’¸ Ù…ØªÙˆØ³Ø· Ø§Ù„ØªÙƒÙ„ÙØ© Ù„ÙƒÙ„ Ù†Ù‚Ø±Ø© (CPC)
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¸ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â³ÃƒËœÃ‚Â· ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© (CPC)
         </label>
         <input
           type="number"
           value={cpc}
           onChange={(e) => setCpc(e.target.value)}
           className="w-full border p-2 rounded mt-1"
-          placeholder="Ù…Ø«Ù„: 1.25"
+          placeholder="Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«Ãƒâ„¢Ã¢â‚¬Å¾: 1.25"
         />
 
         {/* Conversion */}
         <label className="block font-semibold mt-3">
-          ðŸŽ¯ Ù†Ø³Ø¨Ø© Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø© (%)
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â© (%)
         </label>
         <input
           type="number"
           value={conversionRate}
           onChange={(e) => setConversionRate(e.target.value)}
           className="w-full border p-2 rounded mt-1"
-          placeholder="Ù…Ø«Ù„: 3.2"
+          placeholder="Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«Ãƒâ„¢Ã¢â‚¬Å¾: 3.2"
         />
 
         {/* Button */}
@@ -83,19 +82,19 @@ export default function AdPricingCalculator({ onClose }) {
           disabled={loading}
           className="w-full bg-green-600 text-white py-3 rounded-lg shadow mt-5 hover:bg-green-700"
         >
-          Ø§Ø­Ø³Ø¨ Ø§Ù„Ø¢Ù†
+          ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â 
         </button>
 
         {/* Results */}
         {result && (
           <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
             <h3 className="font-bold text-lg text-gray-800 mb-3">
-              ðŸ“Š Ø§Ù„Ù†ØªØ§Ø¦Ø¬ Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦ÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©
             </h3>
 
-            <p>ðŸ‘€ Ø§Ù„Ù†Ù‚Ø±Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©: {result.clicks_estimate}</p>
-            <p>ðŸ›’ Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©: {result.conversion_estimate}</p>
-            <p>ðŸ’° Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª Ø§Ù„Ù…ØªÙˆÙ‚Ø¹Ø©: {result.expected_revenue} SAR</p>
+            <p>ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â€šÂ¬ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©: {result.clicks_estimate}</p>
+            <p>ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ¢â‚¬â„¢ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©: {result.conversion_estimate}</p>
+            <p>ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©: {result.expected_revenue} SAR</p>
           </div>
         )}
 
@@ -104,9 +103,11 @@ export default function AdPricingCalculator({ onClose }) {
           onClick={onClose}
           className="w-full bg-gray-200 text-gray-700 mt-6 py-2 rounded-lg hover:bg-gray-300"
         >
-          Ø¥ØºÙ„Ø§Ù‚
+          ÃƒËœÃ‚Â¥ÃƒËœÃ‚ÂºÃƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡
         </button>
       </div>
     </div>
   );
 }
+
+

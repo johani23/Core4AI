@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ AI_Arena.jsx (MVP-38 â€œBehavioral Mirrorâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ AI_Arena.jsx (MVP-38 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBehavioral MirrorÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Live Pulse â€¢ AI Trades â€¢ Swarm â€¢ Predictions â€¢ Digital Twin
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live Pulse ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI Trades ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Swarm ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Predictions ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Digital Twin
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const API_BASE = "http://127.0.0.1:8000";
@@ -20,7 +19,7 @@ export default function AIArena() {
   const wsRef = useRef(null);
 
   // ------------------------------------------------------------
-  // ðŸ›°ï¸ Init + WebSocket
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ‚Â°ÃƒÂ¯Ã‚Â¸Ã‚Â Init + WebSocket
   // ------------------------------------------------------------
   useEffect(() => {
     wsRef.current = new WebSocket("ws://127.0.0.1:8000/ws/ai-pulse");
@@ -67,7 +66,7 @@ export default function AIArena() {
   }
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Render
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Render
   // ------------------------------------------------------------
   return (
     <div className="p-6 min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white">
@@ -76,10 +75,10 @@ export default function AIArena() {
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl font-bold mb-6 text-center"
       >
-        âš¡ AI Arena â€“ Social-AI Fusion & Behavioral Mirror
+        ÃƒÂ¢Ã…Â¡Ã‚Â¡ AI Arena ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Social-AI Fusion & Behavioral Mirror
       </motion.h1>
 
-      {/* ðŸ”´ Live AI Pulse */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Live AI Pulse */}
       {aiPulse && (
         <div
           className={`rounded-2xl p-4 mb-6 text-center border shadow-xl ${
@@ -90,13 +89,13 @@ export default function AIArena() {
               : "border-yellow-500 bg-yellow-700/30"
           }`}
         >
-          <p>Market Trend â†’ {aiPulse.market_trend}</p>
+          <p>Market Trend ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ {aiPulse.market_trend}</p>
           <p>AI Activity : {aiPulse.ai_activity}%</p>
           <p>Wisdom Index : {aiPulse.wisdom_index}</p>
         </div>
       )}
 
-      {/* ðŸ’  Tribe Moods */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Tribe Moods */}
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-4 mb-8">
         {moods.map((t) => (
           <motion.div
@@ -118,7 +117,7 @@ export default function AIArena() {
         ))}
       </div>
 
-      {/* ðŸ“Š Recent AI Trades */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Recent AI Trades */}
       <div className="bg-gray-900/60 border border-gray-700 rounded-2xl p-4 mb-6">
         <h3 className="text-lg font-semibold mb-2">Recent AI Trades</h3>
         <ul className="space-y-1 text-sm">
@@ -141,9 +140,9 @@ export default function AIArena() {
         </ul>
       </div>
 
-      {/* ðŸŒ Swarm Consensus Panel */}
+      {/* ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Swarm Consensus Panel */}
       <div className="bg-indigo-900/30 border border-indigo-700 rounded-2xl p-4 text-center mb-6">
-        <h3 className="text-xl font-semibold mb-2">ðŸ§  Collective Market Consensus</h3>
+        <h3 className="text-xl font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Collective Market Consensus</h3>
         {swarm && (
           <>
             <p>Consensus Trend: <b>{swarm.consensus}</b></p>
@@ -159,9 +158,9 @@ export default function AIArena() {
         </button>
       </div>
 
-      {/* ðŸ”® Predictive Market */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® Predictive Market */}
       <div className="bg-purple-900/30 border border-purple-700 rounded-2xl p-4 text-center mb-6">
-        <h3 className="text-xl font-semibold mb-2">ðŸ”® Predictive Market</h3>
+        <h3 className="text-xl font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® Predictive Market</h3>
         {forecast && (
           <>
             <p>Predicted Trend: <b>{forecast.predicted_trend}</b></p>
@@ -176,9 +175,9 @@ export default function AIArena() {
         </button>
       </div>
 
-      {/* ðŸªž Digital Twin Mirror */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂªÃ…Â¾ Digital Twin Mirror */}
       <div className="bg-fuchsia-900/30 border border-fuchsia-700 rounded-2xl p-4 text-center">
-        <h3 className="text-xl font-semibold mb-2">ðŸªž Digital Twin Simulation</h3>
+        <h3 className="text-xl font-semibold mb-2">ÃƒÂ°Ã…Â¸Ã‚ÂªÃ…Â¾ Digital Twin Simulation</h3>
         {mirror && (
           <>
             <p>Risk Profile: {mirror.risk_profile}</p>
@@ -202,3 +201,5 @@ export default function AIArena() {
     </div>
   );
 }
+
+

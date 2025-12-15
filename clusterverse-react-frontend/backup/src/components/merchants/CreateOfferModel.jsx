@@ -25,14 +25,14 @@ export default function CreateOfferModal({ isOpen, onClose, onCreated }) {
         discount_value: Number(form.discount_value),
         allocated_tokens: Number(form.allocated_tokens),
       });
-      setMessage("✅ Offer created successfully!");
+      setMessage("âœ… Offer created successfully!");
       onCreated?.();
       setTimeout(() => {
         setMessage("");
         onClose();
       }, 1500);
     } catch (err) {
-      setMessage("❌ Error creating offer");
+      setMessage("âŒ Error creating offer");
       console.error(err);
     }
     setLoading(false);
@@ -44,7 +44,7 @@ export default function CreateOfferModal({ isOpen, onClose, onCreated }) {
         onSubmit={handleSubmit}
         className="bg-gray-900 border border-gray-800 rounded-2xl p-6 w-96 text-white"
       >
-        <h2 className="text-xl font-bold mb-4">🛍️ New Merchant Offer</h2>
+        <h2 className="text-xl font-bold mb-4">ðŸ›ï¸ New Merchant Offer</h2>
         {["merchant_id", "creator_id", "description", "discount_value", "allocated_tokens"].map((key) => (
           <div key={key} className="mb-3">
             <label className="text-sm text-gray-400 block mb-1 capitalize">

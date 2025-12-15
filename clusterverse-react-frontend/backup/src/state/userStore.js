@@ -2,7 +2,7 @@
 import { create } from "zustand";
 
 export const useUserStore = create((set) => ({
-  // بيانات المستخدم
+  // Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…
   user: {
     name: "Guest",
     xp: 0,
@@ -10,10 +10,10 @@ export const useUserStore = create((set) => ({
     badges: []
   },
 
-  // تحديث بيانات المستخدم بالكامل
+  // ØªØ­Ø¯ÙŠØ« Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø¨Ø§Ù„ÙƒØ§Ù…Ù„
   setUser: (newUser) => set({ user: newUser }),
 
-  // إضافة XP وتحديث المستوى
+  // Ø¥Ø¶Ø§ÙØ© XP ÙˆØªØ­Ø¯ÙŠØ« Ø§Ù„Ù…Ø³ØªÙˆÙ‰
   addXP: (amount) =>
     set((state) => {
       const newXP = state.user.xp + amount;
@@ -27,7 +27,7 @@ export const useUserStore = create((set) => ({
       };
     }),
 
-  // إضافة Badge جديد
+  // Ø¥Ø¶Ø§ÙØ© Badge Ø¬Ø¯ÙŠØ¯
   addBadge: (badge) =>
     set((state) => ({
       user: {

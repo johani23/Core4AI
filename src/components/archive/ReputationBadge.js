@@ -15,10 +15,11 @@ function Reputation() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">⭐ Reputation</h2>
+      <h2 className="text-2xl font-bold mb-4">Ã¢Â­Â Reputation</h2>
       <p className="text-lg">Your points: <span className="font-bold">{points}</span></p>
     </div>
   );
 }
 
 export default Reputation;
+

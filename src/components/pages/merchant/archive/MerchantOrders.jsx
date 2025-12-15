@@ -1,14 +1,13 @@
 // ============================================================
-// ðŸ‡¸ðŸ‡¦ Core4.AI â€“ MerchantProductList.jsx
-// Saudi Commerce Elite Edition â€” v4.0
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¦ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantProductList.jsx
+// Saudi Commerce Elite Edition ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â v4.0
 // ------------------------------------------------------------
-// âœ” Fetch merchant products: /api/merchant/{id}/products
-// âœ” Saudi ZGlass UI + Royal Gradient
-// âœ” Product Cards + ProductIQ Button
-// âœ” Adapted for full Saudi Identity
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Fetch merchant products: /api/merchant/{id}/products
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Saudi ZGlass UI + Royal Gradient
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Product Cards + ProductIQ Button
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â Adapted for full Saudi Identity
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiPlus, FiTrendingUp, FiDollarSign } from "react-icons/fi";
@@ -28,7 +27,7 @@ export default function MerchantProductList() {
         setLoading(false);
       })
       .catch(() => {
-        toast.error("Ø®Ø·Ø£ Ø£Ø«Ù†Ø§Ø¡ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª");
+        toast.error("ÃƒËœÃ‚Â®ÃƒËœÃ‚Â·ÃƒËœÃ‚Â£ ÃƒËœÃ‚Â£ÃƒËœÃ‚Â«Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª");
         setLoading(false);
       });
   }, []);
@@ -37,7 +36,7 @@ export default function MerchantProductList() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-white text-xl">
-        Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª...
+        ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª...
       </div>
     );
   }
@@ -60,12 +59,12 @@ export default function MerchantProductList() {
                      text-transparent bg-clip-text
                      bg-gradient-to-r from-green-400 to-green-600"
         >
-          Ù…Ù†ØªØ¬Ø§Øª Ø§Ù„ØªØ§Ø¬Ø±
+          Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±
         </h1>
 
         <Link to="/merchant/add-product">
           <button className="bg-green-600 hover:bg-green-700 px-5 py-3 rounded-2xl text-lg font-bold flex items-center gap-2">
-            <FiPlus size={20} /> Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬
+            <FiPlus size={20} /> ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
           </button>
         </Link>
       </motion.div>
@@ -73,7 +72,7 @@ export default function MerchantProductList() {
       {/* If no products */}
       {products.length === 0 && (
         <div className="text-center text-gray-300 mt-20 text-xl">
-          Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†.
+          Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â .
         </div>
       )}
 
@@ -102,13 +101,13 @@ export default function MerchantProductList() {
 
             {/* Description */}
             <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-              {p.description || "Ù„Ø§ ÙŠÙˆØ¬Ø¯ ÙˆØµÙ"}
+              {p.description || "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚ÂµÃƒâ„¢Ã‚Â"}
             </p>
 
             {/* Price */}
             <div className="flex items-center gap-2 text-green-300 text-lg mb-4">
               <FiDollarSign size={20} />
-              <span className="font-bold">{p.price} Ø±ÙŠØ§Ù„</span>
+              <span className="font-bold">{p.price} ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾</span>
             </div>
 
             {/* Actions */}
@@ -123,7 +122,7 @@ export default function MerchantProductList() {
 
               {/* Edit (future) */}
               <button className="px-4 py-2 rounded-xl text-sm font-bold bg-white/10 border border-white/20 text-gray-300 cursor-not-allowed">
-                ØªØ¹Ø¯ÙŠÙ„
+                ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾
               </button>
             </div>
           </motion.div>
@@ -132,3 +131,5 @@ export default function MerchantProductList() {
     </div>
   );
 }
+
+

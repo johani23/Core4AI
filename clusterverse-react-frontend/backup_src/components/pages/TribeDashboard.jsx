@@ -1,4 +1,4 @@
-// 💎 TribeDashboard – Tribe Pulse + Deposit
+// ðŸ’Ž TribeDashboard â€“ Tribe Pulse + Deposit
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -45,7 +45,7 @@ export default function TribeDashboard() {
     fetchTribeData();
   }, [tribeName]);
 
-  if (loading) return <p className="text-center mt-10 text-gray-400 animate-pulse">Loading Tribe Dashboard…</p>;
+  if (loading) return <p className="text-center mt-10 text-gray-400 animate-pulse">Loading Tribe Dashboardâ€¦</p>;
   if (!tribe) return <p className="text-center mt-10 text-red-400">Tribe not found.</p>;
 
   return (
@@ -56,15 +56,15 @@ export default function TribeDashboard() {
         transition={{ duration: 1.5, repeat: Infinity }}
         className="bg-gradient-to-r from-cyan-500 to-blue-700 rounded-xl p-4 text-center shadow-lg"
       >
-        <p className="text-lg font-semibold">💓 Pulse: {pulse}%</p>
+        <p className="text-lg font-semibold">ðŸ’“ Pulse: {pulse}%</p>
         <div className="w-full bg-gray-800 h-3 rounded-full mt-2">
           <div className="bg-cyan-400 h-3 rounded-full" style={{ width: `${pulse}%` }} />
         </div>
       </motion.div>
 
       <div className="bg-gray-900/70 border border-gray-800 rounded-xl p-4 space-y-4">
-        <p>💰 Pool Balance: <span className="font-bold text-cyan-400">{tribe.pool_balance.toFixed(2)} C4T</span></p>
-        <p>👥 Members: {members.length}</p>
+        <p>ðŸ’° Pool Balance: <span className="font-bold text-cyan-400">{tribe.pool_balance.toFixed(2)} C4T</span></p>
+        <p>ðŸ‘¥ Members: {members.length}</p>
         <div className="flex gap-2">
           <input
             type="number"
@@ -83,7 +83,7 @@ export default function TribeDashboard() {
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold mb-2">🏅 Top Contributors</h2>
+        <h2 className="text-xl font-semibold mb-2">ðŸ… Top Contributors</h2>
         <div className="space-y-2">
           {members.map((m, i) => (
             <div key={m.id} className="flex justify-between bg-gray-900 p-2 rounded-lg border border-gray-800">

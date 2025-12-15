@@ -20,7 +20,7 @@ export default function PublicDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 py-10 px-6">
-      {/* ... ÙƒÙ„ ÙƒÙˆØ¯ Public Dashboard Ø§Ù„Ø°ÙŠ ÙƒØªØ¨ØªÙ‡ ... */}
+      {/* ... Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ Public Dashboard ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã†â€™ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¨ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¡ ... */}
     </div>
   );
 }
@@ -36,7 +36,8 @@ function MentorGlowCard({ tribe, dopamine, multiplier = 0 }) {
       whileHover={{ scale: 1.03 }}
       className="relative p-6 rounded-2xl bg-gray-900 text-center shadow-lg overflow-hidden border border-gray-800"
     >
-      {/* ... Ø¨Ø§Ù‚ÙŠ Ø§Ù„ÙƒÙˆØ¯ ... */}
+      {/* ... ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ ... */}
     </motion.div>
   );
 }
+

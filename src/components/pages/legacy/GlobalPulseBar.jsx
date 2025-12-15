@@ -1,34 +1,33 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ GlobalPulseTopBar.jsx (MVP-101.4 â€œSynaptic-Linked Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ GlobalPulseTopBar.jsx (MVP-101.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSynaptic-Linked EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Reads D-Index + live dopamine pulses directly from CoreSyncContext
-// âœ… Auto-animates gradient based on global energy (no polling)
-// âœ… Broadcasts globalMoodUpdate to other tabs
-// âœ… Works seamlessly with SimulationHub + Dashboard
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Reads D-Index + live dopamine pulses directly from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-animates gradient based on global energy (no polling)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Broadcasts globalMoodUpdate to other tabs
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Works seamlessly with SimulationHub + Dashboard
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
 export default function GlobalPulseTopBar() {
-  const { dindex = 0, status = "ðŸ”´ Offline" } = useCoreSync() || {};
+  const { dindex = 0, status = "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â´ Offline" } = useCoreSync() || {};
   const [avg, setAvg] = useState(50);
   const [statusLabel, setStatusLabel] = useState("Calm");
   const [mood, setMood] = useState("neutral");
 
-  // ðŸ§  derive avg% whenever D-Index updates
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  derive avg% whenever D-Index updates
   useEffect(() => {
     const avgPercent = Math.round((dindex || 0) * 100);
     setAvg(avgPercent);
     const label =
       avgPercent > 75
-        ? "ðŸ”¥ Peak Energy"
+        ? "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Peak Energy"
         : avgPercent > 60
-        ? "ðŸŒ¤ Rising"
+        ? "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¤ Rising"
         : avgPercent > 45
-        ? "ðŸŒ« Calm"
-        : "ðŸŒ§ Low";
+        ? "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â« Calm"
+        : "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â§ Low";
     setStatusLabel(label);
 
     // Broadcast to all open tabs (Dashboard, Market, etc.)
@@ -46,7 +45,7 @@ export default function GlobalPulseTopBar() {
     return () => window.removeEventListener("marketMoodUpdate", handler);
   }, []);
 
-  // ðŸŽ¨ color + emoji mapping
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ color + emoji mapping
   const color =
     mood === "bullish"
       ? "from-green-400 to-emerald-600"
@@ -62,18 +61,18 @@ export default function GlobalPulseTopBar() {
 
   const emoji =
     mood === "bullish"
-      ? "ðŸ˜Ž"
+      ? "ÃƒÂ°Ã…Â¸Ã‹Å“Ã…Â½"
       : mood === "bearish"
-      ? "ðŸ˜¨"
+      ? "ÃƒÂ°Ã…Â¸Ã‹Å“Ã‚Â¨"
       : avg > 75
-      ? "ðŸ”¥"
+      ? "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥"
       : avg > 60
-      ? "ðŸŒ¤"
+      ? "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¤"
       : avg > 45
-      ? "ðŸŒ«"
-      : "ðŸŒ§";
+      ? "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â«"
+      : "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â§";
 
-  const online = status.includes("ðŸŸ¢");
+  const online = status.includes("ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢");
 
   return (
     <div className="w-full sticky top-0 left-0 z-50">
@@ -85,7 +84,7 @@ export default function GlobalPulseTopBar() {
       />
       {/* Status line */}
       <div className="text-center text-[11px] py-1 bg-black/60 backdrop-blur-sm text-gray-300 tracking-wide">
-        {emoji} {statusLabel} â€¢{" "}
+        {emoji} {statusLabel} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢{" "}
         <span
           className={`font-semibold ${
             online ? "text-green-400" : "text-red-400"
@@ -93,9 +92,11 @@ export default function GlobalPulseTopBar() {
         >
           {online ? "Online" : "Offline"}
         </span>{" "}
-        â€¢ <span className="text-gray-400">Global Dopamine:</span>{" "}
+        ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ <span className="text-gray-400">Global Dopamine:</span>{" "}
         <span className="text-yellow-400 font-semibold">{avg.toFixed(1)}%</span>
       </div>
     </div>
   );
 }
+
+

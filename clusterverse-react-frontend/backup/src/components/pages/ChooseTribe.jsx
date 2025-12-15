@@ -1,4 +1,4 @@
-// 💎 ChooseTribe – Onboarding Tribe Selection
+// ðŸ’Ž ChooseTribe â€“ Onboarding Tribe Selection
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -44,11 +44,11 @@ export default function ChooseTribe() {
   }, []);
 
   if (loading)
-    return <p className="text-center text-gray-400 mt-10 animate-pulse">Loading tribes…</p>;
+    return <p className="text-center text-gray-400 mt-10 animate-pulse">Loading tribesâ€¦</p>;
 
   return (
     <div className="p-6 max-w-5xl mx-auto text-center space-y-8">
-      <h1 className="text-3xl font-bold">🌈 Choose Your Tribe</h1>
+      <h1 className="text-3xl font-bold">ðŸŒˆ Choose Your Tribe</h1>
       <p className="text-gray-400">Select a tribe to begin your Core4.AI journey.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {tribes.map((tribe, index) => (
@@ -66,9 +66,9 @@ export default function ChooseTribe() {
           >
             <div className="text-4xl mb-2">{tribe.badge}</div>
             <h3 className="text-xl font-semibold">{tribe.name}</h3>
-            <p className="text-sm text-gray-400 mt-1">👥 {tribe.total_members}</p>
+            <p className="text-sm text-gray-400 mt-1">ðŸ‘¥ {tribe.total_members}</p>
             <p className="text-xs text-gray-500 mt-1">
-              💰 {tribe.pool_balance.toFixed(2)} C4T
+              ðŸ’° {tribe.pool_balance.toFixed(2)} C4T
             </p>
           </motion.div>
         ))}

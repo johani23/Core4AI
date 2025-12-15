@@ -29,7 +29,7 @@ export default function MerchantDashboard() {
   return (
     <div className="p-6 min-h-screen bg-black text-white">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">🏪 Merchant Dashboard</h1>
+        <h1 className="text-2xl font-bold">ðŸª Merchant Dashboard</h1>
         <div className="space-x-3">
           {!merchant && (
             <button

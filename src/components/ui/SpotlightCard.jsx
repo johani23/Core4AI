@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * Core4.AI â€“ MVP 18 UI Component
+ * Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP 18 UI Component
  * -----------------------------------------------------------
  * SpotlightCard
  * Displays a ranked group card used in Spotlight page.
@@ -52,3 +52,4 @@ export default function SpotlightCard({ name, index }) {
     </motion.div>
   );
 }
+

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 /**
- * Core4.AI â€“ MVP 15 Week 2
+ * Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP 15 Week 2
  * Emotion & Value Density Analyzer
  */
 
@@ -18,14 +18,14 @@ export default function EmotionCluster() {
       const res = await axios.post("http://localhost:8000/ai/emotion-cluster", { text });
       setResult(res.data);
     } catch (err) {
-      console.error("âŒ Error analyzing text:", err);
+      console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Error analyzing text:", err);
     }
     setLoading(false);
   };
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
-      <h1 className="text-3xl font-bold mb-4 text-purple-400">ðŸŽ­ Emotional Clustering Analyzer</h1>
+      <h1 className="text-3xl font-bold mb-4 text-purple-400">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â­ Emotional Clustering Analyzer</h1>
       <textarea
         className="w-full h-40 p-4 rounded-xl bg-gray-900 border border-gray-700 text-gray-200"
         placeholder="Enter any post, caption, or idea to analyze..."
@@ -54,10 +54,11 @@ export default function EmotionCluster() {
           </div>
 
           <p className="mt-3 text-sm text-gray-400 italic">
-            ðŸ’Ž Value Density: <span className="text-yellow-400 font-semibold">{result.value_density}%</span>
+            ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Value Density: <span className="text-yellow-400 font-semibold">{result.value_density}%</span>
           </p>
         </div>
       )}
     </div>
   );
 }
+

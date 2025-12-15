@@ -34,7 +34,7 @@ function Community() {
 
   return (
     <div>
-      <h2>🌐 Community</h2>
+      <h2>Ã°Å¸Å’Â Community</h2>
       <input
         type="text"
         placeholder="Your name"
@@ -62,3 +62,4 @@ function Community() {
 }
 
 export default Community;
+

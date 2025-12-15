@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { apiGetUserChallenges } from "../api";
 
 function Challenges({ username }) {
@@ -18,7 +18,7 @@ function Challenges({ username }) {
 
   return (
     <div className="card">
-      <h2>🎯 Challenges</h2>
+      <h2>ðŸŽ¯ Challenges</h2>
       <ul>
         {challenges.map((c) => {
           const isDone = completed.find((cc) => cc.id === c.id);
@@ -30,9 +30,9 @@ function Challenges({ username }) {
                 color: isDone ? "lime" : "white",
               }}
             >
-              <strong>{c.title}</strong> → Reward:{" "}
+              <strong>{c.title}</strong> â†’ Reward:{" "}
               {c.reward > 0 ? `+${c.reward} pts` : c.badge}
-              {isDone && " ✅ Completed!"}
+              {isDone && " âœ… Completed!"}
             </li>
           );
         })}
@@ -42,3 +42,4 @@ function Challenges({ username }) {
 }
 
 export default Challenges;
+

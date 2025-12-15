@@ -1,7 +1,7 @@
 import React from "react";
 
 function Recommendations({ points }) {
-  // دالة لتوليد التوصيات مع النقاط المحتملة
+  // Ø¯Ø§Ù„Ø© Ù„ØªÙˆÙ„ÙŠØ¯ Ø§Ù„ØªÙˆØµÙŠØ§Øª Ù…Ø¹ Ø§Ù„Ù†Ù‚Ø§Ø· Ø§Ù„Ù…Ø­ØªÙ…Ù„Ø©
   const getRecommendations = () => {
     if (points < 20) {
       return {
@@ -25,7 +25,7 @@ function Recommendations({ points }) {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 mt-8 w-full max-w-2xl text-center">
-      <h2 className="text-2xl font-bold mb-4">✨ Recommendations</h2>
+      <h2 className="text-2xl font-bold mb-4">âœ¨ Recommendations</h2>
       <p className="text-gray-700">
         {recommendation.text}
       </p>

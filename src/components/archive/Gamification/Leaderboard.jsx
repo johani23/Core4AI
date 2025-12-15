@@ -1,19 +1,18 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Leaderboard.jsx (v1 â€œInfluence Ranking Boardâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Leaderboard.jsx (v1 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInfluence Ranking BoardÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays ranked list of top creators & tribes
-// âœ… Integrates XP + Level + ROI impact
-// âœ… Live updates from CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays ranked list of top creators & tribes
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrates XP + Level + ROI impact
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live updates from CoreSyncContext
 // ============================================================
 
-import React, { useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
 export default function Leaderboard() {
   const { creators = [], tribes = [], xp = 0, level = {} } = useCoreSync();
 
-  // ðŸ§® Compute influence score for each creator
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Compute influence score for each creator
   const rankedCreators = useMemo(() => {
     return creators
       .map((c) => {
@@ -28,13 +27,13 @@ export default function Leaderboard() {
       .slice(0, 10);
   }, [creators]);
 
-  // ðŸ† Highlight current user's rank (mock logic)
+  // ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Highlight current user's rank (mock logic)
   const myRank = useMemo(() => {
     const position = rankedCreators.findIndex((r) => r.name === "You");
     return position >= 0 ? position + 1 : null;
   }, [rankedCreators]);
 
-  // ðŸŒˆ Tribe color palette
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‹â€  Tribe color palette
   const tribeColors = {
     "Fashion Tribe": "#FF6FB5",
     "Tech Tribe": "#38BDF8",
@@ -47,11 +46,11 @@ export default function Leaderboard() {
     <div className="bg-[#111827] border border-gray-700 rounded-xl p-5 shadow-md">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
-          ðŸ† Influence Leaderboard
+          ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Influence Leaderboard
         </h2>
         <div className="text-sm text-gray-400">
           Your XP: <span className="text-white font-semibold">{xp}</span>{" "}
-          â€¢ Level:{" "}
+          ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Level:{" "}
           <span style={{ color: level.color || "#b87333" }}>
             {level.title || "Bronze"}
           </span>
@@ -106,7 +105,7 @@ export default function Leaderboard() {
                 </div>
               </div>
               <div className="text-sm text-gray-300">
-                âš¡ {creator.influenceScore.toFixed(1)}
+                ÃƒÂ¢Ã…Â¡Ã‚Â¡ {creator.influenceScore.toFixed(1)}
               </div>
             </motion.div>
           ))}
@@ -124,3 +123,5 @@ export default function Leaderboard() {
     </div>
   );
 }
+
+

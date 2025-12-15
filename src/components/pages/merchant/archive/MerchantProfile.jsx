@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š MerchantProfile.jsx â€” Core4.AI (v1.0 BETA RELEASE)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ MerchantProfile.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Core4.AI (v1.0 BETA RELEASE)
 // ----------------------------------------------------------------------------
-// â€¢ New Merchant Profile page
-// â€¢ AI Pricing Summary + UnifiedPricing
-// â€¢ Compact, clean and ready for Beta
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ New Merchant Profile page
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI Pricing Summary + UnifiedPricing
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Compact, clean and ready for Beta
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import UnifiedPricing from "@/components/pricing/UnifiedPricing";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,7 +15,7 @@ export default function MerchantProfile() {
   const merchantId = "merchant_001";
 
   const [merchant, setMerchant] = useState({
-    name: "Ù…ØªØ¬Ø± Ø§Ù„ØªØ§Ø¬Ø± Ø§Ù„Ø°ÙƒÙŠ",
+    name: "Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã…Â ",
     avatar: "https://i.imgur.com/1Q9Z1Zm.png",
     plan: "Free Beta Plan",
   });
@@ -56,10 +55,10 @@ export default function MerchantProfile() {
       {/* AI PRICING SUMMARY */}
       <div className="bg-white rounded-2xl shadow border p-6">
         <h2 className="text-xl font-bold text-green-600 mb-4">
-          ðŸ’š Ù…Ù„Ø®Øµ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù„Ù„ØªØ³Ø¹ÙŠØ±
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®ÃƒËœÃ‚Âµ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±
         </h2>
         <p className="text-gray-600 text-sm mb-4">
-          ÙŠØ¹Ø±Ø¶ Ù„Ùƒ Ø§Ù„Ù†Ø¸Ø§Ù… Ø£ÙØ¶Ù„ Ù…Ù†ØªØ¬ Ù…Ù† Ù†Ø§Ø­ÙŠØ© ØªØ³Ø¹ÙŠØ± Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ.
+          Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¶ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â­Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â .
         </p>
 
         {topProduct ? (
@@ -69,18 +68,18 @@ export default function MerchantProfile() {
             />
           </div>
         ) : (
-          <p className="text-gray-500 text-sm">Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª Ø¨Ø¹Ø¯.</p>
+          <p className="text-gray-500 text-sm">Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.</p>
         )}
       </div>
 
       {/* TOP PRODUCTS */}
       <div>
         <h2 className="text-xl font-bold text-green-600 mb-4">
-          Ø£ÙØ¶Ù„ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª Ø£Ø¯Ø§Ø¡Ù‹
+          ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡Ãƒâ„¢Ã¢â‚¬Â¹
         </h2>
 
         {products.length === 0 && (
-          <p className="text-gray-500 text-sm">Ù„Ù… ÙŠØªÙ… Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†.</p>
+          <p className="text-gray-500 text-sm">Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â .</p>
         )}
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -90,7 +89,7 @@ export default function MerchantProfile() {
               className="bg-white p-4 shadow rounded-xl border"
             >
               <h3 className="font-bold text-gray-800">{p.name}</h3>
-              <p className="text-gray-500 text-sm mb-3">{p.price} Ø±.Ø³</p>
+              <p className="text-gray-500 text-sm mb-3">{p.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³</p>
 
               <button
                 onClick={() =>
@@ -98,7 +97,7 @@ export default function MerchantProfile() {
                 }
                 className="mt-2 bg-green-600 text-white w-full py-2 rounded-lg hover:bg-green-700"
               >
-                ðŸš€ Ø¨Ù†Ø§Ø¡ Ø­Ù…Ù„Ø©
+                ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
               </button>
             </div>
           ))}
@@ -111,23 +110,25 @@ export default function MerchantProfile() {
           onClick={() => navigate("/merchant/add-product")}
           className="bg-purple-600 text-white p-4 rounded-xl shadow hover:bg-purple-700"
         >
-          âž• Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬ Ø¬Ø¯ÙŠØ¯
+          ÃƒÂ¢Ã…Â¾Ã¢â‚¬Â¢ ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯
         </button>
 
         <button
           onClick={() => navigate("/merchant/products/list")}
           className="bg-gray-800 text-white p-4 rounded-xl shadow hover:bg-gray-900"
         >
-          ðŸ“¦ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¦ ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª
         </button>
 
         <button
           onClick={() => navigate("/merchant/campaigns")}
           className="bg-blue-600 text-white p-4 rounded-xl shadow hover:bg-blue-700"
         >
-          ðŸŽ¯ Ø§Ù„Ø­Ù…Ù„Ø§Øª Ø§Ù„Ù†Ø´Ø·Ø©
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â´ÃƒËœÃ‚Â·ÃƒËœÃ‚Â©
         </button>
       </div>
     </div>
   );
 }
+
+

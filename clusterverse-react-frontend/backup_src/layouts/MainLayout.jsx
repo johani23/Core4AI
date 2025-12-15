@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 /**
- * Core4.AI – MVP 10 Main Layout (with Footer)
+ * Core4.AI â€“ MVP 10 Main Layout (with Footer)
  */
 
 export default function MainLayout() {
@@ -13,10 +13,10 @@ export default function MainLayout() {
 
   return (
     <div className="bg-black min-h-screen text-white flex flex-col justify-between">
-      {/* Navbar ثابت */}
+      {/* Navbar Ø«Ø§Ø¨Øª */}
       <Navbar />
 
-      {/* محتوى الصفحات */}
+      {/* Ù…Ø­ØªÙˆÙ‰ Ø§Ù„ØµÙØ­Ø§Øª */}
       <main className="pt-20 px-4 md:px-8 max-w-7xl mx-auto flex-1 w-full">
         <AnimatePresence mode="wait">
           <motion.div
@@ -31,7 +31,7 @@ export default function MainLayout() {
         </AnimatePresence>
       </main>
 
-      {/* Footer ثابت */}
+      {/* Footer Ø«Ø§Ø¨Øª */}
       <Footer />
     </div>
   );

@@ -1,17 +1,16 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MVP 30.0 "Core4 Token Market Board"
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MVP 30.0 "Core4 Token Market Board"
 // ------------------------------------------------------------
 // Displays dynamic tokenized Core4 groups with price, trend,
 // dopamine, and engagement metrics. Live refresh every 15s.
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { getCore4Tokens, getMarketMood } from "@services/api";
 import { motion } from "framer-motion";
 
 export default function Core4Board() {
   const [tokens, setTokens] = useState([]);
-  const [mood, setMood] = useState({ mood: "Neutral", emoji: "ðŸŒ¤", emi: 50 });
+  const [mood, setMood] = useState({ mood: "Neutral", emoji: "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¤", emi: 50 });
   const [loading, setLoading] = useState(true);
 
   // Load data
@@ -24,7 +23,7 @@ export default function Core4Board() {
         setMood(moodData);
         setLoading(false);
       } catch (err) {
-        console.error("âš ï¸ Error fetching Core4 tokens:", err);
+        console.error("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Error fetching Core4 tokens:", err);
       }
     }
     fetchData();
@@ -35,7 +34,7 @@ export default function Core4Board() {
   if (loading)
     return (
       <div className="flex items-center justify-center h-screen text-white text-xl">
-        ðŸ”„ Loading Core4 Market Board...
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Loading Core4 Market Board...
       </div>
     );
 
@@ -48,16 +47,16 @@ export default function Core4Board() {
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
-      {/* ðŸ§  Global Market Mood */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Global Market Mood */}
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">ðŸ’¹ Core4 Token Market Board</h1>
+        <h1 className="text-3xl font-bold mb-2">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Core4 Token Market Board</h1>
         <p className="text-lg text-gray-400">
           Global Market Mood: <span className="text-purple-300">{mood.emoji} {mood.mood}</span> | EMI:{" "}
           <span className="text-blue-400">{mood.emi}</span>
         </p>
       </div>
 
-      {/* ðŸ”¹ Token Cards */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ Token Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {tokens.map((t) => (
           <motion.div
@@ -69,23 +68,23 @@ export default function Core4Board() {
             <h2 className="text-xl font-bold text-yellow-300 mb-2">{t.name}</h2>
             <div className="text-gray-300 text-sm space-y-2">
               <div>
-                ðŸ’° <span className="font-semibold text-white">{t.price.toFixed(2)}</span> C4T{" "}
+                ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° <span className="font-semibold text-white">{t.price.toFixed(2)}</span> C4T{" "}
                 <span className={`${getTrendColor(t.trend)} ml-1`}>{t.change}</span>
               </div>
               <div>
-                âš¡ Engagement:{" "}
+                ÃƒÂ¢Ã…Â¡Ã‚Â¡ Engagement:{" "}
                 <span className="text-green-300">{(t.engagement * 100).toFixed(1)}%</span>
               </div>
               <div>
-                ðŸ§  Dopamine:{" "}
+                ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Dopamine:{" "}
                 <span className="text-blue-300">{(t.dopamine * 100).toFixed(1)}%</span>
               </div>
               <div>
-                ðŸ“ˆ Trend: <span className={getTrendColor(t.trend)}>{t.trend}</span>
+                ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Trend: <span className={getTrendColor(t.trend)}>{t.trend}</span>
               </div>
             </div>
 
-            {/* ðŸª™ Mock Buttons */}
+            {/* ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Mock Buttons */}
             <div className="flex gap-3 mt-4">
               <button className="flex-1 bg-green-600 hover:bg-green-700 rounded-lg py-2 text-sm font-semibold">
                 Buy
@@ -100,3 +99,5 @@ export default function Core4Board() {
     </div>
   );
 }
+
+

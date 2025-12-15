@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ OnboardingTour.jsx (v2.3 â€œLive Anchors Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ OnboardingTour.jsx (v2.3 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Anchors EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Waits until elements exist before running
-// âœ… Highlights navbar, D-Index, and Analytics
-// âœ… Works with Framer Motion transitions
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Waits until elements exist before running
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Highlights navbar, D-Index, and Analytics
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Works with Framer Motion transitions
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import Joyride, { STATUS } from "react-joyride";
 import { motion } from "framer-motion";
 
@@ -15,7 +14,7 @@ export default function OnboardingTour() {
   const [steps, setSteps] = useState([]);
   const [ready, setReady] = useState(false);
 
-  // ðŸ§­ Watch for DOM availability
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Watch for DOM availability
   useEffect(() => {
     const checkElements = () => {
       const hasNav = document.querySelector("#core-nav");
@@ -28,13 +27,13 @@ export default function OnboardingTour() {
     return () => clearInterval(observer);
   }, []);
 
-  // âœ¨ Define tour steps when ready
+  // ÃƒÂ¢Ã…â€œÃ‚Â¨ Define tour steps when ready
   useEffect(() => {
     if (!ready) return;
     setSteps([
       {
         target: "#core-nav",
-        content: "This is your main navigation bar â€” switch between Creator, Merchant, and Buyer modes.",
+        content: "This is your main navigation bar ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â switch between Creator, Merchant, and Buyer modes.",
         disableBeacon: true,
       },
       {
@@ -63,9 +62,9 @@ export default function OnboardingTour() {
       transition={{ duration: 0.3 }}
       className="min-h-screen flex flex-col items-center justify-center text-gray-200 bg-gradient-to-b from-black via-gray-900 to-gray-950 p-8"
     >
-      <h1 className="text-3xl font-bold text-purple-400 mb-4">ðŸ‘‹ Welcome to Core4.AI</h1>
+      <h1 className="text-3xl font-bold text-purple-400 mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Â¹ Welcome to Core4.AI</h1>
       <p className="text-gray-400 mb-6 max-w-md text-center">
-        Letâ€™s take a quick tour to help you understand the features and navigate
+        LetÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s take a quick tour to help you understand the features and navigate
         between Merchant, Creator, and Audience dashboards.
       </p>
 
@@ -101,3 +100,5 @@ export default function OnboardingTour() {
     </motion.div>
   );
 }
+
+

@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Tribes.jsx (v138 â€œLive Reward & Level Syncâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Tribes.jsx (v138 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Reward & Level SyncÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… ÙŠØ¹Ø±Ø¶ Ù…Ø³ØªÙˆÙŠØ§Øª Ø§Ù„Ù‚Ø¨Ø§Ø¦Ù„ ÙˆÙ…Ø¤Ø´Ø±Ø§Øª Ø§Ù„Ù†Ø´Ø§Ø· ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ
-// âœ… ÙŠØªÙØ§Ø¹Ù„ Ù…Ø¨Ø§Ø´Ø±Ø© Ù…Ø¹ simulateReward() Ù…Ù† CoreSyncContext
-// âœ… ÙŠÙØ­Ø¯Ø« dopamine Ùˆ D-Index ÙÙˆØ±ÙŠØ§Ù‹ Ø¨Ø¹Ø¯ ÙƒÙ„ ØªÙØ§Ø¹Ù„
-// âœ… ÙŠØºÙ„Ù‚ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ 1 Ø¨Ø§Ù„ÙƒØ§Ù…Ù„ (Tribes + TokenWeight + Reward Integration)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¶ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â´ÃƒËœÃ‚Â§ÃƒËœÃ‚Â· Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â 
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ simulateReward() Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â  CoreSyncContext
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â« dopamine Ãƒâ„¢Ã‹â€  D-Index Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂºÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¹ 1 ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ (Tribes + TokenWeight + Reward Integration)
 // ============================================================
 
-import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -16,7 +15,7 @@ export default function Tribes() {
   const [loadingTribe, setLoadingTribe] = useState(null);
 
   // ------------------------------------------------------------
-  // ðŸ§® Trigger Reward Simulation
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Trigger Reward Simulation
   // ------------------------------------------------------------
   const handleReward = async (tribeName) => {
     setLoadingTribe(tribeName);
@@ -25,17 +24,17 @@ export default function Tribes() {
   };
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Level Badge Helper
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Level Badge Helper
   // ------------------------------------------------------------
   const levelBadge = (level) => {
-    if (level >= 5) return "ðŸ’Ž Master";
-    if (level >= 3) return "ðŸ”¥ Pro";
-    if (level >= 2) return "ðŸŒŸ Rising";
-    return "ðŸŽ¯ Novice";
+    if (level >= 5) return "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Master";
+    if (level >= 3) return "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Pro";
+    if (level >= 2) return "ÃƒÂ°Ã…Â¸Ã…â€™Ã…Â¸ Rising";
+    return "ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Novice";
   };
 
   // ------------------------------------------------------------
-  // ðŸ“Š Dopamine Color Logic
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Dopamine Color Logic
   // ------------------------------------------------------------
   const dopamineColor = (val) => {
     if (val > 0.7) return "text-emerald-400";
@@ -44,13 +43,13 @@ export default function Tribes() {
   };
 
   // ------------------------------------------------------------
-  // ðŸ§  Render Tribe Cards
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Render Tribe Cards
   // ------------------------------------------------------------
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white p-8">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold text-fuchsia-400 flex items-center gap-2">
-          âš”ï¸ Active Tribes
+          ÃƒÂ¢Ã…Â¡Ã¢â‚¬ÂÃƒÂ¯Ã‚Â¸Ã‚Â Active Tribes
         </h1>
         <span
           className={`text-sm px-3 py-1 rounded-full ${
@@ -64,7 +63,7 @@ export default function Tribes() {
       </div>
 
       <p className="text-gray-400 text-sm mb-8">
-        Ø§Ø¶ØºØ· Ø¹Ù„Ù‰ Ø£ÙŠ Ù‚Ø¨ÙŠÙ„Ø© Ù„ØªØ¬Ø±Ø¨Ø© Ø¯ÙˆØ±Ø© Ø§Ù„Ù…ÙƒØ§ÙØ£Ø© ÙˆØ§Ø®ØªØ¨Ø§Ø± Ø§Ù„ØªÙØ§Ø¹Ù„ Ù…Ø¹ /reward/simulate
+        ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¶ÃƒËœÃ‚ÂºÃƒËœÃ‚Â· ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â£Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¯Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â£ÃƒËœÃ‚Â© Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ /reward/simulate
       </p>
 
       {/* Tribe Cards */}
@@ -148,16 +147,18 @@ export default function Tribes() {
       {/* Council Overview */}
       <div className="mt-10 p-4 border border-gray-800 rounded-xl bg-gray-900/40">
         <h3 className="text-lg font-semibold text-emerald-400 mb-2">
-          ðŸ§­ Council D-Index
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Council D-Index
         </h3>
         <p className="text-gray-300 text-sm">
           Current D-Index:{" "}
           <span className="text-fuchsia-400 font-bold">
             {council.dindex.toFixed(2)}
           </span>{" "}
-          â€“ measures tribe harmony and engagement power.
+          ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ measures tribe harmony and engagement power.
         </p>
       </div>
     </div>
   );
 }
+
+

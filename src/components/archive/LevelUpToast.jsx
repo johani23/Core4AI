@@ -28,13 +28,13 @@ export default function LevelUpToast() {
           className="fixed top-6 right-6 bg-gradient-to-r from-fuchsia-600 via-pink-500 to-amber-400 
                      text-white px-5 py-3 rounded-2xl shadow-2xl z-50 flex items-center gap-3"
         >
-          <span className="text-2xl">ðŸŽ‰</span>
+          <span className="text-2xl">ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â°</span>
           <div>
             <p className="font-bold text-sm tracking-wide">
               {latest.creator} reached <span className="text-amber-100">{latest.new_level}</span>!
             </p>
             <p className="text-xs text-fuchsia-100 opacity-90">
-              XP {latest.xp?.toFixed?.(1)} â€¢ {new Date(latest.time).toLocaleTimeString()}
+              XP {latest.xp?.toFixed?.(1)} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {new Date(latest.time).toLocaleTimeString()}
             </p>
           </div>
         </motion.div>
@@ -42,3 +42,4 @@ export default function LevelUpToast() {
     </AnimatePresence>
   );
 }
+

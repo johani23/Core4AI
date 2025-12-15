@@ -1,100 +1,219 @@
-// ============================================================
-// ðŸ’š Core4.AI â€“ ProductCenter.jsx (v12 Stable)
-// ------------------------------------------------------------
-// Product listing hub + links to Pricing, Analytics, MIT
-// ============================================================
+// ============================================================================
+// 💚 Core4.AI – ProductCenter
+// FINAL MIT-AWARE VERSION (CLEAN & SAFE)
+// ============================================================================
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  PlusIcon,
-  CubeIcon,
-  ChartBarIcon,
-  TagIcon,
-} from "@heroicons/react/24/outline";
+import BackToMerchant from "@/components/common/BackToMerchant";
+import { useInfluence } from "@/context/InfluenceScoreContext";
+import { motion } from "framer-motion";
 
 export default function ProductCenter() {
   const [products, setProducts] = useState([]);
+  const { calculateFitScore, predictCommercialSuccess } = useInfluence();
 
+  // ========================================================================
+  // LOAD PRODUCTS
+  // ========================================================================
   useEffect(() => {
-    setProducts([
-      { id: 1, name: "Wireless Earbuds", price: 129, views: 2340, sales: 180 },
-      { id: 2, name: "Smart Watch X", price: 299, views: 5430, sales: 410 },
-      { id: 3, name: "Premium Backpack", price: 52, views: 950, sales: 72 },
-    ]);
+    async function load() {
+      try {
+        const res = await fetch("/api/merchant/products/");
+        const data = await res.json();
+
+        const normalized = data.map((p) => ({
+          id: p.id,
+          name: p.name,
+          category: p.category || "غير محدد",
+          price: p.price,
+          competitor_price: p.competitor_price,
+          image_url: p.image_url,
+          features: p.features || [],
+          mit: null,
+        }));
+
+        setProducts(normalized);
+
+        // Load MIT per product (non-blocking, SAFE)
+        normalized.forEach((prod) => loadMIT(prod.id));
+      } catch (err) {
+        console.error("❌ Product load failed:", err);
+      }
+    }
+
+    load();
   }, []);
 
+  // ========================================================================
+  // LOAD MIT (READ-ONLY, SAFE)
+  // ========================================================================
+  async function loadMIT(productId) {
+    try {
+      const res = await fetch(
+        `/api/merchant/products/${productId}/mit`
+      );
+
+      if (!res.ok) return;
+
+      const data = await res.json();
+
+      // ignore not_ready
+      if (data.status === "not_ready") return;
+
+      setProducts((prev) =>
+        prev.map((p) =>
+          p.id === productId ? { ...p, mit: data } : p
+        )
+      );
+    } catch (err) {
+      console.error("❌ MIT load failed:", err);
+    }
+  }
+
+  // ========================================================================
+  // UI
+  // ========================================================================
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-semibold text-gray-900">Product Center</h1>
-          <p className="text-gray-500 mt-1">
-            Manage and monitor your entire product catalog.
-          </p>
-        </div>
+    <div className="max-w-6xl mx-auto" dir="rtl">
+      <BackToMerchant />
 
-        <Link
-          to="/merchant/products/add"
-          className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+      {/* HEADER */}
+      <div className="flex justify-between items-center mt-6 mb-10">
+        <h1 className="text-3xl font-extrabold text-gray-900">
+          مركز المنتجات (MIT Pricing)
+        </h1>
+
+        <button
+          onClick={() => (window.location.href = "/merchant/add-product")}
+          className="btn-green px-6 py-3"
         >
-          <PlusIcon className="w-5 h-5" />
-          <span>Add Product</span>
-        </Link>
+          ➕ إضافة منتج جديد
+        </button>
       </div>
 
-      {/* Product Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition p-5 space-y-4"
-          >
-            <div className="flex items-center space-x-3">
-              <div className="bg-gray-900 text-white p-3 rounded-lg">
-                <CubeIcon className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-semibold">{product.name}</h3>
-            </div>
+      {!products.length && (
+        <p className="text-gray-500 text-center mt-20 text-lg">
+          لا توجد منتجات بعد — ابدأ بإضافة منتج.
+        </p>
+      )}
 
-            <div className="grid grid-cols-3 gap-3 text-center">
-              <div className="p-2 bg-gray-50 rounded-lg">
-                <p className="text-xs text-gray-500">Price</p>
-                <p className="text-md font-semibold">${product.price}</p>
-              </div>
+      {products.length > 0 && (
+        <motion.div
+          className="bg-white border rounded-xl shadow-sm overflow-hidden"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <table className="w-full border-collapse text-right">
+            <thead className="bg-gray-100 border-b">
+              <tr className="text-gray-600 text-sm font-semibold">
+                <th className="p-4">المنتج</th>
+                <th className="p-4">السعر & MIT</th>
+                <th className="p-4">الملاءمة (AI)</th>
+                <th className="p-4">النجاح المتوقع</th>
+                <th className="p-4">عمليات</th>
+              </tr>
+            </thead>
 
-              <div className="p-2 bg-gray-50 rounded-lg">
-                <p className="text-xs text-gray-500">Views</p>
-                <p className="text-md font-semibold">{product.views}</p>
-              </div>
+            <tbody>
+              {products.map((prod) => {
+                const fit = calculateFitScore(prod);
+                const proj = predictCommercialSuccess(prod);
 
-              <div className="p-2 bg-gray-50 rounded-lg">
-                <p className="text-xs text-gray-500">Sales</p>
-                <p className="text-md font-semibold">{product.sales}</p>
-              </div>
-            </div>
+                return (
+                  <tr
+                    key={prod.id}
+                    className="border-b hover:bg-gray-50 transition"
+                  >
+                    {/* PRODUCT */}
+                    <td className="p-4">
+                      <p className="font-bold text-gray-900">{prod.name}</p>
+                      <p className="text-gray-500 text-sm">{prod.category}</p>
+                    </td>
 
-            <div className="flex items-center justify-between">
-              <Link
-                to={`/merchant/pricing?id=${product.id}`}
-                className="flex items-center text-green-700 hover:text-green-900 transition"
-              >
-                <TagIcon className="w-5 h-5 mr-1" />
-                Pricing
-              </Link>
+                    {/* PRICE + MIT */}
+                    <td className="p-4 text-sm text-gray-800">
+                      <div>
+                        السعر الأساسي: <b>{prod.price}</b> ريال
+                      </div>
+                      <div>
+                        سعر المنافس:{" "}
+                        <b>{prod.competitor_price || prod.price}</b> ريال
+                      </div>
 
-              <Link
-                to={`/merchant/analytics?id=${product.id}`}
-                className="flex items-center text-gray-700 hover:text-gray-900 transition"
-              >
-                <ChartBarIcon className="w-5 h-5 mr-1" />
-                Analytics
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+                      {prod.mit && (
+                        <div className="mt-2 text-purple-700">
+                          <div>
+                            💡 السعر الذكي:{" "}
+                            <b>{prod.mit.smart_price}</b> ريال
+                          </div>
+                          <div className="text-xs text-gray-600">
+                            النطاق: {prod.mit.market_floor} –{" "}
+                            {prod.mit.market_ceiling}
+                          </div>
+                          <div className="text-xs text-green-600 font-semibold">
+                            رفع التحويل: {prod.mit.conversion_lift}
+                          </div>
+                        </div>
+                      )}
+                    </td>
+
+                    {/* AI FIT */}
+                    <td className="p-4 font-bold">{fit} / 200</td>
+
+                    {/* SUCCESS */}
+                    <td className="p-4 font-bold">{proj}%</td>
+
+                    {/* ACTIONS */}
+                    <td className="p-4">
+                      <div className="flex gap-2 flex-row-reverse">
+                        <button
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg"
+                          onClick={() =>
+                            (window.location.href =
+                              `/merchant/campaign?product=${prod.id}`)
+                          }
+                        >
+                          🚀 حملة
+                        </button>
+
+                        <button
+                          className="px-3 py-2 bg-green-600 text-white rounded-lg"
+                          onClick={() =>
+                            (window.location.href =
+                              `/merchant/pricing/${prod.id}`)
+                          }
+                        >
+                          💰 تسعير
+                        </button>
+
+                        <button
+                          className="px-3 py-2 bg-purple-600 text-white rounded-lg"
+                          onClick={() =>
+                            (window.location.href =
+                              `/merchant/market-insights/${prod.id}`)
+                          }
+                        >
+                          📊 MIT
+                        </button>
+
+                        <button
+                          className="px-3 py-2 bg-gray-200 rounded-lg"
+                          onClick={() =>
+                            (window.location.href =
+                              `/merchant/add-product?edit=${prod.id}`)
+                          }
+                        >
+                          ✏️ تعديل
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </motion.div>
+      )}
     </div>
   );
 }

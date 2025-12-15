@@ -10,7 +10,7 @@ function Spotlight() {
         const res = await getSpotlight();
         setUser(res);
       } catch (err) {
-        console.error("❌ Failed to fetch spotlight", err);
+        console.error("Ã¢ÂÅ’ Failed to fetch spotlight", err);
       }
     }
     fetchData();
@@ -20,7 +20,7 @@ function Spotlight() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">🔦 Spotlight</h1>
+      <h1 className="text-2xl font-bold mb-6">Ã°Å¸â€Â¦ Spotlight</h1>
       <div className="p-6 bg-white shadow-lg rounded-xl flex items-center gap-4">
         <img
           src={user.avatar}
@@ -40,3 +40,4 @@ function Spotlight() {
 }
 
 export default Spotlight;
+

@@ -1,16 +1,15 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SubTribePanel.jsx (v1.0 â€œInfluencer Cluster UIâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SubTribePanel.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInfluencer Cluster UIÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// â€¢ Create & manage closed Sub-Tribes
-// â€¢ Invite members by ID
-// â€¢ Auto-refresh stats every 10 s
-// â€¢ Visual avatars with initials
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Create & manage closed Sub-Tribes
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Invite members by ID
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-refresh stats every 10 s
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Visual avatars with initials
 // ------------------------------------------------------------
 
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Utility â†’ first-two-letters avatar
+// Utility ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ first-two-letters avatar
 function Avatar({ name }) {
   const initials = name.slice(0, 2).toUpperCase();
   const colors = ["bg-purple-600", "bg-pink-600", "bg-blue-600", "bg-amber-600"];
@@ -62,9 +61,9 @@ export default function SubTribePanel({ userId = "U101" }) {
       });
       const data = await res.json();
       setSubtribeId(data.subtribe_id);
-      setStatus(`âœ… Sub-tribe created: ${data.subtribe_id}`);
+      setStatus(`ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Sub-tribe created: ${data.subtribe_id}`);
     } catch (err) {
-      setStatus("âŒ Failed to create sub-tribe");
+      setStatus("ÃƒÂ¢Ã‚ÂÃ…â€™ Failed to create sub-tribe");
     }
   };
 
@@ -78,11 +77,11 @@ export default function SubTribePanel({ userId = "U101" }) {
         body: JSON.stringify({ subtribe_id: subtribeId, invitee_id: invitee }),
       });
       const data = await res.json();
-      setStatus(`âœ… Invited ${data.invitee}`);
+      setStatus(`ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Invited ${data.invitee}`);
       setInvitee("");
       fetchStats();
     } catch {
-      setStatus("âŒ Invite failed");
+      setStatus("ÃƒÂ¢Ã‚ÂÃ…â€™ Invite failed");
     }
   };
 
@@ -95,7 +94,7 @@ export default function SubTribePanel({ userId = "U101" }) {
         setStats(data);
       }
     } catch {
-      setStatus("âš ï¸ Unable to fetch stats");
+      setStatus("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Unable to fetch stats");
     }
   };
 
@@ -104,7 +103,7 @@ export default function SubTribePanel({ userId = "U101" }) {
   // ------------------------------------------------------------
   return (
     <div className="bg-gray-900 text-white rounded-2xl p-6 mt-8 shadow-lg">
-      <h2 className="text-2xl font-bold mb-4">ðŸ¤ Sub-Tribe Management</h2>
+      <h2 className="text-2xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Sub-Tribe Management</h2>
 
       {/* Create Sub-Tribe */}
       {!subtribeId && (
@@ -149,7 +148,7 @@ export default function SubTribePanel({ userId = "U101" }) {
               className="text-sm bg-gray-700 px-3 py-1 rounded hover:bg-gray-600"
               onClick={fetchStats}
             >
-              ðŸ”„ Refresh
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Refresh
             </button>
           </div>
 
@@ -209,3 +208,5 @@ export default function SubTribePanel({ userId = "U101" }) {
     </div>
   );
 }
+
+

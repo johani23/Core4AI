@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ InfluenceMonitor.jsx (v136.2 â€œLive Influence Consoleâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ InfluenceMonitor.jsx (v136.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Influence ConsoleÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Connects to /ws/synaptic + /ws/simulation
-// âœ… Displays D-Index, Tribe Heatmap, and Influence Share
-// âœ… Streams live flywheel events between tribes
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connects to /ws/synaptic + /ws/simulation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays D-Index, Tribe Heatmap, and Influence Share
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Streams live flywheel events between tribes
 // ============================================================
 
-import React, { useEffect, useRef, useState } from "react";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip,
   ResponsiveContainer, CartesianGrid
@@ -22,13 +21,13 @@ export default function InfluenceMonitor() {
   const wsSimRef = useRef(null);
 
   // ------------------------------------------------------------
-  // ðŸ§  Connect to Synaptic Stream
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Connect to Synaptic Stream
   // ------------------------------------------------------------
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8000/ws/synaptic");
     wsSynRef.current = ws;
 
-    ws.onopen = () => console.log("âœ… Connected to /ws/synaptic");
+    ws.onopen = () => console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to /ws/synaptic");
     ws.onmessage = (msg) => {
       try {
         const data = JSON.parse(msg.data);
@@ -43,18 +42,18 @@ export default function InfluenceMonitor() {
         console.error("Synaptic parse error:", err);
       }
     };
-    ws.onclose = () => console.log("âš ï¸ Synaptic socket closed");
+    ws.onclose = () => console.log("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Synaptic socket closed");
     return () => ws.close();
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸŽ¡ Connect to Flywheel Stream
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¡ Connect to Flywheel Stream
   // ------------------------------------------------------------
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8000/ws/simulation");
     wsSimRef.current = ws;
 
-    ws.onopen = () => console.log("âœ… Connected to /ws/simulation");
+    ws.onopen = () => console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to /ws/simulation");
     ws.onmessage = (msg) => {
       try {
         const data = JSON.parse(msg.data);
@@ -73,25 +72,25 @@ export default function InfluenceMonitor() {
         console.error("Simulation parse error:", err);
       }
     };
-    ws.onclose = () => console.log("âš ï¸ Simulation socket closed");
+    ws.onclose = () => console.log("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Simulation socket closed");
     return () => ws.close();
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ UI
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ UI
   // ------------------------------------------------------------
   return (
     <div className="p-6 bg-gray-50 min-h-screen flex flex-col gap-8">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">
-          ðŸŒ Live Influence Console
+          ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Live Influence Console
         </h1>
         <span className="text-sm text-gray-500">
           D-Index: <b>{dIndex.toFixed(2)}%</b>
         </span>
       </div>
 
-      {/* ðŸ“ˆ D-Index Chart */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  D-Index Chart */}
       <div className="bg-white rounded-2xl shadow-md p-4">
         <h2 className="text-lg font-semibold text-gray-700 mb-2">
           D-Index Momentum
@@ -107,7 +106,7 @@ export default function InfluenceMonitor() {
         </ResponsiveContainer>
       </div>
 
-      {/* ðŸ”¥ Tribe Heatmap */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Tribe Heatmap */}
       <div className="bg-white rounded-2xl shadow-md p-4">
         <h2 className="text-lg font-semibold text-gray-700 mb-2">
           Tribe Dopamine Heatmap
@@ -134,7 +133,7 @@ export default function InfluenceMonitor() {
         </div>
       </div>
 
-      {/* ðŸ“Š Influence Share */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Influence Share */}
       <div className="bg-white rounded-2xl shadow-md p-4">
         <h2 className="text-lg font-semibold text-gray-700 mb-2">
           Influence Share (Rebalanced)
@@ -151,7 +150,7 @@ export default function InfluenceMonitor() {
         </div>
       </div>
 
-      {/* ðŸŒ€ Live Flywheel Activity */}
+      {/* ÃƒÂ°Ã…Â¸Ã…â€™Ã¢â€šÂ¬ Live Flywheel Activity */}
       <div className="bg-white rounded-2xl shadow-md p-4">
         <h2 className="text-lg font-semibold text-gray-700 mb-2">
           Flywheel Activity Stream
@@ -160,7 +159,7 @@ export default function InfluenceMonitor() {
           {flywheel.map((f, idx) => (
             <div key={idx} className="flex justify-between text-gray-600 border-b pb-1">
               <span>
-                {f.time} â†’ <b>{f.source}</b> âžœ <b>{f.target}</b>
+                {f.time} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ <b>{f.source}</b> ÃƒÂ¢Ã…Â¾Ã…â€œ <b>{f.target}</b>
               </span>
               <span className="text-blue-500">
                 {(f.intensity * 100).toFixed(1)}%
@@ -172,3 +171,5 @@ export default function InfluenceMonitor() {
     </div>
   );
 }
+
+

@@ -73,3 +73,4 @@ export default function PowerRing({ dindex, earnings, activity }) {
     </div>
   );
 }
+

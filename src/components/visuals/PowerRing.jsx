@@ -42,3 +42,4 @@ export default function PowerRing({ value = 0, label = "Power" }) {
     </div>
   );
 }
+

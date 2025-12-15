@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – ClusterBoard.jsx (MVP-28-Live)
+// ðŸ’Ž Core4.AI â€“ ClusterBoard.jsx (MVP-28-Live)
 // ------------------------------------------------------------
 // Visualizes tribe mood, token flow & correlation live.
 // WebSocket pushes instant updates.
@@ -65,7 +65,7 @@ export default function ClusterBoard() {
 
   return (
     <div className="p-6 text-white">
-      <h1 className="text-2xl font-bold mb-4">💠 Sentiment Cluster & Token Flow</h1>
+      <h1 className="text-2xl font-bold mb-4">ðŸ’  Sentiment Cluster & Token Flow</h1>
       <div className="flex gap-3 mb-4">
         {tribes.map((t) => (
           <button
@@ -104,7 +104,7 @@ export default function ClusterBoard() {
       )}
 
       <div className="bg-gray-900 p-4 rounded-xl mb-8">
-        <h3 className="mb-3 font-semibold">🔄 Token Flow Network</h3>
+        <h3 className="mb-3 font-semibold">ðŸ”„ Token Flow Network</h3>
         {flow.length === 0 ? (
           <p className="text-gray-500">No token transactions yet.</p>
         ) : (
@@ -120,7 +120,7 @@ export default function ClusterBoard() {
       </div>
 
       <div className="bg-gray-900 p-4 rounded-xl">
-        <h3 className="mb-3 font-semibold">📈 Emotion–Value Correlation</h3>
+        <h3 className="mb-3 font-semibold">ðŸ“ˆ Emotionâ€“Value Correlation</h3>
         <LineChart width={600} height={250} data={correlation}>
           <CartesianGrid stroke="#333" />
           <XAxis dataKey="tribe" stroke="#999" />

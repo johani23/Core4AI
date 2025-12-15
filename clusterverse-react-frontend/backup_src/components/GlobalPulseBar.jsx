@@ -6,7 +6,7 @@ export default function GlobalPulseTopBar() {
   const [status, setStatus] = useState("Calm");
   const [mood, setMood] = useState("neutral");
 
-  // 🔁 Fetch global dopamine baseline
+  // ðŸ” Fetch global dopamine baseline
   useEffect(() => {
     async function fetchAvg() {
       try {
@@ -15,16 +15,16 @@ export default function GlobalPulseTopBar() {
         const avg = json.global_avg || 50;
         setAvg(avg);
         setStatus(
-          avg > 75 ? "🔥 Peak Energy"
-          : avg > 60 ? "🌤 Rising"
-          : avg > 45 ? "🌫 Calm"
-          : "🌧 Low"
+          avg > 75 ? "ðŸ”¥ Peak Energy"
+          : avg > 60 ? "ðŸŒ¤ Rising"
+          : avg > 45 ? "ðŸŒ« Calm"
+          : "ðŸŒ§ Low"
         );
         // also broadcast to all tabs
         const newMood = { mood, avg, status };
         window.dispatchEvent(new CustomEvent("globalMoodUpdate", { detail: newMood }));
       } catch (err) {
-        console.warn("⚠️ Pulse fetch failed:", err.message);
+        console.warn("âš ï¸ Pulse fetch failed:", err.message);
       }
     }
     fetchAvg();
@@ -32,10 +32,10 @@ export default function GlobalPulseTopBar() {
     return () => clearInterval(interval);
   }, [mood]);
 
-  // 🎯 Listen to Market updates
+  // ðŸŽ¯ Listen to Market updates
   useEffect(() => {
     const handler = (e) => {
-      console.log("🎯 Received marketMoodUpdate:", e.detail);
+      console.log("ðŸŽ¯ Received marketMoodUpdate:", e.detail);
       setMood(e.detail.mood);
       window.dispatchEvent(
         new CustomEvent("globalMoodUpdate", { detail: e.detail })
@@ -45,7 +45,7 @@ export default function GlobalPulseTopBar() {
     return () => window.removeEventListener("marketMoodUpdate", handler);
   }, []);
 
-  // 🎨 Color & emoji mapping
+  // ðŸŽ¨ Color & emoji mapping
   const color =
     mood === "bullish"
       ? "from-green-400 to-emerald-600"
@@ -61,16 +61,16 @@ export default function GlobalPulseTopBar() {
 
   const emoji =
     mood === "bullish"
-      ? "😎"
+      ? "ðŸ˜Ž"
       : mood === "bearish"
-      ? "😨"
+      ? "ðŸ˜¨"
       : avg > 75
-      ? "🔥"
+      ? "ðŸ”¥"
       : avg > 60
-      ? "🌤"
+      ? "ðŸŒ¤"
       : avg > 45
-      ? "🌫"
-      : "🌧";
+      ? "ðŸŒ«"
+      : "ðŸŒ§";
 
   return (
     <div className="w-full sticky top-0 left-0 z-50">
@@ -80,7 +80,7 @@ export default function GlobalPulseTopBar() {
         transition={{ duration: 1.5, repeat: Infinity }}
       />
       <div className="text-center text-[11px] py-1 bg-black/60 backdrop-blur-sm text-gray-300 tracking-wide">
-        {emoji} {status} • Global Dopamine Avg:&nbsp;
+        {emoji} {status} â€¢ Global Dopamine Avg:&nbsp;
         <span className="text-yellow-400 font-semibold">{avg.toFixed(1)}</span>
       </div>
     </div>

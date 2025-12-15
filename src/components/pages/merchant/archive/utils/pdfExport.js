@@ -1,9 +1,9 @@
 // ============================================================================
-// 💚 Core4.AI — pdfExport.js (Beta PDF Engine)
+// Ã°Å¸â€™Å¡ Core4.AI Ã¢â‚¬â€ pdfExport.js (Beta PDF Engine)
 // ----------------------------------------------------------------------------
-// • Converts any DOM section into a multipage PDF
-// • Supports Arabic text + tables + images
-// • No backend required
+// Ã¢â‚¬Â¢ Converts any DOM section into a multipage PDF
+// Ã¢â‚¬Â¢ Supports Arabic text + tables + images
+// Ã¢â‚¬Â¢ No backend required
 // ============================================================================
 
 import html2canvas from "html2canvas";
@@ -13,7 +13,7 @@ export async function exportPDF(elementId, fileName = "Campaign_Report.pdf") {
   const input = document.getElementById(elementId);
 
   if (!input) {
-    alert("⚠ PDF export failed — element not found.");
+    alert("Ã¢Å¡Â  PDF export failed Ã¢â‚¬â€ element not found.");
     return;
   }
 
@@ -41,3 +41,4 @@ export async function exportPDF(elementId, fileName = "Campaign_Report.pdf") {
 
   pdf.save(fileName);
 }
+

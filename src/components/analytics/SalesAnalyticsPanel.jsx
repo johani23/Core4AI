@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SalesAnalyticsPanel.jsx (v1.0 â€œROI Continuumâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SalesAnalyticsPanel.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œROI ContinuumÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Merges merchant campaigns + commission data
-// âœ… Shows Tribe ROI over time and revenue trends
-// âœ… Integrates with CoreSyncContext + CommissionSharingEngine
-// âœ… Persistent display under AnalyticsTabs
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Merges merchant campaigns + commission data
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Shows Tribe ROI over time and revenue trends
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrates with CoreSyncContext + CommissionSharingEngine
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Persistent display under AnalyticsTabs
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 import {
@@ -28,7 +27,7 @@ export default function SalesAnalyticsPanel() {
   const [roiData, setRoiData] = useState([]);
   const [revenueData, setRevenueData] = useState([]);
 
-  // ðŸ§® Build time-series data
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â® Build time-series data
   useEffect(() => {
     if (!campaigns || campaigns.length === 0) return;
 
@@ -54,21 +53,21 @@ export default function SalesAnalyticsPanel() {
     <div className="p-8 bg-[#0b0b15]/80 rounded-2xl border border-gray-800 shadow-lg text-gray-300">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-purple-400 flex items-center gap-2">
-          ðŸ’¹ Sales Analytics Panel
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Sales Analytics Panel
         </h2>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-sm text-gray-400"
         >
-          Data refreshed every 10s â€¢ {roiData.length} Campaigns tracked
+          Data refreshed every 10s ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {roiData.length} Campaigns tracked
         </motion.div>
       </div>
 
-      {/* ðŸ“ˆ ROI Over Time */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  ROI Over Time */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-purple-300 mb-2">
-          ðŸ“Š Campaign ROI Progression
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Campaign ROI Progression
         </h3>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={roiData}>
@@ -103,10 +102,10 @@ export default function SalesAnalyticsPanel() {
         </ResponsiveContainer>
       </div>
 
-      {/* ðŸ’° Tribe Revenue Comparison */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Tribe Revenue Comparison */}
       <div>
         <h3 className="text-lg font-semibold text-purple-300 mb-2">
-          ðŸ’Ž Tribe Revenue Breakdown
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Tribe Revenue Breakdown
         </h3>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={revenueData}>
@@ -133,3 +132,5 @@ export default function SalesAnalyticsPanel() {
     </div>
   );
 }
+
+

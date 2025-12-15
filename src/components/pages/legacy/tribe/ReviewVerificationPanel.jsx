@@ -1,11 +1,10 @@
 // ============================================================================
-// ðŸ” ReviewVerificationPanel.jsx â€” Saudi-Tech A3 Edition
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â ReviewVerificationPanel.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Saudi-Tech A3 Edition
 // ----------------------------------------------------------------------------
 // - A3 styled panel for verifying review authenticity
 // - Uses CorePanel + CoreHeader + CoreButton
 // ============================================================================
 
-import React from "react";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
 import CoreButton from "@/components/ui/CoreButton";
@@ -21,7 +20,7 @@ export default function ReviewVerificationPanel() {
       <CoreHeader
         title="Review Verification"
         subtitle="Approve, reject or escalate reviews to merchant."
-        icon="ðŸ”"
+        icon="ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â"
       />
 
       <div className="space-y-6 max-w-3xl">
@@ -55,3 +54,5 @@ export default function ReviewVerificationPanel() {
     </div>
   );
 }
+
+

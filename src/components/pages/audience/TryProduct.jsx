@@ -10,24 +10,27 @@ export default function TryProduct() {
 
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8 space-y-10">
+
       <CoreHeader
-        title="Try a Product"
-        subtitle="Type the product name to begin your review journey."
-        icon="ðŸ›ï¸"
+        title="جرّب منتج"
+        subtitle="اكتب اسم المنتج اللي تبي تجرّبه وتبدأ تجربتك."
+        icon="🧪"
       />
 
       <CorePanel className="max-w-2xl mx-auto">
+
         <input
           className="w-full p-4 bg-[#11161A] border border-[#4FBF77]/30 rounded-xl text-white mb-4"
-          placeholder="Product name..."
+          placeholder="اسم المنتج..."
           value={product}
           onChange={(e) => setProduct(e.target.value)}
         />
 
         <CoreButton
-          label="Continue â†’ Review"
+          label="استمر إلى التقييم"
           onClick={() => navigate("/audience/review", { state: { product } })}
         />
+
       </CorePanel>
     </div>
   );

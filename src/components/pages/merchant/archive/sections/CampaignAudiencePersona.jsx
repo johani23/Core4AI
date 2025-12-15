@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignAudiencePersona.jsx (Phase 22 â€“ Audience Persona Generator)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignAudiencePersona.jsx (Phase 22 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Audience Persona Generator)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignAudiencePersona({
   product,
@@ -44,7 +43,7 @@ export default function CampaignAudiencePersona({
     <div className="p-6 bg-white border rounded-xl shadow mt-6">
       
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ§ Audience Persona
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â Audience Persona
       </h2>
 
       <p className="text-2xl font-bold text-gray-800 mb-2">
@@ -75,3 +74,5 @@ export default function CampaignAudiencePersona({
     </div>
   );
 }
+
+

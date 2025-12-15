@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ PromoteAndEarn.jsx (v3.5 â€œInteractive Commerce+â€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ PromoteAndEarn.jsx (v3.5 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInteractive Commerce+ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Influencers upload/embed promo videos
-// âœ… Viewers can like, dislike, comment, and buy
-// âœ… Commission + reach bonus simulation
-// âœ… Adds merchant payout + toast feedback
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Influencers upload/embed promo videos
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Viewers can like, dislike, comment, and buy
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Commission + reach bonus simulation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds merchant payout + toast feedback
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import {
   FaBullhorn,
   FaHeart,
@@ -24,7 +23,7 @@ export default function PromoteAndEarn() {
   const [selected, setSelected] = useState(null);
   const [newComment, setNewComment] = useState("");
 
-  // ðŸ§± Mock Campaigns (replace with /api/promo/offers later)
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â± Mock Campaigns (replace with /api/promo/offers later)
   useEffect(() => {
     setCampaigns([
       {
@@ -43,7 +42,7 @@ export default function PromoteAndEarn() {
       },
       {
         id: 2,
-        title: "AI Keyboard â€“ Creator Edition",
+        title: "AI Keyboard ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Creator Edition",
         merchant: "Techy",
         img: "https://images.pexels.com/photos/276466/pexels-photo-276466.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 189.0,
@@ -58,7 +57,7 @@ export default function PromoteAndEarn() {
     ]);
   }, []);
 
-  // ðŸ’¬ Add Comment
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¬ Add Comment
   const handleComment = (id) => {
     if (!newComment.trim()) return;
     setCampaigns((prev) =>
@@ -80,7 +79,7 @@ export default function PromoteAndEarn() {
     setNewComment("");
   };
 
-  // â¤ï¸ Like / ðŸ‘Ž Dislike
+  // ÃƒÂ¢Ã‚ÂÃ‚Â¤ÃƒÂ¯Ã‚Â¸Ã‚Â Like / ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ…Â½ Dislike
   const toggleReaction = (id, type) => {
     setCampaigns((prev) =>
       prev.map((c) =>
@@ -95,18 +94,18 @@ export default function PromoteAndEarn() {
     );
   };
 
-  // ðŸ“¤ Upload / Embed Video
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¤ Upload / Embed Video
   const handleUpload = (id) => {
     const fakeURL = prompt("Paste video URL (YouTube, TikTok, etc.):");
     if (fakeURL) {
       setCampaigns((prev) =>
         prev.map((c) => (c.id === id ? { ...c, video: fakeURL } : c))
       );
-      toast.success("ðŸŽ¥ Video linked successfully!");
+      toast.success("ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ Video linked successfully!");
     }
   };
 
-  // ðŸ›’ Simulate Purchase
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ¢â‚¬â„¢ Simulate Purchase
   const handleBuy = (id) => {
     setCampaigns((prev) =>
       prev.map((c) =>
@@ -118,7 +117,7 @@ export default function PromoteAndEarn() {
     const item = campaigns.find((c) => c.id === id);
     if (item)
       toast.success(
-        `âœ… Purchased ${item.title}! ${item.commission}% commission to influencer.`
+        `ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Purchased ${item.title}! ${item.commission}% commission to influencer.`
       );
   };
 
@@ -148,7 +147,7 @@ export default function PromoteAndEarn() {
             <h2 className="text-lg font-semibold text-white">{c.title}</h2>
             <p className="text-sm text-gray-400 mb-2">by {c.merchant}</p>
 
-            {/* ðŸŽ¥ Video Section */}
+            {/* ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ Video Section */}
             {c.video ? (
               <iframe
                 src={c.video}
@@ -165,7 +164,7 @@ export default function PromoteAndEarn() {
               </button>
             )}
 
-            {/* ðŸ’° Stats + Commission */}
+            {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Stats + Commission */}
             <div className="text-xs text-gray-400 mb-3">
               <span className="text-yellow-400 font-semibold">
                 {c.commission}% commission
@@ -175,14 +174,14 @@ export default function PromoteAndEarn() {
                 {c.reachBonus} C4T / 1K views
               </span>
               <p className="mt-1 text-gray-500">
-                ðŸŽ¯ {c.sales} sales â€¢ Est. Earnings:{" "}
+                ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ {c.sales} sales ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Est. Earnings:{" "}
                 <span className="text-green-400 font-semibold">
                   ${(c.sales * (c.price * (c.commission / 100))).toFixed(2)}
                 </span>
               </p>
             </div>
 
-            {/* â¤ï¸ Reactions */}
+            {/* ÃƒÂ¢Ã‚ÂÃ‚Â¤ÃƒÂ¯Ã‚Â¸Ã‚Â Reactions */}
             <div className="flex items-center justify-between text-sm mb-3">
               <div className="flex gap-3">
                 <button
@@ -213,7 +212,7 @@ export default function PromoteAndEarn() {
               </button>
             </div>
 
-            {/* ðŸ’¬ Comments */}
+            {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¬ Comments */}
             {selected === c.id && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -225,7 +224,7 @@ export default function PromoteAndEarn() {
                     c.comments.map((com, i) => (
                       <div key={i} className="text-gray-300">
                         <span className="text-gray-500 text-xs mr-1">
-                          {com.time} â€¢
+                          {com.time} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢
                         </span>
                         {com.text}
                       </div>
@@ -257,3 +256,5 @@ export default function PromoteAndEarn() {
     </div>
   );
 }
+
+

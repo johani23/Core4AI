@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SynapseDriftTracker.jsx (MVP-39.7 â€œEmotion-Mapped Flowâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SynapseDriftTracker.jsx (MVP-39.7 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œEmotion-Mapped FlowÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// ðŸ“ˆ Animated line chart + morphing gradient by dominance
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Animated line chart + morphing gradient by dominance
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -21,7 +20,7 @@ export default function SynapseDriftTracker({ echo, nova }) {
   const [mood, setMood] = useState("neutral");
   const controls = useAnimation();
 
-  // ðŸ§  Simulate drift over time
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Simulate drift over time
   useEffect(() => {
     const id = setInterval(() => {
       setData((prev) => {
@@ -43,7 +42,7 @@ export default function SynapseDriftTracker({ echo, nova }) {
     return () => clearInterval(id);
   }, [echo, nova]);
 
-  // ðŸŽ¨ Dynamic background color by dominance
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Dynamic background color by dominance
   useEffect(() => {
     if (mood === "echo")
       controls.start({
@@ -67,9 +66,9 @@ export default function SynapseDriftTracker({ echo, nova }) {
 
   const tooltipMood =
     mood === "echo"
-      ? "Calm precision risingâ€¦"
+      ? "Calm precision risingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦"
       : mood === "nova"
-      ? "Neural confidence surgeâ€¦"
+      ? "Neural confidence surgeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦"
       : "Synaptic harmony.";
 
   return (
@@ -78,7 +77,7 @@ export default function SynapseDriftTracker({ echo, nova }) {
       className="border border-gray-700 rounded-2xl p-6 mt-10 w-11/12 md:w-[700px] mx-auto shadow-2xl"
     >
       <h3 className="text-xl font-semibold text-purple-300 text-center mb-4">
-        ðŸ“ˆ Synapse Drift Tracker
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Synapse Drift Tracker
       </h3>
 
       <div className="h-[280px]">
@@ -130,3 +129,5 @@ export default function SynapseDriftTracker({ echo, nova }) {
     </motion.div>
   );
 }
+
+

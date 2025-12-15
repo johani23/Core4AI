@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MerchantPanel.jsx (v140.2 â€œCommercial Readinessâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantPanel.jsx (v140.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCommercial ReadinessÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays top tribes by Merchant Target Index (MTI)
-// âœ… Real-time WS updates from /ws/simulation
-// âœ… Auto-calculated DPP/IPM/MTI + Trend indicator
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays top tribes by Merchant Target Index (MTI)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time WS updates from /ws/simulation
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-calculated DPP/IPM/MTI + Trend indicator
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function MerchantPanel() {
@@ -20,25 +19,25 @@ export default function MerchantPanel() {
   const [wsStatus, setWsStatus] = useState("Offline");
   const wsRef = useRef(null);
 
-  // ðŸŒ Connect WebSocket
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Connect WebSocket
   useEffect(() => {
     const connect = () => {
       const ws = new WebSocket("ws://127.0.0.1:8000/ws/simulation");
       wsRef.current = ws;
 
       ws.onopen = () => {
-        console.log("âœ… [MerchantPanel] Connected");
+        console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ [MerchantPanel] Connected");
         setWsStatus("Online");
       };
 
       ws.onclose = () => {
-        console.warn("âš ï¸ WS Closed â€“ reconnecting...");
+        console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â WS Closed ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ reconnecting...");
         setWsStatus("Reconnecting...");
         setTimeout(connect, 4000);
       };
 
       ws.onerror = (err) => {
-        console.error("âŒ WS Error:", err);
+        console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ WS Error:", err);
         setWsStatus("Error");
       };
 
@@ -46,14 +45,14 @@ export default function MerchantPanel() {
         try {
           const data = JSON.parse(msg.data);
           if (data.intensity) {
-            // ðŸ”¹ Simulate per-tribe metrics from event intensity
+            // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ Simulate per-tribe metrics from event intensity
             const updated = {};
             Object.keys(tribeStats).forEach((t) => {
               const base = Math.random() * 0.3 + 0.7;
               const DPP = Math.min(base * 100, 100);
               const IPM = Math.min((base + data.intensity * 0.3) * 80, 100);
               const MTI = Math.round(0.6 * DPP + 0.4 * IPM);
-              const trend = Math.round((Math.random() - 0.5) * 10); // Â±10 trend
+              const trend = Math.round((Math.random() - 0.5) * 10); // Ãƒâ€šÃ‚Â±10 trend
               updated[t] = { DPP, IPM, MTI, trend };
             });
             setTribeStats(updated);
@@ -65,7 +64,7 @@ export default function MerchantPanel() {
             setTopTribes(sorted);
           }
         } catch (err) {
-          console.warn("âš ï¸ WS Parse Error:", err);
+          console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â WS Parse Error:", err);
         }
       };
     };
@@ -85,7 +84,7 @@ export default function MerchantPanel() {
     <div className="min-h-[85vh] bg-[#0d1117] text-gray-200 p-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          ðŸ’° Merchant Target Panel
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Merchant Target Panel
         </h1>
         <span
           className={`px-3 py-1 rounded-md text-sm ${
@@ -100,7 +99,7 @@ export default function MerchantPanel() {
         </span>
       </div>
 
-      {/* ðŸ† Top Tribes */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â  Top Tribes */}
       <div className="grid md:grid-cols-3 gap-4">
         {topTribes.map(([name, stats], i) => (
           <motion.div
@@ -117,22 +116,22 @@ export default function MerchantPanel() {
               </span>
             </div>
             <div className="text-sm">
-              <p>ðŸ›’ DPP: <b>{stats.DPP.toFixed(1)}%</b></p>
-              <p>ðŸŒ IPM: <b>{stats.IPM.toFixed(1)}%</b></p>
-              <p>ðŸ’  MTI: <b>{stats.MTI.toFixed(1)}%</b></p>
+              <p>ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ¢â‚¬â„¢ DPP: <b>{stats.DPP.toFixed(1)}%</b></p>
+              <p>ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â IPM: <b>{stats.IPM.toFixed(1)}%</b></p>
+              <p>ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  MTI: <b>{stats.MTI.toFixed(1)}%</b></p>
               <p
                 className={`mt-1 text-xs ${
                   stats.trend > 0 ? "text-green-400" : "text-red-400"
                 }`}
               >
-                {stats.trend > 0 ? "â–²" : "â–¼"} {Math.abs(stats.trend)}% weekly
+                {stats.trend > 0 ? "ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â²" : "ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¼"} {Math.abs(stats.trend)}% weekly
               </p>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* ðŸ“Š Full Table */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Full Table */}
       <div className="mt-8 bg-[#111827] rounded-xl border border-gray-700 p-4">
         <table className="w-full text-sm">
           <thead className="border-b border-gray-700 text-gray-400">
@@ -162,7 +161,7 @@ export default function MerchantPanel() {
                     s.trend > 0 ? "text-green-400" : "text-red-400"
                   }`}
                 >
-                  {s.trend > 0 ? "â–²" : "â–¼"} {Math.abs(s.trend)}%
+                  {s.trend > 0 ? "ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â²" : "ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¼"} {Math.abs(s.trend)}%
                 </td>
               </motion.tr>
             ))}
@@ -172,3 +171,5 @@ export default function MerchantPanel() {
     </div>
   );
 }
+
+

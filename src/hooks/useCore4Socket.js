@@ -1,8 +1,8 @@
 // ============================================================
-// 💎 Core4.AI – useCore4Socket (MVP-60 Integrated Edition)
+// Ã°Å¸â€™Å½ Core4.AI Ã¢â‚¬â€œ useCore4Socket (MVP-60 Integrated Edition)
 // ------------------------------------------------------------
-// ✅ Seamless bridge between React components and FastAPI WebSocket
-// ✅ Auto-reconnect + simple message handler interface
+// Ã¢Å“â€¦ Seamless bridge between React components and FastAPI WebSocket
+// Ã¢Å“â€¦ Auto-reconnect + simple message handler interface
 // ============================================================
 
 import { useEffect, useRef } from "react";
@@ -11,7 +11,7 @@ export default function useCore4Socket(onMessage, tribeId = "Core4AI-001") {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    // 🌐 Connect to backend WebSocket
+    // Ã°Å¸Å’Â Connect to backend WebSocket
     const connect = () => {
       const ws = new WebSocket(`ws://127.0.0.1:8000/ws/tribe/${tribeId}`);
       socketRef.current = ws;
@@ -28,7 +28,7 @@ export default function useCore4Socket(onMessage, tribeId = "Core4AI-001") {
         try {
           const data = JSON.parse(event.data);
 
-          // 🧩 Normalized message structure for compatibility with old hooks
+          // Ã°Å¸Â§Â© Normalized message structure for compatibility with old hooks
           if (data.tribe_id && data.mood !== undefined) {
             onMessage({
               type: "tribe_update",
@@ -62,3 +62,4 @@ export default function useCore4Socket(onMessage, tribeId = "Core4AI-001") {
 
   return { sendMessage };
 }
+

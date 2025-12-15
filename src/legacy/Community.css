@@ -1,4 +1,4 @@
-.community-container {
+﻿.community-container {
   margin: 0 auto;
   width: 500px;
 }
@@ -33,7 +33,7 @@ form button:hover {
   background-color: #00a8ff;
 }
 
-/* كل بوست */
+/* ÙƒÙ„ Ø¨ÙˆØ³Øª */
 .post {
   border: 1px solid #eee;
   border-radius: 8px;
@@ -46,7 +46,7 @@ form button:hover {
   color: #273c75;
 }
 
-/* جزء التصويت */
+/* Ø¬Ø²Ø¡ Ø§Ù„ØªØµÙˆÙŠØª */
 .post-meta {
   margin-top: 8px;
   display: flex;
@@ -70,3 +70,4 @@ form button:hover {
   font-size: 14px;
   color: #555;
 }
+

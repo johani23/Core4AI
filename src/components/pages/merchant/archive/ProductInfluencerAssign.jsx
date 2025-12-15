@@ -1,14 +1,13 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ ProductInfluencerAssign.jsx (Saudi Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ProductInfluencerAssign.jsx (Saudi Edition)
 // ------------------------------------------------------------
-// â€¢ Fetch suggested influencers for a product
-// â€¢ Assign influencer â†’ product
-// â€¢ Add audience promoters
-// â€¢ See expected conversion, tribe match & impact
-// â€¢ Fully tied to API v203
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Fetch suggested influencers for a product
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Assign influencer ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ product
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Add audience promoters
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ See expected conversion, tribe match & impact
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Fully tied to API v203
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { FiUsers, FiStar, FiCheck, FiArrowRight, FiTrendingUp } from "react-icons/fi";
@@ -77,7 +76,7 @@ export default function ProductInfluencerAssign() {
   if (!product) {
     return (
       <div className="min-h-screen text-center text-white pt-20">
-        Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù†ØªØ¬...
+        ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬...
       </div>
     );
   }
@@ -93,11 +92,11 @@ export default function ProductInfluencerAssign() {
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl font-extrabold mb-4 text-[#4cff9b]"
       >
-        Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ù„Ù„Ù…Ù†ØªØ¬
+        ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
       </motion.h1>
 
       <p className="text-gray-300 mb-8">
-        Ù‚Ù… Ø¨Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ù…Ù†Ø§Ø³Ø¨ÙŠÙ† Ù„Ø¥Ø·Ù„Ø§Ù‚ Ø­Ù…Ù„Ø© ØªØ³ÙˆÙŠÙ‚ ÙØ¹Ù‘Ø§Ù„Ø© Ù„Ù„Ù…Ù†ØªØ¬.
+        Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬ËœÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬.
       </p>
 
       {/* PRODUCT BOX */}
@@ -111,7 +110,7 @@ export default function ProductInfluencerAssign() {
           <h2 className="text-xl font-bold">{product.name}</h2>
           <p className="text-gray-400">{product.description}</p>
           <p className="text-[#4cff9b] font-bold mt-2">
-            {product.price} Ø±ÙŠØ§Ù„
+            {product.price} ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾
           </p>
         </div>
       </div>
@@ -120,7 +119,7 @@ export default function ProductInfluencerAssign() {
       {/* INFLUENCERS LIST */}
       {/* ------------------------------------------------------ */}
       <h2 className="text-xl font-bold mb-3 flex items-center gap-2">
-        <FiUsers /> Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ù…Ù‚ØªØ±Ø­ÙŠÙ†
+        <FiUsers /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±ÃƒËœÃ‚Â­Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â 
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -143,10 +142,10 @@ export default function ProductInfluencerAssign() {
               )}
             </div>
 
-            <p className="text-gray-300 mt-1">Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø©: {inf.tribe}</p>
+            <p className="text-gray-300 mt-1">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©: {inf.tribe}</p>
 
             <p className="mt-1 text-[#4cff9b] font-semibold flex items-center gap-2">
-              <FiStar /> ØªØ£Ø«ÙŠØ±: {inf.score}
+              <FiStar /> ÃƒËœÃ‚ÂªÃƒËœÃ‚Â£ÃƒËœÃ‚Â«Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±: {inf.score}
             </p>
           </motion.div>
         ))}
@@ -158,7 +157,7 @@ export default function ProductInfluencerAssign() {
         disabled={saving}
         className="mt-6 bg-[#00b462] hover:bg-[#009a52] px-6 py-3 rounded-lg font-bold text-lg w-full"
       >
-        {saving ? "Ø¬Ø§Ø±ÙŠ Ø§Ù„Ø­ÙØ¸..." : "Ø­ÙØ¸ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ø§Ù„Ù…Ø®ØªØ§Ø±ÙŠÙ†"}
+        {saving ? "ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¸..." : "ÃƒËœÃ‚Â­Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¸ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â "}
       </button>
 
       {/* ------------------------------------------------------ */}
@@ -171,11 +170,11 @@ export default function ProductInfluencerAssign() {
           className="mt-8 bg-[#01341c] p-6 rounded-xl border border-[#1d6642]"
         >
           <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-            <FiTrendingUp /> Ø§Ù„ØªØ£Ø«ÙŠØ± Ø§Ù„Ù…ØªÙˆÙ‚Ø¹ Ù„Ù„Ø­Ù…Ù„Ø©
+            <FiTrendingUp /> ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â£ÃƒËœÃ‚Â«Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
           </h3>
 
           <p className="text-lg text-[#4cff9b] font-semibold">
-            {impact.predicted_conversion}% Ù…Ø¹Ø¯Ù„ ØªØ­ÙˆÙŠÙ„ Ù…ØªÙˆÙ‚Ø¹
+            {impact.predicted_conversion}% Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹
           </p>
 
           <p className="text-gray-300 mt-2">
@@ -187,3 +186,5 @@ export default function ProductInfluencerAssign() {
     </div>
   );
 }
+
+

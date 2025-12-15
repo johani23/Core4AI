@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 export default function LiveFeed() {
   const [updates] = useState([
-    "✨ Noor just earned +10 points for posting",
-    "💡 Ahmed shared a reflection note",
-    "🎉 Sara received 3 likes on her update",
-    "🔥 Ali completed today's challenge (+20)",
+    "Ã¢Å“Â¨ Noor just earned +10 points for posting",
+    "Ã°Å¸â€™Â¡ Ahmed shared a reflection note",
+    "Ã°Å¸Å½â€° Sara received 3 likes on her update",
+    "Ã°Å¸â€Â¥ Ali completed today's challenge (+20)",
   ]);
 
   const [current, setCurrent] = useState(0);
@@ -20,7 +20,7 @@ export default function LiveFeed() {
   return (
     <div className="bg-yellow-100 border border-yellow-300 rounded-md shadow-md overflow-hidden">
       <div className="bg-yellow-200 px-3 py-1 font-semibold text-yellow-900 flex items-center gap-2">
-        📰 Live Updates
+        Ã°Å¸â€œÂ° Live Updates
       </div>
       <div className="whitespace-nowrap overflow-hidden">
         <p
@@ -33,3 +33,4 @@ export default function LiveFeed() {
     </div>
   );
 }
+

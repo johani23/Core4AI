@@ -4,3 +4,4 @@ export const useChallengeStore = create((set) => ({
   duels: [],
   setDuels: (duels) => set({ duels }),
 }));
+

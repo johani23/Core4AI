@@ -1,13 +1,12 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ MerchantIntel.jsx (v4.0 â€œSmart Market Scanner Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantIntel.jsx (v4.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSmart Market Scanner EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // -----------------------------------------------------------------------------
-// â€¢ Zero input: ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ productName ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹
-// â€¢ Auto-load market data (KSA / GCC / Global)
-// â€¢ Shows weak spots + tribe forecast
-// â€¢ Clean UI + Fast + Stable
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Zero input: Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â° productName ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Auto-load market data (KSA / GCC / Global)
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Shows weak spots + tribe forecast
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Clean UI + Fast + Stable
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function MerchantIntel({ productName }) {
@@ -38,7 +37,7 @@ export default function MerchantIntel({ productName }) {
       setIntel(data);
     } catch (err) {
       console.error(err);
-      toast.error("âŒ ÙØ´Ù„ ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø³ÙˆÙ‚");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡");
     }
 
     setLoading(false);
@@ -50,7 +49,7 @@ export default function MerchantIntel({ productName }) {
   if (!productName) {
     return (
       <div className="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-xl border shadow">
-        <p className="text-center text-gray-600">Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¹Ø¯.</p>
+        <p className="text-center text-gray-600">Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.</p>
       </div>
     );
   }
@@ -62,13 +61,13 @@ export default function MerchantIntel({ productName }) {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h2 className="text-xl font-bold text-orange-700">
-            MerchantIntel â€“ Ø°ÙƒØ§Ø¡ Ø§Ù„Ø³ÙˆÙ‚
+            MerchantIntel ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡
           </h2>
           <p className="text-sm text-gray-600">
-            ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø£Ø³ÙˆØ§Ù‚ (Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØ© â€“ Ø§Ù„Ø®Ù„ÙŠØ¬ â€“ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠ) + ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ù‚Ø¨Ø§Ø¦Ù„.
+            ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡ (ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ) + ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Å¾.
           </p>
           <p className="mt-2 text-sm text-gray-700">
-            Ø§Ù„Ù…Ù†ØªØ¬: <span className="font-semibold">{productName}</span>
+            ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬: <span className="font-semibold">{productName}</span>
           </p>
         </div>
 
@@ -77,12 +76,12 @@ export default function MerchantIntel({ productName }) {
           disabled={loading}
           className="px-4 py-2 rounded-lg bg-orange-700 text-white text-sm font-semibold hover:bg-orange-800 disabled:opacity-60"
         >
-          {loading ? "â³ Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªØ­Ù…ÙŠÙ„..." : "ðŸ”„ Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ­Ù…ÙŠÙ„"}
+          {loading ? "ÃƒÂ¢Ã‚ÂÃ‚Â³ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾..." : "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾"}
         </button>
       </div>
 
       {/* LOADING */}
-      {loading && <p className="text-gray-600">Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª...</p>}
+      {loading && <p className="text-gray-600">ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª...</p>}
 
       {/* CONTENT */}
       {!loading && intel && (
@@ -91,7 +90,7 @@ export default function MerchantIntel({ productName }) {
           {/* FEATURE SCORE */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              ðŸ” ØªÙ‚ÙŠÙŠÙ… Ù…ÙŠØ²Ø© Ø§Ù„Ù…Ù†ØªØ¬
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
             </h3>
             <div className="p-4 bg-gray-50 border rounded-lg shadow-sm">
               <p className="text-3xl font-bold text-orange-700">
@@ -103,49 +102,49 @@ export default function MerchantIntel({ productName }) {
           {/* MARKETS */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              ðŸŒ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø£Ø³ÙˆØ§Ù‚
+              ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¡
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
               {/* KSA */}
               <div className="p-4 bg-white border rounded-lg shadow">
-                <p className="text-sm font-semibold text-orange-700">Ø§Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ</p>
+                <p className="text-sm font-semibold text-orange-700">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â </p>
                 <p className="mt-2 text-gray-900 font-bold">
-                  {intel.markets?.saudi?.price} Ø±.Ø³
+                  {intel.markets?.saudi?.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
                 <p className="text-sm text-gray-600">
-                  Ù…ÙŠØ²Ø© Ù…ÙÙ‚ÙˆØ¯Ø©:{" "}
+                  Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â©:{" "}
                   <span className="font-semibold">
-                    {intel.markets?.saudi?.missing_feature ? "Ù†Ø¹Ù…" : "Ù„Ø§"}
+                    {intel.markets?.saudi?.missing_feature ? "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦" : "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§"}
                   </span>
                 </p>
               </div>
 
               {/* GCC */}
               <div className="p-4 bg-white border rounded-lg shadow">
-                <p className="text-sm font-semibold text-orange-700">Ø§Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø®Ù„ÙŠØ¬ÙŠ</p>
+                <p className="text-sm font-semibold text-orange-700">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â®Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¬Ãƒâ„¢Ã…Â </p>
                 <p className="mt-2 text-gray-900 font-bold">
-                  {intel.markets?.gcc?.price} Ø±.Ø³
+                  {intel.markets?.gcc?.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
                 <p className="text-sm text-gray-600">
-                  Ù…ÙŠØ²Ø© Ù…ÙÙ‚ÙˆØ¯Ø©:{" "}
+                  Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â©:{" "}
                   <span className="font-semibold">
-                    {intel.markets?.gcc?.missing_feature ? "Ù†Ø¹Ù…" : "Ù„Ø§"}
+                    {intel.markets?.gcc?.missing_feature ? "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦" : "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§"}
                   </span>
                 </p>
               </div>
 
               {/* GLOBAL */}
               <div className="p-4 bg-white border rounded-lg shadow">
-                <p className="text-sm font-semibold text-orange-700">Ø§Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠ</p>
+                <p className="text-sm font-semibold text-orange-700">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â </p>
                 <p className="mt-2 text-gray-900 font-bold">
-                  {intel.markets?.global?.price} Ø±.Ø³
+                  {intel.markets?.global?.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
                 <p className="text-sm text-gray-600">
-                  Ù…ÙŠØ²Ø© Ù…ÙÙ‚ÙˆØ¯Ø©:{" "}
+                  Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â©:{" "}
                   <span className="font-semibold">
-                    {intel.markets?.global?.missing_feature ? "Ù†Ø¹Ù…" : "Ù„Ø§"}
+                    {intel.markets?.global?.missing_feature ? "Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦" : "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§"}
                   </span>
                 </p>
               </div>
@@ -156,29 +155,29 @@ export default function MerchantIntel({ productName }) {
           {/* PRICING */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              ðŸ’° Ù…Ø³ØªÙˆÙŠØ§Øª Ø§Ù„ØªØ³Ø¹ÙŠØ±
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â±
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
               <div className="p-4 bg-gray-50 border rounded-lg text-center">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø¹Ø§Ø¯Ù„</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Å¾</p>
                 <p className="mt-2 text-xl font-bold text-orange-600">
-                  {intel.pricing?.fair} Ø±.Ø³
+                  {intel.pricing?.fair} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
               <div className="p-4 bg-white border rounded-lg text-center shadow">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ø³ÙˆÙ‚ÙŠ</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã…Â </p>
                 <p className="mt-2 text-xl font-bold text-orange-700">
-                  {intel.pricing?.market} Ø±.Ø³
+                  {intel.pricing?.market} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
               <div className="p-4 bg-gray-50 border rounded-lg text-center">
-                <p className="text-gray-600 text-sm">Ø§Ù„Ø³Ø¹Ø± Ø§Ù„Ù…Ù…ÙŠØ²</p>
+                <p className="text-gray-600 text-sm">ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²</p>
                 <p className="mt-2 text-xl font-bold text-orange-600">
-                  {intel.pricing?.premium} Ø±.Ø³
+                  {intel.pricing?.premium} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
                 </p>
               </div>
 
@@ -188,7 +187,7 @@ export default function MerchantIntel({ productName }) {
           {/* WEAK SPOTS */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              âš ï¸ Ù†Ù‚Ø§Ø· Ø¶Ø¹Ù Ø§Ù„Ù…Ù†Ø§ÙØ³ÙŠÙ†
+              ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â· ÃƒËœÃ‚Â¶ÃƒËœÃ‚Â¹Ãƒâ„¢Ã‚Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â³Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â 
             </h3>
 
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
@@ -201,7 +200,7 @@ export default function MerchantIntel({ productName }) {
           {/* TRIBE FORECAST */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              ðŸ”® ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ù‚Ø¨Ø§Ø¦Ù„
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Å¾
             </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -227,9 +226,11 @@ export default function MerchantIntel({ productName }) {
       {/* EMPTY */}
       {!loading && !intel && (
         <p className="mt-4 text-sm text-gray-500 text-center">
-          Ù„Ù… ÙŠØªÙ… ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø³ÙˆÙ‚ Ø¨Ø¹Ø¯.
+          Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¡ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.
         </p>
       )}
     </div>
   );
 }
+
+

@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Offers.jsx (v3.6 â€œInteractive Marketplace Hubâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Offers.jsx (v3.6 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInteractive Marketplace HubÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Search + Category + Sort controls
-// âœ… Stable Amazon-style layout (no 3D transforms)
-// âœ… Adds â€œPromoteâ€ flow for creators â†’ saves to sessionStorage
-// âœ… Toast feedback + hover animation polish
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Search + Category + Sort controls
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Stable Amazon-style layout (no 3D transforms)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œPromoteÃƒÂ¢Ã¢â€šÂ¬Ã‚Â flow for creators ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ saves to sessionStorage
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Toast feedback + hover animation polish
 // ============================================================
 
-import React, { useEffect, useState, useMemo } from "react";
 import {
   FaTags,
   FaClock,
@@ -25,7 +24,7 @@ export default function Offers() {
   const [sort, setSort] = useState("popular");
   const [query, setQuery] = useState("");
 
-  // ðŸ§± Mock data (replace later with API)
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â± Mock data (replace later with API)
   useEffect(() => {
     setOffers([
       {
@@ -55,7 +54,7 @@ export default function Offers() {
       {
         id: 3,
         merchant: "Techy",
-        title: "AI Keyboard â€“ Creator Edition",
+        title: "AI Keyboard ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Creator Edition",
         category: "Tech",
         img: "https://images.pexels.com/photos/276466/pexels-photo-276466.jpeg?auto=compress&cs=tinysrgb&w=600",
         price: 189.0,
@@ -79,7 +78,7 @@ export default function Offers() {
     ]);
   }, []);
 
-  // ðŸ” Filtering + sorting
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â Filtering + sorting
   const filtered = useMemo(() => {
     return offers
       .filter((o) =>
@@ -95,10 +94,10 @@ export default function Offers() {
       });
   }, [offers, category, sort, query]);
 
-  // ðŸª™ Promote flow â†’ save offer for CollabHub or PromoteAndEarn
+  // ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Promote flow ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ save offer for CollabHub or PromoteAndEarn
   const handlePromote = (offer) => {
     sessionStorage.setItem("selectedOffer", JSON.stringify(offer));
-    toast.success(`ðŸš€ ${offer.title} added to Collaboration Hub!`);
+    toast.success(`ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ ${offer.title} added to Collaboration Hub!`);
   };
 
   return (
@@ -140,8 +139,8 @@ export default function Offers() {
             <option value="popular">Sort by: Popular</option>
             <option value="discount">Highest Discount</option>
             <option value="cashback">Best Cashback</option>
-            <option value="price_low">Price: Low â†’ High</option>
-            <option value="price_high">Price: High â†’ Low</option>
+            <option value="price_low">Price: Low ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ High</option>
+            <option value="price_high">Price: High ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Low</option>
           </select>
         </div>
       </div>
@@ -183,7 +182,7 @@ export default function Offers() {
               <div className="flex flex-col gap-1 items-end">
                 <button
                   className="bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm px-3 py-1.5 rounded-md flex items-center gap-1 hover:opacity-90"
-                  onClick={() => toast.success(`ðŸ›’ Added ${offer.title} to cart!`)}
+                  onClick={() => toast.success(`ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ¢â‚¬â„¢ Added ${offer.title} to cart!`)}
                 >
                   <FaShoppingCart /> Shop
                 </button>
@@ -216,3 +215,5 @@ export default function Offers() {
     </div>
   );
 }
+
+

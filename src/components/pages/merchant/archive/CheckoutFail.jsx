@@ -1,8 +1,7 @@
 // ============================================================
-// âŒ CheckoutFail.jsx â€“ Core4.AI (Final)
+// ÃƒÂ¢Ã‚ÂÃ…â€™ CheckoutFail.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Core4.AI (Final)
 // ============================================================
 
-import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function CheckoutFail() {
@@ -26,3 +25,5 @@ export default function CheckoutFail() {
     </div>
   );
 }
+
+

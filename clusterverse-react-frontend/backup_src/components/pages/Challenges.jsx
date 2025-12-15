@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { getChallenges, evaluateRewards } from "@services/api";
 
 /**
- * 🔥 Core4.AI MVP-23 – Dynamic Challenges + Reward Trigger
+ * ðŸ”¥ Core4.AI MVP-23 â€“ Dynamic Challenges + Reward Trigger
  */
 export default function Challenges({ userId = 1 }) {
   const [challenges, setChallenges] = useState([]);
@@ -17,7 +17,7 @@ export default function Challenges({ userId = 1 }) {
         const res = await getChallenges();
         setChallenges(Array.isArray(res) ? res : []);
       } catch (err) {
-        console.error("⚠️ Failed to load challenges:", err);
+        console.error("âš ï¸ Failed to load challenges:", err);
         setChallenges([]);
       } finally {
         setLoading(false);
@@ -32,7 +32,7 @@ export default function Challenges({ userId = 1 }) {
       const res = await evaluateRewards(userId);
       setResult(res.result);
     } catch (err) {
-      alert("⚠️ Error evaluating rewards.");
+      alert("âš ï¸ Error evaluating rewards.");
     } finally {
       setRewarding(false);
     }
@@ -45,13 +45,13 @@ export default function Challenges({ userId = 1 }) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        💎 Weekly Core4 Challenges
+        ðŸ’Ž Weekly Core4 Challenges
       </motion.h1>
 
       {loading ? (
         <p className="text-gray-400">Loading...</p>
       ) : challenges.length === 0 ? (
-        <p className="text-gray-500">No challenges yet. Come back later! 🚀</p>
+        <p className="text-gray-500">No challenges yet. Come back later! ðŸš€</p>
       ) : (
         <div className="grid md:grid-cols-2 gap-4">
           {challenges.map((c, i) => (
@@ -93,7 +93,7 @@ export default function Challenges({ userId = 1 }) {
               : "bg-green-500 hover:bg-green-600 text-black"
           }`}
         >
-          {rewarding ? "Evaluating..." : "Evaluate My Rewards 💰"}
+          {rewarding ? "Evaluating..." : "Evaluate My Rewards ðŸ’°"}
         </button>
 
         {result && (
@@ -102,7 +102,7 @@ export default function Challenges({ userId = 1 }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            ✅ Completed: {result.completed.join(", ")}<br />
+            âœ… Completed: {result.completed.join(", ")}<br />
             Earned {result.count} reward(s)!
           </motion.div>
         )}

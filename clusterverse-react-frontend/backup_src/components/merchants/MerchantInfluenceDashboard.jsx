@@ -12,16 +12,16 @@ export default function MerchantInfluenceDashboard() {
     const summary = await getDashboardSummary();
     const offers = await getActiveOffers();
 
-    // MSI – simplified example based on summary
+    // MSI â€“ simplified example based on summary
     const rising = summary.momentum_dist?.Rising || 0;
     const stable = summary.momentum_dist?.Stable || 0;
     const falling = summary.momentum_dist?.Falling || 0;
     const msiValue = (rising - falling) / (rising + stable + falling || 1);
 
-    // MII – average merchant boost
+    // MII â€“ average merchant boost
     const totalDiscount = offers.reduce((sum, o) => sum + (o.discount_value || 0), 0);
     const avgDiscount = offers.length ? totalDiscount / offers.length : 0;
-    const miiValue = avgDiscount / 50; // normalize 0–1
+    const miiValue = avgDiscount / 50; // normalize 0â€“1
 
     setMsi(msiValue);
     setMii(miiValue);
@@ -44,7 +44,7 @@ export default function MerchantInfluenceDashboard() {
   return (
     <div className="p-6 bg-gray-900 text-white rounded-2xl border border-gray-800 mt-8">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">📊 Merchant Influence Dashboard</h2>
+        <h2 className="text-xl font-semibold">ðŸ“Š Merchant Influence Dashboard</h2>
         <span className="text-xs text-gray-400">
           Updated {new Date().toLocaleTimeString()}
         </span>

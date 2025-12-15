@@ -1,30 +1,29 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MerchantOffers.jsx (v5.2 â€œCinematic + Collab Integrationâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantOffers.jsx (v5.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCinematic + Collab IntegrationÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// ðŸŽ¬ YouTube-style visual marketplace for live campaigns
-// ðŸ¤ Integrated with CollabHub for Solo / Team Up promotions
-// ðŸª„ Auto-saves selected offer in sessionStorage before redirect
+// ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ YouTube-style visual marketplace for live campaigns
+// ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Integrated with CollabHub for Solo / Team Up promotions
+// ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â‚¬Å¾ Auto-saves selected offer in sessionStorage before redirect
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Users, Sparkles, X, Heart, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 // ------------------------------------------------------------
-// ðŸ§  Demo Campaigns
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Demo Campaigns
 // ------------------------------------------------------------
 const campaignsData = [
   {
     id: 1,
     name: "UrbanGear X1 Sneakers",
     brand: "UrbanGear",
-    commission: "2â€“6%",
+    commission: "2ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“6%",
     tribes: ["Fashion Tribe", "Event Tribe"],
     thumbnail:
       "https://images.unsplash.com/photo-1606813902987-838b1a33b8a6?auto=format&fit=crop&w=1200&q=80",
-    desc: "Join the hottest streetwear drop this season. Showcase UrbanGearâ€™s limited X1 sneakers and earn up to 6% commission.",
+    desc: "Join the hottest streetwear drop this season. Showcase UrbanGearÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s limited X1 sneakers and earn up to 6% commission.",
     views: 48200,
     likes: 2500,
     influencers: 326,
@@ -35,11 +34,11 @@ const campaignsData = [
     id: 2,
     name: "Techy Fitness Band",
     brand: "Techy",
-    commission: "3â€“5%",
+    commission: "3ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“5%",
     tribes: ["Health Tribe", "Tech Tribe"],
     thumbnail:
       "https://images.unsplash.com/photo-1598970434795-0c54fe7c0643?auto=format&fit=crop&w=1200&q=80",
-    desc: "Empower wellness. Promote Techyâ€™s AI-powered fitness band that tracks dopamine, sleep, and energy metrics in real-time.",
+    desc: "Empower wellness. Promote TechyÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s AI-powered fitness band that tracks dopamine, sleep, and energy metrics in real-time.",
     views: 31800,
     likes: 1900,
     influencers: 279,
@@ -50,7 +49,7 @@ const campaignsData = [
     id: 3,
     name: "NovaTech Smart Lens",
     brand: "NovaTech",
-    commission: "4â€“8%",
+    commission: "4ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“8%",
     tribes: ["Tech Tribe", "Creator Tribe"],
     thumbnail:
       "https://images.unsplash.com/photo-1612892126027-bb87697e06c8?auto=format&fit=crop&w=1200&q=80",
@@ -65,11 +64,11 @@ const campaignsData = [
     id: 4,
     name: "GlowX Skincare Serum",
     brand: "GlowX",
-    commission: "3â€“7%",
+    commission: "3ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“7%",
     tribes: ["Beauty Tribe", "Health Tribe"],
     thumbnail:
       "https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=1200&q=80",
-    desc: "Promote GlowXâ€™s new serum that combines AI skin analysis with clean ingredients. Perfect for lifestyle creators.",
+    desc: "Promote GlowXÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s new serum that combines AI skin analysis with clean ingredients. Perfect for lifestyle creators.",
     views: 29400,
     likes: 2100,
     influencers: 352,
@@ -79,7 +78,7 @@ const campaignsData = [
 ];
 
 // ------------------------------------------------------------
-// ðŸ’Ž Component
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Component
 // ------------------------------------------------------------
 export default function MerchantOffers() {
   const [selected, setSelected] = useState(null);
@@ -87,7 +86,7 @@ export default function MerchantOffers() {
   const [trendingIndex, setTrendingIndex] = useState(0);
   const navigate = useNavigate();
 
-  // ðŸŽ  Auto-scroll trending carousel
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â  Auto-scroll trending carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setTrendingIndex((prev) => (prev + 1) % campaignsData.length);
@@ -95,7 +94,7 @@ export default function MerchantOffers() {
     return () => clearInterval(interval);
   }, []);
 
-  // ðŸš€ Promote handler â€“ redirects to CollabHub
+  // ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Promote handler ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ redirects to CollabHub
   const handlePromote = (campaign) => {
     sessionStorage.setItem("selectedOffer", JSON.stringify({
       title: campaign.name,
@@ -104,17 +103,17 @@ export default function MerchantOffers() {
       description: campaign.desc,
       thumbnail: campaign.thumbnail,
     }));
-    toast.success(`ðŸš€ Preparing promotion for ${campaign.name}`);
+    toast.success(`ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Preparing promotion for ${campaign.name}`);
     navigate("/collab");
   };
 
-  // ðŸ”¥ Trending Campaign
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Trending Campaign
   const trending = campaignsData[trendingIndex];
 
   return (
     <div className="space-y-10">
       {/* ===================================================== */}
-      {/* ðŸŽ¬ Trending Now Section */}
+      {/* ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ Trending Now Section */}
       {/* ===================================================== */}
       <div className="relative">
         <motion.div
@@ -133,7 +132,7 @@ export default function MerchantOffers() {
             <div className="flex justify-between items-center">
               <div>
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  ðŸ”¥ Trending Now
+                  ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Trending Now
                 </h2>
                 <h3 className="text-2xl font-extrabold text-purple-300">
                   {trending.name}
@@ -145,7 +144,7 @@ export default function MerchantOffers() {
                 whileHover={{ scale: 1.05 }}
                 className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold text-sm px-4 py-2 rounded-md shadow-lg hover:opacity-90"
               >
-                â–¶ Watch Campaign
+                ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¶ Watch Campaign
               </motion.button>
             </div>
           </div>
@@ -153,14 +152,14 @@ export default function MerchantOffers() {
       </div>
 
       {/* ===================================================== */}
-      {/* ðŸª Campaign Gallery */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª Campaign Gallery */}
       {/* ===================================================== */}
       <div>
         <h1 className="text-3xl font-extrabold text-yellow-400 flex items-center gap-2">
-          ðŸª Merchant Offers
+          ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª Merchant Offers
         </h1>
         <p className="text-gray-400 text-sm mb-4">
-          Discover live campaigns â€” collaborate, promote, and earn tokenized
+          Discover live campaigns ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â collaborate, promote, and earn tokenized
           rewards.
         </p>
 
@@ -196,7 +195,7 @@ export default function MerchantOffers() {
                   {c.name}
                 </h3>
                 <p className="text-xs text-gray-400 mb-2">
-                  By {c.brand} â€¢ {c.views.toLocaleString()} views
+                  By {c.brand} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {c.views.toLocaleString()} views
                 </p>
                 <p className="text-sm text-gray-300 mb-3 line-clamp-2">
                   {c.desc}
@@ -233,7 +232,7 @@ export default function MerchantOffers() {
                     onClick={() => setModal(c)}
                     className="text-xs font-semibold px-3 py-1.5 rounded-md border border-purple-400 text-purple-300 hover:bg-purple-600/20 transition-all"
                   >
-                    ðŸ‘€ View
+                    ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â€šÂ¬ View
                   </button>
                   <button
                     onClick={() => handlePromote(c)}
@@ -243,7 +242,7 @@ export default function MerchantOffers() {
                         : "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-90"
                     }`}
                   >
-                    {selected === c.name ? "âœ… Promoting" : "ðŸš€ Promote"}
+                    {selected === c.name ? "ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Promoting" : "ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Promote"}
                   </button>
                 </div>
               </div>
@@ -253,7 +252,7 @@ export default function MerchantOffers() {
       </div>
 
       {/* ===================================================== */}
-      {/* ðŸŽ¥ Modal (Video Preview) */}
+      {/* ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ Modal (Video Preview) */}
       {/* ===================================================== */}
       <AnimatePresence>
         {modal && (
@@ -278,7 +277,7 @@ export default function MerchantOffers() {
               </button>
 
               <h2 className="text-xl font-bold text-purple-400 mb-3 flex items-center gap-2">
-                ðŸŽ¬ {modal.name}
+                ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ {modal.name}
               </h2>
 
               {/* Video Preview */}
@@ -309,7 +308,7 @@ export default function MerchantOffers() {
                 onClick={() => handlePromote(modal)}
                 className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-sm font-semibold px-6 py-2 rounded-md hover:opacity-90 transition"
               >
-                ðŸš€ Promote This Campaign
+                ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Promote This Campaign
               </button>
             </motion.div>
           </motion.div>
@@ -317,7 +316,7 @@ export default function MerchantOffers() {
       </AnimatePresence>
 
       {/* ===================================================== */}
-      {/* ðŸŒŸ Footer Tip */}
+      {/* ÃƒÂ°Ã…Â¸Ã…â€™Ã…Â¸ Footer Tip */}
       {/* ===================================================== */}
       <div className="flex items-center justify-center mt-8 text-xs text-gray-500 italic">
         <Sparkles size={14} className="text-purple-400 mr-1" />
@@ -326,3 +325,5 @@ export default function MerchantOffers() {
     </div>
   );
 }
+
+

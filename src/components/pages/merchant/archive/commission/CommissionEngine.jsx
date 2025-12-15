@@ -24,7 +24,7 @@ export default function CommissionEngine({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Calculating commissions...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Calculating commissions...
       </div>
     );
 
@@ -108,3 +108,4 @@ export default function CommissionEngine({ productId }) {
     </div>
   );
 }
+

@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 useLivePulse.js
+// Ã°Å¸â€™Å½ useLivePulse.js
 // ------------------------------------------------------------
 // Simple auto-refresh hook for live updates.
 // It re-calls a callback every N milliseconds.
@@ -13,3 +13,4 @@ export default function useLivePulse(callback, interval = 15000) {
     return () => clearInterval(id);
   }, [callback, interval]);
 }
+

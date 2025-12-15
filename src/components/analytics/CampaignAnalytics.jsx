@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CampaignAnalytics.jsx (v1.0 â€œReach & ROI Pulseâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CampaignAnalytics.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œReach & ROI PulseÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Recharts visual for reach, engagement & conversion trends
-// âœ… Auto-updates when new campaign data arrives from CoreSync
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Recharts visual for reach, engagement & conversion trends
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-updates when new campaign data arrives from CoreSync
 // ============================================================
 
-import React, { useMemo } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from "recharts";
 
@@ -29,7 +28,7 @@ export default function CampaignAnalytics() {
   return (
     <div className="bg-[#0b0b15]/70 border border-gray-800 rounded-xl p-6">
       <h3 className="text-purple-400 font-bold mb-4 text-center">
-        ðŸ“Š Campaign Performance Overview
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Campaign Performance Overview
       </h3>
       <div className="grid md:grid-cols-2 gap-6">
         <div className="h-64">
@@ -61,3 +60,5 @@ export default function CampaignAnalytics() {
     </div>
   );
 }
+
+

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import logo from "./assets/core4ai-logo.png"; // ضع الشعار هنا داخل مجلد assets
+import logo from "./assets/core4ai-logo.png"; // Ø¶Ø¹ Ø§Ù„Ø´Ø¹Ø§Ø± Ù‡Ù†Ø§ Ø¯Ø§Ø®Ù„ Ù…Ø¬Ù„Ø¯ assets
 
 export default function SplashScreen({ onFinish }) {
   const taglines = [
-    "4 Roles • 1 Team • Endless Challenges",
-    "Stronger Together • Smarter With AI",
-    "Compete • Collaborate • Win as One",
-    "Your Core Team • Powered by AI"
+    "4 Roles â€¢ 1 Team â€¢ Endless Challenges",
+    "Stronger Together â€¢ Smarter With AI",
+    "Compete â€¢ Collaborate â€¢ Win as One",
+    "Your Core Team â€¢ Powered by AI"
   ];
 
   const [tagline, setTagline] = useState("");

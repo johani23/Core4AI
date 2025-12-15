@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CampaignBuilder.jsx (v7.0 â€œUnified Product Context Fixâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CampaignBuilder.jsx (v7.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified Product Context FixÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // -----------------------------------------------------------------------------
-// â€¢ FIXED: Product from URL â†’ state â†’ passed to ALL sections
-// â€¢ FIXED: Removed â€œÙ„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬â€ errors
-// â€¢ Smart fallback when no product selected
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ FIXED: Product from URL ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ state ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ passed to ALL sections
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ FIXED: Removed ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â errors
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Smart fallback when no product selected
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -35,7 +34,7 @@ export default function CampaignBuilder() {
         console.log("Selected Product:", decoded);
       } catch (err) {
         console.error(err);
-        toast.error("ÙØ´Ù„ Ù‚Ø±Ø§Ø¡Ø© Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù†ØªØ¬");
+        toast.error("Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ÃƒËœÃ‚Â© ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬");
       }
     }
   }, [location.search]);
@@ -47,7 +46,7 @@ export default function CampaignBuilder() {
     if (!product)
       return (
         <p className="text-center text-gray-500 py-10">
-          Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¹Ø¯.
+          Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯.
         </p>
       );
 
@@ -63,7 +62,7 @@ export default function CampaignBuilder() {
                 className="w-full h-full object-cover rounded-lg"
               />
             ) : (
-              "Ù„Ø§ ØªÙˆØ¬Ø¯ ØµÙˆØ±Ø©"
+              "Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ ÃƒËœÃ‚ÂµÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â©"
             )}
           </div>
 
@@ -74,7 +73,7 @@ export default function CampaignBuilder() {
             <p className="text-sm text-gray-600 mt-1">{product.description}</p>
 
             <p className="mt-2 text-green-800 font-semibold">
-              Ø§Ù„Ø³Ø¹Ø±: {product.price} Ø±.Ø³
+              ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â±: {product.price} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
             </p>
 
             {product.features && (
@@ -119,3 +118,5 @@ export default function CampaignBuilder() {
     </div>
   );
 }
+
+

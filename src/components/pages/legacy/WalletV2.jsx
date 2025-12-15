@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ WalletV2.jsx (Enhanced v55)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ WalletV2.jsx (Enhanced v55)
 // ------------------------------------------------------------
 // Real-time wallet + transactions + token delta
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function WalletV2() {
   const [wallets, setWallets] = useState([]);
@@ -37,7 +36,7 @@ export default function WalletV2() {
 
   return (
     <div className="p-6 text-white">
-      <h1 className="text-3xl font-bold mb-4">ðŸ’° Creator Wallets Overview</h1>
+      <h1 className="text-3xl font-bold mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Creator Wallets Overview</h1>
 
       <table className="w-full mb-10 border-collapse">
         <thead>
@@ -66,7 +65,7 @@ export default function WalletV2() {
       </table>
 
       <h2 className="text-2xl font-semibold mb-2 text-yellow-400">
-        ðŸ”„ Recent Transactions
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Recent Transactions
       </h2>
       <div className="bg-gray-900 rounded-xl p-4 max-h-[400px] overflow-y-auto">
         {transactions.length === 0 ? (
@@ -104,3 +103,5 @@ export default function WalletV2() {
     </div>
   );
 }
+
+

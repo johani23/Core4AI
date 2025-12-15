@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Tokens.jsx (MVP-122 â€œDynamic Weight Engineâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Tokens.jsx (MVP-122 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œDynamic Weight EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Displays user token balances
-// âœ… Calculates real-time token weighting
-// âœ… Integrated with /reward/simulate & /tokens/market
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays user token balances
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Calculates real-time token weighting
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrated with /reward/simulate & /tokens/market
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Coins, TrendingUp, BarChart3 } from "lucide-react";
 import { useCoreSync } from "@context/CoreSyncContext";
@@ -30,7 +29,7 @@ export default function Tokens() {
 
   return (
     <div className="p-8 text-gray-100">
-      <h1 className="text-3xl font-bold mb-6">ðŸ’  Token Balance & Weight</h1>
+      <h1 className="text-3xl font-bold mb-6">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Token Balance & Weight</h1>
 
       <div className="grid md:grid-cols-3 gap-6">
         <motion.div
@@ -65,10 +64,12 @@ export default function Tokens() {
           </div>
           <p className="text-3xl font-bold text-cyan-400">{weight}</p>
           <p className="text-sm text-gray-400 mt-1">
-            Formula: tribe_token Ã— mastery_level Ã— e<sup>(engagement)</sup>
+            Formula: tribe_token ÃƒÆ’Ã¢â‚¬â€ mastery_level ÃƒÆ’Ã¢â‚¬â€ e<sup>(engagement)</sup>
           </p>
         </motion.div>
       </div>
     </div>
   );
 }
+
+

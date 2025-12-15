@@ -14,7 +14,7 @@ export default function DopamineTimeline() {
         setData(json.timeline || []);
         setAvg(json.global_avg || 0);
       } catch (err) {
-        console.error("⚠️ Timeline fetch failed:", err);
+        console.error("âš ï¸ Timeline fetch failed:", err);
       }
     }
     fetchData();
@@ -24,7 +24,7 @@ export default function DopamineTimeline() {
 
   return (
     <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 shadow-lg">
-      <h2 className="text-xl font-bold text-yellow-400 mb-2">📈 Dopamine Flow (24 h)</h2>
+      <h2 className="text-xl font-bold text-yellow-400 mb-2">ðŸ“ˆ Dopamine Flow (24 h)</h2>
       <p className="text-gray-400 text-sm mb-4">
         Global Avg: <span className="text-sky-400 font-semibold">{avg.toFixed(1)}</span>
       </p>
@@ -63,7 +63,7 @@ export default function DopamineTimeline() {
         animate={{ scale: [1, 1 + avg / 150, 1], opacity: [0.8, 1, 0.8] }}
         transition={{ duration: 2.5, repeat: Infinity }}
       >
-        🕒
+        ðŸ•’
       </motion.div>
     </div>
   );

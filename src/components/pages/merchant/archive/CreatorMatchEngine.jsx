@@ -1,14 +1,13 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CreatorMatchEngine.jsx (v1.0 â€œSaudi Performer Match Engineâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CreatorMatchEngine.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSaudi Performer Match EngineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ----------------------------------------------------------------------------
-// â€¢ AI-powered creator matching for merchants
-// â€¢ Scores creators: Tribe Fit, Content Quality, Influence Weight
-// â€¢ Predicts Conversion Probability
-// â€¢ Recommends audience micro-contributors
-// â€¢ Uses Saudi digital behavior patterns
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ AI-powered creator matching for merchants
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Scores creators: Tribe Fit, Content Quality, Influence Weight
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Predicts Conversion Probability
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Recommends audience micro-contributors
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Uses Saudi digital behavior patterns
 // ============================================================================
 
-import React, { useState } from "react";
 import {
   FiUserCheck,
   FiZap,
@@ -70,7 +69,7 @@ export default function CreatorMatchEngine() {
     "Micro-Influencer (5k Followers)",
     "Active Commenter (Snapchat)",
     "Repeat Buyer (Tech Tribe)",
-    "Hyper-Engaged Female Audience 18â€“25",
+    "Hyper-Engaged Female Audience 18ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“25",
     "Outdoor Community Micro-Leader",
   ];
 
@@ -109,18 +108,18 @@ export default function CreatorMatchEngine() {
   return (
     <div className="space-y-10">
       <h1 className="text-3xl font-extrabold text-[#4cff9b] flex items-center gap-3">
-        <FiUserCheck /> E10 â€” Creator Matchmaking Engine
+        <FiUserCheck /> E10 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Creator Matchmaking Engine
       </h1>
 
       <p className="text-gray-300">
-        Ø§Ø®ØªØ± Ø§Ù„Ù…Ù†ØªØ¬ ÙˆØ§Ù„Ù‚Ø¨ÙŠÙ„Ø© Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø©ØŒ ÙˆØ¯Ø¹ Ø§Ù„Ù†Ø¸Ø§Ù… ÙŠØ­Ø¯Ø¯ Ø£ÙØ¶Ù„ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† + Ø£ÙØ¶Ù„
-        Ø¬Ù…Ù‡ÙˆØ± Ø¯Ø§Ø¹Ù….
+        ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â©ÃƒËœÃ…â€™ Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¹ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¸ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â­ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¯ ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  + ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾
+        ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â± ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦.
       </p>
 
       {/* INPUTS */}
       <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl space-y-5">
         <input
-          placeholder="Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬"
+          placeholder="ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
@@ -131,7 +130,7 @@ export default function CreatorMatchEngine() {
           onChange={(e) => setTribe(e.target.value)}
           className="w-full px-4 py-3 bg-[#002015] border border-[#145536] text-white rounded-lg"
         >
-          <option value="">Ø§Ø®ØªØ± Ø§Ù„Ù‚Ø¨ÙŠÙ„Ø©</option>
+          <option value="">ÃƒËœÃ‚Â§ÃƒËœÃ‚Â®ÃƒËœÃ‚ÂªÃƒËœÃ‚Â± ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©</option>
           {TRIBES.map((t) => (
             <option key={t}>{t}</option>
           ))}
@@ -141,7 +140,7 @@ export default function CreatorMatchEngine() {
           onClick={matchCreators}
           className="w-full py-3 bg-[#4cff9b] text-black font-extrabold rounded-lg flex items-center justify-center gap-2"
         >
-          <FiSearch /> ØªØ­Ù„ÙŠÙ„ Ùˆ Ù…Ø·Ø§Ø¨Ù‚Ø©
+          <FiSearch /> ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã‹â€  Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â·ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â©
         </button>
       </div>
 
@@ -150,7 +149,7 @@ export default function CreatorMatchEngine() {
         <div className="space-y-10">
           <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl">
             <h2 className="text-xl text-[#4cff9b] font-bold flex items-center gap-3">
-              <FiTarget /> Ø£ÙØ¶Ù„ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ† Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ù†ØªØ¬
+              <FiTarget /> ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°ÃƒËœÃ‚Â§ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -163,7 +162,7 @@ export default function CreatorMatchEngine() {
           {/* Audience Boosters */}
           <div className="bg-[#01341c] border border-[#1b6647] p-6 rounded-xl">
             <h2 className="text-xl text-[#4cff9b] font-bold flex items-center gap-3">
-              <FiUsers /> Ø£ÙØ¶Ù„ Ø¹Ù†Ø§ØµØ± Audience Ù„Ø¯Ø¹Ù… Ø§Ù„Ø­Ù…Ù„Ø©
+              <FiUsers /> ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â± Audience Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â©
             </h2>
 
             <ul className="list-disc ml-6 text-gray-300 mt-4 space-y-3">
@@ -204,3 +203,5 @@ function CreatorCard({ creator }) {
     </div>
   );
 }
+
+

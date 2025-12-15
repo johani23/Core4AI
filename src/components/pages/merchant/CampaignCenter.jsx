@@ -1,119 +1,152 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CampaignCenter.jsx (v5 â€œAI Campaign Builderâ€)
-// ----------------------------------------------------------------------------
-// â€¢ Build campaigns using AI hooks, targeting blocks, and creative ideas
-// â€¢ Fully modular and connected to Merchant Hub v3
-// â€¢ Replace mock AI with backend later
+// 💚 Core4.AI – CampaignCenter (FINAL BACKEND VERSION)
+// - Reads campaigns from SQL backend
+// - No localStorage
+// - Clean status handling
+// - Production ready
 // ============================================================================
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  MegaphoneIcon,
-  SparklesIcon,
-  UsersIcon,
-  CursorArrowRaysIcon,
-} from "@heroicons/react/24/outline";
+import React, { useEffect, useState } from "react";
+import BackToMerchant from "@/components/common/BackToMerchant";
 
 export default function CampaignCenter() {
-  const [product, setProduct] = useState("");
-  const [ideas, setIdeas] = useState([]);
+  const [campaigns, setCampaigns] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const generate = () => {
-    if (!product.trim()) return;
+  // --------------------------------------------------------------------------
+  // Load campaigns from backend
+  // --------------------------------------------------------------------------
+  useEffect(() => {
+    async function loadCampaigns() {
+      try {
+        const res = await fetch("/api/merchant/campaigns");
+        if (!res.ok) throw new Error("Failed to load campaigns");
 
-    setIdeas([]);
+        const data = await res.json();
+        setCampaigns(data);
+      } catch (e) {
+        console.error("❌ Failed to load campaigns:", e);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-    setTimeout(() => {
-      setIdeas([
-        {
-          hook: `â€œWhy ${product} is trending this weekâ€¦â€`,
-          angle: "Saudi Trend Pulse",
-          audience: "Men 18â€“34 â€¢ High engagement â€¢ TikTok/IG",
-        },
-        {
-          hook: `â€œOne feature in ${product} creators LOVEâ€¦â€`,
-          angle: "Creator Advantage",
-          audience: "Content Creators â€¢ Early adopters",
-        },
-        {
-          hook: `â€œHow ${product} saves you time everydayâ€`,
-          angle: "Utility Transformation",
-          audience: "Gen-Z â€¢ University Students",
-        },
-      ]);
-    }, 700);
-  };
+    loadCampaigns();
+  }, []);
 
-  return (
-    <div className="space-y-10">
-      {/* HEADER */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
-          Campaign Builder
-        </h1>
-        <p className="text-gray-500 mt-1">
-          Generate AI-powered campaign ideas and launch strategies.
-        </p>
+  const active = campaigns.filter((c) => c.status === "نشطة");
+  const completed = campaigns.filter((c) => c.status !== "نشطة");
+
+  // --------------------------------------------------------------------------
+  // Loading state
+  // --------------------------------------------------------------------------
+  if (loading) {
+    return (
+      <div className="text-center mt-24 text-gray-500">
+        ⏳ جاري تحميل الحملات...
       </div>
+    );
+  }
 
-      {/* INPUT */}
-      <div className="bg-white rounded-xl shadow p-6 space-y-4">
-        <h2 className="text-xl font-semibold flex items-center gap-2">
-          <MegaphoneIcon className="w-6 h-6 text-green-600" />
-          Generate Campaign Blueprint
-        </h2>
+  // --------------------------------------------------------------------------
+  // Render
+  // --------------------------------------------------------------------------
+  return (
+    <div className="max-w-6xl mx-auto" dir="rtl">
+      <BackToMerchant />
 
-        <input
-          type="text"
-          placeholder="Enter product nameâ€¦"
-          className="w-full p-3 rounded-lg border bg-gray-50"
-          value={product}
-          onChange={(e) => setProduct(e.target.value)}
-        />
+      {/* HEADER */}
+      <div className="flex justify-between items-center mt-6 mb-10">
+        <h1 className="text-3xl font-extrabold text-gray-900">
+          الحملات التسويقية
+        </h1>
 
         <button
-          onClick={generate}
-          className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition"
+          onClick={() => (window.location.href = "/merchant/products")}
+          className="btn-green px-6 py-3"
         >
-          <SparklesIcon className="w-5 h-5" />
-          Generate Blueprint
+          ➕ إنشاء حملة جديدة
         </button>
       </div>
 
-      {/* RESULTS */}
-      <div className="space-y-6">
-        {ideas.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-white rounded-xl shadow p-6 space-y-4"
-          >
-            <h3 className="text-xl font-bold text-gray-900">{item.hook}</h3>
+      {/* ACTIVE CAMPAIGNS */}
+      <CampaignSection title="الحملات النشطة" campaigns={active} />
 
-            <div className="text-gray-700">
-              <strong>Angle:</strong> {item.angle}
-            </div>
+      {/* COMPLETED CAMPAIGNS */}
+      <CampaignSection title="الحملات المكتملة" campaigns={completed} />
+    </div>
+  );
+}
 
-            <div className="text-gray-700 flex items-center gap-2">
-              <UsersIcon className="w-5 h-5 text-blue-500" />
-              <span>
-                <strong>Target Audience:</strong> {item.audience}
-              </span>
-            </div>
+// ============================================================================
+// Campaign Section
+// ============================================================================
 
-            <div className="text-gray-500 text-sm pt-2 border-t">
-              <CursorArrowRaysIcon className="w-4 h-4 inline-block mr-1" />
-              Ready for export to TikTok Ads / Meta Ads.
-            </div>
-          </motion.div>
-        ))}
+function CampaignSection({ title, campaigns }) {
+  return (
+    <section className="mb-14">
+      <h2 className="text-xl font-bold text-gray-900 mb-4">{title}</h2>
 
-        {!ideas.length && (
-          <p className="text-gray-400 text-center">Start by entering a product nameâ€¦</p>
-        )}
+      {campaigns.length === 0 ? (
+        <p className="text-gray-500 text-sm">لا توجد حملات.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {campaigns.map((c) => (
+            <CampaignCard key={c.id} campaign={c} />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ============================================================================
+// Campaign Card
+// ============================================================================
+
+function CampaignCard({ campaign }) {
+  return (
+    <div className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
+
+      <h3 className="font-bold text-lg text-gray-900">
+        المنتج #{campaign.product_id}
+      </h3>
+
+      <p className="text-sm text-gray-600 mt-2">
+        الفئة المستهدفة: <b>{campaign.audience}</b>
+      </p>
+
+      <p className="text-sm text-gray-600">
+        المؤثر: {campaign.influencer || "غير محدد"}
+      </p>
+
+      <p className="text-sm text-purple-700 font-bold mt-3">
+        السعر المقترح: {campaign.recommended_price} ريال
+      </p>
+
+      <p className="text-xs text-gray-500 mt-1">
+        مؤشر النجاح (AI): {campaign.ai_success_score}%
+      </p>
+
+      <div className="flex justify-between items-center mt-5">
+        <span
+          className={`px-3 py-1 rounded-lg text-sm font-bold ${
+            campaign.status === "نشطة"
+              ? "bg-green-100 text-green-700"
+              : "bg-gray-200 text-gray-700"
+          }`}
+        >
+          {campaign.status}
+        </span>
+
+        <button
+          onClick={() =>
+            (window.location.href = `/merchant/campaign-summary?id=${campaign.id}`)
+          }
+          className="text-blue-600 font-bold hover:underline"
+        >
+          عرض التفاصيل →
+        </button>
       </div>
     </div>
   );

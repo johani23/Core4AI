@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ DopaminePulseMeter.jsx (MVP-64.4 â€œCollective Energy Gaugeâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ DopaminePulseMeter.jsx (MVP-64.4 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCollective Energy GaugeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Computes rolling dopamine score from simulation events
-// âœ… Animated radial pulse + numeric indicator
-// âœ… Works anywhere (Dashboard / LiveFeed / Navbar)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Computes rolling dopamine score from simulation events
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated radial pulse + numeric indicator
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Works anywhere (Dashboard / LiveFeed / Navbar)
 // ============================================================
 
-import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -14,7 +13,7 @@ export default function DopaminePulseMeter({ size = 140 }) {
   const { logs } = useCoreSync();
   const [score, setScore] = useState(50);
 
-  // ðŸ§  Compute rolling mood score
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Compute rolling mood score
   useEffect(() => {
     if (logs.length === 0) return;
 
@@ -33,7 +32,7 @@ export default function DopaminePulseMeter({ size = 140 }) {
     setScore(normalized || 50);
   }, [logs]);
 
-  // ðŸŽ¨ Color + size logic
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Color + size logic
   const ringColor =
     score > 75 ? "rgba(147,51,234,0.9)" : score > 50 ? "rgba(16,185,129,0.9)" : "rgba(239,68,68,0.8)";
   const glow = {
@@ -71,3 +70,5 @@ export default function DopaminePulseMeter({ size = 140 }) {
     </div>
   );
 }
+
+

@@ -1,5 +1,5 @@
 // ============================================================
-// 🏆 TribeLeaderboard.jsx (MVP-27)
+// ðŸ† TribeLeaderboard.jsx (MVP-27)
 // ============================================================
 
 import React, { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ export default function TribeLeaderboard() {
 
   return (
     <div className="min-h-screen bg-black text-white p-6 pt-20">
-      <h1 className="text-3xl font-bold mb-4">🏆 Tribe Leaderboard</h1>
+      <h1 className="text-3xl font-bold mb-4">ðŸ† Tribe Leaderboard</h1>
 
       <div className="space-y-4">
         {leaders.map((item, i) => (

@@ -1,5 +1,5 @@
 // ============================================================
-// 🔇 Core4.AI – Console Silence Mode (Beta)
+// Ã°Å¸â€â€¡ Core4.AI Ã¢â‚¬â€œ Console Silence Mode (Beta)
 // ------------------------------------------------------------
 // Hides all React + WS console logs in production & dev
 // Still allows console.error to appear for real problems
@@ -15,3 +15,4 @@ const disabled = [
 disabled.forEach((method) => {
   console[method] = () => {};
 });
+

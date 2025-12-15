@@ -1,8 +1,7 @@
 // ============================================================
-// ðŸ‡¸ðŸ‡¦ Core4.AI â€“ SaudiHeader.jsx
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¸ÃƒÂ°Ã…Â¸Ã¢â‚¬Â¡Ã‚Â¦ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SaudiHeader.jsx
 // ============================================================
 
-import React from "react";
 import { Link } from "react-router-dom";
 import { FiStore, FiPackage, FiPlusCircle } from "react-icons/fi";
 
@@ -43,3 +42,5 @@ export default function SaudiHeader() {
     </header>
   );
 }
+
+

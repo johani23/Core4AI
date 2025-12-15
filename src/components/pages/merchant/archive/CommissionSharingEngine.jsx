@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CommissionSharingEngine.jsx (v1.0 â€œProfit Cascade Modelâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CommissionSharingEngine.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œProfit Cascade ModelÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Distributes merchant revenue among Tribes + Creators
-// âœ… Weighted by XP (performance) and token_weight (influence)
-// âœ… Calculates merchant ROI + tribe share ratios
-// âœ… Ready for integration with AnalyticsHub + WalletRewards
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Distributes merchant revenue among Tribes + Creators
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Weighted by XP (performance) and token_weight (influence)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Calculates merchant ROI + tribe share ratios
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Ready for integration with AnalyticsHub + WalletRewards
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
@@ -21,7 +20,7 @@ export default function CommissionSharingEngine() {
   const [totalPool, setTotalPool] = useState(0);
   const [selectedCampaign, setSelectedCampaign] = useState(null);
 
-  // âš™ï¸ Calculate Distribution based on latest campaign
+  // ÃƒÂ¢Ã…Â¡Ã¢â€žÂ¢ÃƒÂ¯Ã‚Â¸Ã‚Â Calculate Distribution based on latest campaign
   useEffect(() => {
     if (campaigns.length === 0 || tribes.length === 0) return;
 
@@ -51,17 +50,17 @@ export default function CommissionSharingEngine() {
     setTotalPool(pool);
   }, [campaigns, tribes, level]);
 
-  // ðŸ’° Trigger payout
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Trigger payout
   const handleDistribute = () => {
     if (distribution.length === 0) return;
-    toast.success(`ðŸ’¸ Distributed ${totalPool}$ across ${distribution.length} tribes`);
+    toast.success(`ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¸ Distributed ${totalPool}$ across ${distribution.length} tribes`);
   };
 
   return (
     <div className="p-8 bg-[#0b0b15]/80 rounded-2xl border border-gray-800 shadow-xl text-gray-300">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-purple-400 flex items-center gap-2">
-          ðŸ’° Commission Sharing Engine
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Commission Sharing Engine
         </h2>
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -79,14 +78,14 @@ export default function CommissionSharingEngine() {
             <span className="text-purple-300 font-semibold">
               {selectedCampaign.campaign_id || "CMP"}
             </span>{" "}
-            â€¢ Budget:{" "}
+            ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Budget:{" "}
             <span className="text-green-400 font-semibold">
               ${selectedCampaign.budget}
             </span>
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 items-center">
-            {/* ðŸ° Pie Chart */}
+            {/* ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â° Pie Chart */}
             <ResponsiveContainer width="100%" height={240}>
               <PieChart>
                 <Pie
@@ -104,7 +103,7 @@ export default function CommissionSharingEngine() {
               </PieChart>
             </ResponsiveContainer>
 
-            {/* ðŸ“Š Breakdown */}
+            {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Breakdown */}
             <div className="space-y-3">
               {distribution.map((d, idx) => (
                 <motion.div
@@ -131,7 +130,7 @@ export default function CommissionSharingEngine() {
 
           <div className="mt-6 text-xs text-gray-500 text-center">
             XP Influence Multiplier: <span className="text-purple-300">+{((level.progress / 100) * 25).toFixed(1)}%</span>  
-            â€¢ Total Pool: <span className="text-green-400">${totalPool}</span>
+            ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Total Pool: <span className="text-green-400">${totalPool}</span>
           </div>
         </>
       ) : (
@@ -140,3 +139,5 @@ export default function CommissionSharingEngine() {
     </div>
   );
 }
+
+

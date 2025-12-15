@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ProfileCard({ points }) {
-  const nextLevel = Math.ceil((points + 1) / 50) * 50; // كل 50 نقطة مستوى
+  const nextLevel = Math.ceil((points + 1) / 50) * 50; // ÙƒÙ„ 50 Ù†Ù‚Ø·Ø© Ù…Ø³ØªÙˆÙ‰
   const progress = Math.min((points / nextLevel) * 100, 100);
 
   const getStage = (pts) => {
@@ -16,7 +16,7 @@ export default function ProfileCard({ points }) {
 
   return (
     <div style={{ padding: "12px", background: "white", borderRadius: "10px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)" }}>
-      <h2>🔍 Profile Overview</h2>
+      <h2>ðŸ” Profile Overview</h2>
       <p><strong>Stage / Ring:</strong> {stage}</p>
       <p><strong>Accumulated Points:</strong> {points}</p>
 

@@ -1,11 +1,10 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€” CreativeExportTools.jsx (Export Kit v1.0)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â CreativeExportTools.jsx (Export Kit v1.0)
 // ----------------------------------------------------------------------------
 // Tools for exporting full Creative Kit as PDF, ZIP, JSON
 // Works with CreativeKit V2.5
 // ============================================================================
 
-import React from "react";
 import JSZip from "jszip";
 import { jsPDF } from "jspdf";
 
@@ -19,14 +18,14 @@ export default function CreativeExportTools({ creativeKit, productName }) {
 
     pdf.setFont("Helvetica", "bold");
     pdf.setFontSize(18);
-    pdf.text(`Core4.AI Creative Kit â€“ ${productName}`, 10, 15);
+    pdf.text(`Core4.AI Creative Kit ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ${productName}`, 10, 15);
 
     pdf.setFont("Helvetica", "normal");
     pdf.setFontSize(12);
 
     let y = 30;
 
-    pdf.text("ðŸŽ¬ Storyboard", 10, y);
+    pdf.text("ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¬ Storyboard", 10, y);
     y += 10;
 
     creativeKit.storyboard.forEach((scene) => {
@@ -41,11 +40,11 @@ export default function CreativeExportTools({ creativeKit, productName }) {
     pdf.addPage();
     y = 20;
 
-    pdf.text("ðŸ“Š Ad Variations (Top Ranked)", 10, y);
+    pdf.text("ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Ad Variations (Top Ranked)", 10, y);
     y += 10;
 
     creativeKit.ad_variations_ranked.forEach((ad) => {
-      pdf.text(`#${ad.id} â€“ ${ad.platform} â€” ${ad.angle}`, 10, y);
+      pdf.text(`#${ad.id} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ${ad.platform} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ${ad.angle}`, 10, y);
       y += 6;
       pdf.text(`Hook: ${ad.hook}`, 10, y);
       y += 6;
@@ -56,11 +55,11 @@ export default function CreativeExportTools({ creativeKit, productName }) {
     pdf.addPage();
     y = 20;
 
-    pdf.text("âœï¸ Copy Bank (Arabic Short)", 10, y);
+    pdf.text("ÃƒÂ¢Ã…â€œÃ‚ÂÃƒÂ¯Ã‚Â¸Ã‚Â Copy Bank (Arabic Short)", 10, y);
     y += 10;
 
     creativeKit.copy_bank.arabic_short.forEach((line) => {
-      pdf.text(`â€¢ ${line}`, 10, y);
+      pdf.text(`ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ ${line}`, 10, y);
       y += 6;
     });
 
@@ -114,7 +113,7 @@ export default function CreativeExportTools({ creativeKit, productName }) {
   return (
     <div className="bg-white p-6 rounded-xl border shadow mt-10">
       <h3 className="text-xl font-bold mb-4 text-[#006C35]">
-        ðŸ“¦ Download Export Kits
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¦ Download Export Kits
       </h3>
 
       <div className="flex flex-col md:flex-row gap-4">
@@ -122,23 +121,25 @@ export default function CreativeExportTools({ creativeKit, productName }) {
           onClick={exportPDF}
           className="px-4 py-3 bg-[#006C35] text-white rounded-lg font-bold w-full md:w-auto"
         >
-          ðŸ“„ Download PDF
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬Å¾ Download PDF
         </button>
 
         <button
           onClick={exportZIP}
           className="px-4 py-3 bg-blue-700 text-white rounded-lg font-bold w-full md:w-auto"
         >
-          ðŸ“¦ Download ZIP Media Kit
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¦ Download ZIP Media Kit
         </button>
 
         <button
           onClick={exportJSON}
           className="px-4 py-3 bg-gray-800 text-white rounded-lg font-bold w-full md:w-auto"
         >
-          ðŸ”§ Download JSON
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â§ Download JSON
         </button>
       </div>
     </div>
   );
 }
+
+

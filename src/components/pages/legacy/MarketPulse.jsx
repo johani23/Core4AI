@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MarketPulse.jsx (MVP-27.7 Visual Pulse Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MarketPulse.jsx (MVP-27.7 Visual Pulse Edition)
 // ------------------------------------------------------------
 // Displays latest tribe market events with dopamine animation
 // Compatible with backend route: GET /market/pulse
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RefreshCcw } from "lucide-react";
 
@@ -23,7 +22,7 @@ export default function MarketPulse() {
       const data = await res.json();
       setEvents(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("âš ï¸ Pulse error:", err);
+      console.error("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Pulse error:", err);
       setError("Unable to fetch market data.");
     } finally {
       setLoading(false);
@@ -59,7 +58,7 @@ export default function MarketPulse() {
     <div className="min-h-screen bg-black text-white p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-green-400 flex items-center gap-2">
-          ðŸ’¹ Market Pulse
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Market Pulse
         </h1>
         <button
           onClick={fetchPulse}
@@ -115,3 +114,5 @@ export default function MarketPulse() {
     </div>
   );
 }
+
+

@@ -1,11 +1,10 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ XPLevelInsights.jsx (v1.0 â€œBadge Ladderâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ XPLevelInsights.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBadge LadderÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Shows user XP progress & next level milestones
-// âœ… Simple level logic for Bronze â†’ Silver â†’ Gold â†’ Platinum
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Shows user XP progress & next level milestones
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Simple level logic for Bronze ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Silver ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Gold ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Platinum
 // ============================================================
 
-import React, { useMemo } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 
 export default function XPLevelInsights() {
@@ -20,7 +19,7 @@ export default function XPLevelInsights() {
 
   return (
     <div className="bg-[#0b0b15]/70 border border-gray-800 rounded-xl p-6 text-center">
-      <h3 className="text-purple-400 font-bold mb-3">â­ XP & Level Progress</h3>
+      <h3 className="text-purple-400 font-bold mb-3">ÃƒÂ¢Ã‚Â­Ã‚Â XP & Level Progress</h3>
       <div className="text-gray-400 mb-2">Current Level: <b>{level?.title || "Bronze"}</b></div>
       <div className="w-full bg-gray-800 rounded-full h-4 mb-4">
         <div
@@ -29,7 +28,7 @@ export default function XPLevelInsights() {
         ></div>
       </div>
       <div className="text-gray-400">
-        {xp} XP / {nextXP} XP â†’ Next Level: <span className="text-purple-400 font-semibold">{nextTitle}</span>
+        {xp} XP / {nextXP} XP ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Next Level: <span className="text-purple-400 font-semibold">{nextTitle}</span>
       </div>
       <div className="mt-4 flex justify-center gap-3">
         {["Bronze", "Silver", "Gold", "Platinum"].map((t) => (
@@ -46,3 +45,5 @@ export default function XPLevelInsights() {
     </div>
   );
 }
+
+

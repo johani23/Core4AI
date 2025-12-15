@@ -1,5 +1,5 @@
 // =============================================================
-// ðŸ’¼ Core4.AI â€“ Promoter.jsx (v7 Unified Flywheel Pre-Beta)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¼ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Promoter.jsx (v7 Unified Flywheel Pre-Beta)
 // -------------------------------------------------------------
 // - Simulate/Return Order
 // - Creator Content Linking
@@ -8,7 +8,6 @@
 // - Earnings Summary
 // =============================================================
 
-import React, { useState, useEffect } from "react";
 import { useCoreSync } from "@/context/CoreSyncContext";
 
 export default function Promoter() {
@@ -88,12 +87,12 @@ export default function Promoter() {
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6">
       <h1 className="text-3xl font-bold text-pink-200 mb-8">
-        ðŸ’¼ Promoter Dashboard
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¼ Promoter Dashboard
       </h1>
 
       {/* Simulate Order */}
       <div className="bg-gray-900 p-6 rounded-2xl mb-8">
-        <h2 className="text-xl text-white mb-4">ðŸŽ¯ Simulate Order</h2>
+        <h2 className="text-xl text-white mb-4">ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Simulate Order</h2>
 
         <div className="grid grid-cols-3 gap-4">
           <input
@@ -137,7 +136,7 @@ export default function Promoter() {
 
       {/* Creator Content Linking */}
       <div className="bg-gray-900 p-6 rounded-2xl mb-8">
-        <h2 className="text-xl text-white mb-4">ðŸ”— Link Creator Content</h2>
+        <h2 className="text-xl text-white mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â€ Link Creator Content</h2>
 
         <div className="grid grid-cols-3 gap-4">
           <input
@@ -163,7 +162,7 @@ export default function Promoter() {
 
       {/* Sub-Tribe */}
       <div className="bg-gray-900 p-6 rounded-2xl mb-8">
-        <h2 className="text-xl text-white mb-4">ðŸ¤ Sub-Tribe Management</h2>
+        <h2 className="text-xl text-white mb-4">ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Sub-Tribe Management</h2>
 
         <div className="grid grid-cols-3 gap-4">
           <input
@@ -198,7 +197,7 @@ export default function Promoter() {
 
       {/* Real-Time Order Stream */}
       <div className="bg-gray-900 p-6 rounded-2xl mb-8">
-        <h2 className="text-xl text-white mb-4">ðŸ“¡ Real-Time Orders</h2>
+        <h2 className="text-xl text-white mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡ Real-Time Orders</h2>
 
         <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
           {orderStream.map((o, i) => (
@@ -220,9 +219,11 @@ export default function Promoter() {
 
       {/* Earnings */}
       <div className="bg-gray-800 p-6 rounded-2xl text-center text-white text-xl">
-        ðŸ’° Total Promoter Earnings:{" "}
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Total Promoter Earnings:{" "}
         <span className="text-green-400 font-bold">{earnings.toFixed(2)} SAR</span>
       </div>
     </div>
   );
 }
+
+

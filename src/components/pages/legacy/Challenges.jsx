@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { getChallenges, evaluateRewards } from "@services/api";
 
 /**
- * ðŸ”¥ Core4.AI MVP-23 â€“ Dynamic Challenges + Reward Trigger
+ * ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Core4.AI MVP-23 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Dynamic Challenges + Reward Trigger
  */
 export default function Challenges({ userId = 1 }) {
   const [challenges, setChallenges] = useState([]);
@@ -17,7 +17,7 @@ export default function Challenges({ userId = 1 }) {
         const res = await getChallenges();
         setChallenges(Array.isArray(res) ? res : []);
       } catch (err) {
-        console.error("âš ï¸ Failed to load challenges:", err);
+        console.error("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Failed to load challenges:", err);
         setChallenges([]);
       } finally {
         setLoading(false);
@@ -32,7 +32,7 @@ export default function Challenges({ userId = 1 }) {
       const res = await evaluateRewards(userId);
       setResult(res.result);
     } catch (err) {
-      alert("âš ï¸ Error evaluating rewards.");
+      alert("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Error evaluating rewards.");
     } finally {
       setRewarding(false);
     }
@@ -45,13 +45,13 @@ export default function Challenges({ userId = 1 }) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        ðŸ’Ž Weekly Core4 Challenges
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Weekly Core4 Challenges
       </motion.h1>
 
       {loading ? (
         <p className="text-gray-400">Loading...</p>
       ) : challenges.length === 0 ? (
-        <p className="text-gray-500">No challenges yet. Come back later! ðŸš€</p>
+        <p className="text-gray-500">No challenges yet. Come back later! ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬</p>
       ) : (
         <div className="grid md:grid-cols-2 gap-4">
           {challenges.map((c, i) => (
@@ -93,7 +93,7 @@ export default function Challenges({ userId = 1 }) {
               : "bg-green-500 hover:bg-green-600 text-black"
           }`}
         >
-          {rewarding ? "Evaluating..." : "Evaluate My Rewards ðŸ’°"}
+          {rewarding ? "Evaluating..." : "Evaluate My Rewards ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â°"}
         </button>
 
         {result && (
@@ -102,7 +102,7 @@ export default function Challenges({ userId = 1 }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            âœ… Completed: {result.completed.join(", ")}<br />
+            ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Completed: {result.completed.join(", ")}<br />
             Earned {result.count} reward(s)!
           </motion.div>
         )}
@@ -110,3 +110,4 @@ export default function Challenges({ userId = 1 }) {
     </div>
   );
 }
+

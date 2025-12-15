@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MentorLeagueBoard.jsx (MVP-86 â€œMentor League Boardâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MentorLeagueBoard.jsx (MVP-86 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œMentor League BoardÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Fetches analytics from /mentor/analytics
-// âœ… Displays leaderboard + scatter chart (efficiency vs retention)
-// âœ… Click mentor name â†’ detailed history timeline
-// âœ… Auto refresh every 15 s
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fetches analytics from /mentor/analytics
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays leaderboard + scatter chart (efficiency vs retention)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Click mentor name ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ detailed history timeline
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto refresh every 15 s
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import {
   ScatterChart,
   Scatter,
@@ -57,7 +56,7 @@ export default function MentorLeagueBoard() {
     <div className="w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white p-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold text-purple-400">
-          ðŸ§  Mentor League Board
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Mentor League Board
         </h1>
         <span className="text-gray-400 text-sm">
           Auto-refresh every 15 seconds
@@ -151,7 +150,7 @@ export default function MentorLeagueBoard() {
         <div className="bg-gray-900/90 border border-emerald-400/40 rounded-2xl p-4">
           <div className="flex justify-between items-center mb-2">
             <div className="text-emerald-300 font-semibold text-lg">
-              {selected} â€“ Growth History
+              {selected} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Growth History
             </div>
             <button
               onClick={() => setSelected(null)}
@@ -162,7 +161,7 @@ export default function MentorLeagueBoard() {
           </div>
 
           {history.length === 0 ? (
-            <div className="text-gray-500 text-sm">No history yetâ€¦</div>
+            <div className="text-gray-500 text-sm">No history yetÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</div>
           ) : (
             <>
               <div className="w-full h-56 mb-3">
@@ -221,7 +220,7 @@ export default function MentorLeagueBoard() {
                         </span>
                       </div>
                       <div className="text-gray-300 mt-1">
-                        Mentored â†’ {h.apprentice}
+                        Mentored ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ {h.apprentice}
                       </div>
                     </div>
                   ))}
@@ -233,3 +232,5 @@ export default function MentorLeagueBoard() {
     </div>
   );
 }
+
+

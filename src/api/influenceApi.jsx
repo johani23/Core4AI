@@ -1,4 +1,4 @@
-﻿export async function fetchInfluenceScore() {
+export async function fetchInfluenceScore() {
   try {
     const r = await fetch('/api/influence/buyer_001');
     return await r.json();
@@ -13,3 +13,4 @@
     };
   }
 }
+

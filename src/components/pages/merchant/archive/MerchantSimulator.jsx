@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’š Core4.AI â€“ MerchantSimulator.jsx (v1.0 â€œLive Intelligence Layerâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantSimulator.jsx (v1.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Intelligence LayerÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// ðŸ”¥ Real-time: D-Index + Tribe Shifts + Hot Products + Conversion Pulse
-// ðŸ”¥ Pulls data through WebSocket (CoreSyncContext)
-// ðŸ”¥ Runs its own micro-simulation for merchant products
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Real-time: D-Index + Tribe Shifts + Hot Products + Conversion Pulse
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Pulls data through WebSocket (CoreSyncContext)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Runs its own micro-simulation for merchant products
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { useCoreSync } from "@context/CoreSyncContext";
 import axios from "axios";
 import { FiZap, FiActivity, FiTrendingUp, FiUsers } from "react-icons/fi";
@@ -30,7 +29,7 @@ export default function MerchantSimulator({ merchantId = "merchant-beta" }) {
   };
 
   // ------------------------------------------------------------
-  // ðŸ”¥ Micro Simulation Engine â€“ runs every 10 sec
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Micro Simulation Engine ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ runs every 10 sec
   // ------------------------------------------------------------
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,12 +40,12 @@ export default function MerchantSimulator({ merchantId = "merchant-beta" }) {
 
       const tribes = council?.tribes || [];
       const sorted = [...tribes].sort((a, b) => b.dopamine - a.dopamine);
-      const bestTribe = sorted[0]?.name || "â€”";
+      const bestTribe = sorted[0]?.name || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â";
 
-      const conversionPulse = (Math.random() * 3 + 1).toFixed(1); // 1â€“4%
+      const conversionPulse = (Math.random() * 3 + 1).toFixed(1); // 1ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“4%
 
       setPulse({
-        hotProduct: hotProduct?.name || "â€”",
+        hotProduct: hotProduct?.name || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â",
         bestTribe,
         conversionPulse,
         dindex: council?.dindex || 50,
@@ -59,14 +58,14 @@ export default function MerchantSimulator({ merchantId = "merchant-beta" }) {
   if (!pulse)
     return (
       <div className="text-gray-400 text-sm mt-8">
-        Initializing real-time engineâ€¦
+        Initializing real-time engineÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦
       </div>
     );
 
   return (
     <div className="mt-10 p-6 bg-green-50 border border-green-200 rounded-xl shadow-sm">
       <h2 className="text-2xl font-bold text-[#006C35] mb-4">
-        ðŸ”¥ Real-Time Performance Simulation
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Real-Time Performance Simulation
       </h2>
 
       <div className="grid md:grid-cols-4 gap-6">
@@ -112,3 +111,5 @@ export default function MerchantSimulator({ merchantId = "merchant-beta" }) {
     </div>
   );
 }
+
+

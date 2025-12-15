@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getUserProfile, getUserBadges, getPosts } from "@services/api"; // ✅ fixed alias
+import { getUserProfile, getUserBadges, getPosts } from "@services/api"; // Ã¢Å“â€¦ fixed alias
 
 const ProfileContext = createContext();
 
@@ -49,7 +49,7 @@ export function ProfileProvider({ children }) {
       else if (userPosts?.length > 5) setRank("Top 20%");
       else setRank("Top 30%");
     } catch (err) {
-      console.error("❌ Failed to fetch profile data", err);
+      console.error("Ã¢ÂÅ’ Failed to fetch profile data", err);
     }
   };
 
@@ -104,4 +104,5 @@ export function ProfileProvider({ children }) {
 export function useProfile() {
   return useContext(ProfileContext);
 }
+
 

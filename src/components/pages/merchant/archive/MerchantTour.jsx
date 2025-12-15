@@ -1,9 +1,8 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ MerchantTour.jsx  
-// v2.2 â€œBeta Merchant Journey â€“ Value, ROI, Intelligenceâ€
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ MerchantTour.jsx  
+// v2.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBeta Merchant Journey ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Value, ROI, IntelligenceÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
 // ============================================================
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -12,22 +11,22 @@ export default function MerchantTour() {
 
   const steps = [
     {
-      icon: "ðŸ§²",
+      icon: "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â²",
       title: "Discover High-Impact Creators",
-      text: "Creators are ranked using Core4.AI's D-Index â€” ensuring real influence, not inflated metrics.",
+      text: "Creators are ranked using Core4.AI's D-Index ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ensuring real influence, not inflated metrics.",
     },
     {
-      icon: "ðŸŽ¯",
+      icon: "ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯",
       title: "Launch Precision Campaigns",
-      text: "Target tribes where trust is already established â€” reduce risk and increase ROI.",
+      text: "Target tribes where trust is already established ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â reduce risk and increase ROI.",
     },
     {
-      icon: "ðŸ’Ž",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½",
       title: "Pay Only for Real Value",
       text: "Merchants pay for cognitive/behavioral signals, not random impressions.",
     },
     {
-      icon: "ðŸ“Š",
+      icon: "ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â ",
       title: "Track Live Merchant ROI",
       text: "Monitor campaign value, impact, and tribal traction directly in the Merchant Hub.",
     },
@@ -72,3 +71,5 @@ export default function MerchantTour() {
     </div>
   );
 }
+
+

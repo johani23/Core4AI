@@ -1,11 +1,10 @@
 // ============================================================================
-// ðŸ’š VariationCard.jsx (v3.0 CLEAN)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ VariationCard.jsx (v3.0 CLEAN)
 // ----------------------------------------------------------------------------
-// â€¢ One of the 30 ad variations
-// â€¢ Lightweight & optimized for scrolling
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ One of the 30 ad variations
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Lightweight & optimized for scrolling
 // ============================================================================
 
-import React from "react";
 
 export default function VariationCard({ ad }) {
   return (
@@ -13,7 +12,7 @@ export default function VariationCard({ ad }) {
       
       <div className="flex justify-between items-center mb-1">
         <span className="text-sm font-semibold text-[#006C35]">
-          ðŸŽ¥ {ad.platform}
+          ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¥ {ad.platform}
         </span>
         <span className="text-xs text-gray-500">#{ad.id}</span>
       </div>
@@ -32,8 +31,10 @@ export default function VariationCard({ ad }) {
       </div>
 
       <div className="mt-2 text-xs text-gray-500">
-        {ad.hashtags.join("  â€¢  ")}
+        {ad.hashtags.join("  ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢  ")}
       </div>
     </div>
   );
 }
+
+

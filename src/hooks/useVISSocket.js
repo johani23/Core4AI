@@ -11,3 +11,4 @@ export default function useVISSocket(onUpdate) {
     return () => ws.close();
   }, [onUpdate]);
 }
+

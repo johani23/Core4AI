@@ -1,6 +1,6 @@
 // ============================================================
-// 💎 Core4.AI – Groups.jsx (MVP-27.9 Final)
-// Structural Groups (Core4.AI 001–004) + Engagement Indicators
+// ðŸ’Ž Core4.AI â€“ Groups.jsx (MVP-27.9 Final)
+// Structural Groups (Core4.AI 001â€“004) + Engagement Indicators
 // ============================================================
 
 import React, { useEffect, useState } from "react";
@@ -18,7 +18,7 @@ export default function Groups() {
         const data = await getGroups();
         setGroups(data);
       } catch (err) {
-        console.error("❌ Error fetching groups:", err);
+        console.error("âŒ Error fetching groups:", err);
       } finally {
         setLoading(false);
       }
@@ -85,7 +85,7 @@ export default function Groups() {
               </div>
 
               <p className="text-xs text-gray-400">
-                Engagement: <span className="text-white">{engagement}%</span> • Pool Balance:{" "}
+                Engagement: <span className="text-white">{engagement}%</span> â€¢ Pool Balance:{" "}
                 <span className="text-yellow-400">{group.pool_balance.toFixed(2)} C4T</span>
               </p>
             </motion.div>

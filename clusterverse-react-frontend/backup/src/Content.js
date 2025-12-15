@@ -3,13 +3,13 @@ import React from "react";
 export default function Content() {
   return (
     <div className="card" dir="rtl">
-      <h2>📚 Content</h2>
-      <p>هنا محتوى معرفي وتجارب من <strong>Clusterverse</strong>.</p>
+      <h2>ðŸ“š Content</h2>
+      <p>Ù‡Ù†Ø§ Ù…Ø­ØªÙˆÙ‰ Ù…Ø¹Ø±ÙÙŠ ÙˆØªØ¬Ø§Ø±Ø¨ Ù…Ù† <strong>Clusterverse</strong>.</p>
       <ul className="list-disc pr-6 space-y-2">
-        <li><strong>مقال:</strong> كيف تعمل الـ Clusters؟</li>
-        <li><strong>تجربة:</strong> قصة نجاح من Inner Circle</li>
+        <li><strong>Ù…Ù‚Ø§Ù„:</strong> ÙƒÙŠÙ ØªØ¹Ù…Ù„ Ø§Ù„Ù€ ClustersØŸ</li>
+        <li><strong>ØªØ¬Ø±Ø¨Ø©:</strong> Ù‚ØµØ© Ù†Ø¬Ø§Ø­ Ù…Ù† Inner Circle</li>
       </ul>
-      <p className="mt-6 text-gray-600">✨ استكشف المزايا وابدأ رحلتك في Clusterverse!</p>
+      <p className="mt-6 text-gray-600">âœ¨ Ø§Ø³ØªÙƒØ´Ù Ø§Ù„Ù…Ø²Ø§ÙŠØ§ ÙˆØ§Ø¨Ø¯Ø£ Ø±Ø­Ù„ØªÙƒ ÙÙŠ Clusterverse!</p>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 // ============================================================
-// 💎 Core4.AI – DopamineOrb.jsx (MVP-28.2 Biofeedback Edition)
+// ðŸ’Ž Core4.AI â€“ DopamineOrb.jsx (MVP-28.2 Biofeedback Edition)
 // ------------------------------------------------------------
 // A floating orb that glows, expands, and pulses based on
 // the collective dopamine energy from /dopamine/heatmap.
@@ -12,7 +12,7 @@ export default function DopamineOrb() {
   const [dopamine, setDopamine] = useState(50);
   const [mood, setMood] = useState("neutral");
 
-  // 🧠 Fetch dopamine + mood every few seconds
+  // ðŸ§  Fetch dopamine + mood every few seconds
   async function fetchDopamine() {
     try {
       const res = await fetch("http://127.0.0.1:8000/dopamine/heatmap");
@@ -45,7 +45,7 @@ export default function DopamineOrb() {
     return () => clearInterval(interval);
   }, []);
 
-  // 💡 Determine color + size from dopamine & mood
+  // ðŸ’¡ Determine color + size from dopamine & mood
   const baseSize = 28 + dopamine / 4;
   const glowStrength = dopamine / 100;
   const orbColor =

@@ -1,0 +1,68 @@
+// ============================================================================
+// 💚 MerchantWallet.jsx — Step 13 (Wallet + Payout System)
+// ============================================================================
+// - Wallet balance
+// - Pending earnings
+// - Commission breakdown
+// - Withdraw button (mock for now)
+// ============================================================================
+
+import React, { useState } from "react";
+import BackToMerchant from "@/components/common/BackToMerchant";
+
+export default function MerchantWallet() {
+  const [wallet, setWallet] = useState({
+    balance: 3240,
+    pending: 780,
+    totalEarned: 9580,
+    lastWithdrawal: "2025-02-12",
+  });
+
+  const withdraw = () => {
+    alert("✔ تم تنفيذ طلب السحب (Mock)");
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto mt-12 p-6 page-wrapper" dir="rtl">
+      <BackToMerchant />
+
+      <h1 className="text-3xl font-extrabold text-green-600 mb-8">
+        محفظة التاجر — Core4.AI
+      </h1>
+
+      {/* Wallet */}
+      <div className="core-card mb-6">
+        <h2 className="section-title">💰 الرصيد الحالي</h2>
+        <p className="text-green-300 text-3xl font-bold">
+          {wallet.balance} ريال
+        </p>
+      </div>
+
+      {/* Pending */}
+      <div className="core-card mb-6">
+        <h2 className="section-title">⌛ أرباح تحت المراجعة</h2>
+        <p className="text-yellow-300 text-2xl font-bold">
+          {wallet.pending} ريال
+        </p>
+      </div>
+
+      {/* Total */}
+      <div className="core-card mb-6">
+        <h2 className="section-title">📈 إجمالي الأرباح</h2>
+        <p className="text-white text-xl font-semibold">
+          {wallet.totalEarned} ريال
+        </p>
+      </div>
+
+      {/* Last withdrawal */}
+      <div className="core-card mb-6">
+        <h2 className="section-title">📤 آخر عملية سحب</h2>
+        <p className="text-gray-300">{wallet.lastWithdrawal}</p>
+      </div>
+
+      <button className="btn-green w-full mt-6" onClick={withdraw}>
+        💵 طلب سحب
+      </button>
+    </div>
+  );
+}

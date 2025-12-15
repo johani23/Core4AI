@@ -1,24 +1,23 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ SocialPulse.jsx (MVP-34 â€œUnified WS + Global Mood Indexâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ SocialPulse.jsx (MVP-34 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified WS + Global Mood IndexÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Connects to unified WebSocket endpoint: /ws
-// âœ… Listens for global 'sentiment_update' broadcasts
-// âœ… Displays live Global Mood Index + Tribe Cards
-// âœ… Fallback: auto-refresh from /market endpoint if WS closes
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connects to unified WebSocket endpoint: /ws
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Listens for global 'sentiment_update' broadcasts
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays live Global Mood Index + Tribe Cards
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fallback: auto-refresh from /market endpoint if WS closes
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 
 const API_BASE = "http://127.0.0.1:8000";
 
 export default function SocialPulse() {
   const [tribes, setTribes] = useState([]);
   const [globalMood, setGlobalMood] = useState(50.0);
-  const [status, setStatus] = useState("Connectingâ€¦");
+  const [status, setStatus] = useState("ConnectingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦");
   const [lastUpdate, setLastUpdate] = useState(null);
 
   // ------------------------------------------------------------
-  // ðŸ“¡ Load tribes (initial snapshot)
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡ Load tribes (initial snapshot)
   // ------------------------------------------------------------
   async function loadTribes() {
     try {
@@ -36,13 +35,13 @@ export default function SocialPulse() {
       setLastUpdate(new Date().toLocaleTimeString());
       setStatus("Online");
     } catch (err) {
-      console.error("âŒ Failed to load tribes:", err);
+      console.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Failed to load tribes:", err);
       setStatus("Offline");
     }
   }
 
   // ------------------------------------------------------------
-  // ðŸ§  WebSocket connection to unified /ws
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  WebSocket connection to unified /ws
   // ------------------------------------------------------------
   useEffect(() => {
     loadTribes();
@@ -50,7 +49,7 @@ export default function SocialPulse() {
     const ws = new WebSocket("ws://127.0.0.1:8000/ws");
 
     ws.onopen = () => {
-      console.log("âœ… Connected to /ws");
+      console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Connected to /ws");
       setStatus("Live");
     };
 
@@ -58,12 +57,12 @@ export default function SocialPulse() {
       try {
         const msg = JSON.parse(e.data);
 
-        // ðŸ§© Handle AI Sentiment update
+        // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Handle AI Sentiment update
         if (msg.type === "sentiment_update" && msg.global_mood) {
           const newMood = msg.global_mood;
           setGlobalMood(newMood);
 
-          // Update tribesâ€™ mood locally
+          // Update tribesÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ mood locally
           setTribes((prev) =>
             prev.map((t) => ({
               ...t,
@@ -74,20 +73,20 @@ export default function SocialPulse() {
           setLastUpdate(new Date().toLocaleTimeString());
         }
 
-        // ðŸª™ Optional market update broadcast
+        // ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢ Optional market update broadcast
         if (msg.event === "market_update" && msg.tribes) {
           setTribes(msg.tribes);
           setLastUpdate(new Date().toLocaleTimeString());
         }
       } catch (err) {
-        console.warn("âš ï¸ Invalid WS message:", err);
+        console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Invalid WS message:", err);
       }
     };
 
     ws.onerror = () => setStatus("Disconnected");
     ws.onclose = () => {
-      console.warn("âš ï¸ WebSocket closed, enabling polling...");
-      setStatus("Pollingâ€¦");
+      console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â WebSocket closed, enabling polling...");
+      setStatus("PollingÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦");
       const poll = setInterval(loadTribes, 6000);
       return () => clearInterval(poll);
     };
@@ -96,7 +95,7 @@ export default function SocialPulse() {
   }, []);
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Mood color logic
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Mood color logic
   // ------------------------------------------------------------
   const moodColor =
     globalMood > 65
@@ -109,15 +108,15 @@ export default function SocialPulse() {
 
   const moodLabel =
     globalMood > 65
-      ? "ðŸ”¥ Excited"
+      ? "ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ Excited"
       : globalMood < 40
-      ? "ðŸ’§ Low"
+      ? "ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â§ Low"
       : globalMood >= 45 && globalMood <= 55
-      ? "ðŸŒ¿ Calm"
-      : "âš¡ Mixed";
+      ? "ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â¿ Calm"
+      : "ÃƒÂ¢Ã…Â¡Ã‚Â¡ Mixed";
 
   // ------------------------------------------------------------
-  // ðŸ–¼ï¸ Render
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â€œÃ‚Â¼ÃƒÂ¯Ã‚Â¸Ã‚Â Render
   // ------------------------------------------------------------
   return (
     <div className="min-h-screen bg-black text-white p-6">
@@ -128,7 +127,7 @@ export default function SocialPulse() {
             Status: <span className="text-yellow-400">{status}</span>
           </p>
           <p className="text-xs text-gray-500">
-            Last update: {lastUpdate || "â€”"}
+            Last update: {lastUpdate || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"}
           </p>
         </div>
       </div>
@@ -141,7 +140,7 @@ export default function SocialPulse() {
         <span className="ml-2 text-sm text-gray-400">{moodLabel}</span>
       </h2>
 
-      {/* ðŸ§© Tribe Mood Cards */}
+      {/* ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Tribe Mood Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {tribes.map((t) => (
           <div
@@ -150,7 +149,7 @@ export default function SocialPulse() {
           >
             <h3 className="text-lg font-semibold mb-1">{t.name}</h3>
             <p className="text-gray-400 text-sm mb-2">
-              ðŸ’° Price: <span className="text-yellow-300">{t.price.toFixed(2)} C4T</span>
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Price: <span className="text-yellow-300">{t.price.toFixed(2)} C4T</span>
             </p>
             <p className={`text-lg font-bold ${moodColor}`}>
               Mood: {t.mood.toFixed(1)}%
@@ -162,3 +161,5 @@ export default function SocialPulse() {
     </div>
   );
 }
+
+

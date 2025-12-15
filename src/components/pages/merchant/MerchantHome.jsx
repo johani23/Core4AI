@@ -1,50 +1,89 @@
-// ======================================================================
-// 💚 MerchantHome.jsx — النسخة العربية المبسّطة
-// ======================================================================
+// ============================================================================
+// 💚 Core4.AI – MerchantHome.jsx (Saudi Premium – Clean RTL Edition)
+// ============================================================================
+// - واجهة التاجر الرئيسية مع Product Matching Panel
+// - RTL Clean
+// ============================================================================
 
-import React from "react";
+import { motion } from "framer-motion";
+import BackToMerchant from "@/components/common/BackToMerchant";
+import ProductInfluencerSuggestions from "./ProductInfluencerSuggestions";
+import { products } from "@/data/products";
 
 export default function MerchantHome() {
   return (
-    <div className="max-w-3xl mx-auto mt-12 p-6">
+    <div className="max-w-3xl mx-auto mt-12 p-6 page-wrapper" dir="rtl">
+      
+      {/* زر الرجوع */}
+      <BackToMerchant />
 
-      <h1 className="text-3xl font-bold text-green-700 mb-8">
-        مركز التاجر
-      </h1>
+      {/* HEADER */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-10"
+      >
+        <h1 className="text-4xl font-extrabold text-green-600 drop-shadow-xl">
+          مركز التاجر — Core4.AI
+        </h1>
 
-      <p className="text-gray-600 mb-10">
-        خلّنا نرفع مبيعاتك بخطوات بسيطة… بدون كلام معقد.
-      </p>
+        <p className="text-gray-600 mt-4 text-lg leading-relaxed">
+          منصة ذكية تساعدك في تحليل الأسعار، إدارة الحملات، اختيار المؤثرين
+          المناسبين، وتحقيق أقصى ربح عبر نظام تسعير وتوصيات مدعومة بالذكاء
+          الاصطناعي.
+        </p>
+      </motion.div>
 
-      <div className="grid grid-cols-1 gap-6">
-        
-        <button 
-          onClick={() => window.location.href = "/merchant/add-product"}
-          className="bg-green-600 text-white p-5 rounded-xl text-xl font-bold hover:bg-green-700"
+      {/* Product - Influencer Matching */}
+      <ProductInfluencerSuggestions product={products[0]} />
+
+      {/* BUTTONS GRID */}
+      <div className="grid grid-cols-1 gap-6 mt-10">
+
+        {/* إضافة منتج */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          className="btn-green text-xl py-5"
+          onClick={() => (window.location.href = "/merchant/add-product")}
         >
-          ➕ أضف منتج جديد
-        </button>
+          ➕ أضِف منتج جديد
+        </motion.button>
 
-        <button 
-          onClick={() => window.location.href = "/merchant/campaign"}
-          className="bg-blue-600 text-white p-5 rounded-xl text-xl font-bold hover:bg-blue-700"
+        {/* بناء حملة */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          className="btn-blue text-xl py-5"
+          onClick={() => (window.location.href = "/merchant/campaign")}
         >
-          📈 سَوِّ حملة تسويق
-        </button>
+          📢 إنشاء حملة تسويقية
+        </motion.button>
 
-        <button 
-          onClick={() => window.location.href = "/merchant/earnings"}
-          className="bg-yellow-500 text-white p-5 rounded-xl text-xl font-bold hover:bg-yellow-600"
+        {/* الأرباح */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          className="btn-yellow text-xl py-5"
+          onClick={() => (window.location.href = "/merchant/earnings")}
         >
-          💰 أرباحي
-        </button>
+          💰 مركز الأرباح
+        </motion.button>
 
-        <button 
-          onClick={() => window.location.href = "/merchant/influencers"}
-          className="bg-purple-600 text-white p-5 rounded-xl text-xl font-bold hover:bg-purple-700"
+        {/* اختيار المؤثرين */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          className="btn-purple text-xl py-5"
+          onClick={() => (window.location.href = "/merchant/influencers")}
         >
-          👥 المؤثرين
-        </button>
+          👑 المؤثرون المختارون
+        </motion.button>
+
+        {/* التحليلات */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          className="btn-pink text-xl py-5"
+          onClick={() => (window.location.href = "/merchant/analytics")}
+        >
+          📊 تحليلات الأسعار والأداء
+        </motion.button>
 
       </div>
     </div>

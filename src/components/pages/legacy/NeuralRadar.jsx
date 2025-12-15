@@ -1,10 +1,9 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ NeuralRadar.jsx (MVP-39.2 â€œPrediction Radarâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ NeuralRadar.jsx (MVP-39.2 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œPrediction RadarÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// ðŸ”® Circular radar showing trend probabilities & confidence
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â® Circular radar showing trend probabilities & confidence
 // ============================================================
 
-import React from "react";
 import {
   RadialBarChart,
   RadialBar,
@@ -41,7 +40,7 @@ export default function NeuralRadar({ echo, nova, marketTrend }) {
       className="bg-gray-900/60 border border-gray-700 rounded-2xl p-6 mt-10 w-11/12 md:w-[700px] mx-auto shadow-2xl"
     >
       <h3 className="text-xl font-semibold text-purple-300 text-center mb-4">
-        ðŸ§­ Neural Prediction Radar
+        ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Neural Prediction Radar
       </h3>
 
       <div className="h-[280px]">
@@ -82,3 +81,5 @@ export default function NeuralRadar({ echo, nova, marketTrend }) {
     </motion.div>
   );
 }
+
+

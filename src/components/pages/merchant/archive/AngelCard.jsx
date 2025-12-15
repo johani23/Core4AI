@@ -1,11 +1,10 @@
 // ============================================================================
-// ðŸ’š AngleCard.jsx (v2.0 CLEAN)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ AngleCard.jsx (v2.0 CLEAN)
 // ----------------------------------------------------------------------------
-// â€¢ Visual badge for selling angles
-// â€¢ Used in CreativeHub.jsx
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Visual badge for selling angles
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Used in CreativeHub.jsx
 // ============================================================================
 
-import React from "react";
 
 export default function AngleCard({ angle }) {
   return (
@@ -15,3 +14,5 @@ export default function AngleCard({ angle }) {
     </div>
   );
 }
+
+

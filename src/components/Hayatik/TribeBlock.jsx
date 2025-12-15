@@ -1,8 +1,7 @@
 // ============================================================================
-// 💚 Core4 حياتك – TribeBlock.jsx (v2 — Tribe Colors + Badge + Personality)
+// Ã°Å¸â€™Å¡ Core4 Ã˜Â­Ã™Å Ã˜Â§Ã˜ÂªÃ™Æ’ Ã¢â‚¬â€œ TribeBlock.jsx (v2 Ã¢â‚¬â€ Tribe Colors + Badge + Personality)
 // ============================================================================
 
-import React from "react";
 
 export default function TribeBlock({ tribes }) {
   if (!tribes) return null;
@@ -11,7 +10,7 @@ export default function TribeBlock({ tribes }) {
     <div className="mt-14">
 
       <h2 className="text-xl font-medium mb-6 text-[#2A2F32]">
-        قبيلتك وهويتك
+        Ã™â€šÃ˜Â¨Ã™Å Ã™â€žÃ˜ÂªÃ™Æ’ Ã™Ë†Ã™â€¡Ã™Ë†Ã™Å Ã˜ÂªÃ™Æ’
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -38,7 +37,7 @@ export default function TribeBlock({ tribes }) {
 
           {/* Influencers */}
           <h4 className="mt-5 font-medium text-[#2A2F32] text-sm">
-            مؤثرين يشبهونك:
+            Ã™â€¦Ã˜Â¤Ã˜Â«Ã˜Â±Ã™Å Ã™â€  Ã™Å Ã˜Â´Ã˜Â¨Ã™â€¡Ã™Ë†Ã™â€ Ã™Æ’:
           </h4>
 
           <ul className="list-disc list-inside text-gray-600 mt-1 text-sm">
@@ -70,7 +69,7 @@ export default function TribeBlock({ tribes }) {
 
           {/* Influencers */}
           <h4 className="mt-5 font-medium text-[#2A2F32] text-sm">
-            مؤثرين مناسبين لك:
+            Ã™â€¦Ã˜Â¤Ã˜Â«Ã˜Â±Ã™Å Ã™â€  Ã™â€¦Ã™â€ Ã˜Â§Ã˜Â³Ã˜Â¨Ã™Å Ã™â€  Ã™â€žÃ™Æ’:
           </h4>
 
           <ul className="list-disc list-inside text-gray-600 mt-1 text-sm">
@@ -84,3 +83,5 @@ export default function TribeBlock({ tribes }) {
     </div>
   );
 }
+
+

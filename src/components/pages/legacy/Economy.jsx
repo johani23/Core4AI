@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Economy.jsx (v137 â€œLive Intelligence Hybridâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Economy.jsx (v137 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLive Intelligence HybridÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Combines analytics table + real-time WS sync
-// âœ… Keeps same naming and design
-// âœ… D-Index + Influence Share update dynamically
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Combines analytics table + real-time WS sync
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Keeps same naming and design
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ D-Index + Influence Share update dynamically
 // ============================================================
 
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useCoreSync } from "@context/CoreSyncContext";
 
@@ -17,7 +16,7 @@ export default function Economy() {
   const [wsStatus, setWsStatus] = useState("Offline");
   const [timestamp, setTimestamp] = useState("");
 
-  // ðŸŒ Initial data fetch
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Initial data fetch
   useEffect(() => {
     fetch("http://127.0.0.1:8000/health")
       .then((r) => r.json())
@@ -28,7 +27,7 @@ export default function Economy() {
       .catch(() => console.warn("Health fetch failed"));
   }, []);
 
-  // ðŸŒ WebSocket live updates
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â WebSocket live updates
   useEffect(() => {
     let ws;
     const connect = () => {
@@ -84,7 +83,7 @@ export default function Economy() {
     <div className="p-8 text-gray-200 min-h-[85vh] bg-[#0d1117]">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-white">ðŸ’  Tribe Economy</h1>
+        <h1 className="text-2xl font-bold text-white">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Tribe Economy</h1>
         <div
           className={`text-xs font-semibold px-2 py-1 rounded-md ${
             wsStatus === "Online"
@@ -127,7 +126,7 @@ export default function Economy() {
                 <td className="px-3 py-2 text-gray-400">{idx + 1}</td>
                 <td className="px-3 py-2 font-medium">{t.name}</td>
                 <td className="px-3 py-2">{(dopamine * 100).toFixed(1)}%</td>
-                <td className="px-3 py-2">Ã—{mult.toFixed(1)}</td>
+                <td className="px-3 py-2">ÃƒÆ’Ã¢â‚¬â€{mult.toFixed(1)}</td>
                 <td className="px-3 py-2 text-green-400">{sc}</td>
                 <td className="px-3 py-2 text-gray-300">{fc}</td>
                 <td className="px-3 py-2 text-blue-400">
@@ -157,3 +156,5 @@ export default function Economy() {
     </div>
   );
 }
+
+

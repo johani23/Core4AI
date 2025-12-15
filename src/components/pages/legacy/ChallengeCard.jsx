@@ -1,5 +1,4 @@
 // src/components/ChallengeCard.jsx
-import React from "react";
 
 const ChallengeCard = ({ challenge }) => {
   const progress = challenge.progress || 0;
@@ -23,3 +22,5 @@ const ChallengeCard = ({ challenge }) => {
 };
 
 export default ChallengeCard;
+
+

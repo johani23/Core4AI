@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ ChooseSegment.jsx (MVP-30.9 Stable Edition)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ChooseSegment.jsx (MVP-30.9 Stable Edition)
 // ------------------------------------------------------------
-// âœ… Integrated with backend (/user/{id}/assign_segment)
-// âœ… Saves user_segment to localStorage
-// âœ… Redirects to /dashboard automatically
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Integrated with backend (/user/{id}/assign_segment)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Saves user_segment to localStorage
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Redirects to /dashboard automatically
 // ============================================================
 
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ChooseSegment() {
@@ -23,7 +22,7 @@ export default function ChooseSegment() {
   ];
 
   // ------------------------------------------------------------
-  // ðŸ“¡ Join selected segment
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¡ Join selected segment
   // ------------------------------------------------------------
   const joinSegment = async () => {
     if (!selected) return alert("Please choose a segment first!");
@@ -41,15 +40,15 @@ export default function ChooseSegment() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
 
-      // âœ… Save locally
+      // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Save locally
       localStorage.setItem("user_segment", selected);
-      setMessage(`ðŸŽ‰ You joined ${selected}!`);
+      setMessage(`ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° You joined ${selected}!`);
 
       // Small delay for UX
       setTimeout(() => navigate("/dashboard", { replace: true }), 1200);
     } catch (err) {
       console.error("Join failed:", err);
-      alert("âš ï¸ Unable to join segment. Please check backend connection.");
+      alert("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Unable to join segment. Please check backend connection.");
     } finally {
       setLoading(false);
     }
@@ -59,7 +58,7 @@ export default function ChooseSegment() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-6">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold mb-2">
-          ðŸŒˆ Choose Your Segment
+          ÃƒÂ°Ã…Â¸Ã…â€™Ã‹â€  Choose Your Segment
         </h1>
         <p className="text-gray-400">
           Select a Core4 segment to begin your journey.
@@ -82,7 +81,7 @@ export default function ChooseSegment() {
               {seg.name}
             </h2>
             <p className="text-sm text-gray-400 text-center">
-              ðŸ‘¥ {seg.members} | Trend: {seg.trend}
+              ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¥ {seg.members} | Trend: {seg.trend}
             </p>
           </div>
         ))}
@@ -117,3 +116,5 @@ export default function ChooseSegment() {
     </div>
   );
 }
+
+

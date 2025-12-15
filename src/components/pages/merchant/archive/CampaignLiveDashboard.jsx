@@ -1,12 +1,11 @@
 // ===================================================================
-// ðŸ’š Core4.AI â€“ CampaignLiveDashboard.jsx (Saudi Edition â€“ Final v1.0)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CampaignLiveDashboard.jsx (Saudi Edition ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Final v1.0)
 // -------------------------------------------------------------------
-// â€¢ Live WebSocket dashboard for campaign performance
-// â€¢ Real-time metrics, tribe activation, influencer impact, AI alerts
-// â€¢ Fully styled with Saudi green identity
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Live WebSocket dashboard for campaign performance
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Real-time metrics, tribe activation, influencer impact, AI alerts
+// ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Fully styled with Saudi green identity
 // ===================================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   FiTrendingUp,
@@ -93,7 +92,7 @@ export default function CampaignLiveDashboard() {
               ...prev.slice(-3),
               {
                 type: "low_conversion",
-                message: "âš ï¸ Ø§Ù†Ø®ÙØ§Ø¶ ÙÙŠ Ù…Ø¹Ø¯Ù„ Ø§Ù„ØªØ­ÙˆÙŠÙ„ â€“ ÙŠÙ†ØµØ­ Ø¨Ø±ÙØ¹ Ø§Ù„Ù…ÙŠØ²Ø§Ù†ÙŠØ© Ø£Ùˆ ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø¬Ù…Ù‡ÙˆØ±.",
+                message: "ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â®Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚Â¶ Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂµÃƒËœÃ‚Â­ ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â±Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â© ÃƒËœÃ‚Â£Ãƒâ„¢Ã‹â€  ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¹ÃƒËœÃ‚Â¯Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¬Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â±.",
                 time: new Date().toLocaleTimeString(),
               },
             ]);
@@ -132,30 +131,30 @@ export default function CampaignLiveDashboard() {
   return (
     <div className="min-h-screen p-8 text-white bg-[#002b16]">
       <h1 className="text-3xl font-extrabold mb-6 text-[#4cff9b] flex items-center gap-3">
-        <FiActivity /> Ù„ÙˆØ­Ø© Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ø­Ù…Ù„Ø© (Ù…Ø¨Ø§Ø´Ø±)
+        <FiActivity /> Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â­ÃƒËœÃ‚Â© Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â© (Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â´ÃƒËœÃ‚Â±)
       </h1>
 
       {campaign && (
         <div className="mb-8 bg-[#01341c] p-6 rounded-xl border border-[#1d6642]">
           <h2 className="text-xl font-bold">{campaign.name}</h2>
           <p className="text-gray-300 mt-1">
-            {campaign.goal} â€¢ {campaign.duration} Ø£ÙŠØ§Ù… â€¢ {campaign.budget} Ø±ÙŠØ§Ù„
+            {campaign.goal} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {campaign.duration} ÃƒËœÃ‚Â£Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ {campaign.budget} ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾
           </p>
         </div>
       )}
 
       {/* ===================== Metrics ======================= */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10">
-        <Metric icon={<FiTrendingUp />} label="Ø§Ù„ØªØ­ÙˆÙŠÙ„ (Ùª)" value={live.conversion} />
-        <Metric icon={<FiUsers />} label="Ø§Ù„ÙˆØµÙˆÙ„" value={live.reach} />
-        <Metric icon={<FiZap />} label="Ø§Ù„Ù†Ù‚Ø±Ø§Øª" value={live.clicks} />
-        <Metric icon={<FiClock />} label="Ø§Ù„ØªÙƒÙ„ÙØ© (Ø±ÙŠØ§Ù„)" value={live.cost} />
+        <Metric icon={<FiTrendingUp />} label="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ (Ãƒâ„¢Ã‚Âª)" value={live.conversion} />
+        <Metric icon={<FiUsers />} label="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚ÂµÃƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Å¾" value={live.reach} />
+        <Metric icon={<FiZap />} label="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª" value={live.clicks} />
+        <Metric icon={<FiClock />} label="ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â© (ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾)" value={live.cost} />
         <Metric icon={<FiStar />} label="ROAS" value={live.roas} />
       </div>
 
       {/* ===================== Tribe Boost ==================== */}
       <div className="mb-10">
-        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ðŸ”° Ø§Ù„Ù‚Ø¨Ø§Ø¦Ù„ Ø§Ù„Ø£ÙƒØ«Ø± ØªÙØ§Ø¹Ù„Ø§Ù‹</h2>
+        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¨ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¦Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â£Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â«ÃƒËœÃ‚Â± ÃƒËœÃ‚ÂªÃƒâ„¢Ã‚ÂÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {tribeBoost.map((t, idx) => (
             <div
@@ -172,7 +171,7 @@ export default function CampaignLiveDashboard() {
 
       {/* ===================== Influencer Impact ==================== */}
       <div className="mb-10">
-        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ðŸŒŸ Ø£Ø¯Ø§Ø¡ Ø§Ù„Ù…Ø¤Ø«Ø±ÙŠÙ†</h2>
+        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ÃƒÂ°Ã…Â¸Ã…â€™Ã…Â¸ ÃƒËœÃ‚Â£ÃƒËœÃ‚Â¯ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¤ÃƒËœÃ‚Â«ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â </h2>
 
         <div className="space-y-4">
           {infImpact.map((i, idx) => (
@@ -182,7 +181,7 @@ export default function CampaignLiveDashboard() {
             >
               <div>
                 <p className="font-bold">{i.name}</p>
-                <p className="text-gray-300 text-sm">Ù…Ø³Ø§Ù‡Ù…Ø© ÙÙŠ Ø§Ù„ØªØ­ÙˆÙŠÙ„</p>
+                <p className="text-gray-300 text-sm">Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â³ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¡Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â© Ãƒâ„¢Ã‚ÂÃƒâ„¢Ã…Â  ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾</p>
               </div>
               <p className="text-[#4cff9b] font-bold text-xl">{i.impact}</p>
             </div>
@@ -192,7 +191,7 @@ export default function CampaignLiveDashboard() {
 
       {/* ===================== AI Alerts ==================== */}
       <div className="mb-10">
-        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ðŸš¨ ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ</h2>
+        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ÃƒÂ°Ã…Â¸Ã…Â¡Ã‚Â¨ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â </h2>
 
         <div className="space-y-3">
           {alerts.slice(-5).map((a, idx) => (
@@ -207,7 +206,7 @@ export default function CampaignLiveDashboard() {
 
           {alerts.length === 0 && (
             <div className="p-4 bg-[#01341c] text-gray-300 rounded-xl">
-              Ù„Ø§ ØªÙˆØ¬Ø¯ ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø­Ø§Ù„ÙŠØ§Ù‹
+              Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¹
             </div>
           )}
         </div>
@@ -215,7 +214,7 @@ export default function CampaignLiveDashboard() {
 
       {/* ===================== Heatmap ==================== */}
       <div className="mb-10">
-        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ðŸ”¥ Ø®Ø±ÙŠØ·Ø© Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª (Ø¢Ø®Ø± 24 Ø³Ø§Ø¹Ø©)</h2>
+        <h2 className="text-xl font-bold mb-3 text-[#4cff9b]">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥ ÃƒËœÃ‚Â®ÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â·ÃƒËœÃ‚Â© ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â¨Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª (ÃƒËœÃ‚Â¢ÃƒËœÃ‚Â®ÃƒËœÃ‚Â± 24 ÃƒËœÃ‚Â³ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹ÃƒËœÃ‚Â©)</h2>
 
         <div className="grid grid-cols-12 gap-2">
           {heatmap.map((h, idx) => (
@@ -235,3 +234,5 @@ export default function CampaignLiveDashboard() {
     </div>
   );
 }
+
+

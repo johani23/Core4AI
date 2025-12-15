@@ -12,7 +12,7 @@ export default function CohesionScore() {
 
   return (
     <div className="cohesion-card">
-      <h3>🔥 Cohesion Score</h3>
+      <h3>Ã°Å¸â€Â¥ Cohesion Score</h3>
       <div
         className="circle"
         style={{
@@ -28,3 +28,4 @@ export default function CohesionScore() {
     </div>
   );
 }
+

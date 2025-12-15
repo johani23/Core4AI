@@ -24,7 +24,7 @@ export default function ElasticityPanel({ productId }) {
   if (loading)
     return (
       <div className="text-center text-gray-300 p-10">
-        â³ Loading elasticity analysis...
+        ÃƒÂ¢Ã‚ÂÃ‚Â³ Loading elasticity analysis...
       </div>
     );
 
@@ -71,11 +71,11 @@ export default function ElasticityPanel({ productId }) {
         <h3 className="font-semibold mb-3">Impact of 10% Price Change</h3>
 
         <p className="mb-1">
-          +10% Price â†’ Demand:{" "}
+          +10% Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Demand:{" "}
           <span className="text-green-300">{data.plus_10pct_demand}</span>
         </p>
         <p>
-          -10% Price â†’ Demand:{" "}
+          -10% Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Demand:{" "}
           <span className="text-green-300">{data.minus_10pct_demand}</span>
         </p>
       </div>
@@ -85,12 +85,12 @@ export default function ElasticityPanel({ productId }) {
         <h3 className="font-semibold mb-3">Revenue Impact</h3>
 
         <p className="mb-1">
-          +10% Price â†’ Revenue:{" "}
+          +10% Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Revenue:{" "}
           <span className="text-blue-400">{data.plus_10pct_revenue} SAR</span>
         </p>
 
         <p>
-          -10% Price â†’ Revenue:{" "}
+          -10% Price ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Revenue:{" "}
           <span className="text-blue-400">{data.minus_10pct_revenue} SAR</span>
         </p>
       </div>
@@ -106,3 +106,4 @@ export default function ElasticityPanel({ productId }) {
     </div>
   );
 }
+

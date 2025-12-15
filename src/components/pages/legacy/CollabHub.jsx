@@ -1,17 +1,16 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ CollabHub.jsx (v4.0 â€œUnified Collab + Merchant Loopâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ CollabHub.jsx (v4.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified Collab + Merchant LoopÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Full bridge with CoreSyncContext.launchCampaign()
-// âœ… Displays live campaign updates (ROI / Status / Conversion)
-// âœ… Real-time feedback loop from backend WebSocket
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Full bridge with CoreSyncContext.launchCampaign()
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Displays live campaign updates (ROI / Status / Conversion)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Real-time feedback loop from backend WebSocket
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useCoreSync } from "@context/CoreSyncContext";
 
-// ðŸ§© Temporary mock members
+// ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Temporary mock members
 const mockTribeMembers = [
   {
     id: 1,
@@ -51,7 +50,7 @@ export default function CollabHub() {
   const [loading, setLoading] = useState(false);
   const [lastOfferCheck, setLastOfferCheck] = useState(null);
 
-  // ðŸ§  Load selected offer initially
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Load selected offer initially
   useEffect(() => {
     const saved = sessionStorage.getItem("selectedOffer");
     if (saved) {
@@ -64,7 +63,7 @@ export default function CollabHub() {
     }
   }, []);
 
-  // ðŸ”„ Watch for new offer (live sync from MerchantHub)
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Watch for new offer (live sync from MerchantHub)
   useEffect(() => {
     const interval = setInterval(() => {
       const current = sessionStorage.getItem("selectedOffer");
@@ -74,7 +73,7 @@ export default function CollabHub() {
           try {
             const parsed = JSON.parse(current);
             setOffer(parsed);
-            toast.success(`ðŸ“¦ Offer "${parsed.title}" loaded`);
+            toast.success(`ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â¦ Offer "${parsed.title}" loaded`);
           } catch {
             setOffer(null);
           }
@@ -86,7 +85,7 @@ export default function CollabHub() {
     return () => clearInterval(interval);
   }, [lastOfferCheck]);
 
-  // ðŸ’¹ Power Calculation
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ Power Calculation
   const basePower = offer ? 5 : 0;
   const multiplier = mode === "team" ? 1.15 : 1.0;
   const teamPower = selectedMembers.reduce(
@@ -95,7 +94,7 @@ export default function CollabHub() {
   );
   const totalPower = Math.min(basePower + (mode === "team" ? teamPower : 0), 100);
 
-  // ðŸ§© Member Selection
+  // ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Member Selection
   const toggleMember = (member) => {
     setSelectedMembers((prev) => {
       const exists = prev.find((m) => m.id === member.id);
@@ -105,7 +104,7 @@ export default function CollabHub() {
     });
   };
 
-  // ðŸ’° Edit commission
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â° Edit commission
   const updateCommission = (id, val) => {
     const value = parseFloat(val) || 0;
     setSelectedMembers((prev) =>
@@ -113,7 +112,7 @@ export default function CollabHub() {
     );
   };
 
-  // ðŸš€ Launch Campaign
+  // ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Launch Campaign
   const handleCreateCampaign = async () => {
     if (!offer) return toast.error("Please select an offer first!");
     if (!mode) return toast.error("Select collaboration mode.");
@@ -127,7 +126,7 @@ export default function CollabHub() {
     }
 
     setLoading(true);
-    toast.loading("ðŸ§© Preparing campaign...");
+    toast.loading("ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â© Preparing campaign...");
     try {
       const payload = {
         merchant: offer.merchant || "Unknown",
@@ -144,9 +143,9 @@ export default function CollabHub() {
       toast.dismiss();
 
       if (result?.status === "ACTIVE") {
-        toast.success(`ðŸš€ Campaign ${result.campaign_id} launched successfully!`);
+        toast.success(`ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Campaign ${result.campaign_id} launched successfully!`);
       } else {
-        toast.success("âš¡ Campaign dispatched (awaiting sync)");
+        toast.success("ÃƒÂ¢Ã…Â¡Ã‚Â¡ Campaign dispatched (awaiting sync)");
       }
 
       sessionStorage.removeItem("selectedOffer");
@@ -155,7 +154,7 @@ export default function CollabHub() {
       setSelectedMembers([]);
     } catch (err) {
       toast.dismiss();
-      toast.error("âŒ Launch failed. Check backend connection.");
+      toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Launch failed. Check backend connection.");
       console.error(err);
     } finally {
       setLoading(false);
@@ -167,10 +166,10 @@ export default function CollabHub() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent flex items-center gap-2">
-          ðŸ¤ Collaboration Hub
+          ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Collaboration Hub
         </h1>
         <p className="text-gray-300 text-sm">
-          Choose your mode â€” go solo for full rewards or team up for reach and shared gains.
+          Choose your mode ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â go solo for full rewards or team up for reach and shared gains.
         </p>
       </div>
 
@@ -194,7 +193,7 @@ export default function CollabHub() {
                 {offer.description || "No description available."}
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                Merchant: {offer.merchant || "Unknown"} â€¢ Commission:{" "}
+                Merchant: {offer.merchant || "Unknown"} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Commission:{" "}
                 <span className="text-green-400">
                   {offer.commission || "N/A"}%
                 </span>
@@ -224,7 +223,7 @@ export default function CollabHub() {
                 : "bg-[#111827] border-gray-700 hover:bg-gray-800"
             }`}
           >
-            {m === "solo" ? "ðŸ§ Go Solo" : "ðŸ¤ Team Up"}
+            {m === "solo" ? "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â Go Solo" : "ÃƒÂ°Ã…Â¸Ã‚Â¤Ã‚Â Team Up"}
           </motion.button>
         ))}
       </div>
@@ -236,7 +235,7 @@ export default function CollabHub() {
           animate={{ opacity: 1 }}
           className="bg-[#111827] border border-gray-700 rounded-xl p-5 shadow-md"
         >
-          <h3 className="text-lg font-bold text-pink-400 mb-3">Invite Your Tribe ðŸ’«</h3>
+          <h3 className="text-lg font-bold text-pink-400 mb-3">Invite Your Tribe ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â«</h3>
           <p className="text-sm text-gray-400 mb-4">
             Select members to collaborate with you. Assign commission shares for each.
           </p>
@@ -272,7 +271,7 @@ export default function CollabHub() {
                         )}
                       </h4>
                       <p className="text-xs text-gray-400">{member.tribe}</p>
-                      <p className="text-xs text-green-400">âš¡ {member.conversion}% CR</p>
+                      <p className="text-xs text-green-400">ÃƒÂ¢Ã…Â¡Ã‚Â¡ {member.conversion}% CR</p>
                     </div>
                   </div>
 
@@ -295,7 +294,7 @@ export default function CollabHub() {
           </div>
 
           <div className="text-sm text-gray-400 mt-4">
-            ðŸ’¹ <span className="text-purple-400 font-semibold">Projected Conversion Power:</span>{" "}
+            ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¹ <span className="text-purple-400 font-semibold">Projected Conversion Power:</span>{" "}
             <span className="text-green-400 font-bold">{totalPower.toFixed(1)}%</span>
           </div>
         </motion.div>
@@ -307,10 +306,10 @@ export default function CollabHub() {
         onClick={handleCreateCampaign}
         className="w-full bg-gradient-to-r from-purple-400/80 to-pink-400/80 py-3 rounded-md text-sm font-semibold hover:opacity-90 transition-all disabled:opacity-40"
       >
-        {loading ? "â³ Launching..." : "ðŸš€ Create Campaign"}
+        {loading ? "ÃƒÂ¢Ã‚ÂÃ‚Â³ Launching..." : "ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ Create Campaign"}
       </button>
 
-      {/* ðŸ“Š Live Campaign Feed */}
+      {/* ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Live Campaign Feed */}
       {campaigns.length > 0 && (
         <div className="bg-[#111827] border border-gray-700 rounded-xl p-5 shadow-md mt-8">
           <h3 className="text-lg font-semibold text-purple-400 mb-3">
@@ -324,14 +323,14 @@ export default function CollabHub() {
               >
                 <div className="flex justify-between items-center">
                   <span>
-                    <b>{c.merchant}</b> â€” {c.category || c.name}
+                    <b>{c.merchant}</b> ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â {c.category || c.name}
                   </span>
                   <span className="text-green-400 font-semibold">
                     ROI: {c.conversion ? c.conversion.toFixed(1) : "--"}%
                   </span>
                 </div>
                 <p className="text-xs text-gray-400">
-                  Tribe: {c.tribe || "â€”"} â€¢ Member: {c.member || "â€”"} â€¢{" "}
+                  Tribe: {c.tribe || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Member: {c.member || "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â"} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢{" "}
                   <span className="text-pink-400">{c.status || "Active"}</span>
                 </p>
               </div>
@@ -342,3 +341,5 @@ export default function CollabHub() {
     </div>
   );
 }
+
+

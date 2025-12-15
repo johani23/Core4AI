@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š CampaignScaling.jsx (Phase 20 â€“ Scaling Recommendation)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ CampaignScaling.jsx (Phase 20 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Scaling Recommendation)
 // ============================================================================
 
-import React, { useEffect, useState } from "react";
 
 export default function CampaignScaling({
   roiData,
@@ -50,7 +49,7 @@ export default function CampaignScaling({
     <div className="p-6 border bg-white rounded-xl shadow mt-6">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ“Š Scaling Recommendation
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  Scaling Recommendation
       </h2>
 
       <p className="text-lg font-bold text-gray-800 mb-2">
@@ -65,3 +64,5 @@ export default function CampaignScaling({
     </div>
   );
 }
+
+

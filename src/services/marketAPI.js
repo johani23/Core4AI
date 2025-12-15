@@ -9,3 +9,4 @@ export async function getMarketAdvice() {
   const res = await axios.get(`${BASE}/market/advice`);
   return res.data;
 }
+

@@ -1,117 +1,240 @@
 // ============================================================================
-// ðŸ’š Core4.AI â€“ CreativeCenter.jsx (v7 Final)
-// ----------------------------------------------------------------------------
-// AI Creative Suite for merchants:
-// â€¢ AI Headline Generator
-// â€¢ Angles & Hooks
-// â€¢ Storyboard Blocks
-// â€¢ Creative Variations
+// 💚 Core4.AI – CreativeCenter (API + LocalStorage Safe Edition)
+// ============================================================================
+// - Loads product from backend if possible
+// - Falls back to LocalStorage (MVP safe)
+// - AI Concept Generator improved to use real product data
 // ============================================================================
 
-import React, { useState } from "react";
-import { SparklesIcon } from "@heroicons/react/24/outline";
+import React, { useState, useEffect } from "react";
+import BackToMerchant from "@/components/common/BackToMerchant";
+import { useInfluence } from "@/context/InfluenceScoreContext";
 import { motion } from "framer-motion";
 
 export default function CreativeCenter() {
-  const [productName, setProductName] = useState("");
-  const [ideas, setIdeas] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { generateContentIdeas } = useInfluence();
 
-  const generateIdeas = async () => {
-    if (!productName.trim()) return;
+  const [product, setProduct] = useState(null);
+  const [concepts, setConcepts] = useState([]);
+  const [copies, setCopies] = useState([]);
+  const [storyboard, setStoryboard] = useState([]);
 
-    setLoading(true);
-    setIdeas([]);
+  // Try to load productId from URL if available
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("product");
 
-    // Mock AI output â€” replace with backend call later
-    setTimeout(() => {
-      setIdeas([
-        {
-          idea: `â€œTop Reason to Love ${productName}â€`,
-          hook: "Unlock the hidden advantage people often overlook!",
-          angle: "Emotional Transformation",
-          hashtag: "#Core4AI #SmartShopping #AIAds",
-        },
-        {
-          idea: `â€œWhy ${productName} is Going Viral in Saudi Arabia ðŸ‡¸ðŸ‡¦â€`,
-          hook: "Hint: Itâ€™s not what you think!",
-          angle: "Social Proof + Trend Hijacking",
-          hashtag: "#SaudiTrends #AIForCreators",
-        },
-        {
-          idea: `â€œOne feature in ${productName} that beats all competitorsâ€`,
-          hook: "A side-by-side breakdown with hard numbers",
-          angle: "Rational Comparison",
-          hashtag: "#TechReview #DeepDive",
-        },
-      ]);
-      setLoading(false);
-    }, 1200);
+  // ============================================================================
+  // LOAD PRODUCT: Backend → fallback LocalStorage
+  // ============================================================================
+  useEffect(() => {
+    async function load() {
+      try {
+        if (productId) {
+          const res = await fetch(`/api/merchant/products/${productId}`);
+          if (res.ok) {
+            const data = await res.json();
+            setProduct(data);
+            return;
+          }
+        }
+      } catch (err) {
+        console.error("Backend product load failed:", err);
+      }
+
+      // Fallback LocalStorage
+      const local = JSON.parse(localStorage.getItem("core4ai_new_product") || "null");
+      if (local) setProduct(local);
+    }
+
+    load();
+  }, [productId]);
+
+  // ============================================================================
+  // AI GENERATORS (Safe + Improved)
+  // ============================================================================
+
+  const generateConcepts = () => {
+    if (!product) return;
+
+    // use product name + features to create better concepts
+    const baseIdeas = generateContentIdeas(product.name);
+
+    const ideas = [
+      `💡 فكرة: عرض ميزة "${product.features?.[0]?.name || "الميزة الرئيسية"}" بصور واقعية.`,
+      `⚡ فيديو قصير يوضح فائدة ${product.name} في الحياة اليومية.`,
+      `🎯 إبراز الفرق بين ${product.name} وبين المنافسين عبر مقارنة ذكية.`,
+      ...baseIdeas.slice(0, 2),
+    ];
+
+    setConcepts(ideas.slice(0, 3));
   };
 
+  const generateCopies = () => {
+    if (!product) return;
+
+    const name = product.name || "المنتج";
+
+    const cp = [
+      `✨ قدّم يومك بشكل أفضل مع ${name} — التقنية التي تمنحك راحة حقيقية.`,
+      `🔥 لماذا يحب الجميع ${name}؟ لأنه يجمع بين الجودة والقيمة.`,
+      `💚 ${name}: اختيار ذكي لمن يبحث عن أفضل تجربة.`,
+    ];
+
+    setCopies(cp);
+  };
+
+  const generateStoryboard = () => {
+    if (!product) return;
+
+    const frames = [
+      "📸 لقطة افتتاحية لإظهار تصميم المنتج بشكل جمالي",
+      `👤 عميل يستخدم ${product.name} في موقف حقيقي`,
+      "⚡ لقطة تركّز على الميزة الأقوى",
+      "🎯 نص كبير يظهر الفائدة الأساسية",
+      "🛒 CTA: اطلب الآن – العرض محدود",
+    ];
+
+    setStoryboard(frames);
+  };
+
+  // ============================================================================
+  // UI
+  // ============================================================================
   return (
-    <div className="space-y-10">
-      {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Creative Studio</h1>
+    <div className="max-w-5xl mx-auto p-6" dir="rtl">
+      <BackToMerchant />
+
+      {/* HEADER */}
+      <div className="mt-6 mb-10">
+        <h1 className="text-3xl font-extrabold text-gray-900">
+          الاستديو الإبداعي
+        </h1>
         <p className="text-gray-500 mt-1">
-          Auto-generate storyboards, hooks, and campaign ideas using AI.
+          أنشئ أفكارًا وصورًا ونصوصًا إعلانية باستخدام الذكاء الاصطناعي
         </p>
       </div>
 
-      {/* Input Block */}
-      <div className="bg-white p-6 rounded-xl shadow space-y-4">
-        <h2 className="text-xl font-semibold">Generate Ideas</h2>
+      {!product && (
+        <p className="text-gray-500 text-center mt-20">
+          لا يوجد منتج لتحليل المحتوى… أضف منتج أولاً.
+        </p>
+      )}
 
-        <input
-          type="text"
-          placeholder="Enter product nameâ€¦"
-          className="w-full p-3 rounded-lg border bg-gray-50"
-          value={productName}
-          onChange={(e) => setProductName(e.target.value)}
-        />
+      {product && (
+        <div className="space-y-12">
 
-        <button
-          onClick={generateIdeas}
-          disabled={loading}
-          className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition"
-        >
-          <SparklesIcon className="w-5 h-5" />
-          {loading ? "Generating..." : "Generate Creative Ideas"}
-        </button>
-      </div>
+          {/* ===================================================== */}
+          {/* 1) AI CONCEPT GENERATOR */}
+          {/* ===================================================== */}
+          <section className="bg-white border rounded-xl p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              🎨 مولّد الأفكار الإبداعية
+            </h2>
 
-      {/* AI Output */}
-      <div className="space-y-6">
-        {ideas.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-6 rounded-xl shadow space-y-2"
-          >
-            <p className="text-lg font-semibold text-gray-900">{item.idea}</p>
+            <p className="text-gray-600 mb-6">
+              احصل على أفضل 3 أفكار إعلانية متوافقة مع منتجك
+            </p>
 
-            <div className="text-gray-700">
-              <span className="font-bold">Hook:</span> {item.hook}
-            </div>
+            <button
+              className="btn-purple px-8 py-3 mb-6"
+              onClick={generateConcepts}
+            >
+              🚀 توليد الأفكار
+            </button>
 
-            <div className="text-gray-700">
-              <span className="font-bold">Angle:</span> {item.angle}
-            </div>
+            {concepts.length > 0 && (
+              <div className="space-y-4">
+                {concepts.map((idea, i) => (
+                  <CreativeCard key={i} index={i + 1} text={idea} />
+                ))}
+              </div>
+            )}
+          </section>
 
-            <div className="text-gray-500 text-sm">
-              <span className="font-bold">Hashtags:</span> {item.hashtag}
-            </div>
-          </motion.div>
-        ))}
+          {/* ===================================================== */}
+          {/* 2) AD COPY GENERATOR */}
+          {/* ===================================================== */}
+          <section className="bg-white border rounded-xl p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              ✍️ مولّد النصوص الإعلانية (Ad Copy)
+            </h2>
 
-        {!loading && ideas.length === 0 && (
-          <p className="text-gray-400 text-center">
-            Start by typing a product name aboveâ€¦
-          </p>
-        )}
-      </div>
+            <p className="text-gray-600 mb-6">
+              نصوص جاهزة للاستخدام مباشرة في حملتك الإعلانية
+            </p>
+
+            <button
+              className="btn-blue px-8 py-3 mb-6"
+              onClick={generateCopies}
+            >
+              ✨ إنشاء نصوص إعلانية
+            </button>
+
+            {copies.length > 0 && (
+              <div className="space-y-4">
+                {copies.map((copy, i) => (
+                  <CreativeCard key={i} index={i + 1} text={copy} />
+                ))}
+              </div>
+            )}
+          </section>
+
+          {/* ===================================================== */}
+          {/* 3) STORYBOARD GENERATOR */}
+          {/* ===================================================== */}
+          <section className="bg-white border rounded-xl p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              🎞️ لوحة القصة الإعلانية (Storyboard)
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              تسلسل بصري جاهز لفيديو إعلان احترافي
+            </p>
+
+            <button
+              className="btn-green px-8 py-3 mb-6"
+              onClick={generateStoryboard}
+            >
+              🎬 إنشاء Storyboard
+            </button>
+
+            {storyboard.length > 0 && (
+              <div className="space-y-3">
+                {storyboard.map((frame, i) => (
+                  <StoryboardRow key={i} index={i + 1} text={frame} />
+                ))}
+              </div>
+            )}
+          </section>
+
+        </div>
+      )}
     </div>
   );
 }
+
+// ============================================================================
+// COMPONENTS
+// ============================================================================
+
+const CreativeCard = ({ index, text }) => (
+  <motion.div
+    className="p-4 bg-gray-50 border rounded-xl shadow-sm"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+  >
+    <h3 className="font-bold text-gray-900 mb-2">الفكرة {index}</h3>
+    <p className="text-gray-600 text-sm leading-relaxed">{text}</p>
+  </motion.div>
+);
+
+const StoryboardRow = ({ index, text }) => (
+  <motion.div
+    className="p-3 bg-gray-50 border rounded-lg shadow-sm"
+    initial={{ opacity: 0, y: 6 }}
+    animate={{ opacity: 1, y: 0 }}
+  >
+    <p className="font-bold text-gray-800">المشهد {index}</p>
+    <p className="text-gray-600 text-sm">{text}</p>
+  </motion.div>
+);

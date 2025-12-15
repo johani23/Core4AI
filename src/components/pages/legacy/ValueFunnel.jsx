@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ ValueFunnel.jsx (v139.6 â€œMerchant Intelligence + Tribe Conversionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ValueFunnel.jsx (v139.6 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œMerchant Intelligence + Tribe ConversionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Adds per-tribe conversion analytics (DPP/IPM/MTS)
-// âœ… Unified live funnel visualization
-// âœ… WS auto-reconnect + intensity-driven updates
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds per-tribe conversion analytics (DPP/IPM/MTS)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Unified live funnel visualization
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ WS auto-reconnect + intensity-driven updates
 // ============================================================
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function ValueFunnel() {
@@ -28,14 +27,14 @@ export default function ValueFunnel() {
   const [wsStatus, setWsStatus] = useState("Offline");
   const wsRef = useRef(null);
 
-  // ðŸŒ Connect WebSocket
+  // ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Connect WebSocket
   useEffect(() => {
     const connect = () => {
       const ws = new WebSocket("ws://127.0.0.1:8000/ws/simulation");
       wsRef.current = ws;
 
       ws.onopen = () => {
-        console.log("âœ… [ValueFunnel] Connected");
+        console.log("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ [ValueFunnel] Connected");
         setWsStatus("Online");
       };
 
@@ -58,7 +57,7 @@ export default function ValueFunnel() {
               influence: Math.min(prev.influence + delta * 0.5, 60),
             }));
 
-            // ðŸ”¹ Update tribe conversion simulation
+            // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ Update tribe conversion simulation
             setTribeScores((prev) => {
               const updated = { ...prev };
               Object.keys(updated).forEach((tribe) => {
@@ -72,7 +71,7 @@ export default function ValueFunnel() {
             });
           }
         } catch (err) {
-          console.warn("âš ï¸ WS Parse Error:", err);
+          console.warn("ÃƒÂ¢Ã…Â¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â WS Parse Error:", err);
         }
       };
     };
@@ -103,7 +102,7 @@ export default function ValueFunnel() {
       {/* Left: Funnel View */}
       <div>
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold text-cyan-400">ðŸ“ˆ Value Funnel</h1>
+          <h1 className="text-2xl font-bold text-cyan-400">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€  Value Funnel</h1>
           <span
             className={`px-3 py-1 rounded-md text-sm ${
               wsStatus === "Online"
@@ -135,15 +134,15 @@ export default function ValueFunnel() {
         </div>
 
         <div className="mt-8 text-xs text-gray-400">
-          ðŸ’¡ <b>Merchant Targeting</b> now splits into two channels:
-          <br />â€¢ <span className="text-amber-400">DPP</span>: Direct purchase behavior.
-          <br />â€¢ <span className="text-orange-400">IPM</span>: Influence-based conversion power.
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡ <b>Merchant Targeting</b> now splits into two channels:
+          <br />ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ <span className="text-amber-400">DPP</span>: Direct purchase behavior.
+          <br />ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ <span className="text-orange-400">IPM</span>: Influence-based conversion power.
         </div>
       </div>
 
       {/* Right: Tribe Merchant Intelligence */}
       <div className="bg-[#111827] rounded-xl border border-gray-700 p-6 shadow-xl">
-        <h2 className="text-xl font-semibold text-pink-400 mb-4">ðŸ’  Tribe Conversion Intelligence</h2>
+        <h2 className="text-xl font-semibold text-pink-400 mb-4">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â  Tribe Conversion Intelligence</h2>
         <table className="w-full text-sm">
           <thead className="border-b border-gray-700 text-gray-400">
             <tr>
@@ -174,3 +173,5 @@ export default function ValueFunnel() {
     </div>
   );
 }
+
+

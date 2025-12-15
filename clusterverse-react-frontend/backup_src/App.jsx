@@ -1,6 +1,6 @@
 // ============================================================
-// 💎 Core4.AI – App.jsx (MVP-27.9 Final Edition)
-// Tribe Persistence • Market Pulse • Mood-Reactive NewsTicker
+// ðŸ’Ž Core4.AI â€“ App.jsx (MVP-27.9 Final Edition)
+// Tribe Persistence â€¢ Market Pulse â€¢ Mood-Reactive NewsTicker
 // ============================================================
 
 import React, { useEffect, useState } from "react";
@@ -14,12 +14,12 @@ import {
 } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
-// 🧩 Layout Components
+// ðŸ§© Layout Components
 import Navbar from "@components/Navbar";
 import GlobalPulseTopBar from "@components/GlobalPulseTopBar";
 import NewsTicker from "@components/NewsTicker";
 
-// 🧭 Core Pages
+// ðŸ§­ Core Pages
 import Dashboard from "@pages/Dashboard";
 import Feed from "@pages/Feed";
 import Leaderboard from "@pages/Leaderboard";
@@ -35,14 +35,14 @@ import ChooseTribe from "@pages/ChooseTribe";
 import TribeMarket from "@pages/TribeMarket";
 import TribeDashboard from "@pages/TribeDashboard";
 
-// 💹 MVP-27 Additions
+// ðŸ’¹ MVP-27 Additions
 import MarketPulse from "@pages/MarketPulse";
 import TribeLeaderboard from "@pages/TribeLeaderboard";
 
 import { getUserTribe } from "@services/api";
 
 /* ------------------------------------------------------------
- * ⚙️ Animated Route Wrapper
+ * âš™ï¸ Animated Route Wrapper
  * ------------------------------------------------------------ */
 function AnimatedRoutes() {
   const location = useLocation();
@@ -57,12 +57,12 @@ function AnimatedRoutes() {
         className="p-4 md:p-6 min-h-[calc(100vh-120px)]"
       >
         <Routes location={location} key={location.pathname}>
-          {/* 🏕️ Tribe System */}
+          {/* ðŸ•ï¸ Tribe System */}
           <Route path="/tribe-market" element={<TribeMarket />} />
           <Route path="/tribe/:tribeName" element={<TribeDashboard />} />
           <Route path="/choose-tribe" element={<ChooseTribe />} />
 
-          {/* 🧭 Core Pages */}
+          {/* ðŸ§­ Core Pages */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/feed" element={<Feed />} />
@@ -76,11 +76,11 @@ function AnimatedRoutes() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/market" element={<Market />} />
 
-          {/* 💹 Market Pulse + Tribe Leaderboard */}
+          {/* ðŸ’¹ Market Pulse + Tribe Leaderboard */}
           <Route path="/market/pulse" element={<MarketPulse />} />
           <Route path="/tribes/leaderboard" element={<TribeLeaderboard />} />
 
-          {/* 🚧 Fallback */}
+          {/* ðŸš§ Fallback */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </motion.div>
@@ -89,7 +89,7 @@ function AnimatedRoutes() {
 }
 
 /* ------------------------------------------------------------
- * 👤 Session Wrapper – Tribe Persistence
+ * ðŸ‘¤ Session Wrapper â€“ Tribe Persistence
  * ------------------------------------------------------------ */
 function SessionWrapper() {
   const navigate = useNavigate();
@@ -116,7 +116,7 @@ function SessionWrapper() {
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen bg-black text-yellow-400 text-lg animate-pulse">
-        Initializing your Core4.AI world…
+        Initializing your Core4.AI worldâ€¦
       </div>
     );
 
@@ -133,7 +133,7 @@ function SessionWrapper() {
 }
 
 /* ------------------------------------------------------------
- * 🚀 Main App Entry
+ * ðŸš€ Main App Entry
  * ------------------------------------------------------------ */
 export default function App() {
   return (

@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š BuyerWTP.jsx (Phase 5 â€“ Buyer Pricing Input Screen)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ BuyerWTP.jsx (Phase 5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Buyer Pricing Input Screen)
 // ============================================================================
 
-import React, { useState } from "react";
 
 export default function BuyerWTP() {
   const [feature, setFeature] = useState("");
@@ -27,12 +26,12 @@ export default function BuyerWTP() {
     <div className="max-w-lg mx-auto p-6 bg-white border rounded-xl shadow">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ’µ ÙƒÙ… ØªØ¯ÙØ¹ Ù…Ù‚Ø§Ø¨Ù„ Ù‡Ø°Ù‡ Ø§Ù„Ù…ÙŠØ²Ø©ØŸ
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Âµ Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¯Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¨Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°Ãƒâ„¢Ã¢â‚¬Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â©ÃƒËœÃ…Â¸
       </h2>
 
       <input
         type="text"
-        placeholder="Ù…Ø«Ø§Ù„: inverter / silent"
+        placeholder="Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â«ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾: inverter / silent"
         value={feature}
         onChange={e => setFeature(e.target.value)}
         className="w-full p-3 border rounded mb-3"
@@ -40,7 +39,7 @@ export default function BuyerWTP() {
 
       <input
         type="number"
-        placeholder="ÙƒÙ… ØªØ³ØªØ­Ù‚ Ù‡Ø°Ù‡ Ø§Ù„Ù…ÙŠØ²Ø©ØŸ"
+        placeholder="Ãƒâ„¢Ã†â€™Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Å¡ Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°Ãƒâ„¢Ã¢â‚¬Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â©ÃƒËœÃ…Â¸"
         value={value}
         onChange={e => setValue(e.target.value)}
         className="w-full p-3 border rounded mb-3"
@@ -50,14 +49,16 @@ export default function BuyerWTP() {
         onClick={submit}
         className="w-full bg-green-700 text-white py-3 rounded-lg"
       >
-        Ø¥Ø±Ø³Ø§Ù„
+        ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â±ÃƒËœÃ‚Â³ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾
       </button>
 
       {avg !== null && (
         <p className="mt-4 text-center font-bold text-green-800">
-          Ù…ØªÙˆØ³Ø· Ù…Ø§ ÙŠØ¯ÙØ¹Ù‡ Ø§Ù„Ù…Ø´ØªØ±ÙˆÙ† Ù„Ù‡Ø°Ù‡ Ø§Ù„Ù…ÙŠØ²Ø©: {avg} Ø±.Ø³
+          Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â³ÃƒËœÃ‚Â· Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§ Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â¯Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¹Ãƒâ„¢Ã¢â‚¬Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â  Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚Â°Ãƒâ„¢Ã¢â‚¬Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â²ÃƒËœÃ‚Â©: {avg} ÃƒËœÃ‚Â±.ÃƒËœÃ‚Â³
         </p>
       )}
     </div>
   );
 }
+
+

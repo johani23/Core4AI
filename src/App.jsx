@@ -1,219 +1,151 @@
+// ============================================================================
+// 💎 Core4.AI – App.jsx (MASTER ROUTER v2025 — Noor + Sama Edition)
+// Production-Ready — Clean — Organized — Full Merchant Suite Routes
+// ============================================================================
+
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { Toaster } from "react-hot-toast";
+// Layout
+import CoreLayout from "@/components/layout/CoreLayout";
+import MerchantLayout from "@/components/pages/merchant/MerchantLayout";
 
-// Contexts
-import { CoreSyncProvider } from "@context/CoreSyncContext";
-import { CreatorProvider } from "@context/CreatorContext";
-import { InfluenceProvider } from "@context/InfluenceContext";
-import { AudienceProvider } from "@context/AudienceContext";
+// GENERAL
+import ChooseSegment from "@/components/pages/ChooseSegment";
+import SocialFeed from "@/components/pages/SocialFeed";
+import GrowAndEarn from "@/components/pages/GrowAndEarn";
+import WalletRewards from "@/components/pages/WalletRewards";
+import NetworkPulse from "@/components/pages/NetworkPulse";
+import PowerBoard from "@/components/pages/PowerBoard";
 
-// Main Pages
-import Home from "@pages/Home";
-import GrowAndEarn from "@pages/GrowAndEarn";
-import WalletRewards from "@pages/WalletRewards";
-import NetworkPulse from "@pages/NetworkPulse";
-import SocialFeed from "@pages/SocialFeed";
-import PowerBoard from "@pages/PowerBoard";
-import OnboardingTour from "@pages/OnboardingTour";
-import ChooseSegment from "@pages/ChooseSegment";
-
-// Role-Based Homes
-import CreatorHome from "@pages/creator/CreatorHome";
-import BuyerHome from "@/components/pages/buyer/BuyerHome";
-import MerchantHome from "@pages/merchant/MerchantHome";
-
-// Buyer Layer — Purchases
+// BUYER
+import BuyerFeed from "@/components/pages/buyer/BuyerFeed";
+import BuyerWishlist from "@/components/pages/buyer/BuyerWishlist";
+import BuyerClaims from "@/components/pages/buyer/BuyerClaims";
+import BuyerTracking from "@/components/pages/buyer/BuyerTracking";
+import BuyerReferrals from "@/components/pages/buyer/BuyerReferrals";
+import BuyerUpgrade from "@/components/pages/buyer/BuyerUpgrade";
+import BuyerFeatureReview from "@/components/pages/buyer/BuyerFeatureReview";
+import BuyerRND from "@/components/pages/buyer/BuyerRND";
 import BuyerDashboard from "@/components/pages/buyer/BuyerDashboard";
 import BuyerActivity from "@/components/pages/buyer/BuyerActivity";
-import BuyerReferrals from "@/components/pages/buyer/BuyerReferrals";
-import BuyerClaims from "@/components/pages/buyer/BuyerClaims";
-import BuyerRND from "@/components/pages/buyer/BuyerRND";
-import BuyerUpgrade from "@/components/pages/buyer/BuyerUpgrade";
 import PurchasesList from "@/components/pages/buyer/PurchasesList";
 import OrderDetails from "@/components/pages/buyer/OrderDetails";
+import BuyerProduct from "@/components/pages/buyer/BuyerProduct";
+import BuyerCheckout from "@/components/pages/buyer/BuyerCheckout";
+import BuyerSuccess from "@/components/pages/buyer/BuyerSuccess";
 
-// Audience Layer
-import AudienceHome from "@/components/pages/buyer/AudienceHome";
 
-// Merchant Layer
-import AddProductWizard from "@pages/merchant/AddProductWizard";
-import CampaignWizard from "@pages/merchant/CampaignWizard";
-import InfluencerSelection from "@pages/merchant/InfluencerSelection";
-import EarningsCenterArabic from "@pages/merchant/EarningsCenterArabic";
-import PricingResult from "@pages/merchant/PricingResult";
-import CampaignSummary from "@pages/merchant/CampaignSummary";
-import MerchantAnalytics from "@pages/merchant/MerchantAnalytics";
 
-// Onboarding
-import Onboarding from "@components/onboarding/Onboarding";
 
-// Hayatik Pages
-import HayatikHome from "@components/hayatik/HayatikHome";
-import HayatikInterests from "@components/hayatik/HayatikInterests";
-import HayatikShoppingPicks from "@components/hayatik/HayatikShoppingPicks";
-import HayatikSettings from "@components/hayatik/HayatikSettings";
+// CREATOR
+import CreatorHome from "@/components/pages/creator/CreatorHome";
+import CreatorFeed from "@/components/pages/creator/CreatorFeed";
+import CreatorAnalytics from "@/components/pages/creator/CreatorAnalytics";
 
-// Shared UI
-import CoreMentorPanel from "@components/CoreMentorPanel";
-import FloatingCreateButton from "@components/FloatingCreateButton";
+// TRIBE
+import TribeHome from "@/components/pages/tribe/TribeHome";
+import TribeDashboard from "@/components/pages/tribe/TribeDashboard";
 
-// ============================================================================
-// Navigation Tabs
-// ============================================================================
+// MERCHANT — FULL PAGES ONLY (No Panels)
+import MerchantDashboard from "@/components/pages/merchant/MerchantDashboard";
+import ProductCenter from "@/components/pages/merchant/ProductCenter";
+import AddProductWizard from "@/components/pages/merchant/AddProductWizard";
+import PricingCenter from "@/components/pages/merchant/PricingCenter";
+import PricingRedirect from "@/components/pages/merchant/PricingRedirect";
+import CreativeCenter from "@/components/pages/merchant/CreativeCenter";
+import CampaignCenter from "@/components/pages/merchant/CampaignCenter";
+import CampaignBuilder from "@/components/pages/merchant/CampaignBuilder";
+import CampaignSummary from "@/components/pages/merchant/CampaignSummary";
+import InfluencerSelection from "@/components/pages/merchant/InfluencerSelection";
+import OfferCenter from "@/components/pages/merchant/OfferCenter";
+import EarningsCenter from "@/components/pages/merchant/EarningsCenter";
+import AnalyticsCenter from "@/components/pages/merchant/AnalyticsCenter";
+import MITMarketInsights from "@/components/pages/merchant/MITMarketInsights";
+import DemandSignals from "@/components/pages/merchant/DemandSignals";
 
-const tabs = [
-  { path: "/", label: "Home", icon: "🏠" },
-  { path: "/hayatik", label: "حياتك", icon: "💚" },
-  { path: "/grow", label: "Grow", icon: "🚀" },
-  { path: "/buyer/home", label: "Purchases", icon: "🛒", roles: ["buyer"] },
-  { path: "/audience", label: "Audience", icon: "🎧", roles: ["buyer"] },
-  { path: "/merchant", label: "Offers", icon: "🏪" },
-  { path: "/feed", label: "Feed", icon: "🎥" },
-  { path: "/powerboard", label: "PowerBoard", icon: "💹" },
-  { path: "/wallet", label: "Wallet", icon: "💰" },
-  { path: "/pulse", label: "Pulse", icon: "🌐" },
-  { path: "/role", label: "Role", icon: "🎭" },
-];
-
-// ============================================================================
-// D-Pulse Indicator
-// ============================================================================
-
-function DPulse() {
-  return (
-    <motion.div
-      animate={{ scale: [1, 1.1, 1] }}
-      transition={{ repeat: Infinity, duration: 2 }}
-      className="flex items-center gap-1 text-xs text-purple-400 bg-purple-900/20 px-2 py-1 rounded-full border border-purple-700 shadow-sm"
-    >
-      <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-      D-Index 72.5
-    </motion.div>
-  );
-}
-
-// ============================================================================
-// AppContent
-// ============================================================================
-
-function AppContent() {
-  const location = useLocation();
-  const { role } = useCoreSync();
-
-  const filteredTabs = tabs.filter(
-    (t) => !t.roles || t.roles.includes(role)
-  );
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white flex flex-col">
-      {/* NAVBAR */}
-      <nav className="flex justify-between items-center px-6 py-3 border-b border-gray-800 bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-40">
-        <div className="text-xl font-extrabold text-purple-400 tracking-wide">
-          Core4.AI
-        </div>
-
-        <div className="hidden md:flex gap-6">
-          {filteredTabs.map((t) => (
-            <NavLink
-              key={t.path}
-              to={t.path}
-              className={({ isActive }) =>
-                `flex items-center gap-1 text-sm font-semibold transition-all ${
-                  isActive
-                    ? "text-purple-400 border-b-2 border-purple-400 pb-1"
-                    : "text-gray-400 hover:text-gray-200"
-                }`
-              }
-            >
-              {t.icon}
-              {t.label}
-            </NavLink>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <DPulse />
-          <button
-            onClick={() => (window.location.href = "/tour")}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1.5 rounded-md text-sm font-semibold hover:opacity-90 transition-all"
-          >
-            🔮 Guide Me
-          </button>
-        </div>
-      </nav>
-
-      {/* ROUTES */}
-      <div className="flex-grow relative">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-            className="p-6"
-          >
-            <Routes>
-              {/* ROLE-BASED HOME */}
-              <Route
-                path="/"
-                element={
-                  role === "creator" ? (
-                    <CreatorHome />
-                  ) : role === "buyer" ? (
-                    <BuyerHome />
-                  ) : role === "merchant" ? (
-                    <MerchantHome />
-                  ) : (
-                    <ChooseSegment />
-                  )
-                }
-              />
-              {/* Other routes for Buyer, Merchant, and Creator */}
-            </Routes>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* FOOTER */}
-      <footer className="text-center text-xs text-gray-600 py-3 border-t border-gray-800">
-        © {new Date().getFullYear()} Core4.AI — Empowering the Influence Economy
-      </footer>
-    </div>
-  );
-}
 
 export default function App() {
   return (
-    <Router basename="/">
-      <CreatorProvider>
-        <CoreSyncProvider>
-          <AppContent />
-          <CoreMentorPanel />
-          <FloatingCreateButton />
+    <Routes>
 
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              style: {
-                background: "#111",
-                color: "#fff",
-                borderRadius: "10px",
-                fontSize: "0.9rem",
-              },
-            }}
-          />
-        </CoreSyncProvider>
-      </CreatorProvider>
-    </Router>
+      {/* GENERAL */}
+      <Route
+        path="/"
+        element={
+          <CoreLayout>
+            <ChooseSegment />
+          </CoreLayout>
+        }
+      />
+
+      <Route path="/feed" element={<CoreLayout><SocialFeed /></CoreLayout>} />
+      <Route path="/grow" element={<CoreLayout><GrowAndEarn /></CoreLayout>} />
+      <Route path="/wallet" element={<CoreLayout><WalletRewards /></CoreLayout>} />
+      <Route path="/pulse" element={<CoreLayout><NetworkPulse /></CoreLayout>} />
+      <Route path="/powerboard" element={<CoreLayout><PowerBoard /></CoreLayout>} />
+
+            {/* BUYER */}
+	<Route path="/buyer/feed" element={<CoreLayout><BuyerFeed /></CoreLayout>} />
+	<Route path="/buyer/dashboard" element={<CoreLayout><BuyerDashboard /></CoreLayout>} />
+	<Route path="/buyer/activity" element={<CoreLayout><BuyerActivity /></CoreLayout>} />
+	<Route path="/buyer/orders" element={<CoreLayout><PurchasesList /></CoreLayout>} />
+	<Route path="/buyer/order/:id" element={<CoreLayout><OrderDetails /></CoreLayout>} />
+	<Route path="/buyer/product/:id" element={<CoreLayout><BuyerProduct /></CoreLayout>} />
+	<Route path="/buyer/checkout/:id" element={<CoreLayout><BuyerCheckout /></CoreLayout>} />
+	<Route path="/buyer/success" element={<CoreLayout><BuyerSuccess /></CoreLayout>} />
+
+{/* 🔒 FINAL MISSING BUYER ROUTES */}
+	<Route path="/buyer/wishlist" element={<CoreLayout><BuyerWishlist /></CoreLayout>} />
+	<Route path="/buyer/claims" element={<CoreLayout><BuyerClaims /></CoreLayout>} />
+	<Route path="/buyer/tracking/:id" element={<CoreLayout><BuyerTracking /></CoreLayout>} />
+	<Route path="/buyer/referrals" element={<CoreLayout><BuyerReferrals /></CoreLayout>} />
+	<Route path="/buyer/upgrade" element={<CoreLayout><BuyerUpgrade /></CoreLayout>} />
+	<Route path="/buyer/feature-review/:id" element={<CoreLayout><BuyerFeatureReview /></CoreLayout>} />
+<Route path="/buyer/rnd" element={<CoreLayout><BuyerRND /></CoreLayout>} />
+
+      {/* CREATOR */}
+      <Route path="/creator" element={<CoreLayout><CreatorHome /></CoreLayout>} />
+      <Route path="/creator/feed" element={<CoreLayout><CreatorFeed /></CoreLayout>} />
+      <Route path="/creator/analytics" element={<CoreLayout><CreatorAnalytics /></CoreLayout>} />
+
+      {/* TRIBE */}
+      <Route path="/tribe" element={<CoreLayout><TribeHome /></CoreLayout>} />
+      <Route path="/tribe/dashboard" element={<CoreLayout><TribeDashboard /></CoreLayout>} />
+
+      {/* MERCHANT — FULL SUITE */}
+      <Route path="/merchant/*" element={<MerchantLayout />}>
+        <Route index element={<Navigate to="dashboard" replace />} />
+
+        <Route path="dashboard" element={<MerchantDashboard />} />
+        <Route path="products" element={<ProductCenter />} />
+        <Route path="add-product" element={<AddProductWizard />} />
+
+        <Route path="pricing" element={<PricingRedirect />} />
+        <Route path="pricing/:productId" element={<PricingCenter />} />
+
+        <Route path="creative" element={<CreativeCenter />} />
+
+        <Route path="campaigns" element={<CampaignCenter />} />
+        <Route path="campaign" element={<CampaignBuilder />} />
+        <Route path="campaign-summary" element={<CampaignSummary />} />
+
+        <Route path="influencers" element={<InfluencerSelection />} />
+
+        <Route path="offers" element={<OfferCenter />} />
+
+        <Route path="earnings" element={<EarningsCenter />} />
+
+        <Route path="analytics" element={<AnalyticsCenter />} />
+
+        <Route path="market-insights/:id" element={<MITMarketInsights />} />
+        <Route path="demand-signals" element={<DemandSignals />} />
+
+      </Route>
+
+      {/* FALLBACK */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+
+    </Routes>
   );
 }

@@ -1,8 +1,7 @@
 // ============================================================================
-// ðŸ’š BuyerReview.jsx (Phase 6 â€“ Buyer Review Input)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ BuyerReview.jsx (Phase 6 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Buyer Review Input)
 // ============================================================================
 
-import React, { useState, useEffect } from "react";
 
 export default function BuyerReview() {
   const [product, setProduct] = useState("");
@@ -38,19 +37,19 @@ export default function BuyerReview() {
     <div className="max-w-xl mx-auto p-6 bg-white border rounded-xl shadow">
 
       <h2 className="text-xl font-bold text-green-700 mb-4">
-        ðŸ“ Ø¢Ø±Ø§Ø¡ Ø§Ù„Ù…Ø´ØªØ±ÙŠÙ† (Buyer Reviews)
+        ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â ÃƒËœÃ‚Â¢ÃƒËœÃ‚Â±ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â´ÃƒËœÃ‚ÂªÃƒËœÃ‚Â±Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Â  (Buyer Reviews)
       </h2>
 
       <input
         type="text"
-        placeholder="Ø§Ø³Ù… Ø§Ù„Ù…Ù†ØªØ¬"
+        placeholder="ÃƒËœÃ‚Â§ÃƒËœÃ‚Â³Ãƒâ„¢Ã¢â‚¬Â¦ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬"
         value={product}
         onChange={(e) => setProduct(e.target.value)}
         className="w-full p-3 border rounded mb-3"
       />
 
       <textarea
-        placeholder="Ø§ÙƒØªØ¨ Ø±Ø£ÙŠÙƒ..."
+        placeholder="ÃƒËœÃ‚Â§Ãƒâ„¢Ã†â€™ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¨ ÃƒËœÃ‚Â±ÃƒËœÃ‚Â£Ãƒâ„¢Ã…Â Ãƒâ„¢Ã†â€™..."
         value={review}
         onChange={(e) => setReview(e.target.value)}
         className="w-full p-3 border rounded mb-3"
@@ -61,7 +60,7 @@ export default function BuyerReview() {
         onClick={send}
         className="w-full bg-green-700 text-white py-3 rounded-lg"
       >
-        Ø¥Ø±Ø³Ø§Ù„
+        ÃƒËœÃ‚Â¥ÃƒËœÃ‚Â±ÃƒËœÃ‚Â³ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾
       </button>
 
       <div className="mt-6 space-y-3">
@@ -78,3 +77,5 @@ export default function BuyerReview() {
     </div>
   );
 }
+
+

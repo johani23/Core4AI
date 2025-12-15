@@ -1,12 +1,11 @@
 // ============================================================================
-// ðŸ›¡ï¸ CreatorTribeDashboard.jsx â€” Saudi-Tech A3 Edition
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ‚Â¡ÃƒÂ¯Ã‚Â¸Ã‚Â CreatorTribeDashboard.jsx ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Saudi-Tech A3 Edition
 // ----------------------------------------------------------------------------
 // - Clean dashboard for tribe leaders
 // - Gold metrics + Green glow
 // - Unified layout with CorePanel + CoreHeader
 // ============================================================================
 
-import React from "react";
 import CoreHeader from "@/components/ui/CoreHeader";
 import CorePanel from "@/components/ui/CorePanel";
 import CoreButton from "@/components/ui/CoreButton";
@@ -29,7 +28,7 @@ export default function CreatorTribeDashboard() {
       <CoreHeader
         title="Tribe Governance"
         subtitle="Lead your tribe, manage members, and verify review authenticity."
-        icon="ðŸ›¡ï¸"
+        icon="ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂºÃ‚Â¡ÃƒÂ¯Ã‚Â¸Ã‚Â"
       />
 
       {/* KPI Panels */}
@@ -87,3 +86,5 @@ export default function CreatorTribeDashboard() {
     </div>
   );
 }
+
+

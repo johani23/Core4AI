@@ -1,8 +1,8 @@
 /**
- * Core4.AI – MVP 19.6
- * 🌦 Emotional Weather Component
+ * Core4.AI â€“ MVP 19.6
+ * ðŸŒ¦ Emotional Weather Component
  * 
- * Displays the system’s current “emotional climate” derived from the
+ * Displays the systemâ€™s current â€œemotional climateâ€ derived from the
  * Dopamine Intelligence Engine. Designed for Dashboard integration.
  * 
  * - Pulls live data from /dopamine/weather
@@ -29,27 +29,27 @@ export default function EmotionalWeather() {
         // fallback: random simulated sentiment
         const moods = [
           {
-            condition: "⚡ High creative euphoria",
+            condition: "âš¡ High creative euphoria",
             forecast_message: "Collective inspiration wave incoming.",
-            emotional_risk: "🔥 Overstimulation possible",
+            emotional_risk: "ðŸ”¥ Overstimulation possible",
             trend: "rising",
           },
           {
-            condition: "🌤 Positive, inspired",
-            forecast_message: "Momentum steady — balanced emotional energy.",
-            emotional_risk: "✅ Stable state",
+            condition: "ðŸŒ¤ Positive, inspired",
+            forecast_message: "Momentum steady â€” balanced emotional energy.",
+            emotional_risk: "âœ… Stable state",
             trend: "stable",
           },
           {
-            condition: "🌫 Moderate mood",
+            condition: "ðŸŒ« Moderate mood",
             forecast_message: "Clusters are neutral, awaiting new spark.",
-            emotional_risk: "💤 Slight under-stimulation",
+            emotional_risk: "ðŸ’¤ Slight under-stimulation",
             trend: "stable",
           },
           {
-            condition: "🌧 Low creative energy",
+            condition: "ðŸŒ§ Low creative energy",
             forecast_message: "Creative energy declining slightly.",
-            emotional_risk: "💤 Under-stimulation risk",
+            emotional_risk: "ðŸ’¤ Under-stimulation risk",
             trend: "falling",
           },
         ];
@@ -79,7 +79,7 @@ export default function EmotionalWeather() {
       className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg"
     >
       <h2 className="text-xl font-semibold text-yellow-400 mb-2">
-        🌦 Emotional Weather
+        ðŸŒ¦ Emotional Weather
       </h2>
 
       <div className="text-3xl mb-1">{weather.condition}</div>
@@ -99,10 +99,10 @@ export default function EmotionalWeather() {
           }`}
         >
           {weather.trend === "rising"
-            ? "↑ Rising mood"
+            ? "â†‘ Rising mood"
             : weather.trend === "falling"
-            ? "↓ Declining mood"
-            : "→ Stable mood"}
+            ? "â†“ Declining mood"
+            : "â†’ Stable mood"}
         </span>
       </div>
 

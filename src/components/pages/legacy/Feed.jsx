@@ -1,13 +1,12 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ Feed.jsx (v1.9 â€œSentiment Pulse Editionâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Feed.jsx (v1.9 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œSentiment Pulse EditionÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Fixes overflow (0â€“100 scaling)
-// âœ… Adds sentiment pulse feedback
-// âœ… Dynamic dopamine glow colors by sentiment
-// âœ… Animated dopamine bar + aura effect
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Fixes overflow (0ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“100 scaling)
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Adds sentiment pulse feedback
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Dynamic dopamine glow colors by sentiment
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Animated dopamine bar + aura effect
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCreator } from "@context/CreatorContext";
 
@@ -45,7 +44,7 @@ export default function Feed() {
   }, [cooldown]);
 
   // ------------------------------------------------------------
-  // âœï¸ Submit Post
+  // ÃƒÂ¢Ã…â€œÃ‚ÂÃƒÂ¯Ã‚Â¸Ã‚Â Submit Post
   // ------------------------------------------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,7 +93,7 @@ export default function Feed() {
       };
       setFeedItems((prev) => [newPost, ...prev]);
 
-      // ðŸŽ‡ Set pulse with sentiment context
+      // ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â¡ Set pulse with sentiment context
       setPulse({
         xp: Math.round(score / 10),
         dindex: dopamineGain,
@@ -115,7 +114,7 @@ export default function Feed() {
   };
 
   // ------------------------------------------------------------
-  // ðŸŽ¨ Sentiment Glow
+  // ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Sentiment Glow
   // ------------------------------------------------------------
   const getGlowColor = (label) => {
     switch (label.toUpperCase()) {
@@ -133,24 +132,24 @@ export default function Feed() {
   // ------------------------------------------------------------
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">ðŸ§  Core4 Feed</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Core4 Feed</h1>
 
       <div className="text-center text-sm text-gray-400 mb-6">
         Active Creator:{" "}
-        <span className="text-purple-400 font-medium">{creatorId}</span> â€¢ Tribe:{" "}
+        <span className="text-purple-400 font-medium">{creatorId}</span> ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tribe:{" "}
         <span
           className="font-medium"
           style={{ color: tribeColors[tribe] || "#a1a1aa" }}
         >
           {tribe}
         </span>{" "}
-        â€¢ Tokens:{" "}
+        ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tokens:{" "}
         <span className="text-amber-400 font-medium">{tokens}</span>
       </div>
 
       <div className="text-center text-xs text-gray-500 mb-8">
-        Posts: {sessionStats.posts} â€¢ Avg Score:{" "}
-        {sessionStats.avgScore.toFixed(1)}% â€¢ Dopamine:{" "}
+        Posts: {sessionStats.posts} ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Avg Score:{" "}
+        {sessionStats.avgScore.toFixed(1)}% ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Dopamine:{" "}
         {sessionStats.dopamine.toFixed(1)}
       </div>
 
@@ -168,7 +167,7 @@ export default function Feed() {
         <div className="flex justify-between items-center mt-4">
           {cooldown > 0 ? (
             <span className="text-xs text-gray-500">
-              â³ Cooldown: {cooldown}s
+              ÃƒÂ¢Ã‚ÂÃ‚Â³ Cooldown: {cooldown}s
             </span>
           ) : (
             <span className="text-xs text-gray-600">Ready to post</span>
@@ -197,9 +196,9 @@ export default function Feed() {
             className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-zinc-900 border border-purple-700 px-6 py-3 rounded-2xl shadow-lg text-center"
           >
             <p className="text-purple-300 font-medium">
-              âœ¨ +{pulse.xp} XP â€¢ D-Index â†‘ {pulse.dindex}%{" "}
+              ÃƒÂ¢Ã…â€œÃ‚Â¨ +{pulse.xp} XP ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ D-Index ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Ëœ {pulse.dindex}%{" "}
               {pulse.tokens > 0 && (
-                <span className="text-amber-400 ml-2">+{pulse.tokens} ðŸª™</span>
+                <span className="text-amber-400 ml-2">+{pulse.tokens} ÃƒÂ°Ã…Â¸Ã‚ÂªÃ¢â€žÂ¢</span>
               )}
             </p>
             <p className="text-sm text-gray-400 mt-1">
@@ -254,9 +253,9 @@ export default function Feed() {
               >
                 {item.tribe}
               </span>{" "}
-              â€¢ Level:{" "}
+              ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Level:{" "}
               <span className="text-purple-400 font-medium">{item.level}</span>
-              {" â€¢ "}
+              {" ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ "}
               <span
                 className={`${
                   item.sentimentLabel === "POSITIVE"
@@ -315,10 +314,12 @@ export default function Feed() {
 
         {!feedItems.length && (
           <div className="text-center text-gray-500 mt-10">
-            No posts yet â€” share your first thought!
+            No posts yet ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â share your first thought!
           </div>
         )}
       </div>
     </div>
   );
 }
+
+

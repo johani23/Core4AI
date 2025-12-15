@@ -1,5 +1,5 @@
 // ============================================================
-// ðŸª MerchantDashboard.jsx (v5.0 â€œUnified Pricing Intelligence Addedâ€)
+// ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª MerchantDashboard.jsx (v5.0 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œUnified Pricing Intelligence AddedÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
 // Displays:
 // - AI Pricing Insights (UnifiedPricing)
@@ -7,18 +7,17 @@
 // - Current Offers
 // ============================================================
 
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import UnifiedPricing from "@/components/pricing/UnifiedPricing";   // â­ ADDED
+import UnifiedPricing from "@/components/pricing/UnifiedPricing";   // ÃƒÂ¢Ã‚Â­Ã‚Â ADDED
 
 const BASE = "http://127.0.0.1:8000";
 
 export default function MerchantDashboard() {
   const [offers, setOffers] = useState([]);
   const [suggest, setSuggest] = useState([]);
-  const [products, setProducts] = useState([]);   // â­ ADDED
+  const [products, setProducts] = useState([]);   // ÃƒÂ¢Ã‚Â­Ã‚Â ADDED
 
   useEffect(() => {
     axios.get(`${BASE}/api/merchant/offers`)
@@ -27,12 +26,12 @@ export default function MerchantDashboard() {
     axios.get(`${BASE}/api/suggest`)
          .then((res) => setSuggest(res.data.suggestions || []));
 
-    axios.get(`/api/merchant/merchant_001/products`)   // â­ GET PRODUCTS
+    axios.get(`/api/merchant/merchant_001/products`)   // ÃƒÂ¢Ã‚Â­Ã‚Â GET PRODUCTS
          .then((res) => {
             const list = Array.isArray(res.data) ? res.data : res.data.products || [];
             setProducts(list);
          })
-         .catch(() => toast.error("âŒ ÙØ´Ù„ ØªØ­Ù…ÙŠÙ„ Ù…Ù†ØªØ¬Ø§Øª Ø§Ù„ØªØ§Ø¬Ø±"));
+         .catch(() => toast.error("ÃƒÂ¢Ã‚ÂÃ…â€™ Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â´Ãƒâ„¢Ã¢â‚¬Å¾ ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¾ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â±"));
   }, []);
 
   return (
@@ -40,20 +39,20 @@ export default function MerchantDashboard() {
 
       {/* HEADER */}
       <div>
-        <h1 className="text-3xl font-bold text-purple-400">ðŸª Merchant Intelligence</h1>
+        <h1 className="text-3xl font-bold text-purple-400">ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Âª Merchant Intelligence</h1>
         <p className="text-gray-400 text-sm">
-          Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ ÙŠÙ‚Ø¯Ù… Ù„Ùƒ Ø£Ù‚ÙˆÙ‰ ÙØ±Øµ Ø§Ù„ØªØ³Ø¹ÙŠØ± ÙˆØ§Ù„ØªØ¹Ø§ÙˆÙ†.
+          ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â°Ãƒâ„¢Ã†â€™ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¡ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ÃƒËœÃ‚ÂµÃƒËœÃ‚Â·Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚Â§ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â  Ãƒâ„¢Ã…Â Ãƒâ„¢Ã¢â‚¬Å¡ÃƒËœÃ‚Â¯Ãƒâ„¢Ã¢â‚¬Â¦ Ãƒâ„¢Ã¢â‚¬Å¾Ãƒâ„¢Ã†â€™ ÃƒËœÃ‚Â£Ãƒâ„¢Ã¢â‚¬Å¡Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â° Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â±ÃƒËœÃ‚Âµ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â³ÃƒËœÃ‚Â¹Ãƒâ„¢Ã…Â ÃƒËœÃ‚Â± Ãƒâ„¢Ã‹â€ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¹ÃƒËœÃ‚Â§Ãƒâ„¢Ã‹â€ Ãƒâ„¢Ã¢â‚¬Â .
         </p>
       </div>
 
-      {/* â­ AI PRICING INSIGHTS SECTION */}
+      {/* ÃƒÂ¢Ã‚Â­Ã‚Â AI PRICING INSIGHTS SECTION */}
       <div className="bg-[#111827] p-5 rounded-xl border border-gray-700">
         <h2 className="text-xl font-bold text-green-400 mb-4">
-          ðŸ’š AI Pricing Insights â€” Ø£ÙØ¶Ù„ 3 Ù…Ù†ØªØ¬Ø§Øª ØªØ­ØªØ§Ø¬ Ø§Ù‡ØªÙ…Ø§Ù…Ùƒ Ø§Ù„Ø¢Ù†
+          ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â¡ AI Pricing Insights ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒËœÃ‚Â£Ãƒâ„¢Ã‚ÂÃƒËœÃ‚Â¶Ãƒâ„¢Ã¢â‚¬Å¾ 3 Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚ÂªÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒËœÃ‚Â§ÃƒËœÃ‚Â¬ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¡ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â¦ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã†â€™ ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â 
         </h2>
 
         {products.length === 0 && (
-          <p className="text-gray-500 text-sm">Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†.</p>
+          <p className="text-gray-500 text-sm">Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â§ ÃƒËœÃ‚ÂªÃƒâ„¢Ã‹â€ ÃƒËœÃ‚Â¬ÃƒËœÃ‚Â¯ Ãƒâ„¢Ã¢â‚¬Â¦Ãƒâ„¢Ã¢â‚¬Â ÃƒËœÃ‚ÂªÃƒËœÃ‚Â¬ÃƒËœÃ‚Â§ÃƒËœÃ‚Âª ÃƒËœÃ‚Â­ÃƒËœÃ‚ÂªÃƒâ„¢Ã¢â‚¬Â° ÃƒËœÃ‚Â§Ãƒâ„¢Ã¢â‚¬Å¾ÃƒËœÃ‚Â¢Ãƒâ„¢Ã¢â‚¬Â .</p>
         )}
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -91,7 +90,7 @@ export default function MerchantDashboard() {
               <p className="font-semibold text-white mb-1">{o.product}</p>
               <p className="text-gray-400 text-sm">Commission: {o.commission_band}%</p>
               <button className="mt-2 w-full bg-purple-600 py-1 text-sm rounded-md hover:bg-purple-700">
-                ðŸŽ¯ Invite Teams
+                ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¯ Invite Teams
               </button>
             </div>
           ))}
@@ -101,3 +100,5 @@ export default function MerchantDashboard() {
     </div>
   );
 }
+
+

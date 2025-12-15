@@ -1,12 +1,11 @@
 // ============================================================
-// ðŸ’Ž Core4.AI â€“ GovernanceInfluence.jsx (MVP-51 â€œInfluence Graphâ€)
+// ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã…Â½ Core4.AI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ GovernanceInfluence.jsx (MVP-51 ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œInfluence GraphÃƒÂ¢Ã¢â€šÂ¬Ã‚Â)
 // ------------------------------------------------------------
-// âœ… Visualizes council decisions vs tribe mood shifts
-// âœ… Live data from /ws/influence
-// âœ… Auto-coloring & smooth transition lines
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Visualizes council decisions vs tribe mood shifts
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Live data from /ws/influence
+// ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Auto-coloring & smooth transition lines
 // ============================================================
 
-import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   LineChart,
@@ -48,17 +47,17 @@ export default function GovernanceInfluence() {
   }, []);
 
   const colors = {
-    "ðŸŽ¨ Fashion": "#ec4899",
-    "ðŸŽ­ Events": "#facc15",
-    "ðŸ§  Thinkers": "#38bdf8",
-    "ðŸ˜‚ Humor": "#22c55e",
+    "ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨ Fashion": "#ec4899",
+    "ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â­ Events": "#facc15",
+    "ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â  Thinkers": "#38bdf8",
+    "ÃƒÂ°Ã…Â¸Ã‹Å“Ã¢â‚¬Å¡ Humor": "#22c55e",
   };
 
   return (
     <div className="px-8 py-6 text-gray-200">
       <div className="flex justify-between items-center mb-5">
         <h1 className="text-2xl font-semibold text-purple-300">
-          ðŸ§­ Governance Influence Graph
+          ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â­ Governance Influence Graph
         </h1>
         <div
           className={`text-sm px-3 py-1 rounded-full ${
@@ -113,3 +112,5 @@ export default function GovernanceInfluence() {
     </div>
   );
 }
+
+
