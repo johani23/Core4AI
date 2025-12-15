@@ -10,7 +10,7 @@ import App from "./App";
 import "./index.css";
 
 // Context Providers
-import { CoreSyncProvider } from "@/context/CoreSyncContext";
+import { CoreSyncProvider } from "@/context/core/CoreSyncContext";
 import AudienceProvider from "@/context/AudienceContext";
 import { InfluenceScoreProvider } from "@/context/InfluenceScoreContext";
 import { InfluenceMissionsProvider } from "@/context/InfluenceMissionsContext";
