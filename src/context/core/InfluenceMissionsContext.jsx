@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { useInfluence } from "./InfluenceScoreContext";
+import { useInfluence } from "./InfluenceScoreContext.jsx";
+
 
 const InfluenceMissionsContext = createContext();
 export const useInfluenceMissions = () => useContext(InfluenceMissionsContext);
