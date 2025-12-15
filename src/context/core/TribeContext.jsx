@@ -220,3 +220,4 @@ export function TribeProvider({ children }) {
     </TribeContext.Provider>
   );
 }
+export default TribeProvider;
