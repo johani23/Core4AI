@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { useInfluence } from "./InfluenceScoreContext";
+import { useInfluence } from "../InfluenceScoreContext";
 
 
 
