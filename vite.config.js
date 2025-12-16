@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
       : "http://127.0.0.1:8000");
 
   return {
-    base: "./",
+    base: "/",
+
 
     plugins: [react()],
 
