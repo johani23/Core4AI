@@ -1,81 +1,46 @@
-// ============================================================================
-// 💚 Core4.AI – Unified API Layer (PRODUCTION SAFE)
-// ============================================================================
+// ============================================================
+// Core4.AI – Unified API Layer (PRODUCTION SAFE)
+// ============================================================
 
-// ✅ يعتمد على البيئة تلقائيًا
-const API_BASE =
-  import.meta.env.VITE_API_URL ||
-  "https://core4ai-backend.onrender.com";
+const API_BASE = "/api";
+const JSON_HEADERS = { "Content-Type": "application/json" };
 
-const JSON_HEADERS = {
-  "Content-Type": "application/json",
-};
-
-// ------------------------------------------------------------
-// Helpers
-// ------------------------------------------------------------
+// ---------- helpers ----------
 async function handleResponse(res) {
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`HTTP ${res.status}: ${text}`);
-  }
-  return res.json();
-}
-
-async function safeFetch(url, fallback, options = {}) {
+  const text = await res.text();
   try {
-    const res = await fetch(url, options);
-    return await handleResponse(res);
-  } catch (err) {
-    console.warn("API fallback:", url, err.message);
-    return fallback;
+    return JSON.parse(text);
+  } catch {
+    throw new Error(text);
   }
 }
 
-// ------------------------------------------------------------
-// MERCHANT – PRODUCTS
-// ------------------------------------------------------------
-export async function getMerchantProducts(merchantId) {
-  return safeFetch(
-    `${API_BASE}/api/merchant/${merchantId}/products`,
-    []
-  );
+async function apiFetch(path, options = {}) {
+  const res = await fetch(`${API_BASE}${path}`, {
+    headers: JSON_HEADERS,
+    ...options,
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(err);
+  }
+  return handleResponse(res);
 }
 
-export async function createMerchantProduct(merchantId, payload) {
-  return safeFetch(
-    `${API_BASE}/api/merchant/${merchantId}/products`,
-    null,
-    {
-      method: "POST",
-      headers: JSON_HEADERS,
-      body: JSON.stringify(payload),
-    }
-  );
+// ---------- MERCHANT ----------
+export function createProduct(payload) {
+  return apiFetch("/merchant/products", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 
-// ------------------------------------------------------------
-// PRICING
-// ------------------------------------------------------------
-export async function updateProductPrice(productId, price) {
-  return safeFetch(
-    `${API_BASE}/api/product/${productId}/update-price`,
-    null,
-    {
-      method: "POST",
-      headers: JSON_HEADERS,
-      body: JSON.stringify({ price }),
-    }
-  );
+export function getMerchantProducts(merchantId) {
+  return apiFetch(`/merchant/${merchantId}/products`);
 }
 
-// ------------------------------------------------------------
-// EXPORT
-// ------------------------------------------------------------
+// ---------- default ----------
 export default {
+  createProduct,
   getMerchantProducts,
-  createMerchantProduct,
-  updateProductPrice,
 };
-
-export { API_BASE };
