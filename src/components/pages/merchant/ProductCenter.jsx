@@ -1,28 +1,24 @@
 // ============================================================================
 // 💚 Core4.AI – ProductCenter (FINAL – PRODUCTION SAFE)
-// FIXED API PATHS + MERCHANT ID
 // ============================================================================
 
 import React, { useEffect, useState } from "react";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { useInfluence } from "@/context/InfluenceScoreContext";
 import { motion } from "framer-motion";
-import { getMerchantProducts } from "@/services/api";
+import { getMerchantProducts, getProductMIT } from "@/services/api";
 
 export default function ProductCenter() {
   const [products, setProducts] = useState([]);
   const { calculateFitScore, predictCommercialSuccess } = useInfluence();
 
-  // 🔒 مؤقت – لاحقًا من auth
-  const merchantId = "merchant_001";
-
   // ========================================================================
-  // LOAD PRODUCTS (FIXED)
+  // LOAD PRODUCTS
   // ========================================================================
   useEffect(() => {
     async function load() {
       try {
-        const data = await getMerchantProducts(merchantId);
+        const data = await getMerchantProducts();
 
         if (!Array.isArray(data)) {
           console.error("Expected array, got:", data);
@@ -36,15 +32,13 @@ export default function ProductCenter() {
           category: p.category || "غير محدد",
           price: p.price,
           competitor_price: p.competitor_price,
-          image_url: p.image_url,
-          features: p.features || [],
           mit: null,
         }));
 
         setProducts(normalized);
 
-        // MIT loading (optional, non-blocking)
-        normalized.forEach((prod) => loadMIT(prod.id));
+        // Load MIT (non-blocking)
+        normalized.forEach((p) => loadMIT(p.id));
       } catch (err) {
         console.error("❌ Product load failed:", err.message);
         setProducts([]);
@@ -55,21 +49,20 @@ export default function ProductCenter() {
   }, []);
 
   // ========================================================================
-  // LOAD MIT (SAFE)
+  // LOAD MIT
   // ========================================================================
   async function loadMIT(productId) {
     try {
-      const res = await fetch(`/api/merchant/${merchantId}/products/${productId}/mit`);
-      if (!res.ok) return;
-
-      const data = await res.json();
+      const data = await getProductMIT(productId);
       if (data.status === "not_ready") return;
 
       setProducts((prev) =>
-        prev.map((p) => (p.id === productId ? { ...p, mit: data } : p))
+        prev.map((p) =>
+          p.id === productId ? { ...p, mit: data } : p
+        )
       );
-    } catch (err) {
-      console.warn("MIT not available for product", productId);
+    } catch {
+      // silent fail
     }
   }
 
@@ -81,7 +74,7 @@ export default function ProductCenter() {
       <BackToMerchant />
 
       <div className="flex justify-between items-center mt-6 mb-10">
-        <h1 className="text-3xl font-extrabold text-gray-900">
+        <h1 className="text-3xl font-extrabold">
           مركز المنتجات (MIT Pricing)
         </h1>
 
@@ -94,7 +87,7 @@ export default function ProductCenter() {
       </div>
 
       {!products.length && (
-        <p className="text-gray-500 text-center mt-20 text-lg">
+        <p className="text-gray-500 text-center mt-20">
           لا توجد منتجات بعد — ابدأ بإضافة منتج.
         </p>
       )}
@@ -107,7 +100,7 @@ export default function ProductCenter() {
         >
           <table className="w-full text-right border-collapse">
             <thead className="bg-gray-100 border-b">
-              <tr className="text-gray-600 text-sm font-semibold">
+              <tr className="text-sm font-semibold text-gray-600">
                 <th className="p-4">المنتج</th>
                 <th className="p-4">السعر & MIT</th>
                 <th className="p-4">الملاءمة</th>
@@ -117,45 +110,45 @@ export default function ProductCenter() {
             </thead>
 
             <tbody>
-              {products.map((prod) => {
-                const fit = calculateFitScore(prod);
-                const proj = predictCommercialSuccess(prod);
+              {products.map((p) => (
+                <tr key={p.id} className="border-b hover:bg-gray-50">
+                  <td className="p-4">
+                    <b>{p.name}</b>
+                    <div className="text-sm text-gray-500">{p.category}</div>
+                  </td>
 
-                return (
-                  <tr key={prod.id} className="border-b hover:bg-gray-50">
-                    <td className="p-4">
-                      <p className="font-bold">{prod.name}</p>
-                      <p className="text-sm text-gray-500">{prod.category}</p>
-                    </td>
+                  <td className="p-4 text-sm">
+                    السعر: <b>{p.price}</b> ريال
+                    <br />
+                    المنافس: <b>{p.competitor_price}</b> ريال
+                    {p.mit && (
+                      <div className="text-purple-700 text-xs mt-1">
+                        💡 ذكي: {p.mit.smart_price}
+                      </div>
+                    )}
+                  </td>
 
-                    <td className="p-4 text-sm">
-                      <div>السعر: <b>{prod.price}</b> ريال</div>
-                      <div>المنافس: <b>{prod.competitor_price || prod.price}</b> ريال</div>
+                  <td className="p-4 font-bold">
+                    {calculateFitScore(p)}
+                  </td>
 
-                      {prod.mit && (
-                        <div className="mt-2 text-purple-700 text-xs">
-                          💡 ذكي: {prod.mit.smart_price}
-                        </div>
-                      )}
-                    </td>
+                  <td className="p-4 font-bold">
+                    {predictCommercialSuccess(p)}%
+                  </td>
 
-                    <td className="p-4 font-bold">{fit}</td>
-                    <td className="p-4 font-bold">{proj}%</td>
-
-                    <td className="p-4">
-                      <button
-                        className="px-3 py-2 bg-gray-200 rounded"
-                        onClick={() =>
-                          (window.location.href =
-                            `/merchant/add-product?edit=${prod.id}`)
-                        }
-                      >
-                        ✏️ تعديل
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
+                  <td className="p-4">
+                    <button
+                      className="px-3 py-2 bg-gray-200 rounded"
+                      onClick={() =>
+                        (window.location.href =
+                          `/merchant/add-product?edit=${p.id}`)
+                      }
+                    >
+                      ✏️ تعديل
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </motion.div>
