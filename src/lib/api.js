@@ -1,12 +1,17 @@
 // src/lib/api.js
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const RAW_BASE = import.meta.env.VITE_API_BASE_URL;
 
-if (!API_BASE) {
+if (!RAW_BASE) {
   console.error("❌ VITE_API_BASE_URL is not defined");
 }
 
+// 🔒 normalize base URL
+const API_BASE = RAW_BASE.replace(/\/+$/, "");
+
 export async function apiFetch(path, options = {}) {
-  const res = await fetch(`${API_BASE}${path}`, {
+  const safePath = path.startsWith("/") ? path : `/${path}`;
+
+  const res = await fetch(`${API_BASE}${safePath}`, {
     headers: {
       Accept: "application/json",
       ...(options.headers || {}),
