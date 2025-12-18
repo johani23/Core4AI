@@ -1,5 +1,6 @@
 // ============================================================================
 // 💚 Core4.AI – ProductCenter (FINAL – PRODUCTION SAFE)
+// Single API source: lib/api.js
 // ============================================================================
 
 import React, { useEffect, useState } from "react";
@@ -7,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { useInfluence } from "@/context/InfluenceScoreContext";
 import { motion } from "framer-motion";
-import { getMerchantProducts, getProductMIT } from "@/services/api";
+import { apiFetch } from "@/lib/api";
 
 export default function ProductCenter() {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ export default function ProductCenter() {
   useEffect(() => {
     async function load() {
       try {
-        const data = await getMerchantProducts();
+        const data = await apiFetch("/api/merchant/products/");
 
         if (!Array.isArray(data)) {
           console.error("Expected array, got:", data);
@@ -42,7 +43,7 @@ export default function ProductCenter() {
         // Load MIT asynchronously (non-blocking)
         normalized.forEach((p) => loadMIT(p.id));
       } catch (err) {
-        console.error("❌ Product load failed:", err.message);
+        console.error("❌ Product load failed:", err);
         setProducts([]);
       }
     }
@@ -55,8 +56,11 @@ export default function ProductCenter() {
   // ============================================================================
   async function loadMIT(productId) {
     try {
-      const data = await getProductMIT(productId);
-      if (data?.status === "not_ready") return;
+      const data = await apiFetch(
+        `/api/merchant/products/${productId}/mit`
+      );
+
+      if (data?.status !== "ready") return;
 
       setProducts((prev) =>
         prev.map((p) =>
@@ -64,7 +68,7 @@ export default function ProductCenter() {
         )
       );
     } catch {
-      // silent fail
+      // silent fail (MIT is optional)
     }
   }
 
