@@ -135,10 +135,8 @@ export default function AddProductWizard() {
       }
 
       const method = "POST";
-      const url = "/api/merchant/products/";
+      const url = "/api/merchant/products";
 
-        ? `/api/merchant/products/${editId}`
-        : "/api/merchant/products/";
 
       const res = await fetch(url, { method, body: form });
       if (!res.ok) {
