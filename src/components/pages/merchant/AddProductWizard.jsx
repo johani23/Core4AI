@@ -7,6 +7,8 @@ import React, { useState } from "react";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { motion } from "framer-motion";
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 export default function AddProductWizard() {
   const [step, setStep] = useState(1);
 
@@ -16,19 +18,13 @@ export default function AddProductWizard() {
     category: "",
     description: "",
     competitor_price: "",
-    features: [],
     media: [],
+    features: [],
   });
 
-  const next = () => setStep((s) => s + 1);
-  const back = () => setStep((s) => s - 1);
-
-  // ============================================================================
-  // SAVE PRODUCT (CORRECT + MIT AUTO)
-  // ============================================================================
   const saveProduct = async () => {
     if (!product.name || !product.price) {
-      alert("⚠️ الرجاء إدخال اسم المنتج والسعر.");
+      alert("⚠️ أدخل اسم المنتج والسعر");
       return;
     }
 
@@ -48,35 +44,28 @@ export default function AddProductWizard() {
         form.append("file", product.media[0]);
       }
 
-      // ✅ IMPORTANT: trailing slash
-      const res = await fetch("/api/merchant/products/", {
+      // ✅ CREATE PRODUCT
+      const res = await fetch(`${API}/api/merchant/products/`, {
         method: "POST",
         body: form,
       });
 
-      if (!res.ok) {
-        throw new Error("CREATE_FAILED");
-      }
+      if (!res.ok) throw new Error("CREATE_FAILED");
 
-      const data = await res.json();
-      const productId = data.id;
+      const { id } = await res.json();
 
       // ✅ AUTO RUN MIT
-      await fetch(`/api/merchant/products/${productId}/mit`, {
+      await fetch(`${API}/api/merchant/products/${id}/mit`, {
         method: "POST",
       });
 
-      alert("✔ تم حفظ المنتج وتشغيل التسعير الذكي بنجاح");
       window.location.href = "/merchant/products";
-    } catch (err) {
-      console.error(err);
-      alert("❌ فشل حفظ المنتج — تحقق من الاتصال بالخادم");
+    } catch (e) {
+      console.error(e);
+      alert("❌ فشل حفظ المنتج");
     }
   };
 
-  // ============================================================================
-  // UI
-  // ============================================================================
   return (
     <div className="max-w-4xl mx-auto mt-12 p-6" dir="rtl">
       <BackToMerchant />
@@ -89,7 +78,9 @@ export default function AddProductWizard() {
             className="border p-3 w-full mb-4"
             placeholder="اسم المنتج"
             value={product.name}
-            onChange={(e) => setProduct({ ...product, name: e.target.value })}
+            onChange={(e) =>
+              setProduct({ ...product, name: e.target.value })
+            }
           />
 
           <input
@@ -98,19 +89,19 @@ export default function AddProductWizard() {
             placeholder="السعر"
             value={product.price}
             onChange={(e) =>
-              setProduct({ ...product, price: Number(e.target.value) })
+              setProduct({ ...product, price: e.target.value })
             }
           />
 
           <input
             type="number"
             className="border p-3 w-full mb-4"
-            placeholder="أقرب سعر منافس"
+            placeholder="سعر المنافس"
             value={product.competitor_price}
             onChange={(e) =>
               setProduct({
                 ...product,
-                competitor_price: Number(e.target.value),
+                competitor_price: e.target.value,
               })
             }
           />
@@ -126,7 +117,7 @@ export default function AddProductWizard() {
 
           <button
             className="bg-green-600 text-white px-6 py-3 rounded"
-            onClick={next}
+            onClick={() => setStep(2)}
           >
             التالي →
           </button>
@@ -137,15 +128,20 @@ export default function AddProductWizard() {
         <motion.div className="bg-white rounded-xl p-8 shadow">
           <input
             type="file"
-            className="mb-6"
             onChange={(e) =>
-              setProduct({ ...product, media: Array.from(e.target.files) })
+              setProduct({
+                ...product,
+                media: Array.from(e.target.files),
+              })
             }
           />
 
-          <div className="flex justify-between">
-            <button onClick={back}>← رجوع</button>
-            <button onClick={saveProduct} className="bg-green-600 text-white px-6 py-3 rounded">
+          <div className="flex justify-between mt-6">
+            <button onClick={() => setStep(1)}>← رجوع</button>
+            <button
+              onClick={saveProduct}
+              className="bg-green-600 text-white px-6 py-3 rounded"
+            >
               ✔ حفظ المنتج
             </button>
           </div>
