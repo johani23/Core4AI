@@ -1,31 +1,33 @@
-// src/components/pages/merchant/MITMarketInsights.jsx
+// ============================================================================
+// 💚 Core4.AI – MITMarketInsights (FINAL UX + DECISION ENGINE)
+// Decision-Oriented • Merchant-Ready • Zero Risk
+// ============================================================================
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { apiFetch } from "@/lib/api";
 
 export default function MITMarketInsights() {
-  const { id, productId } = useParams();
-  const pid = id || productId;
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [mit, setMit] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // ============================================================================
+  // LOAD DATA
+  // ============================================================================
   useEffect(() => {
-    if (!pid) return;
-
     async function load() {
       try {
-        const p = await apiFetch(`/api/merchant/products/${pid}`);
-        setProduct(p);
+        const p = await apiFetch(`/api/merchant/products/${id}`);
+        const m = await apiFetch(`/api/merchant/products/${id}/mit`);
 
-        const m = await apiFetch(`/api/merchant/products/${pid}/mit`);
-        setMit(m.status === "ready" ? m : null);
-      } catch (err) {
-        console.error("MITMarketInsights error:", err);
+        setProduct(p);
+        setMit(m);
+      } catch {
         setProduct(null);
         setMit(null);
       } finally {
@@ -34,90 +36,124 @@ export default function MITMarketInsights() {
     }
 
     load();
-  }, [pid]);
+  }, [id]);
 
-  if (loading) return <Center>⏳ تحميل تحليل السوق…</Center>;
-
-  if (!product) {
+  // ============================================================================
+  // STATES
+  // ============================================================================
+  if (loading) {
     return (
-      <Notice
-        title="المنتج غير موجود"
-        description="لم يتم العثور على المنتج."
-        actions={[
-          {
-            label: "📦 العودة إلى المنتجات",
-            onClick: () => navigate("/merchant/products"),
-            primary: true,
-          },
-        ]}
-      />
+      <div className="p-12 text-center text-gray-500" dir="rtl">
+        ⏳ جاري تحليل السوق…
+      </div>
     );
   }
 
-  if (!mit) {
+  if (!product || !mit || mit.status !== "ready") {
     return (
-      <Notice
-        title="تحليل السوق غير جاهز"
-        description="لم يتم حساب MIT لهذا المنتج بعد."
-        actions={[
-          {
-            label: "📦 العودة إلى المنتجات",
-            onClick: () => navigate("/merchant/products"),
-            primary: true,
-          },
-        ]}
-      />
+      <div className="p-12 text-center text-gray-500" dir="rtl">
+        ❌ لا يمكن عرض تحليل السوق لهذا المنتج
+      </div>
     );
   }
 
+  const smart = Number(mit.smart_price);
+  const floor = Number(mit.market_floor);
+  const ceiling = Number(mit.market_ceiling);
+
+  // ============================================================================
+  // DECISION ENGINE (SIMPLE + SAFE)
+  // ============================================================================
+  let decision = "optimal";
+  let badge = "🟢 تسعير ممتاز";
+  let explanation =
+    "السعر المقترح داخل النطاق المثالي للسوق. يمكنك الإطلاق بثقة.";
+  let action =
+    "ننصح بالانتقال إلى صفحة التسعير لمراجعة السعر أو إطلاق حملة.";
+
+  if (smart < floor) {
+    decision = "under";
+    badge = "🟡 السعر أقل من القيمة";
+    explanation =
+      "السعر أقل من متوسط السوق. قد تخسر هامش ربح محتمل.";
+    action = "ننصح برفع السعر أو مراجعة استراتيجية التسعير.";
+  }
+
+  if (smart > ceiling) {
+    decision = "over";
+    badge = "🔴 السعر مرتفع";
+    explanation =
+      "السعر أعلى من تحمّل السوق الحالي. قد يؤثر على الطلب.";
+    action = "ننصح بخفض السعر أو تحسين القيمة قبل الإطلاق.";
+  }
+
+  // ============================================================================
+  // UI
+  // ============================================================================
   return (
-    <div className="max-w-4xl mx-auto p-6" dir="rtl">
+    <div className="max-w-4xl mx-auto mt-10" dir="rtl">
       <BackToMerchant />
 
-      <Box title="تحليل السوق (MIT)">
-        <Line label="السعر الذكي" value={`${mit.smart_price} ريال`} />
-        <Line
-          label="نطاق السوق"
-          value={`${mit.market_floor} – ${mit.market_ceiling} ريال`}
-        />
-      </Box>
+      <h1 className="text-3xl font-extrabold mb-6 text-center">
+        تحليل السوق (MIT)
+      </h1>
+
+      {/* DECISION BADGE */}
+      <div
+        className={`text-center text-lg font-bold mb-6 ${
+          decision === "optimal"
+            ? "text-green-700"
+            : decision === "under"
+            ? "text-yellow-700"
+            : "text-red-700"
+        }`}
+      >
+        {badge}
+      </div>
+
+      {/* PRICE BOX */}
+      <div className="bg-white rounded-xl shadow p-6 mb-6">
+        <div className="flex justify-between border-b pb-3 mb-3">
+          <span>السعر الذكي</span>
+          <span className="font-bold">{smart} ريال</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>نطاق السوق المقبول</span>
+          <span className="font-bold">
+            {floor} – {ceiling} ريال
+          </span>
+        </div>
+      </div>
+
+      {/* EXPLANATION */}
+      <div className="bg-gray-50 rounded-xl p-6 mb-6 text-gray-700">
+        <p className="mb-2 font-semibold">ماذا يعني هذا؟</p>
+        <p>{explanation}</p>
+      </div>
+
+      {/* ACTION */}
+      <div className="bg-blue-50 rounded-xl p-6 mb-10 text-blue-800">
+        <p className="mb-2 font-semibold">التوصية التالية</p>
+        <p>{action}</p>
+      </div>
+
+      {/* CTA */}
+      <div className="flex justify-center gap-4">
+        <button
+          onClick={() => navigate(`/merchant/pricing/${id}`)}
+          className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
+        >
+          الانتقال إلى التسعير
+        </button>
+
+        <button
+          onClick={() => navigate("/merchant/products")}
+          className="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+        >
+          العودة إلى المنتجات
+        </button>
+      </div>
     </div>
   );
 }
-
-/* helpers */
-const Center = ({ children }) => (
-  <div className="p-8 text-center text-gray-500">{children}</div>
-);
-
-const Notice = ({ title, description, actions }) => (
-  <div className="max-w-3xl mx-auto mt-24 text-center" dir="rtl">
-    <h2 className="text-2xl font-bold mb-4">{title}</h2>
-    <p className="text-gray-500 mb-8">{description}</p>
-    <div className="flex justify-center gap-4">
-      {actions.map((a, i) => (
-        <button
-          key={i}
-          onClick={a.onClick}
-          className="bg-green-600 text-white px-6 py-3 rounded-lg"
-        >
-          {a.label}
-        </button>
-      ))}
-    </div>
-  </div>
-);
-
-const Box = ({ title, children }) => (
-  <div className="bg-white border rounded-xl p-6 mb-6">
-    <h2 className="font-bold mb-3">{title}</h2>
-    {children}
-  </div>
-);
-
-const Line = ({ label, value }) => (
-  <div className="flex justify-between border-b py-2">
-    <span>{label}</span>
-    <span className="font-bold">{value}</span>
-  </div>
-);
