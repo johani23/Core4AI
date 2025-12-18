@@ -1,60 +1,13 @@
 // ============================================================================
-// 💚 Core4.AI – AddProductWizard (FINAL VERSION + Competitor Price Restored)
-// Nearest Competitor • MIT Ready • Safe for Launch
+// 💚 Core4.AI – AddProductWizard (FINAL – PRODUCTION SAFE)
+// Auto-create Product + Auto-run MIT
 // ============================================================================
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 
-// ----------------------------------------------------------------------------
-// AI FEATURE EXTRACTOR (lightweight heuristic)
-// ----------------------------------------------------------------------------
-function extractFeatures(product) {
-  const { name, description, category } = product;
-  const text = `${name} ${description} ${category}`.toLowerCase();
-
-  const features = [];
-
-  if (text.includes("quiet") || text.includes("silent")) {
-    features.push({
-      name: "محرك صامت",
-      description: "يعمل بدون ضوضاء أثناء الاستخدام.",
-      gap: true,
-      strength: 8,
-    });
-  }
-
-  if (text.includes("durable") || text.includes("strong") || text.includes("solid")) {
-    features.push({
-      name: "متانة عالية",
-      description: "مصنوع من مواد تدوم لفترة طويلة.",
-      gap: true,
-      strength: 7,
-    });
-  }
-
-  if (text.includes("smart") || text.includes("auto")) {
-    features.push({
-      name: "ميزة ذكية",
-      description: "يعمل تلقائيًا لتحسين أداء الاستخدام.",
-      gap: false,
-      strength: 6,
-    });
-  }
-
-  return features.slice(0, 3);
-}
-
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
 export default function AddProductWizard() {
-  const location = useLocation();
-  const editId = new URLSearchParams(location.search).get("edit");
-  const isEdit = Boolean(editId);
-
   const [step, setStep] = useState(1);
 
   const [product, setProduct] = useState({
@@ -62,161 +15,108 @@ export default function AddProductWizard() {
     price: "",
     category: "",
     description: "",
-    media: [],
-    features: [],
     competitor_price: "",
+    features: [],
+    media: [],
   });
 
   const next = () => setStep((s) => s + 1);
   const back = () => setStep((s) => s - 1);
 
-  // ----------------------------------------------------------------------------
-  // LOAD PRODUCT (EDIT MODE)
-  // ----------------------------------------------------------------------------
-  useEffect(() => {
-    if (!isEdit) return;
-
-    async function loadProduct() {
-      try {
-        const res = await fetch(`/api/merchant/products/${editId}`);
-        if (!res.ok) return;
-
-        const data = await res.json();
-        setProduct({
-          name: data.name || "",
-          price: data.price ?? "",
-          category: data.category || "",
-          description: data.description || "",
-          media: [],
-          features: data.features || [],
-          competitor_price: data.competitor_price ?? "",
-        });
-      } catch (err) {
-        console.error("Failed to load product", err);
-      }
-    }
-
-    loadProduct();
-  }, [isEdit, editId]);
-
-  // ----------------------------------------------------------------------------
-  // SAVE PRODUCT (POST / PUT)
-  // ----------------------------------------------------------------------------
+  // ============================================================================
+  // SAVE PRODUCT (CORRECT + MIT AUTO)
+  // ============================================================================
   const saveProduct = async () => {
-    // Basic guards
     if (!product.name || !product.price) {
       alert("⚠️ الرجاء إدخال اسم المنتج والسعر.");
       return;
     }
 
-    if (Number(product.competitor_price) < 0) {
-      alert("⚠️ سعر المنافس غير صالح.");
-      return;
-    }
-
     try {
       const form = new FormData();
-
       form.append("name", product.name);
       form.append("price", Number(product.price));
       form.append("category", product.category);
       form.append("description", product.description);
-
-      // ⭐ CRITICAL: nearest competitor price for MIT
       form.append(
         "competitor_price",
         Number(product.competitor_price || product.price)
       );
-
       form.append("features", JSON.stringify(product.features));
 
       if (product.media.length > 0) {
-        form.append("file", product.media[0], product.media[0].name);
+        form.append("file", product.media[0]);
       }
 
-      const method = "POST";
-      const url = "/api/merchant/products";
+      // ✅ IMPORTANT: trailing slash
+      const res = await fetch("/api/merchant/products/", {
+        method: "POST",
+        body: form,
+      });
 
-
-      const res = await fetch(url, { method, body: form });
       if (!res.ok) {
-        alert("⚠️ لم يتم الحفظ — تحقق من الخادم");
-        return;
+        throw new Error("CREATE_FAILED");
       }
 
-      alert(isEdit ? "✔ تم حفظ التعديل بنجاح" : "✔ تم حفظ المنتج بنجاح");
+      const data = await res.json();
+      const productId = data.id;
+
+      // ✅ AUTO RUN MIT
+      await fetch(`/api/merchant/products/${productId}/mit`, {
+        method: "POST",
+      });
+
+      alert("✔ تم حفظ المنتج وتشغيل التسعير الذكي بنجاح");
       window.location.href = "/merchant/products";
     } catch (err) {
       console.error(err);
-      alert("⚠️ حدث خطأ أثناء الحفظ");
+      alert("❌ فشل حفظ المنتج — تحقق من الاتصال بالخادم");
     }
   };
 
   // ============================================================================
-  // RENDER UI — 4 STEPS
+  // UI
   // ============================================================================
   return (
     <div className="max-w-4xl mx-auto mt-12 p-6" dir="rtl">
       <BackToMerchant />
 
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-10">
-        {isEdit ? "تعديل المنتج" : "إضافة منتج جديد"}
-      </h1>
+      <h1 className="text-4xl font-extrabold mb-10">إضافة منتج جديد</h1>
 
-      {/* =========================================================================
-         STEP 1 — BASIC INFO
-      ========================================================================= */}
       {step === 1 && (
-        <motion.div className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold mb-6">المعلومات الأساسية</h2>
+        <motion.div className="bg-white rounded-xl p-8 shadow">
+          <input
+            className="border p-3 w-full mb-4"
+            placeholder="اسم المنتج"
+            value={product.name}
+            onChange={(e) => setProduct({ ...product, name: e.target.value })}
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Product Name */}
-            <input
-              className="border rounded-lg p-3 w-full bg-gray-50 focus:ring focus:ring-green-200"
-              placeholder="اسم المنتج"
-              value={product.name}
-              onChange={(e) => setProduct({ ...product, name: e.target.value })}
-            />
+          <input
+            type="number"
+            className="border p-3 w-full mb-4"
+            placeholder="السعر"
+            value={product.price}
+            onChange={(e) =>
+              setProduct({ ...product, price: Number(e.target.value) })
+            }
+          />
 
-            {/* Product Price */}
-            <input
-              className="border rounded-lg p-3 w-full bg-gray-50 focus:ring focus:ring-green-200"
-              type="number"
-              placeholder="السعر (ريال)"
-              value={product.price}
-              onChange={(e) =>
-                setProduct({ ...product, price: Number(e.target.value) })
-              }
-            />
-
-            {/* Category */}
-            <input
-              className="border rounded-lg p-3 w-full bg-gray-50 focus:ring focus:ring-green-200"
-              placeholder="الفئة / التصنيف"
-              value={product.category}
-              onChange={(e) =>
-                setProduct({ ...product, category: e.target.value })
-              }
-            />
-
-            {/* Nearest Competitor Price */}
-            <input
-              className="border rounded-lg p-3 w-full bg-gray-50 focus:ring focus:ring-purple-200"
-              type="number"
-              placeholder="أقرب سعر منافس مباشر (ريال)"
-              value={product.competitor_price ?? ""}
-              onChange={(e) =>
-                setProduct({
-                  ...product,
-                  competitor_price: Number(e.target.value),
-                })
-              }
-            />
-          </div>
+          <input
+            type="number"
+            className="border p-3 w-full mb-4"
+            placeholder="أقرب سعر منافس"
+            value={product.competitor_price}
+            onChange={(e) =>
+              setProduct({
+                ...product,
+                competitor_price: Number(e.target.value),
+              })
+            }
+          />
 
           <textarea
-            className="border rounded-lg p-3 w-full bg-gray-50 mt-6 h-32 focus:ring focus:ring-green-200"
+            className="border p-3 w-full mb-4"
             placeholder="وصف المنتج"
             value={product.description}
             onChange={(e) =>
@@ -224,116 +124,29 @@ export default function AddProductWizard() {
             }
           />
 
-          <div className="flex justify-between mt-10">
-            <button
-              className="px-6 py-3 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300"
-              onClick={() => (window.location.href = "/merchant/products")}
-            >
-              إلغاء
-            </button>
-            <button
-              className="px-8 py-3 rounded-lg bg-green-600 text-white font-bold hover:bg-green-700"
-              onClick={next}
-            >
-              التالي →
-            </button>
-          </div>
+          <button
+            className="bg-green-600 text-white px-6 py-3 rounded"
+            onClick={next}
+          >
+            التالي →
+          </button>
         </motion.div>
       )}
 
-      {/* =========================================================================
-         STEP 2 — MEDIA
-      ========================================================================= */}
       {step === 2 && (
-        <motion.div className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold mb-6">صور ووسائط المنتج</h2>
-
+        <motion.div className="bg-white rounded-xl p-8 shadow">
           <input
             type="file"
-            multiple
-            className="border rounded-lg p-3 w-full bg-gray-50"
+            className="mb-6"
             onChange={(e) =>
               setProduct({ ...product, media: Array.from(e.target.files) })
             }
           />
 
-          <div className="flex justify-between mt-10">
-            <button
-              className="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
-              onClick={back}
-            >
-              ← رجوع
-            </button>
-            <button
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
-              onClick={next}
-            >
-              التالي →
-            </button>
-          </div>
-        </motion.div>
-      )}
-
-      {/* =========================================================================
-         STEP 3 — FEATURES
-      ========================================================================= */}
-      {step === 3 && (
-        <motion.div className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold mb-6">✨ ميزات المنتج</h2>
-
-          <button
-            className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-            onClick={() =>
-              setProduct({ ...product, features: extractFeatures(product) })
-            }
-          >
-            🔮 استخراج الميزات تلقائيًا
-          </button>
-
-          <div className="flex justify-between mt-10">
-            <button
-              className="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
-              onClick={back}
-            >
-              ← رجوع
-            </button>
-            <button
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
-              onClick={next}
-            >
-              التالي →
-            </button>
-          </div>
-        </motion.div>
-      )}
-
-      {/* =========================================================================
-         STEP 4 — CONFIRMATION
-      ========================================================================= */}
-      {step === 4 && (
-        <motion.div className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold mb-6">تأكيد بيانات المنتج</h2>
-
-          <p className="mb-2">الاسم: {product.name}</p>
-          <p className="mb-2">السعر: {product.price} ريال</p>
-          <p className="mb-2">الفئة: {product.category}</p>
-          <p className="mb-2">
-            سعر المنافس: {product.competitor_price || product.price} ريال
-          </p>
-          <p className="mb-6">{product.description}</p>
-
-          <div className="flex justify-between mt-10">
-            <button
-              className="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
-              onClick={back}
-            >
-              ← رجوع
-            </button>
-            <button
-              className="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
-              onClick={saveProduct}
-            >
-              {isEdit ? "✔ حفظ التعديل" : "✔ حفظ المنتج"}
+          <div className="flex justify-between">
+            <button onClick={back}>← رجوع</button>
+            <button onClick={saveProduct} className="bg-green-600 text-white px-6 py-3 rounded">
+              ✔ حفظ المنتج
             </button>
           </div>
         </motion.div>
