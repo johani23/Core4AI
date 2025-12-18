@@ -20,17 +20,20 @@ export default function ProductCenter() {
 
         setProducts(normalized);
 
+        // Load MIT asynchronously
         normalized.forEach(async (p) => {
           try {
             const mit = await getProductMIT(p.id);
-            if (mit.status === "ready") {
+            if (mit?.status === "ready") {
               setProducts((prev) =>
                 prev.map((x) =>
                   x.id === p.id ? { ...x, mit } : x
                 )
               );
             }
-          } catch {}
+          } catch {
+            // silent fail
+          }
         });
       } catch {
         setProducts([]);
@@ -68,7 +71,7 @@ export default function ProductCenter() {
           animate={{ opacity: 1 }}
         >
           <thead>
-            <tr className="border-b">
+            <tr className="border-b text-right">
               <th className="p-4">المنتج</th>
               <th className="p-4">السعر</th>
               <th className="p-4">MIT</th>
@@ -84,7 +87,9 @@ export default function ProductCenter() {
                 <td className="p-4">
                   {p.mit ? p.mit.smart_price : "—"}
                 </td>
-                <td className="p-4">
+
+                <td className="p-4 space-x-2 space-x-reverse">
+                  {/* MIT Pricing */}
                   <button
                     onClick={() =>
                       navigate(`/merchant/pricing/${p.id}`)
@@ -92,6 +97,16 @@ export default function ProductCenter() {
                     className="px-3 py-2 bg-blue-600 text-white rounded"
                   >
                     التسعير
+                  </button>
+
+                  {/* MIT Market Insights */}
+                  <button
+                    onClick={() =>
+                      navigate(`/merchant/market-insights/${p.id}`)
+                    }
+                    className="px-3 py-2 bg-purple-600 text-white rounded"
+                  >
+                    تحليل السوق
                   </button>
                 </td>
               </tr>

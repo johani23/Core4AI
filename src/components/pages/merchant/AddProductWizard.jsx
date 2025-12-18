@@ -30,18 +30,20 @@ export default function AddProductWizard() {
       );
       form.append("description", product.description || "");
 
-      // ✅ create product
+      // 1️⃣ إنشاء المنتج
       const created = await apiFetch("/api/merchant/products/", {
         method: "POST",
         body: form,
       });
 
-      // ✅ trigger MIT
+      // 2️⃣ تشغيل MIT
       await apiFetch(`/api/merchant/products/${created.id}/mit`, {
         method: "POST",
       });
 
-      window.location.href = "/merchant/products";
+      // 3️⃣ فتح تحليل السوق تلقائيًا
+      window.location.href = `/merchant/market-insights/${created.id}`;
+
     } catch (err) {
       console.error("Save product failed:", err);
       alert("❌ فشل حفظ المنتج");
