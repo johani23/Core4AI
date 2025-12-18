@@ -1,15 +1,13 @@
-// ============================================================================
-// 💚 Core4.AI – MITMarketInsights (FINAL – NO FALSE 404)
-// ============================================================================
+// src/components/pages/merchant/MITMarketInsights.jsx
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
-
-const API = import.meta.env.VITE_API_BASE_URL;
+import { apiFetch } from "@/lib/api";
 
 export default function MITMarketInsights() {
-  const { id } = useParams();
+  const { id, productId } = useParams();
+  const pid = id || productId;
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
@@ -17,63 +15,109 @@ export default function MITMarketInsights() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!pid) return;
+
     async function load() {
       try {
-        const pRes = await fetch(
-          `${API}/api/merchant/products/${id}`
-        );
-        if (!pRes.ok) return;
+        const p = await apiFetch(`/api/merchant/products/${pid}`);
+        setProduct(p);
 
-        setProduct(await pRes.json());
-
-        const mRes = await fetch(
-          `${API}/api/merchant/products/${id}/mit`
-        );
-        const m = await mRes.json();
-        if (m.status === "ready") setMit(m);
+        const m = await apiFetch(`/api/merchant/products/${pid}/mit`);
+        setMit(m.status === "ready" ? m : null);
+      } catch (err) {
+        console.error("MITMarketInsights error:", err);
+        setProduct(null);
+        setMit(null);
       } finally {
         setLoading(false);
       }
     }
-    load();
-  }, [id]);
 
-  if (loading) return <div className="mt-24 text-center">⏳ تحميل…</div>;
+    load();
+  }, [pid]);
+
+  if (loading) return <Center>⏳ تحميل تحليل السوق…</Center>;
 
   if (!product) {
     return (
-      <div className="mt-24 text-center">
-        <h2 className="font-bold">المنتج غير موجود</h2>
-        <button onClick={() => navigate("/merchant/products")}>
-          العودة
-        </button>
-      </div>
+      <Notice
+        title="المنتج غير موجود"
+        description="لم يتم العثور على المنتج."
+        actions={[
+          {
+            label: "📦 العودة إلى المنتجات",
+            onClick: () => navigate("/merchant/products"),
+            primary: true,
+          },
+        ]}
+      />
     );
   }
 
   if (!mit) {
     return (
-      <div className="mt-24 text-center">
-        <h2 className="font-bold">تحليل السوق غير جاهز</h2>
-        <button onClick={() => navigate("/merchant/products")}>
-          العودة
-        </button>
-      </div>
+      <Notice
+        title="تحليل السوق غير جاهز"
+        description="لم يتم حساب MIT لهذا المنتج بعد."
+        actions={[
+          {
+            label: "📦 العودة إلى المنتجات",
+            onClick: () => navigate("/merchant/products"),
+            primary: true,
+          },
+        ]}
+      />
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto" dir="rtl">
+    <div className="max-w-4xl mx-auto p-6" dir="rtl">
       <BackToMerchant />
 
-      <h1 className="text-2xl font-bold mb-6">تحليل السوق (MIT)</h1>
-
-      <div className="bg-white p-6 rounded shadow">
-        <p>السعر الذكي: {mit.smart_price}</p>
-        <p>
-          السوق: {mit.market_floor} – {mit.market_ceiling}
-        </p>
-      </div>
+      <Box title="تحليل السوق (MIT)">
+        <Line label="السعر الذكي" value={`${mit.smart_price} ريال`} />
+        <Line
+          label="نطاق السوق"
+          value={`${mit.market_floor} – ${mit.market_ceiling} ريال`}
+        />
+      </Box>
     </div>
   );
 }
+
+/* helpers */
+const Center = ({ children }) => (
+  <div className="p-8 text-center text-gray-500">{children}</div>
+);
+
+const Notice = ({ title, description, actions }) => (
+  <div className="max-w-3xl mx-auto mt-24 text-center" dir="rtl">
+    <h2 className="text-2xl font-bold mb-4">{title}</h2>
+    <p className="text-gray-500 mb-8">{description}</p>
+    <div className="flex justify-center gap-4">
+      {actions.map((a, i) => (
+        <button
+          key={i}
+          onClick={a.onClick}
+          className="bg-green-600 text-white px-6 py-3 rounded-lg"
+        >
+          {a.label}
+        </button>
+      ))}
+    </div>
+  </div>
+);
+
+const Box = ({ title, children }) => (
+  <div className="bg-white border rounded-xl p-6 mb-6">
+    <h2 className="font-bold mb-3">{title}</h2>
+    {children}
+  </div>
+);
+
+const Line = ({ label, value }) => (
+  <div className="flex justify-between border-b py-2">
+    <span>{label}</span>
+    <span className="font-bold">{value}</span>
+  </div>
+);

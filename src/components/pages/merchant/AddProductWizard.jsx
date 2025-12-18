@@ -1,30 +1,23 @@
-// ============================================================================
-// 💚 Core4.AI – AddProductWizard (FINAL – PRODUCTION SAFE)
-// Auto-create Product + Auto-run MIT
-// ============================================================================
+// src/components/pages/merchant/AddProductWizard.jsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { motion } from "framer-motion";
-
-const API = import.meta.env.VITE_API_BASE_URL;
+import { apiFetch } from "@/lib/api";
 
 export default function AddProductWizard() {
   const [step, setStep] = useState(1);
-
   const [product, setProduct] = useState({
     name: "",
     price: "",
     category: "",
     description: "",
     competitor_price: "",
-    media: [],
-    features: [],
   });
 
-  const saveProduct = async () => {
+  async function saveProduct() {
     if (!product.name || !product.price) {
-      alert("⚠️ أدخل اسم المنتج والسعر");
+      alert("اسم المنتج والسعر مطلوبان");
       return;
     }
 
@@ -38,113 +31,56 @@ export default function AddProductWizard() {
         "competitor_price",
         Number(product.competitor_price || product.price)
       );
-      form.append("features", JSON.stringify(product.features));
 
-      if (product.media.length > 0) {
-        form.append("file", product.media[0]);
-      }
-
-      // ✅ CREATE PRODUCT
-      const res = await fetch(`${API}/api/merchant/products/`, {
+      const created = await apiFetch("/api/merchant/products/", {
         method: "POST",
         body: form,
       });
 
-      if (!res.ok) throw new Error("CREATE_FAILED");
-
-      const { id } = await res.json();
-
-      // ✅ AUTO RUN MIT
-      await fetch(`${API}/api/merchant/products/${id}/mit`, {
+      await apiFetch(`/api/merchant/products/${created.id}/mit`, {
         method: "POST",
       });
 
+      alert("✔ تم إنشاء المنتج وتشغيل التسعير الذكي");
       window.location.href = "/merchant/products";
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
       alert("❌ فشل حفظ المنتج");
     }
-  };
+  }
 
   return (
-    <div className="max-w-4xl mx-auto mt-12 p-6" dir="rtl">
+    <div className="max-w-3xl mx-auto p-6" dir="rtl">
       <BackToMerchant />
 
-      <h1 className="text-4xl font-extrabold mb-10">إضافة منتج جديد</h1>
-
       {step === 1 && (
-        <motion.div className="bg-white rounded-xl p-8 shadow">
+        <motion.div className="bg-white p-6 rounded shadow">
           <input
-            className="border p-3 w-full mb-4"
+            className="border p-3 w-full mb-3"
             placeholder="اسم المنتج"
             value={product.name}
             onChange={(e) =>
               setProduct({ ...product, name: e.target.value })
             }
           />
-
           <input
             type="number"
-            className="border p-3 w-full mb-4"
+            className="border p-3 w-full mb-3"
             placeholder="السعر"
             value={product.price}
             onChange={(e) =>
               setProduct({ ...product, price: e.target.value })
             }
           />
-
-          <input
-            type="number"
-            className="border p-3 w-full mb-4"
-            placeholder="سعر المنافس"
-            value={product.competitor_price}
-            onChange={(e) =>
-              setProduct({
-                ...product,
-                competitor_price: e.target.value,
-              })
-            }
-          />
-
-          <textarea
-            className="border p-3 w-full mb-4"
-            placeholder="وصف المنتج"
-            value={product.description}
-            onChange={(e) =>
-              setProduct({ ...product, description: e.target.value })
-            }
-          />
-
-          <button
-            className="bg-green-600 text-white px-6 py-3 rounded"
-            onClick={() => setStep(2)}
-          >
-            التالي →
-          </button>
+          <button onClick={() => setStep(2)}>التالي</button>
         </motion.div>
       )}
 
       {step === 2 && (
-        <motion.div className="bg-white rounded-xl p-8 shadow">
-          <input
-            type="file"
-            onChange={(e) =>
-              setProduct({
-                ...product,
-                media: Array.from(e.target.files),
-              })
-            }
-          />
-
-          <div className="flex justify-between mt-6">
-            <button onClick={() => setStep(1)}>← رجوع</button>
-            <button
-              onClick={saveProduct}
-              className="bg-green-600 text-white px-6 py-3 rounded"
-            >
-              ✔ حفظ المنتج
-            </button>
-          </div>
+        <motion.div className="bg-white p-6 rounded shadow">
+          <button onClick={saveProduct} className="bg-green-600 text-white px-6 py-3 rounded">
+            ✔ حفظ المنتج
+          </button>
         </motion.div>
       )}
     </div>
