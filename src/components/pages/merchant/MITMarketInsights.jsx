@@ -22,33 +22,46 @@ export default function MITMarketInsights() {
   // LOAD DATA
   // ============================================================================
   useEffect(() => {
-    if (!pid) {
-      setLoading(false);
-      return;
-    }
+  if (!pid) {
+    setLoading(false);
+    return;
+  }
 
-    async function load() {
-      try {
-        const [pRes, mRes] = await Promise.all([
-          fetch(`/api/merchant/products/${pid}`),
-          fetch(`/api/merchant/products/${pid}/mit`)
-        ]);
-
-        if (!pRes.ok) throw new Error("PRODUCT_NOT_FOUND");
-        setProduct(await pRes.json());
-
-        if (mRes.ok) setMit(await mRes.json());
-        else setMit(null);
-      } catch {
+  async function load() {
+    try {
+      // --- Load product ---
+      const pRes = await fetch(`/api/merchant/products/${pid}`);
+      if (!pRes.ok) {
         setProduct(null);
         setMit(null);
-      } finally {
-        setLoading(false);
+        return;
       }
-    }
+      const p = await pRes.json();
+      setProduct(p);
 
-    load();
-  }, [pid]);
+      // --- Load MIT ---
+      const mRes = await fetch(`/api/merchant/products/${pid}/mit`);
+      if (mRes.ok) {
+        const m = await mRes.json();
+        if (m.status === "ready") {
+          setMit(m);
+        } else {
+          setMit(null);
+        }
+      } else {
+        setMit(null);
+      }
+    } catch {
+      // ❗ لا تمس المنتج هنا
+      setMit(null);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  load();
+}, [pid]);
+
 
   // ============================================================================
   // LOADING
