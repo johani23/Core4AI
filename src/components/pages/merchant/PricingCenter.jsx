@@ -1,11 +1,19 @@
 // ============================================================================
 // Core4.AI – PricingCenter
-// FINAL DECISION INTELLIGENCE VERSION (UX COMPLETE)
+// FINAL DECISION INTELLIGENCE VERSION (UX COMPLETE + Render-Safe)
 // ============================================================================
 
 import { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
+
+// ---------------------------------------------------------------------------
+// 🔑 Backend base URL (DEV vs PROD)
+// ---------------------------------------------------------------------------
+const API_BASE =
+  import.meta.env.MODE === "production"
+    ? "https://core4ai-backend.onrender.com"
+    : "";
 
 export default function PricingCenter() {
   const { productId } = useParams();
@@ -19,21 +27,45 @@ export default function PricingCenter() {
   const [rnd, setRnd] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // ============================================================================
+  // LOAD DATA
+  // ============================================================================
   useEffect(() => {
     async function load() {
       try {
-        const pRes = await fetch(`/api/merchant/products/${productId}`);
-        if (!pRes.ok) return;
+        // --- Load product ---
+        const pRes = await fetch(
+          `${API_BASE}/api/merchant/products/${productId}`
+        );
+        if (!pRes.ok) {
+          setProduct(null);
+          setMit(null);
+          return;
+        }
+
         const p = await pRes.json();
         setProduct(p);
 
-        const mRes = await fetch(`/api/merchant/products/${productId}/mit`);
-        if (mRes.ok) setMit(await mRes.json());
+        // --- Load MIT ---
+        const mRes = await fetch(
+          `${API_BASE}/api/merchant/products/${productId}/mit`
+        );
 
-        // 🔑 ربط RND بإشارة الطلب (إن وجدت)
+        if (mRes.ok) {
+          const m = await mRes.json();
+          if (m.status === "ready") {
+            setMit(m);
+          } else {
+            setMit(null);
+          }
+        } else {
+          setMit(null);
+        }
+
+        // --- Load RND (optional) ---
         if (demandSignal?.id) {
           const rRes = await fetch(
-            `/api/rnd/value-insights?intention_id=${demandSignal.id}`
+            `${API_BASE}/api/rnd/value-insights?intention_id=${demandSignal.id}`
           );
           if (rRes.ok) setRnd(await rRes.json());
         }
@@ -67,7 +99,9 @@ export default function PricingCenter() {
 
         <div className="flex justify-center gap-4 flex-wrap">
           <button
-            onClick={() => navigate(`/merchant/products/${productId}/edit`)}
+            onClick={() =>
+              navigate(`/merchant/products/${productId}/edit`)
+            }
             className="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
           >
             ✏️ استكمال بيانات المنتج
