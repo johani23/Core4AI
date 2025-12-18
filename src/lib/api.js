@@ -1,17 +1,12 @@
 // src/lib/api.js
-const RAW_BASE = import.meta.env.VITE_API_BASE_URL;
 
-if (!RAW_BASE) {
-  console.error("❌ VITE_API_BASE_URL is not defined");
-}
-
-// 🔒 normalize base URL
-const API_BASE = RAW_BASE.replace(/\/+$/, "");
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  "https://core4ai-backend.onrender.com";
 
 export async function apiFetch(path, options = {}) {
-  const safePath = path.startsWith("/") ? path : `/${path}`;
-
-  const res = await fetch(`${API_BASE}${safePath}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     headers: {
       Accept: "application/json",
       ...(options.headers || {}),
