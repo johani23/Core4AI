@@ -3,6 +3,7 @@
 // ============================================================================
 
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
 import { useInfluence } from "@/context/InfluenceScoreContext";
 import { motion } from "framer-motion";
@@ -10,11 +11,12 @@ import { getMerchantProducts, getProductMIT } from "@/services/api";
 
 export default function ProductCenter() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
   const { calculateFitScore, predictCommercialSuccess } = useInfluence();
 
-  // ========================================================================
+  // ============================================================================
   // LOAD PRODUCTS
-  // ========================================================================
+  // ============================================================================
   useEffect(() => {
     async function load() {
       try {
@@ -37,7 +39,7 @@ export default function ProductCenter() {
 
         setProducts(normalized);
 
-        // Load MIT (non-blocking)
+        // Load MIT asynchronously (non-blocking)
         normalized.forEach((p) => loadMIT(p.id));
       } catch (err) {
         console.error("❌ Product load failed:", err.message);
@@ -48,13 +50,13 @@ export default function ProductCenter() {
     load();
   }, []);
 
-  // ========================================================================
-  // LOAD MIT
-  // ========================================================================
+  // ============================================================================
+  // LOAD MIT DATA
+  // ============================================================================
   async function loadMIT(productId) {
     try {
       const data = await getProductMIT(productId);
-      if (data.status === "not_ready") return;
+      if (data?.status === "not_ready") return;
 
       setProducts((prev) =>
         prev.map((p) =>
@@ -66,9 +68,9 @@ export default function ProductCenter() {
     }
   }
 
-  // ========================================================================
+  // ============================================================================
   // UI
-  // ========================================================================
+  // ============================================================================
   return (
     <div className="max-w-6xl mx-auto" dir="rtl">
       <BackToMerchant />
@@ -79,8 +81,8 @@ export default function ProductCenter() {
         </h1>
 
         <button
-          onClick={() => (window.location.href = "/merchant/add-product")}
-          className="px-6 py-3 bg-green-600 text-white rounded-lg font-bold"
+          onClick={() => navigate("/merchant/add-product")}
+          className="px-6 py-3 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700"
         >
           ➕ إضافة منتج جديد
         </button>
@@ -114,7 +116,9 @@ export default function ProductCenter() {
                 <tr key={p.id} className="border-b hover:bg-gray-50">
                   <td className="p-4">
                     <b>{p.name}</b>
-                    <div className="text-sm text-gray-500">{p.category}</div>
+                    <div className="text-sm text-gray-500">
+                      {p.category}
+                    </div>
                   </td>
 
                   <td className="p-4 text-sm">
@@ -136,12 +140,20 @@ export default function ProductCenter() {
                     {predictCommercialSuccess(p)}%
                   </td>
 
-                  <td className="p-4">
+                  <td className="p-4 space-x-2 space-x-reverse">
                     <button
-                      className="px-3 py-2 bg-gray-200 rounded"
+                      className="px-3 py-2 bg-gray-200 rounded hover:bg-gray-300"
                       onClick={() =>
-                        (window.location.href =
-                          `/merchant/add-product?edit=${p.id}`)
+                        navigate(`/merchant/products/${p.id}`)
+                      }
+                    >
+                      👁️ عرض
+                    </button>
+
+                    <button
+                      className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                      onClick={() =>
+                        navigate(`/merchant/products/${p.id}/edit`)
                       }
                     >
                       ✏️ تعديل

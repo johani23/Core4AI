@@ -1,24 +1,26 @@
 // ============================================================================
 // 💚 Core4.AI – MIT Market Insights
-// Concept-Rich Edition (Elasticity • EVC • Demand Plateau)
+// FINAL – Concept-Rich + Actionable UX
+// Elasticity • EVC • Demand Plateau
 // Supports :id and :productId
 // ============================================================================
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import BackToMerchant from "@/components/common/BackToMerchant";
 
 export default function MITMarketInsights() {
   const { id, productId } = useParams();
   const pid = id || productId;
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [mit, setMit] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // --------------------------------------------------------------------------
+  // ============================================================================
   // LOAD DATA
-  // --------------------------------------------------------------------------
+  // ============================================================================
   useEffect(() => {
     if (!pid) {
       setLoading(false);
@@ -32,10 +34,11 @@ export default function MITMarketInsights() {
           fetch(`/api/merchant/products/${pid}/mit`)
         ]);
 
-        if (!pRes.ok || !mRes.ok) throw new Error();
-
+        if (!pRes.ok) throw new Error("PRODUCT_NOT_FOUND");
         setProduct(await pRes.json());
-        setMit(await mRes.json());
+
+        if (mRes.ok) setMit(await mRes.json());
+        else setMit(null);
       } catch {
         setProduct(null);
         setMit(null);
@@ -47,29 +50,58 @@ export default function MITMarketInsights() {
     load();
   }, [pid]);
 
-  // --------------------------------------------------------------------------
-  // GUARDS
-  // --------------------------------------------------------------------------
-  if (loading)
-    return <Center>⏳ جاري تحميل تحليل السوق (MIT)...</Center>;
+  // ============================================================================
+  // LOADING
+  // ============================================================================
+  if (loading) {
+    return <Center>⏳ جاري تحميل تحليل السوق (MIT)…</Center>;
+  }
 
-  if (!product)
-    return <Center error>❗ المنتج غير موجود</Center>;
-
-  if (!mit)
+  // ============================================================================
+  // PRODUCT NOT FOUND
+  // ============================================================================
+  if (!product) {
     return (
-      <div className="max-w-5xl mx-auto p-6" dir="rtl">
-        <BackToMerchant />
-        <Box title="⚠️ تحليل MIT غير جاهز">
-          لم يتم حساب تحليل السوق لهذا المنتج بعد.
-        </Box>
-      </div>
+      <Notice
+        title="❗ المنتج غير موجود"
+        description="لم نتمكن من العثور على هذا المنتج. قد يكون محذوفًا أو لم يتم إنشاؤه بعد."
+        actions={[
+          {
+            label: "📦 العودة إلى المنتجات",
+            onClick: () => navigate("/merchant/products"),
+            primary: true
+          }
+        ]}
+      />
     );
+  }
 
-  // --------------------------------------------------------------------------
+  // ============================================================================
+  // MIT NOT READY
+  // ============================================================================
+  if (!mit) {
+    return (
+      <Notice
+        title="⚠️ تحليل السوق غير جاهز"
+        description="لم يتم حساب تحليل السوق (MIT) لهذا المنتج بعد. يحتاج المنتج إلى بيانات مكتملة ليتم تحليله."
+        actions={[
+          {
+            label: "✏️ استكمال بيانات المنتج",
+            onClick: () => navigate(`/merchant/products/${pid}/edit`),
+            primary: true
+          },
+          {
+            label: "📦 العودة إلى المنتجات",
+            onClick: () => navigate("/merchant/products")
+          }
+        ]}
+      />
+    );
+  }
+
+  // ============================================================================
   // MIT CORE CONCEPTS
-  // --------------------------------------------------------------------------
-
+  // ============================================================================
   const smartPrice = Number(mit.smart_price);
   const floor = Number(mit.market_floor);
   const ceiling = Number(mit.market_ceiling);
@@ -80,12 +112,12 @@ export default function MITMarketInsights() {
     smartPrice > ceiling ? 0.6 :
     1.1;
 
-  // 2️⃣ Demand Plateau (sweet spot)
+  // 2️⃣ Demand Plateau
   const plateauMin = floor * 1.05;
   const plateauMax = ceiling * 0.95;
   const inPlateau = smartPrice >= plateauMin && smartPrice <= plateauMax;
 
-  // 3️⃣ EVC — Economic Value to Customer
+  // 3️⃣ EVC
   const evc =
     product.price +
     (elasticity > 1 ? 0.15 * product.price : 0.05 * product.price);
@@ -96,9 +128,9 @@ export default function MITMarketInsights() {
     smartPrice > ceiling ? "Overpriced" :
     "Value-Optimal";
 
-  // --------------------------------------------------------------------------
-  // SCENARIO SIMULATION (Real MIT thinking)
-  // --------------------------------------------------------------------------
+  // ============================================================================
+  // SCENARIO SIMULATION
+  // ============================================================================
   const marketSize = 1000;
 
   const scenarios = [
@@ -125,9 +157,9 @@ export default function MITMarketInsights() {
     return { buyers, revenue, net: revenue - cost };
   }
 
-  // --------------------------------------------------------------------------
+  // ============================================================================
   // RENDER
-  // --------------------------------------------------------------------------
+  // ============================================================================
   return (
     <div className="max-w-5xl mx-auto p-6" dir="rtl">
       <BackToMerchant />
@@ -136,7 +168,6 @@ export default function MITMarketInsights() {
         تحليل السوق (MIT) — منطق القرار
       </h1>
 
-      {/* PRODUCT + PRICE */}
       <Box title="📦 المنتج والسعر">
         <Line label="المنتج" value={product.name} />
         <Line label="السعر الذكي (MIT)" value={`${smartPrice} ريال`} />
@@ -153,16 +184,9 @@ export default function MITMarketInsights() {
         />
       </Box>
 
-      {/* ELASTICITY + EVC */}
       <Box title="🧠 منطق MIT (القيمة والطلب)">
-        <Line
-          label="حساسية السعر (Elasticity)"
-          value={elasticity.toFixed(2)}
-        />
-        <Line
-          label="القيمة الاقتصادية للعميل (EVC)"
-          value={`${evc.toFixed(0)} ريال`}
-        />
+        <Line label="حساسية السعر (Elasticity)" value={elasticity.toFixed(2)} />
+        <Line label="القيمة الاقتصادية للعميل (EVC)" value={`${evc.toFixed(0)} ريال`} />
         <p className="text-sm text-gray-600 mt-3">
           {inPlateau
             ? "السعر داخل Plateau الطلب — زيادة السعر لا تؤثر بقوة على التحويل."
@@ -170,8 +194,7 @@ export default function MITMarketInsights() {
         </p>
       </Box>
 
-      {/* SCENARIOS */}
-      <Box title="🔁 محاكاة القرار (Demand vs Channel)">
+      <Box title="🔁 محاكاة القرار (Demand × Channel)">
         {scenarios.map((s) => {
           const r = simulate(s);
           return (
@@ -197,9 +220,32 @@ export default function MITMarketInsights() {
 // ============================================================================
 // UI HELPERS
 // ============================================================================
-const Center = ({ children, error }) => (
-  <div className={`p-8 text-center ${error ? "text-red-600" : "text-gray-500"}`} dir="rtl">
+const Center = ({ children }) => (
+  <div className="p-8 text-center text-gray-500" dir="rtl">
     {children}
+  </div>
+);
+
+const Notice = ({ title, description, actions }) => (
+  <div className="max-w-3xl mx-auto mt-24 text-center" dir="rtl">
+    <h2 className="text-2xl font-bold mb-4">{title}</h2>
+    <p className="text-gray-500 mb-8">{description}</p>
+
+    <div className="flex justify-center gap-4 flex-wrap">
+      {actions.map((a, i) => (
+        <button
+          key={i}
+          onClick={a.onClick}
+          className={`px-6 py-3 rounded-lg font-bold ${
+            a.primary
+              ? "bg-green-600 text-white hover:bg-green-700"
+              : "bg-gray-200 hover:bg-gray-300"
+          }`}
+        >
+          {a.label}
+        </button>
+      ))}
+    </div>
   </div>
 );
 

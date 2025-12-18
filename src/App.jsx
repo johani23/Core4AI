@@ -52,7 +52,6 @@ import MerchantDashboard from "@/components/pages/merchant/MerchantDashboard";
 import ProductCenter from "@/components/pages/merchant/ProductCenter";
 import AddProductWizard from "@/components/pages/merchant/AddProductWizard";
 import PricingCenter from "@/components/pages/merchant/PricingCenter";
-import PricingRedirect from "@/components/pages/merchant/PricingRedirect";
 import CreativeCenter from "@/components/pages/merchant/CreativeCenter";
 import CampaignCenter from "@/components/pages/merchant/CampaignCenter";
 import CampaignBuilder from "@/components/pages/merchant/CampaignBuilder";
@@ -63,6 +62,11 @@ import EarningsCenter from "@/components/pages/merchant/EarningsCenter";
 import AnalyticsCenter from "@/components/pages/merchant/AnalyticsCenter";
 import MITMarketInsights from "@/components/pages/merchant/MITMarketInsights";
 import DemandSignals from "@/components/pages/merchant/DemandSignals";
+import ProductView from "@/components/pages/merchant/ProductView";
+import ProductEdit from "@/components/pages/merchant/ProductEdit";
+import ProductRequiredNotice from "@/components/pages/merchant/ProductRequiredNotice";
+
+
 
 
 export default function App() {
@@ -114,34 +118,57 @@ export default function App() {
       <Route path="/tribe/dashboard" element={<CoreLayout><TribeDashboard /></CoreLayout>} />
 
       {/* MERCHANT — FULL SUITE */}
-      <Route path="/merchant/*" element={<MerchantLayout />}>
-        <Route index element={<Navigate to="dashboard" replace />} />
+<Route path="/merchant/*" element={<MerchantLayout />}>
+  <Route index element={<Navigate to="dashboard" replace />} />
 
-        <Route path="dashboard" element={<MerchantDashboard />} />
-        <Route path="products" element={<ProductCenter />} />
-        <Route path="add-product" element={<AddProductWizard />} />
+  <Route path="dashboard" element={<MerchantDashboard />} />
 
-        <Route path="pricing" element={<PricingRedirect />} />
-        <Route path="pricing/:productId" element={<PricingCenter />} />
+  <Route path="products" element={<ProductCenter />} />
+  <Route path="products/:id" element={<ProductView />} />
+  <Route path="products/:id/edit" element={<ProductEdit />} />
 
-        <Route path="creative" element={<CreativeCenter />} />
+  <Route path="add-product" element={<AddProductWizard />} />
 
-        <Route path="campaigns" element={<CampaignCenter />} />
-        <Route path="campaign" element={<CampaignBuilder />} />
-        <Route path="campaign-summary" element={<CampaignSummary />} />
+  <Route
+  path="pricing"
+  element={
+    <ProductRequiredNotice
+      title="التسعير الذكي مرتبط بمنتج"
+      description="لتفعيل التسعير الذكي (MIT Pricing)، يرجى اختيار منتج من مركز المنتجات أولًا."
+      ctaLabel="اختيار منتج للتسعير"
+    />
+  }
+/>
 
-        <Route path="influencers" element={<InfluencerSelection />} />
+<Route path="pricing/:productId" element={<PricingCenter />} />
 
-        <Route path="offers" element={<OfferCenter />} />
+  <Route path="creative" element={<CreativeCenter />} />
 
-        <Route path="earnings" element={<EarningsCenter />} />
+  <Route path="campaigns" element={<CampaignCenter />} />
+  <Route path="campaign" element={<CampaignBuilder />} />
+  <Route path="campaign-summary" element={<CampaignSummary />} />
 
-        <Route path="analytics" element={<AnalyticsCenter />} />
+  <Route path="influencers" element={<InfluencerSelection />} />
+  <Route path="offers" element={<OfferCenter />} />
+  <Route path="earnings" element={<EarningsCenter />} />
+  <Route path="analytics" element={<AnalyticsCenter />} />
 
-        <Route path="market-insights/:id" element={<MITMarketInsights />} />
-        <Route path="demand-signals" element={<DemandSignals />} />
+  <Route
+  path="market-insights"
+  element={
+    <ProductRequiredNotice
+      title="تحليل السوق يحتاج منتجًا"
+      description="تحليل السوق (MIT) يعتمد على بيانات منتج محدد. اختر منتجًا للمتابعة."
+      ctaLabel="الذهاب إلى المنتجات"
+    />
+  }
+/>
 
-      </Route>
+<Route path="market-insights/:id" element={<MITMarketInsights />} />
+
+  <Route path="demand-signals" element={<DemandSignals />} />
+</Route>
+
 
       {/* FALLBACK */}
       <Route path="*" element={<Navigate to="/" replace />} />

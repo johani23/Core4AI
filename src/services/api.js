@@ -1,4 +1,4 @@
-const API_BASE = "/api";
+const API_BASE = "https://core4ai-backend-o3ie.onrender.com";
 
 async function apiFetch(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, options);
@@ -7,16 +7,16 @@ async function apiFetch(path, options = {}) {
 }
 
 export function getMerchantProducts() {
-  return apiFetch("/merchant/products/");
+  return apiFetch("/api/merchant/products/");
 }
 
 export function createProduct(formData) {
-  return fetch("/api/merchant/products/", {
+  return fetch(`${API_BASE}/api/merchant/products/`, {
     method: "POST",
     body: formData,
-  }).then(r => r.json());
+  }).then((r) => r.json());
 }
 
 export function getProductMIT(productId) {
-  return apiFetch(`/merchant/products/${productId}/mit`);
+  return apiFetch(`/api/merchant/products/${productId}/mit`);
 }
