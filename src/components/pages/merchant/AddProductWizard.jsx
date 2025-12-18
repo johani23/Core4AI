@@ -134,8 +134,9 @@ export default function AddProductWizard() {
         form.append("file", product.media[0], product.media[0].name);
       }
 
-      const method = isEdit ? "PUT" : "POST";
-      const url = isEdit
+      const method = "POST";
+      const url = "/api/merchant/products/";
+
         ? `/api/merchant/products/${editId}`
         : "/api/merchant/products/";
 
