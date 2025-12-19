@@ -11,34 +11,39 @@ export default function BuyerActivity() {
   const { recentViewed, wishlist } = useBuyer();
   const [orders, setOrders] = useState([]);
 
+  // ✅ Backend base (REQUIRED)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
+  // ---------------------------------------------------------------------------
   // Load last orders from backend
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/orders?buyer_id=1");
+        const res = await fetch(`${API_BASE}/api/orders?buyer_id=1`);
         const data = await res.json();
         setOrders(data.slice(0, 5)); // show last 5
       } catch (err) {
-        console.error("Failed to load orders:", err);
+        console.error("BuyerActivity: failed to load orders", err);
       }
     }
     load();
-  }, []);
+  }, [API_BASE]);
 
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       {/* HEADER */}
       <h1 className="text-3xl font-bold text-purple-400 mb-2">نشاطي 📊</h1>
       <p className="text-gray-300 mb-10">
         سجل تفاعلاتك داخل Core4.AI — التصفح، الطلبات، والمفضلة.
       </p>
 
-      {/* ---------------------------------------- */}
-      {/* 🔮 RECENT VIEWED */}
-      {/* ---------------------------------------- */}
+      {/* RECENT VIEWED */}
       <div className="mb-14">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">شوهد مؤخرًا 👀</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          شوهد مؤخرًا 👀
+        </h2>
 
         {recentViewed.length === 0 ? (
           <p className="text-gray-400 text-sm">لم تشاهد أي منتجات بعد.</p>
@@ -66,11 +71,11 @@ export default function BuyerActivity() {
         )}
       </div>
 
-      {/* ---------------------------------------- */}
-      {/* ❤️ WISHLIST ACTIVITY */}
-      {/* ---------------------------------------- */}
+      {/* WISHLIST */}
       <div className="mb-14">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">المفضلة ❤️</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          المفضلة ❤️
+        </h2>
 
         {wishlist.length === 0 ? (
           <p className="text-gray-400 text-sm">لا يوجد منتجات مضافة بعد.</p>
@@ -98,11 +103,11 @@ export default function BuyerActivity() {
         )}
       </div>
 
-      {/* ---------------------------------------- */}
-      {/* 📦 ORDER HISTORY */}
-      {/* ---------------------------------------- */}
+      {/* ORDER HISTORY */}
       <div className="mb-14">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">طلباتك الأخيرة 📦</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          طلباتك الأخيرة 📦
+        </h2>
 
         {orders.length === 0 ? (
           <p className="text-gray-400 text-sm">
@@ -113,10 +118,14 @@ export default function BuyerActivity() {
             {orders.map((order) => (
               <div
                 key={order.id}
-                className="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 p-4 rounded-2xl"
               >
-                <p className="font-bold text-purple-300">طلب #{order.id}</p>
-                <p className="text-gray-300 text-sm">{order.product_name}</p>
+                <p className="font-bold text-purple-300">
+                  طلب #{order.id}
+                </p>
+                <p className="text-gray-300 text-sm">
+                  {order.product_name}
+                </p>
                 <p className="text-emerald-400 text-sm">
                   SAR {order.total_price}
                 </p>
@@ -126,20 +135,18 @@ export default function BuyerActivity() {
         )}
       </div>
 
-      {/* ---------------------------------------- */}
-      {/* 📈 GENERAL USER ACTIVITY (STATIC UX TEXTS) */}
-      {/* ---------------------------------------- */}
+      {/* GENERAL ACTIVITY */}
       <div className="mb-20">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">نشاط عام 🔥</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          نشاط عام 🔥
+        </h2>
 
-        <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+        <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
           <ul className="space-y-3 text-gray-300 text-sm">
-
             <li>🛍️ استكشفت منتجات داخل صفحة الاقتراحات الذكية</li>
             <li>❤️ أضفت منتجات إلى المفضلة</li>
             <li>🔄 تفاعلت مع عدة منتجات داخل المنصة</li>
             <li>🧾 أتممت {orders.length} طلبات حتى الآن</li>
-
           </ul>
         </div>
       </div>

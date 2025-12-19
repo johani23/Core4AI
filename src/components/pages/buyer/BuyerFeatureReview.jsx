@@ -22,13 +22,17 @@ export default function BuyerFeatureReview() {
 
   const labels = ["سيئ", "ضعيف", "مقبول", "جيد", "ممتاز"];
 
+  // ✅ Backend base (REQUIRED)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // Load order to extract promoted feature
   // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/api/orders/${id}`);
+        const res = await fetch(`${API_BASE}/api/orders/${id}`);
         if (!res.ok) throw new Error("Order not found");
 
         const data = await res.json();
@@ -50,7 +54,7 @@ export default function BuyerFeatureReview() {
     }
 
     load();
-  }, [id]);
+  }, [id, API_BASE]);
 
   // ---------------------------------------------------------------------------
   // Submit review to backend
@@ -71,7 +75,7 @@ export default function BuyerFeatureReview() {
         comment,
       };
 
-      const res = await fetch("/api/reviews/feature", {
+      const res = await fetch(`${API_BASE}/api/reviews/feature`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -93,8 +97,13 @@ export default function BuyerFeatureReview() {
   // ---------------------------------------------------------------------------
   if (submitted) {
     return (
-      <div className="min-h-screen bg-[#0A0F12] text-white p-8 flex flex-col items-center justify-center" dir="rtl">
-        <h1 className="text-3xl font-bold text-yellow-300 mb-4">تم إرسال تقييمك بنجاح ⭐</h1>
+      <div
+        className="min-h-screen bg-[#0A0F12] text-white p-8 flex flex-col items-center justify-center"
+        dir="rtl"
+      >
+        <h1 className="text-3xl font-bold text-yellow-300 mb-4">
+          تم إرسال تقييمك بنجاح ⭐
+        </h1>
 
         <p className="text-gray-300 mb-8">
           شكراً لمساعدتنا في تحسين جودة تجارب المستخدمين.
@@ -125,29 +134,32 @@ export default function BuyerFeatureReview() {
 
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       <h1 className="text-3xl font-bold text-yellow-300 mb-6">
         ⭐ تقييم الميزة المروّجة
       </h1>
 
       <p className="text-gray-300 mb-4">
-        المنتج: <span className="text-yellow-200">{order.productName}</span>
+        المنتج:{" "}
+        <span className="text-yellow-200">{order.productName}</span>
       </p>
 
       {order.promotedFeature ? (
         <p className="text-purple-300 mb-8">
-          الميزة التي تم الترويج لها: <strong>{order.promotedFeature}</strong>
+          الميزة التي تم الترويج لها:{" "}
+          <strong>{order.promotedFeature}</strong>
         </p>
       ) : (
-        <p className="text-gray-400 mb-8">لا توجد ميزة مروّجة لهذا الطلب.</p>
+        <p className="text-gray-400 mb-8">
+          لا توجد ميزة مروّجة لهذا الطلب.
+        </p>
       )}
 
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto">
-
-
         {/* STAR RATING */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold mb-3">تقييمك العام للمنتج:</h3>
+          <h3 className="text-lg font-semibold mb-3">
+            تقييمك العام للمنتج:
+          </h3>
           <div className="flex flex-row-reverse justify-end gap-2 text-3xl">
             {[1, 2, 3, 4, 5].map((n) => (
               <span
@@ -162,14 +174,16 @@ export default function BuyerFeatureReview() {
             ))}
           </div>
           {stars > 0 && (
-            <p className="text-sm text-yellow-300 mt-2">{labels[stars - 1]}</p>
+            <p className="text-sm text-yellow-300 mt-2">
+              {labels[stars - 1]}
+            </p>
           )}
         </div>
 
         {/* FEATURE MATCH */}
         <div className="mb-8">
           <h3 className="text-lg font-semibold mb-3">
-            هل كانت الميزة مطابقة لما تم وصفه؟ 🎯
+            هل كانت الميزة مطابقة لما تم وصفه؟
           </h3>
           <div className="flex gap-2">
             {[1, 2, 3, 4, 5].map((n) => (
@@ -190,7 +204,9 @@ export default function BuyerFeatureReview() {
 
         {/* COMMENT */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold mb-3">هل لديك ملاحظات إضافية؟</h3>
+          <h3 className="text-lg font-semibold mb-3">
+            هل لديك ملاحظات إضافية؟
+          </h3>
           <textarea
             className="w-full h-32 p-4 rounded-xl bg-white/5 border border-white/10 text-sm text-white outline-none"
             placeholder="اكتب رأيك بكل صراحة..."
@@ -199,7 +215,7 @@ export default function BuyerFeatureReview() {
           ></textarea>
         </div>
 
-        {/* SUBMIT BUTTON */}
+        {/* SUBMIT */}
         <button
           onClick={submitReview}
           disabled={submitting}

@@ -16,14 +16,19 @@ export default function OrderDetails() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
+  // ✅ Backend base (REQUIRED)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // Load order from backend
   // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/api/orders/${id}`);
+        const res = await fetch(`${API_BASE}/api/orders/${id}`);
         if (!res.ok) throw new Error("Order not found");
+
         const data = await res.json();
 
         const normalized = {
@@ -43,7 +48,7 @@ export default function OrderDetails() {
 
         setOrder(normalized);
 
-        // Analytics
+        // Analytics (safe)
         sendEvent("ORDER_VIEWED", {
           order_id: normalized.id,
           product_name: normalized.name,
@@ -58,14 +63,16 @@ export default function OrderDetails() {
     }
 
     load();
-  }, [id]);
+  }, [id, API_BASE]);
 
   // ---------------------------------------------------------------------------
   // Loading / Error states
   // ---------------------------------------------------------------------------
   if (loading)
     return (
-      <div className="p-8 text-white text-center">... جاري تحميل تفاصيل الطلب</div>
+      <div className="p-8 text-white text-center">
+        ... جاري تحميل تفاصيل الطلب
+      </div>
     );
 
   if (notFound || !order)
@@ -88,7 +95,6 @@ export default function OrderDetails() {
   // ---------------------------------------------------------------------------
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       {/* BACK BUTTON */}
       <button
         className="text-gray-300 hover:text-white mb-6"
@@ -125,21 +131,26 @@ export default function OrderDetails() {
             السعر: {order.price} SAR
           </p>
 
-          <p className="text-gray-400 text-sm mt-1">رقم الطلب: #{order.id}</p>
+          <p className="text-gray-400 text-sm mt-1">
+            رقم الطلب: #{order.id}
+          </p>
+
           <p className="text-gray-400 text-xs mt-1">
             تاريخ الطلب: {order.placedOn}
           </p>
         </div>
       </div>
 
-      {/* TRACKING TIMELINE */}
+      {/* TRACKING */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-10">
         <h3 className="text-lg font-bold text-purple-300 mb-4">
           حالة الطلب
         </h3>
 
         {order.tracking.length === 0 ? (
-          <p className="text-gray-400 text-sm">لا يوجد تتبع متاح حالياً.</p>
+          <p className="text-gray-400 text-sm">
+            لا يوجد تتبع متاح حالياً.
+          </p>
         ) : (
           <ul className="space-y-4 text-gray-300 text-sm">
             {order.tracking.map((t, i) => (
@@ -159,35 +170,30 @@ export default function OrderDetails() {
 
       {/* ACTIONS */}
       <div className="flex flex-wrap gap-4">
-
-        {/* Write Review */}
         <button
           onClick={() => navigate("/buyer/activity")}
-          className="px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-semibold"
+          className="px-5 py-3 bg-green-600 text-white rounded-xl text-sm font-semibold"
         >
           ✍️ اكتب تقييم
         </button>
 
-        {/* Tracking */}
         <button
           onClick={() => navigate(`/buyer/tracking/${order.id}`)}
-          className="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-semibold"
+          className="px-5 py-3 bg-blue-600 text-white rounded-xl text-sm font-semibold"
         >
           🚚 تتبع الشحنة
         </button>
 
-        {/* Claim */}
         <button
           onClick={() => navigate("/buyer/claims")}
-          className="px-5 py-3 bg-red-600 hover:bg-red-500 text-white rounded-xl text-sm font-semibold"
+          className="px-5 py-3 bg-red-600 text-white rounded-xl text-sm font-semibold"
         >
           🛡 فتح مطالبة
         </button>
 
-        {/* Reorder */}
         <button
           onClick={() => navigate(`/buyer/checkout/${order.id}`)}
-          className="px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-semibold"
+          className="px-5 py-3 bg-purple-600 text-white rounded-xl text-sm font-semibold"
         >
           🔁 إعادة الطلب
         </button>
