@@ -15,9 +15,9 @@ import { useQuickView } from "@/context/QuickViewContext";
 
 import BuyerLayout from "@/components/pages/buyer/BuyerLayout";
 import CorePanel from "@/components/ui/CorePanel";
-import FloatingCartButton from "../cart/FloatingCartButton";
-import CartDrawer from "../cart/CartDrawer";
-import QuickViewModal from "../quickview/QuickViewModal";
+import FloatingCartButton from "@/components/cart/FloatingCartButton";
+import CartDrawer from "@/components/cart/CartDrawer";
+import QuickViewModal from "@/components/quickview/QuickViewModal";
 
 // Passive signal hook (no decisions)
 import { pushDemand } from "@/services/demand";
