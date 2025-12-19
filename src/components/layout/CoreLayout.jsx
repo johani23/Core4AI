@@ -4,7 +4,6 @@ import MainNav from "../navigation/MainNav";
 export default function CoreLayout({ children }) {
   return (
     <div className="min-h-screen w-full flex flex-col bg-[#F8F8FA] text-black">
-
       {/* TOP BAR */}
       <header
         className="
@@ -23,7 +22,7 @@ export default function CoreLayout({ children }) {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="flex-1 px-4 py-4 overflow-y-auto flex flex-col items-center justify-start">
+      <main className="flex-1 px-4 py-4 pb-20 overflow-y-auto">
         {children}
       </main>
 
