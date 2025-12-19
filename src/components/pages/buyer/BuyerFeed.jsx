@@ -1,50 +1,54 @@
 // ============================================================================
-// Core4.AI – BuyerFeed (CLEAN FINAL VERSION)
-// No emojis • Stable JSX • Cart + Wishlist + RND working
+// 💚 Core4.AI – BuyerFeed (FIRST OFFICIAL RELEASE)
+// Clean • Stable • Buyer-first • Signal-aware (passive)
+// No auto-optimization • No risky acceleration
 // ============================================================================
+
+import { useEffect, useState, useMemo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { useAudience } from "@/context/AudienceContext";
 import { useBuyer } from "@/context/BuyerContext";
 import { useCart } from "@/context/CartContext";
 import { useQuickView } from "@/context/QuickViewContext";
 
-import { useEffect, useState, useMemo, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-
-import CorePanel from "@/components/ui/CorePanel";
-import FloatingCartButton from "../../cart/FloatingCartButton";
-import CartDrawer from "../../cart/CartDrawer";
-import QuickViewModal from "../../quickview/QuickViewModal";
 import BuyerLayout from "@/components/pages/buyer/BuyerLayout";
+import CorePanel from "@/components/ui/CorePanel";
+import FloatingCartButton from "../cart/FloatingCartButton";
+import CartDrawer from "../cart/CartDrawer";
+import QuickViewModal from "../quickview/QuickViewModal";
+
+// Passive signal hook (no decisions)
+import { pushDemand } from "@/services/demand";
 
 export default function BuyerFeed() {
   const navigate = useNavigate();
 
+  // Contexts
   const { persona } = useAudience();
   const { wishlist, toggleWishlist, recentViewed, addRecent } = useBuyer();
   const { addToCart } = useCart();
   const { openQuickView } = useQuickView();
 
+  // State
   const [products, setProducts] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
   const loaderRef = useRef(null);
 
-  window.__open_cart_drawer = () => setDrawerOpen(true);
+  // Backend
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
 
   const FALLBACK_IMG =
     "https://images.unsplash.com/photo-1526404757714-4b4f9b2114f9?auto=format&fit=crop&w=800&q=80";
 
-  // ✅ BACKEND BASE URL (الحاسم)
-  const API_BASE =
-    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
-
-  // --------------------------------------------------------------------------
-  // Load products
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Load products (no ranking tricks, no manipulation)
+  // ---------------------------------------------------------------------------
   useEffect(() => {
-    async function load() {
+    async function loadProducts() {
       try {
         const res = await fetch(`${API_BASE}/api/products`);
         const data = await res.json();
@@ -57,42 +61,40 @@ export default function BuyerFeed() {
           tribe: p.tribe || "General",
           rating: p.rating || 4.7,
           stock: p.stock ?? 5,
-          drop: p.drop || "-10%",
+          drop: p.drop || "-",
         }));
 
         setProducts(normalized);
-      } catch (err) {
-        console.error("Failed to load products", err);
+      } catch (e) {
+        console.error("BuyerFeed: failed to load products", e);
       }
     }
 
-    load();
+    loadProducts();
   }, [API_BASE]);
 
-  // --------------------------------------------------------------------------
-  // Ranking logic
-  // --------------------------------------------------------------------------
-  const ranked = useMemo(() => {
+  // ---------------------------------------------------------------------------
+  // Gentle ranking (non-exploitive)
+  // ---------------------------------------------------------------------------
+  const rankedProducts = useMemo(() => {
     if (!persona) return products;
 
-    return products
+    return [...products]
       .map((p) => ({
         ...p,
         _score:
-          (persona.tribe === p.tribe ? 40 : 0) +
-          (wishlist.some((w) => w.id === p.id) ? 15 : 0) +
-          (recentViewed.some((v) => v.id === p.id) ? 10 : 0) +
-          (p.rating >= 4.8 ? 20 : 0) +
-          (p.stock === 0 ? -20 : p.stock <= 3 ? 5 : 0),
+          (persona.tribe === p.tribe ? 20 : 0) +
+          (wishlist.some((w) => w.id === p.id) ? 10 : 0) +
+          (recentViewed.some((v) => v.id === p.id) ? 5 : 0),
       }))
       .sort((a, b) => b._score - a._score);
   }, [products, persona, wishlist, recentViewed]);
 
-  const visibleProducts = ranked.slice(0, visibleCount);
+  const visibleProducts = rankedProducts.slice(0, visibleCount);
 
-  // --------------------------------------------------------------------------
-  // Infinite scroll
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Infinite scroll (safe, predictable)
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     if (!loaderRef.current) return;
 
@@ -107,24 +109,24 @@ export default function BuyerFeed() {
 
     observer.observe(loaderRef.current);
     return () => observer.disconnect();
-  }, [ranked]);
+  }, [rankedProducts]);
 
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   // Helpers
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   const stockLabel = (s) => {
     if (s === 0) return { text: "غير متوفر", color: "text-red-400" };
-    if (s <= 3) return { text: "كمية قليلة", color: "text-yellow-400" };
+    if (s <= 3) return { text: "كمية محدودة", color: "text-yellow-400" };
     return { text: "متوفر", color: "text-emerald-400" };
   };
 
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   // UI
-  // --------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   return (
     <BuyerLayout
       title="الاقتراحات الذكية"
-      subtitle="هذه المنتجات تناسب تفضيلاتك"
+      subtitle="منتجات تناسب تفضيلاتك بدون ضغط أو تلاعب"
     >
       <div className="flex justify-end mb-6">
         <button
@@ -141,9 +143,10 @@ export default function BuyerFeed() {
             key={p.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
           >
-            <CorePanel className="p-4 rounded-2xl relative shadow-lg flex flex-col">
+            <CorePanel className="flex flex-col">
+              {/* Wishlist */}
               <button
                 className="absolute top-3 left-4 text-xl"
                 onClick={() => toggleWishlist(p)}
@@ -151,24 +154,37 @@ export default function BuyerFeed() {
                 {wishlist.some((w) => w.id === p.id) ? "♥" : "♡"}
               </button>
 
+              {/* Image */}
               <img
                 src={p.img}
                 alt={p.name}
+                className="w-full h-[220px] object-cover rounded-xl mb-4 cursor-pointer"
                 onClick={() => {
                   addRecent(p);
+
+                  // Passive signal only
+                  pushDemand({
+                    event: "view_product",
+                    product_id: p.id,
+                    buyer_cluster: persona?.cluster ?? "General",
+                    context: { source: "buyer_feed" },
+                  });
+
                   navigate(`/buyer/product/${p.id}`, {
                     state: { product: p },
                   });
                 }}
-                className="w-full h-[220px] object-cover rounded-xl mb-4 cursor-pointer"
               />
 
+              {/* Info */}
               <div className="text-right">
                 <h3 className="text-lg font-bold">{p.name}</h3>
 
                 <p className="text-emerald-400 mt-1 font-semibold">
                   SAR {p.price}
-                  <span className="text-red-400 text-sm ml-2">{p.drop}</span>
+                  <span className="text-gray-400 text-sm ml-2">
+                    {p.drop}
+                  </span>
                 </p>
 
                 <p className={`mt-2 ${stockLabel(p.stock).color}`}>
@@ -182,7 +198,7 @@ export default function BuyerFeed() {
                   عرض سريع
                 </button>
 
-                {p.stock > 0 ? (
+                {p.stock > 0 && (
                   <button
                     className="mt-2 w-full bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl py-2 text-sm font-semibold"
                     onClick={() => {
@@ -193,40 +209,38 @@ export default function BuyerFeed() {
                         image_url: p.img,
                         quantity: 1,
                       });
+
+                      // Passive signal
+                      pushDemand({
+                        event: "add_to_cart",
+                        product_id: p.id,
+                        buyer_cluster: persona?.cluster ?? "General",
+                        price_hint: p.price,
+                        context: { source: "buyer_feed" },
+                      });
+
                       setDrawerOpen(true);
                     }}
                   >
                     أضف للسلة
                   </button>
-                ) : (
-                  <button
-                    disabled
-                    className="mt-2 w-full bg-gray-700 text-gray-400 rounded-xl py-2 text-sm font-semibold cursor-not-allowed"
-                  >
-                    غير متوفر
-                  </button>
                 )}
-
-                <button
-                  className="mt-2 w-full bg-gray-800 hover:bg-gray-700 text-purple-300 rounded-xl py-2 text-sm font-semibold"
-                  onClick={() => navigate("/buyer/rnd")}
-                >
-                  اقترح سعر أو اطلب ميزة
-                </button>
               </div>
             </CorePanel>
           </motion.div>
         ))}
       </div>
 
+      {/* Infinite loader */}
       <div ref={loaderRef} className="flex justify-center mt-10">
-        {visibleCount < ranked.length && (
+        {visibleCount < rankedProducts.length && (
           <div className="animate-pulse text-gray-400">
             جاري تحميل المزيد
           </div>
         )}
       </div>
 
+      {/* Overlays */}
       <CartDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
       <FloatingCartButton onClick={() => setDrawerOpen(true)} />
       <QuickViewModal />
