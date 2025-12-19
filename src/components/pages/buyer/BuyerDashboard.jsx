@@ -21,13 +21,17 @@ export default function BuyerDashboard() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
 
+  // ✅ BACKEND BASE URL (الحاسم)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // LOAD ORDERS FROM BACKEND
   // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/orders?buyer_id=1");
+        const res = await fetch(`${API_BASE}/api/orders?buyer_id=1`);
         const data = await res.json();
         setOrders(data.slice(0, 3)); // show small preview
       } catch (err) {
@@ -38,11 +42,10 @@ export default function BuyerDashboard() {
     }
 
     load();
-  }, []);
+  }, [API_BASE]);
 
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       {/* HEADER */}
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-purple-400 mb-2">
@@ -55,7 +58,6 @@ export default function BuyerDashboard() {
 
       {/* TOP STATS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-
         {/* XP LEVEL */}
         <div className="p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
           <h3 className="text-gray-400 text-sm mb-2">نقاط الخبرة (XP)</h3>
@@ -77,17 +79,17 @@ export default function BuyerDashboard() {
         {/* FAVORITES COUNT */}
         <div className="p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
           <h3 className="text-gray-400 text-sm mb-2">المفضلة ❤️</h3>
-          <p className="text-3xl font-bold text-pink-400">{wishlist.length}</p>
+          <p className="text-3xl font-bold text-pink-400">
+            {wishlist.length}
+          </p>
           <p className="text-gray-500 text-sm mt-2">
             عدد المنتجات التي أعجبتك داخل المنصة
           </p>
         </div>
-
       </div>
 
       {/* QUICK LINKS */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-
         <Link
           to="/buyer/feed"
           className="bg-purple-600 hover:bg-purple-500 p-6 rounded-2xl text-center font-bold"
@@ -115,12 +117,13 @@ export default function BuyerDashboard() {
         >
           🛡 مركز الحماية
         </Link>
-
       </div>
 
       {/* LAST ORDERS */}
       <div className="mb-14">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">آخر الطلبات 📦</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          آخر الطلبات 📦
+        </h2>
 
         {loadingOrders ? (
           <p className="text-gray-400 text-sm">... جاري تحميل الطلبات</p>
@@ -139,7 +142,9 @@ export default function BuyerDashboard() {
                 <p className="font-bold text-purple-300 mb-1">
                   طلب رقم #{order.id}
                 </p>
-                <p className="text-gray-300 text-sm">{order.product_name}</p>
+                <p className="text-gray-300 text-sm">
+                  {order.product_name}
+                </p>
                 <p className="text-emerald-300 text-xs mt-1">
                   السعر: {order.total_price} SAR
                 </p>
@@ -151,7 +156,9 @@ export default function BuyerDashboard() {
 
       {/* RECENT VIEWED PRODUCTS */}
       <div className="mb-14">
-        <h2 className="text-xl font-bold text-purple-300 mb-4">شاهدتها مؤخرًا 🔍</h2>
+        <h2 className="text-xl font-bold text-purple-300 mb-4">
+          شاهدتها مؤخرًا 🔍
+        </h2>
 
         {recentViewed.length === 0 ? (
           <p className="text-gray-400 text-sm">
@@ -175,7 +182,10 @@ export default function BuyerDashboard() {
 
                 <p className="font-bold">{p.name}</p>
                 <p className="text-xs text-gray-400 mt-1">
-                  السعر: <span className="text-emerald-300">SAR {p.price}</span>
+                  السعر:{" "}
+                  <span className="text-emerald-300">
+                    SAR {p.price}
+                  </span>
                 </p>
               </Link>
             ))}
@@ -201,7 +211,6 @@ export default function BuyerDashboard() {
           كلما زاد تفاعلك — حصلت على توصيات أدق وميزات أفضل ✨
         </p>
       </div>
-
     </div>
   );
 }
