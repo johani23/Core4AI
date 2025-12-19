@@ -36,13 +36,17 @@ export default function BuyerFeed() {
   const FALLBACK_IMG =
     "https://images.unsplash.com/photo-1526404757714-4b4f9b2114f9?auto=format&fit=crop&w=800&q=80";
 
+  // ✅ BACKEND BASE URL (الحاسم)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // --------------------------------------------------------------------------
   // Load products
   // --------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/products");
+        const res = await fetch(`${API_BASE}/api/products`);
         const data = await res.json();
 
         const normalized = data.map((p) => ({
@@ -63,7 +67,7 @@ export default function BuyerFeed() {
     }
 
     load();
-  }, []);
+  }, [API_BASE]);
 
   // --------------------------------------------------------------------------
   // Ranking logic

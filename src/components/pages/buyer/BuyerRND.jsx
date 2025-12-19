@@ -12,6 +12,10 @@ export default function BuyerRND() {
   const navigate = useNavigate();
   const { persona } = useAudience();
 
+  // ✅ BACKEND BASE URL (الحاسم)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   const [featureIntent, setFeatureIntent] = useState({
     freeText: "",
     displayTech: "",
@@ -32,37 +36,41 @@ export default function BuyerRND() {
   const num = (v) => Number(v || 0);
 
   async function submit() {
-    // 1) رأي المشتري (بحث تسعيري)
-    await fetch("/api/rnd/value-insights", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        feature_intent: featureIntent,
-        importance: answers.importance,
-        uniqueness: answers.uniqueness,
-        satisfaction: answers.satisfaction,
-        recommended_price: num(answers.bargainPrice),
-        perceived_market_price: num(answers.perceivedMarketPrice),
-        max_price: num(answers.expensivePrice),
-        buyer_cluster: persona?.cluster ?? "عام",
-      }),
-    });
+    try {
+      // 1) رأي المشتري (بحث تسعيري)
+      await fetch(`${API_BASE}/api/rnd/value-insights`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          feature_intent: featureIntent,
+          importance: answers.importance,
+          uniqueness: answers.uniqueness,
+          satisfaction: answers.satisfaction,
+          recommended_price: num(answers.bargainPrice),
+          perceived_market_price: num(answers.perceivedMarketPrice),
+          max_price: num(answers.expensivePrice),
+          buyer_cluster: persona?.cluster ?? "عام",
+        }),
+      });
 
-    // 2) إشارة طلب للسوق (للتاجر)
-    await fetch("/api/market-intentions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        feature_text: featureIntent.freeText,
-        normalized_features: featureIntent,
-        target_price: num(answers.bargainPrice),
-        max_price: num(answers.expensivePrice),
-        time_horizon: featureIntent.event,
-        buyer_cluster: persona?.cluster ?? "عام",
-      }),
-    });
+      // 2) إشارة طلب للسوق (للتاجر)
+      await fetch(`${API_BASE}/api/market-intentions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          feature_text: featureIntent.freeText,
+          normalized_features: featureIntent,
+          target_price: num(answers.bargainPrice),
+          max_price: num(answers.expensivePrice),
+          time_horizon: featureIntent.event,
+          buyer_cluster: persona?.cluster ?? "عام",
+        }),
+      });
 
-    navigate("/buyer/dashboard");
+      navigate("/buyer/dashboard");
+    } catch (err) {
+      console.error("Failed to submit RND intent", err);
+    }
   }
 
   return (

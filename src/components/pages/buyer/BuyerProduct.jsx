@@ -27,6 +27,10 @@ export default function BuyerProduct() {
   const [loading, setLoading] = useState(!initialProduct);
   const [error, setError] = useState(false);
 
+  // ✅ BACKEND BASE URL (الحاسم)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // FETCH PRODUCT FROM API IF NOT PASSED FROM FEED
   // ---------------------------------------------------------------------------
@@ -36,8 +40,9 @@ export default function BuyerProduct() {
     async function load() {
       try {
         setLoading(true);
-        const res = await fetch(`/api/products/${id}`);
 
+        // ✅ التعديل الحاسم هنا
+        const res = await fetch(`${API_BASE}/api/products/${id}`);
         if (!res.ok) throw new Error("Not found");
 
         const data = await res.json();
@@ -45,7 +50,7 @@ export default function BuyerProduct() {
         const normalized = {
           id: data.id,
           name: data.name,
-          img: data.img ?? DEFAULT_IMG,
+          img: data.image_url || DEFAULT_IMG,
           price: data.price,
           tribe: data.tribe || "عام",
           drop: data.drop || "-10%",
@@ -64,7 +69,7 @@ export default function BuyerProduct() {
     }
 
     load();
-  }, [id, product]);
+  }, [id, product, API_BASE]);
 
   // Add to recent viewed
   useEffect(() => {
@@ -102,7 +107,6 @@ export default function BuyerProduct() {
 
   return (
     <div className="min-h-screen bg-[#0D0D0E] text-white px-6 py-8">
-
       {/* Product Image */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -172,7 +176,6 @@ export default function BuyerProduct() {
           🛒 أضف للسلة
         </button>
       </div>
-
     </div>
   );
 }
