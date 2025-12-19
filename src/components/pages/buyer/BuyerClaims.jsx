@@ -22,23 +22,27 @@ export default function BuyerClaims() {
     images: [],
   });
 
+  // ✅ Backend base (REQUIRED)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // Load real orders from backend
   // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/orders?buyer_id=1");
+        const res = await fetch(`${API_BASE}/api/orders?buyer_id=1`);
         const data = await res.json();
         setOrders(data);
       } catch (err) {
-        console.error("Failed to load orders:", err);
+        console.error("BuyerClaims: failed to load orders", err);
       } finally {
         setLoadingOrders(false);
       }
     }
     load();
-  }, []);
+  }, [API_BASE]);
 
   // ---------------------------------------------------------------------------
   // Handle image uploads
@@ -69,7 +73,7 @@ export default function BuyerClaims() {
         body.append("files", img);
       });
 
-      const res = await fetch("/api/claims", {
+      const res = await fetch(`${API_BASE}/api/claims`, {
         method: "POST",
         body,
       });
@@ -90,9 +94,16 @@ export default function BuyerClaims() {
   // ---------------------------------------------------------------------------
   if (submitted) {
     return (
-      <div className="min-h-screen bg-[#0A0F12] text-white flex flex-col items-center justify-center p-8" dir="rtl">
-        <h1 className="text-3xl font-bold text-green-400 mb-4">تم إرسال المطالبة بنجاح 🛡</h1>
-        <p className="text-gray-300 mb-6">سيتم مراجعتها من فريق Core4.AI خلال وقت قصير.</p>
+      <div
+        className="min-h-screen bg-[#0A0F12] text-white flex flex-col items-center justify-center p-8"
+        dir="rtl"
+      >
+        <h1 className="text-3xl font-bold text-green-400 mb-4">
+          تم إرسال المطالبة بنجاح 🛡
+        </h1>
+        <p className="text-gray-300 mb-6">
+          سيتم مراجعتها من فريق Core4.AI خلال وقت قصير.
+        </p>
 
         <button
           onClick={() => navigate("/buyer/orders")}
@@ -109,7 +120,6 @@ export default function BuyerClaims() {
   // ---------------------------------------------------------------------------
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       {/* BACK */}
       <button
         onClick={() => navigate(-1)}
@@ -128,16 +138,19 @@ export default function BuyerClaims() {
 
       {/* FORM CARD */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto backdrop-blur-sm">
-
         {/* ORDER FIELD */}
         <label className="text-gray-300 text-sm mb-2 block">رقم الطلب</label>
 
         {loadingOrders ? (
-          <p className="text-gray-400 text-sm mb-6">... جاري تحميل الطلبات</p>
+          <p className="text-gray-400 text-sm mb-6">
+            ... جاري تحميل الطلبات
+          </p>
         ) : (
           <select
             value={form.orderId}
-            onChange={(e) => setForm({ ...form, orderId: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, orderId: e.target.value })
+            }
             className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 mb-6"
           >
             <option value="">اختر رقم الطلب</option>
@@ -150,10 +163,14 @@ export default function BuyerClaims() {
         )}
 
         {/* ISSUE FIELD */}
-        <label className="text-gray-300 text-sm mb-2 block">نوع المشكلة</label>
+        <label className="text-gray-300 text-sm mb-2 block">
+          نوع المشكلة
+        </label>
         <select
           value={form.issue}
-          onChange={(e) => setForm({ ...form, issue: e.target.value })}
+          onChange={(e) =>
+            setForm({ ...form, issue: e.target.value })
+          }
           className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 mb-6"
         >
           <option value="">اختر المشكلة</option>
@@ -165,17 +182,23 @@ export default function BuyerClaims() {
           <option value="other">أخرى</option>
         </select>
 
-        {/* DESCRIPTION FIELD */}
-        <label className="text-gray-300 text-sm mb-2 block">وصف المشكلة</label>
+        {/* DESCRIPTION */}
+        <label className="text-gray-300 text-sm mb-2 block">
+          وصف المشكلة
+        </label>
         <textarea
           value={form.description}
-          onChange={(e) => setForm({ ...form, description: e.target.value })}
+          onChange={(e) =>
+            setForm({ ...form, description: e.target.value })
+          }
           className="w-full p-3 rounded-xl bg-white/10 text-white border border-white/20 h-32 resize-none mb-6"
           placeholder="اكتب وصف المشكلة…"
         />
 
-        {/* IMAGES FIELD */}
-        <label className="text-gray-300 text-sm mb-2 block">صور (اختياري)</label>
+        {/* IMAGES */}
+        <label className="text-gray-300 text-sm mb-2 block">
+          صور (اختياري)
+        </label>
         <input
           type="file"
           multiple
@@ -187,7 +210,10 @@ export default function BuyerClaims() {
         {form.images.length > 0 && (
           <div className="flex gap-3 mb-6 flex-wrap">
             {form.images.map((img, i) => (
-              <div key={i} className="w-20 h-20 border border-white/20 rounded-xl overflow-hidden">
+              <div
+                key={i}
+                className="w-20 h-20 border border-white/20 rounded-xl overflow-hidden"
+              >
                 <img
                   src={URL.createObjectURL(img)}
                   className="w-full h-full object-cover"

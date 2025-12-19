@@ -14,13 +14,17 @@ export default function BuyerTracking() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
+  // ✅ Backend base (REQUIRED)
+  const API_BASE =
+    import.meta.env.VITE_API_URL || "https://core4ai-backend-o3ie.onrender.com";
+
   // ---------------------------------------------------------------------------
   // Load order from backend
   // ---------------------------------------------------------------------------
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/api/orders/${id}`);
+        const res = await fetch(`${API_BASE}/api/orders/${id}`);
         if (!res.ok) throw new Error("Order not found");
 
         const data = await res.json();
@@ -42,14 +46,16 @@ export default function BuyerTracking() {
     }
 
     load();
-  }, [id]);
+  }, [id, API_BASE]);
 
   // ---------------------------------------------------------------------------
   // UI: Loading state
   // ---------------------------------------------------------------------------
   if (loading)
     return (
-      <div className="p-8 text-white text-center">... جاري تحميل بيانات التتبع</div>
+      <div className="p-8 text-white text-center">
+        ... جاري تحميل بيانات التتبع
+      </div>
     );
 
   // ---------------------------------------------------------------------------
@@ -79,7 +85,6 @@ export default function BuyerTracking() {
 
   return (
     <div className="min-h-screen bg-[#0A0F12] text-white p-8" dir="rtl">
-
       {/* BACK */}
       <button
         onClick={() => navigate(-1)}
@@ -111,7 +116,9 @@ export default function BuyerTracking() {
       {/* TIMELINE */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
         {order.timeline.length === 0 && (
-          <p className="text-gray-400 text-sm">لا يوجد تتبع متاح حتى الآن.</p>
+          <p className="text-gray-400 text-sm">
+            لا يوجد تتبع متاح حتى الآن.
+          </p>
         )}
 
         {order.timeline.map((step, i) => {
@@ -119,7 +126,6 @@ export default function BuyerTracking() {
 
           return (
             <div key={i} className="flex items-start gap-4 mb-6">
-
               {/* Dot */}
               <div
                 className={`w-5 h-5 rounded-full border ${
@@ -140,7 +146,9 @@ export default function BuyerTracking() {
                 </p>
 
                 {step.date && (
-                  <p className="text-gray-500 text-xs mt-1">{step.date}</p>
+                  <p className="text-gray-500 text-xs mt-1">
+                    {step.date}
+                  </p>
                 )}
               </div>
             </div>
